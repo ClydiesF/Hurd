@@ -26,6 +26,11 @@
 		3BC9ECFC295D79F3004EFEEF /* HurdSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECFB295D79F3004EFEEF /* HurdSignInView.swift */; };
 		3BC9ECFE295D7AE9004EFEEF /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECFD295D7AE9004EFEEF /* TagView.swift */; };
 		3BC9ED00295D7C2D004EFEEF /* TripPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECFF295D7C2D004EFEEF /* TripPreviewView.swift */; };
+		3BC9ED03295ED420004EFEEF /* DiscoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ED02295ED420004EFEEF /* DiscoveryView.swift */; };
+		3BC9ED05295ED42C004EFEEF /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ED04295ED42C004EFEEF /* SearchView.swift */; };
+		3BC9ED07295ED43F004EFEEF /* AddTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ED06295ED43F004EFEEF /* AddTripView.swift */; };
+		3BC9ED09295ED465004EFEEF /* ChatDmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ED08295ED465004EFEEF /* ChatDmView.swift */; };
+		3BC9ED0B295ED472004EFEEF /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ED0A295ED472004EFEEF /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +54,11 @@
 		3BC9ECFB295D79F3004EFEEF /* HurdSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdSignInView.swift; sourceTree = "<group>"; };
 		3BC9ECFD295D7AE9004EFEEF /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		3BC9ECFF295D7C2D004EFEEF /* TripPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPreviewView.swift; sourceTree = "<group>"; };
+		3BC9ED02295ED420004EFEEF /* DiscoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryView.swift; sourceTree = "<group>"; };
+		3BC9ED04295ED42C004EFEEF /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		3BC9ED06295ED43F004EFEEF /* AddTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripView.swift; sourceTree = "<group>"; };
+		3BC9ED08295ED465004EFEEF /* ChatDmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDmView.swift; sourceTree = "<group>"; };
+		3BC9ED0A295ED472004EFEEF /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +114,7 @@
 		3BC9ECDD295C0399004EFEEF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3BC9ED01295ED40B004EFEEF /* TabBarViews */,
 				3BC9ECE3295C06A5004EFEEF /* PrimaryHurdButton.swift */,
 				3BC9ECE7295C1B02004EFEEF /* HurdIconButton.swift */,
 				3BC9ECEB295D37C8004EFEEF /* DraggableComponent.swift */,
@@ -142,6 +153,18 @@
 				3BC9ECE1295C0464004EFEEF /* Color+Extensions.swift */,
 			);
 			path = extensions;
+			sourceTree = "<group>";
+		};
+		3BC9ED01295ED40B004EFEEF /* TabBarViews */ = {
+			isa = PBXGroup;
+			children = (
+				3BC9ED02295ED420004EFEEF /* DiscoveryView.swift */,
+				3BC9ED04295ED42C004EFEEF /* SearchView.swift */,
+				3BC9ED06295ED43F004EFEEF /* AddTripView.swift */,
+				3BC9ED08295ED465004EFEEF /* ChatDmView.swift */,
+				3BC9ED0A295ED472004EFEEF /* ProfileView.swift */,
+			);
+			path = TabBarViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,14 +238,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BC9ECD2295C0372004EFEEF /* ContentView.swift in Sources */,
+				3BC9ED05295ED42C004EFEEF /* SearchView.swift in Sources */,
 				3BC9ECFC295D79F3004EFEEF /* HurdSignInView.swift in Sources */,
 				3BC9ECF4295D56EE004EFEEF /* HurdSignUpView.swift in Sources */,
 				3BC9ECF0295D4223004EFEEF /* HurdPasswordTextField.swift in Sources */,
+				3BC9ED09295ED465004EFEEF /* ChatDmView.swift in Sources */,
 				3BC9ECE8295C1B02004EFEEF /* HurdIconButton.swift in Sources */,
 				3BC9ECE4295C06A5004EFEEF /* PrimaryHurdButton.swift in Sources */,
 				3BC9ED00295D7C2D004EFEEF /* TripPreviewView.swift in Sources */,
+				3BC9ED03295ED420004EFEEF /* DiscoveryView.swift in Sources */,
 				3BC9ECD0295C0372004EFEEF /* HurdApp.swift in Sources */,
 				3BC9ECE2295C0464004EFEEF /* Color+Extensions.swift in Sources */,
+				3BC9ED07295ED43F004EFEEF /* AddTripView.swift in Sources */,
 				3BC9ECEE295D3944004EFEEF /* UnlockButton.swift in Sources */,
 				3BC9ECF2295D49DC004EFEEF /* HurdLandingView.swift in Sources */,
 				3BC9ECFA295D73BD004EFEEF /* SocialSignInButtonView.swift in Sources */,
@@ -230,6 +257,7 @@
 				3BC9ECF6295D5C5E004EFEEF /* HurdTextField.swift in Sources */,
 				3BC9ECEC295D37C8004EFEEF /* DraggableComponent.swift in Sources */,
 				3BC9ECF8295D64D7004EFEEF /* DividerView.swift in Sources */,
+				3BC9ED0B295ED472004EFEEF /* ProfileView.swift in Sources */,
 				3BC9ECFE295D7AE9004EFEEF /* TagView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
