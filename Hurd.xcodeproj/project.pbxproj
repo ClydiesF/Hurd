@@ -17,6 +17,15 @@
 		3BC9ECE8295C1B02004EFEEF /* HurdIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECE7295C1B02004EFEEF /* HurdIconButton.swift */; };
 		3BC9ECEC295D37C8004EFEEF /* DraggableComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECEB295D37C8004EFEEF /* DraggableComponent.swift */; };
 		3BC9ECEE295D3944004EFEEF /* UnlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECED295D3944004EFEEF /* UnlockButton.swift */; };
+		3BC9ECF0295D4223004EFEEF /* HurdPasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECEF295D4223004EFEEF /* HurdPasswordTextField.swift */; };
+		3BC9ECF2295D49DC004EFEEF /* HurdLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECF1295D49DC004EFEEF /* HurdLandingView.swift */; };
+		3BC9ECF4295D56EE004EFEEF /* HurdSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECF3295D56EE004EFEEF /* HurdSignUpView.swift */; };
+		3BC9ECF6295D5C5E004EFEEF /* HurdTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECF5295D5C5E004EFEEF /* HurdTextField.swift */; };
+		3BC9ECF8295D64D7004EFEEF /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECF7295D64D7004EFEEF /* DividerView.swift */; };
+		3BC9ECFA295D73BD004EFEEF /* SocialSignInButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECF9295D73BD004EFEEF /* SocialSignInButtonView.swift */; };
+		3BC9ECFC295D79F3004EFEEF /* HurdSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECFB295D79F3004EFEEF /* HurdSignInView.swift */; };
+		3BC9ECFE295D7AE9004EFEEF /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECFD295D7AE9004EFEEF /* TagView.swift */; };
+		3BC9ED00295D7C2D004EFEEF /* TripPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECFF295D7C2D004EFEEF /* TripPreviewView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +40,15 @@
 		3BC9ECE7295C1B02004EFEEF /* HurdIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdIconButton.swift; sourceTree = "<group>"; };
 		3BC9ECEB295D37C8004EFEEF /* DraggableComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableComponent.swift; sourceTree = "<group>"; };
 		3BC9ECED295D3944004EFEEF /* UnlockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockButton.swift; sourceTree = "<group>"; };
+		3BC9ECEF295D4223004EFEEF /* HurdPasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdPasswordTextField.swift; sourceTree = "<group>"; };
+		3BC9ECF1295D49DC004EFEEF /* HurdLandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdLandingView.swift; sourceTree = "<group>"; };
+		3BC9ECF3295D56EE004EFEEF /* HurdSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdSignUpView.swift; sourceTree = "<group>"; };
+		3BC9ECF5295D5C5E004EFEEF /* HurdTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdTextField.swift; sourceTree = "<group>"; };
+		3BC9ECF7295D64D7004EFEEF /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
+		3BC9ECF9295D73BD004EFEEF /* SocialSignInButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSignInButtonView.swift; sourceTree = "<group>"; };
+		3BC9ECFB295D79F3004EFEEF /* HurdSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdSignInView.swift; sourceTree = "<group>"; };
+		3BC9ECFD295D7AE9004EFEEF /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		3BC9ECFF295D7C2D004EFEEF /* TripPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPreviewView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +108,15 @@
 				3BC9ECE7295C1B02004EFEEF /* HurdIconButton.swift */,
 				3BC9ECEB295D37C8004EFEEF /* DraggableComponent.swift */,
 				3BC9ECED295D3944004EFEEF /* UnlockButton.swift */,
+				3BC9ECEF295D4223004EFEEF /* HurdPasswordTextField.swift */,
+				3BC9ECF1295D49DC004EFEEF /* HurdLandingView.swift */,
+				3BC9ECF3295D56EE004EFEEF /* HurdSignUpView.swift */,
+				3BC9ECFB295D79F3004EFEEF /* HurdSignInView.swift */,
+				3BC9ECF5295D5C5E004EFEEF /* HurdTextField.swift */,
+				3BC9ECF7295D64D7004EFEEF /* DividerView.swift */,
+				3BC9ECF9295D73BD004EFEEF /* SocialSignInButtonView.swift */,
+				3BC9ECFD295D7AE9004EFEEF /* TagView.swift */,
+				3BC9ECFF295D7C2D004EFEEF /* TripPreviewView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -188,13 +215,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BC9ECD2295C0372004EFEEF /* ContentView.swift in Sources */,
+				3BC9ECFC295D79F3004EFEEF /* HurdSignInView.swift in Sources */,
+				3BC9ECF4295D56EE004EFEEF /* HurdSignUpView.swift in Sources */,
+				3BC9ECF0295D4223004EFEEF /* HurdPasswordTextField.swift in Sources */,
 				3BC9ECE8295C1B02004EFEEF /* HurdIconButton.swift in Sources */,
 				3BC9ECE4295C06A5004EFEEF /* PrimaryHurdButton.swift in Sources */,
+				3BC9ED00295D7C2D004EFEEF /* TripPreviewView.swift in Sources */,
 				3BC9ECD0295C0372004EFEEF /* HurdApp.swift in Sources */,
 				3BC9ECE2295C0464004EFEEF /* Color+Extensions.swift in Sources */,
 				3BC9ECEE295D3944004EFEEF /* UnlockButton.swift in Sources */,
+				3BC9ECF2295D49DC004EFEEF /* HurdLandingView.swift in Sources */,
+				3BC9ECFA295D73BD004EFEEF /* SocialSignInButtonView.swift in Sources */,
 				3BC9ECE6295C0924004EFEEF /* HurdButtonModel.swift in Sources */,
+				3BC9ECF6295D5C5E004EFEEF /* HurdTextField.swift in Sources */,
 				3BC9ECEC295D37C8004EFEEF /* DraggableComponent.swift in Sources */,
+				3BC9ECF8295D64D7004EFEEF /* DividerView.swift in Sources */,
+				3BC9ECFE295D7AE9004EFEEF /* TagView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

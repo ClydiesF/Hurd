@@ -38,7 +38,7 @@ struct PrimaryHurdButton: View {
                 }
             }
         }
-        .frame(height: 40)
+        .frame(height: 50)
         .frame(maxWidth: .infinity)
         .background(Capsule().foregroundColor(buttonModel.buttonType == .primary ? Color.bottleGreen : .white))
         .background(Capsule().stroke((buttonModel.buttonType == .primary ? .clear : Color.bottleGreen), lineWidth: 3))
