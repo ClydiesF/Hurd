@@ -12,11 +12,8 @@ struct ContentView: View {
     @State var selected = 0
     
     var body: some View {
+//        Text("Hey")
         ZStack() {
-            
-            Color.green
-            .edgesIgnoringSafeArea(.all)
-            
             switch self.selected {
             case 0:
                 DiscoveryView()
@@ -31,7 +28,7 @@ struct ContentView: View {
             default:
                 DiscoveryView()
             }
-            
+
             VStack {
                 Spacer()
                 FloatingTabbar(selected: $selected)

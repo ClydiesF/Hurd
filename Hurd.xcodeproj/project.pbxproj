@@ -31,6 +31,9 @@
 		3BC9ED07295ED43F004EFEEF /* AddTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ED06295ED43F004EFEEF /* AddTripView.swift */; };
 		3BC9ED09295ED465004EFEEF /* ChatDmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ED08295ED465004EFEEF /* ChatDmView.swift */; };
 		3BC9ED0B295ED472004EFEEF /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ED0A295ED472004EFEEF /* ProfileView.swift */; };
+		3BC9ED12295FB2F6004EFEEF /* GroupPlannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ED11295FB2F6004EFEEF /* GroupPlannerView.swift */; };
+		3BC9ED15295FEC8E004EFEEF /* SlidingTabView in Frameworks */ = {isa = PBXBuildFile; productRef = 3BC9ED14295FEC8E004EFEEF /* SlidingTabView */; };
+		3BC9ED17295FF829004EFEEF /* HurdSlidingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ED16295FF829004EFEEF /* HurdSlidingTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +62,8 @@
 		3BC9ED06295ED43F004EFEEF /* AddTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripView.swift; sourceTree = "<group>"; };
 		3BC9ED08295ED465004EFEEF /* ChatDmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDmView.swift; sourceTree = "<group>"; };
 		3BC9ED0A295ED472004EFEEF /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		3BC9ED11295FB2F6004EFEEF /* GroupPlannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPlannerView.swift; sourceTree = "<group>"; };
+		3BC9ED16295FF829004EFEEF /* HurdSlidingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdSlidingTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BC9ED15295FEC8E004EFEEF /* SlidingTabView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +134,8 @@
 				3BC9ECF9295D73BD004EFEEF /* SocialSignInButtonView.swift */,
 				3BC9ECFD295D7AE9004EFEEF /* TagView.swift */,
 				3BC9ECFF295D7C2D004EFEEF /* TripPreviewView.swift */,
+				3BC9ED11295FB2F6004EFEEF /* GroupPlannerView.swift */,
+				3BC9ED16295FF829004EFEEF /* HurdSlidingTabView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -158,13 +166,21 @@
 		3BC9ED01295ED40B004EFEEF /* TabBarViews */ = {
 			isa = PBXGroup;
 			children = (
+				3BC9ED0C295EE4F4004EFEEF /* Profile */,
 				3BC9ED02295ED420004EFEEF /* DiscoveryView.swift */,
 				3BC9ED04295ED42C004EFEEF /* SearchView.swift */,
 				3BC9ED06295ED43F004EFEEF /* AddTripView.swift */,
-				3BC9ED08295ED465004EFEEF /* ChatDmView.swift */,
 				3BC9ED0A295ED472004EFEEF /* ProfileView.swift */,
+				3BC9ED08295ED465004EFEEF /* ChatDmView.swift */,
 			);
 			path = TabBarViews;
+			sourceTree = "<group>";
+		};
+		3BC9ED0C295EE4F4004EFEEF /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +199,9 @@
 			dependencies = (
 			);
 			name = Hurd;
+			packageProductDependencies = (
+				3BC9ED14295FEC8E004EFEEF /* SlidingTabView */,
+			);
 			productName = Hurd;
 			productReference = 3BC9ECCC295C0372004EFEEF /* Hurd.app */;
 			productType = "com.apple.product-type.application";
@@ -211,6 +230,9 @@
 				Base,
 			);
 			mainGroup = 3BC9ECC3295C0372004EFEEF;
+			packageReferences = (
+				3BC9ED13295FEC8E004EFEEF /* XCRemoteSwiftPackageReference "SlidingTabView" */,
+			);
 			productRefGroup = 3BC9ECCD295C0372004EFEEF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -239,12 +261,14 @@
 			files = (
 				3BC9ECD2295C0372004EFEEF /* ContentView.swift in Sources */,
 				3BC9ED05295ED42C004EFEEF /* SearchView.swift in Sources */,
+				3BC9ED17295FF829004EFEEF /* HurdSlidingTabView.swift in Sources */,
 				3BC9ECFC295D79F3004EFEEF /* HurdSignInView.swift in Sources */,
 				3BC9ECF4295D56EE004EFEEF /* HurdSignUpView.swift in Sources */,
 				3BC9ECF0295D4223004EFEEF /* HurdPasswordTextField.swift in Sources */,
 				3BC9ED09295ED465004EFEEF /* ChatDmView.swift in Sources */,
 				3BC9ECE8295C1B02004EFEEF /* HurdIconButton.swift in Sources */,
 				3BC9ECE4295C06A5004EFEEF /* PrimaryHurdButton.swift in Sources */,
+				3BC9ED12295FB2F6004EFEEF /* GroupPlannerView.swift in Sources */,
 				3BC9ED00295D7C2D004EFEEF /* TripPreviewView.swift in Sources */,
 				3BC9ED03295ED420004EFEEF /* DiscoveryView.swift in Sources */,
 				3BC9ECD0295C0372004EFEEF /* HurdApp.swift in Sources */,
@@ -459,6 +483,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3BC9ED13295FEC8E004EFEEF /* XCRemoteSwiftPackageReference "SlidingTabView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/QuynhNguyen/SlidingTabView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3BC9ED14295FEC8E004EFEEF /* SlidingTabView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BC9ED13295FEC8E004EFEEF /* XCRemoteSwiftPackageReference "SlidingTabView" */;
+			productName = SlidingTabView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3BC9ECC4295C0372004EFEEF /* Project object */;
 }
