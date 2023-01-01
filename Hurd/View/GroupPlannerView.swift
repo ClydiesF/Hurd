@@ -15,7 +15,8 @@ struct GroupPlannerView: View {
                 "calendar",
                 "bed.double",
                 "map",
-                "list.bullet.clipboard"
+                "list.bullet.clipboard",
+                "square.and.pencil"
     ]
     
     
@@ -36,6 +37,7 @@ struct GroupPlannerView: View {
                     Spacer()
                     Text("$299/night")
                         .font(.caption)
+                        .fontWeight(.bold)
                         .foregroundColor(.white)
                 }
                 
@@ -56,6 +58,7 @@ struct GroupPlannerView: View {
                 
                 Text("Leave the hustle and bustle of the city behind as you look over the sparking blue waters of wakiki Springs. Featuring light... Read More")
                     .font(.caption)
+                    .fontWeight(.heavy)
                     .foregroundColor(.white)
                 
                 HStack(alignment: .bottom) {
@@ -117,6 +120,7 @@ struct GroupPlannerView: View {
             case 2:  Color.blue.ignoresSafeArea()
             case 3:  Color.gray.ignoresSafeArea()
             case 4:  Color.purple.ignoresSafeArea()
+            case 5:  Color.yellow.ignoresSafeArea()
                 
             default:
                 Color.black.ignoresSafeArea()

@@ -18,7 +18,7 @@ struct ContentView: View {
             case 0:
                 DiscoveryView()
             case 1:
-                SearchView()
+              GroupPlannerView()
             case 2:
                 AddTripView()
             case 3:

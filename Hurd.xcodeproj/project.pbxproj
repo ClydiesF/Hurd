@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B530C9B2960F535002C272B /* DestinationSuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B530C9A2960F535002C272B /* DestinationSuggestionView.swift */; };
+		3B530C9D29622A99002C272B /* LodgingSuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B530C9C29622A99002C272B /* LodgingSuggestionsView.swift */; };
 		3BC9ECD0295C0372004EFEEF /* HurdApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECCF295C0372004EFEEF /* HurdApp.swift */; };
 		3BC9ECD2295C0372004EFEEF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECD1295C0372004EFEEF /* ContentView.swift */; };
 		3BC9ECD4295C0373004EFEEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BC9ECD3295C0373004EFEEF /* Assets.xcassets */; };
@@ -37,6 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B530C9A2960F535002C272B /* DestinationSuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationSuggestionView.swift; sourceTree = "<group>"; };
+		3B530C9C29622A99002C272B /* LodgingSuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LodgingSuggestionsView.swift; sourceTree = "<group>"; };
 		3BC9ECCC295C0372004EFEEF /* Hurd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hurd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BC9ECCF295C0372004EFEEF /* HurdApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdApp.swift; sourceTree = "<group>"; };
 		3BC9ECD1295C0372004EFEEF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -78,6 +82,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B530C992960F44E002C272B /* SliderViews */ = {
+			isa = PBXGroup;
+			children = (
+				3B530C9A2960F535002C272B /* DestinationSuggestionView.swift */,
+				3B530C9C29622A99002C272B /* LodgingSuggestionsView.swift */,
+			);
+			path = SliderViews;
+			sourceTree = "<group>";
+		};
 		3BC9ECC3295C0372004EFEEF = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +133,7 @@
 		3BC9ECDD295C0399004EFEEF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3B530C992960F44E002C272B /* SliderViews */,
 				3BC9ED01295ED40B004EFEEF /* TabBarViews */,
 				3BC9ECE3295C06A5004EFEEF /* PrimaryHurdButton.swift */,
 				3BC9ECE7295C1B02004EFEEF /* HurdIconButton.swift */,
@@ -266,6 +280,7 @@
 				3BC9ECF4295D56EE004EFEEF /* HurdSignUpView.swift in Sources */,
 				3BC9ECF0295D4223004EFEEF /* HurdPasswordTextField.swift in Sources */,
 				3BC9ED09295ED465004EFEEF /* ChatDmView.swift in Sources */,
+				3B530C9D29622A99002C272B /* LodgingSuggestionsView.swift in Sources */,
 				3BC9ECE8295C1B02004EFEEF /* HurdIconButton.swift in Sources */,
 				3BC9ECE4295C06A5004EFEEF /* PrimaryHurdButton.swift in Sources */,
 				3BC9ED12295FB2F6004EFEEF /* GroupPlannerView.swift in Sources */,
@@ -274,6 +289,7 @@
 				3BC9ECD0295C0372004EFEEF /* HurdApp.swift in Sources */,
 				3BC9ECE2295C0464004EFEEF /* Color+Extensions.swift in Sources */,
 				3BC9ED07295ED43F004EFEEF /* AddTripView.swift in Sources */,
+				3B530C9B2960F535002C272B /* DestinationSuggestionView.swift in Sources */,
 				3BC9ECEE295D3944004EFEEF /* UnlockButton.swift in Sources */,
 				3BC9ECF2295D49DC004EFEEF /* HurdLandingView.swift in Sources */,
 				3BC9ECFA295D73BD004EFEEF /* SocialSignInButtonView.swift in Sources */,
