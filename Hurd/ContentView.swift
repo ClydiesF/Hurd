@@ -6,19 +6,20 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct ContentView: View {
     
     @State var selected = 0
+    @EnvironmentObject var authVM: AuthenticationViewModel
     
     var body: some View {
-//        Text("Hey")
         ZStack() {
             switch self.selected {
             case 0:
                 DiscoveryView()
             case 1:
-              GroupPlannerView()
+                GroupPlannerView()
             case 2:
                 AddTripView()
             case 3:
@@ -28,7 +29,7 @@ struct ContentView: View {
             default:
                 DiscoveryView()
             }
-
+            
             VStack {
                 Spacer()
                 FloatingTabbar(selected: $selected)

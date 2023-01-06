@@ -10,6 +10,7 @@ import SwiftUI
 struct HurdTextField: View {
     let placeholderText: String
     @Binding var text: String
+    @Binding var color: Color
     
     var body: some View {
         HStack {
@@ -17,14 +18,17 @@ struct HurdTextField: View {
         }
         .frame(height: 40)
         .padding(.horizontal, 20)
-        .background(Capsule().fill(Color.gray.opacity(0.4)))
+        .background(
+            Capsule()
+                .stroke(color, lineWidth: 2)
+        )
   
     }
 }
 
 struct HurdTextField_Previews: PreviewProvider {
     static var previews: some View {
-        HurdTextField(placeholderText: "enter your email", text: .constant(""))
+        HurdTextField(placeholderText: "enter your email", text: .constant(""), color: .constant(.bottleGreen))
             .padding()
     }
 }

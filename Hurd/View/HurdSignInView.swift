@@ -11,6 +11,8 @@ struct HurdSignInView: View {
     @State var emailText: String = ""
     @State var passwordText: String = ""
     
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         VStack {
             Group {
@@ -31,8 +33,8 @@ struct HurdSignInView: View {
                     Spacer()
                 }
                 .padding(.vertical
-                , 10)
-      
+                         , 10)
+                
                 
                 HStack {
                     Text("Email")
@@ -63,28 +65,28 @@ struct HurdSignInView: View {
                         .font(.caption2)
                         .foregroundColor(.bottleGreen)
                 }
-
+                
             }
-                HStack {
-                   DividerView()
-                        .padding(.horizontal, 10)
-                    Text("or")
-                        .font(.caption)
-                        .fontWeight(.semibold)
-                    DividerView()
-                        .padding(.horizontal, 10)
-              
-                }
-                .padding(.top, 10)
+            //                HStack {
+            //                   DividerView()
+            //                        .padding(.horizontal, 10)
+            //                    Text("or")
+            //                        .font(.caption)
+            //                        .fontWeight(.semibold)
+            //                    DividerView()
+            //                        .padding(.horizontal, 10)
+            //
+            //                }
+            //                .padding(.top, 10)
+            //
+            //            HStack(spacing: 50) {
+            //                SocialSignInButtonView(iconName: "appleLogo", color: .gray)
+            //                SocialSignInButtonView(iconName: "googleLogo", color: .green)
+            //                SocialSignInButtonView(iconName: "twitterLogo", color: .blue)
+            //            }
             
-            HStack(spacing: 50) {
-                SocialSignInButtonView(iconName: "appleLogo", color: .gray)
-                SocialSignInButtonView(iconName: "googleLogo", color: .green)
-                SocialSignInButtonView(iconName: "twitterLogo", color: .blue)
-            }
-            
-                Spacer()
-                PrimaryHurdButton(buttonModel: .init(buttonText: "Log in", buttonType: .primary, icon: nil, appendingIcon: nil))
+            Spacer()
+            PrimaryHurdButton(buttonModel: .init(buttonText: "Log in", buttonType: .primary, icon: nil, appendingIcon: nil))
             
             HStack {
                 Spacer()
@@ -95,11 +97,22 @@ struct HurdSignInView: View {
             .padding(.bottom, 40)
         }
         .padding(.horizontal, 20)
-    }
-}
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading:
+                                Button(action: {
+            self.presentationMode.wrappedValue.dismiss()
+        }, label: {
+            Image(systemName: "arrow.backward")
+                .foregroundColor(.bottleGreen)
+                .fontWeight(.heavy)
+                .font(.title3)
+        })
+        )}
+                            }
 
 struct HurdSignInView_Previews: PreviewProvider {
     static var previews: some View {
         HurdSignInView()
+            .environmentObject(AuthenticationViewModel())
     }
 }

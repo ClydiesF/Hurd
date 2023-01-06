@@ -34,7 +34,8 @@ extension HurdButtonModel {
     static let mockPrimaryButtonWithAppendingIcon = HurdButtonModel(buttonText: "Primary",
                                                                     buttonType: .primary,
                                                                     icon: .arrowRight,
-                                                                    appendingIcon: true)
+                                                                    appendingIcon: true
+                                                                )
     
     static let mockPrimaryButton = HurdButtonModel(buttonText: "Primary",
                                                    buttonType: .primary,

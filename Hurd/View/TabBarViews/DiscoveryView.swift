@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct DiscoveryView: View {
+    @EnvironmentObject var vm: AuthenticationViewModel
+    
     var body: some View {
-        Text("Discovery View")
+        VStack {
+            Text("Discovery View")
+            
+            Button("Sign out") {
+                vm.signout()
+            }
+        }
     }
 }
 

@@ -9,17 +9,17 @@ import SwiftUI
 
 struct DraggableComponent: View {
     @Binding var isLocked: Bool
-    let isLoading: Bool
+    @Binding var isLoading: Bool
     let maxWidth: CGFloat
     
     @State private var width = CGFloat(50)
     private  let minWidth = CGFloat(50)
     
-    public init(isLocked: Binding<Bool>, isLoading: Bool, maxWidth: CGFloat) {
-        _isLocked = isLocked
-        self.isLoading = isLoading
-        self.maxWidth = maxWidth
-    }
+//    public init(isLocked: Binding<Bool>, isLoading: Binding<Bool>, maxWidth: CGFloat) {
+//        _isLocked = isLocked
+//        _isLoading = isLoading
+//        self.maxWidth = maxWidth
+//    }
     
     public var body: some View {
         RoundedRectangle(cornerRadius: 16)
@@ -35,7 +35,6 @@ struct DraggableComponent: View {
                     }
                     .animation(.easeIn(duration: 0.35).delay(0.55), value: !isLocked && !isLoading)
                 }
-                //.buttonStyle(BaseButtonStyle())
                     .disabled(!isLocked || isLoading),
                 alignment: .trailing
             )
@@ -86,7 +85,7 @@ struct DraggableComponent: View {
     
     struct DraggableComponent_Previews: PreviewProvider {
         static var previews: some View {
-            DraggableComponent(isLocked: .constant(true), isLoading: false, maxWidth: 300)
+            DraggableComponent(isLocked: .constant(true), isLoading: .constant(false), maxWidth: 300)
         }
     }
 }

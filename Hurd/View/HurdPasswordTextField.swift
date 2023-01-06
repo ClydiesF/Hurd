@@ -26,7 +26,7 @@ struct HurdPasswordTextField: View {
         }
         .frame(height: 40)
         .padding(.horizontal, 20)
-        .background(Capsule().fill(Color.gray.opacity(0.4)))
+        .background(Capsule().stroke(Color.gray, lineWidth: 2))
   
     }
 }

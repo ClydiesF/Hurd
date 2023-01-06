@@ -6,12 +6,26 @@
 //
 
 import SwiftUI
+import Firebase
+
 
 @main
 struct HurdApp: App {
+    @StateObject var authVM = AuthenticationViewModel()
+    
+    init() {
+        FirebaseApp.configure()
+        
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            switch authVM.authState {
+            case .signedIn: ContentView()
+                    .environmentObject(authVM)
+            case .signedOut: HurdLandingView()
+                   .environmentObject(authVM)
+            }
         }
     }
 }

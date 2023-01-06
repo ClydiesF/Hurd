@@ -9,16 +9,16 @@ import SwiftUI
 
 public struct UnlockButton: View {
 
-    @State private var isLocked = true
-    @State private var isLoading = false
-
-    public init() { }
+    @Binding var isLocked: Bool
+    @Binding var isLoading: Bool
+    
+    var callbackFunc: () -> ()
 
     public var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .leading) {
                 BackgroundComponent()
-                DraggableComponent(isLocked: $isLocked, isLoading: isLoading, maxWidth: geometry.size.width)
+                DraggableComponent(isLocked: $isLocked, isLoading: $isLoading, maxWidth: geometry.size.width)
             }
         }
         .frame(height: 50)
@@ -32,9 +32,11 @@ public struct UnlockButton: View {
 
     private func simulateRequest() {
         isLoading = true
-
+      
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             isLoading = false
+            self.callbackFunc()
+            isLocked = true
         }
     }
 }
@@ -49,25 +51,12 @@ public struct BackgroundComponent: View {
         ZStack(alignment: .leading)  {
             RoundedRectangle(cornerRadius: 25)
                 .fill(Color.bottleGreen.opacity(0.7))
-//                .fill(
-//                    LinearGradient(
-//                        colors: [Color.bottleGreen.opacity(0.6), Color.bottleGreen.opacity(0.6)],
-//                        startPoint: .leading,
-//                        endPoint: .trailing
-//                    )
-//                )
-                //.hueRotation(.degrees(hueRotation ? 20 : -20))
-            
+
             Text("Slide to Explore")
                 .font(.footnote)
                 .bold()
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
-        }
-        .onAppear {
-            withAnimation(.linear(duration: 3).repeatForever(autoreverses: true)) {
-                hueRotation.toggle()
-            }
         }
     }
 }
@@ -75,6 +64,6 @@ public struct BackgroundComponent: View {
 
 struct UnlockButton_Previews: PreviewProvider {
     static var previews: some View {
-        UnlockButton()
+        UnlockButton(isLocked: .constant(true), isLoading: .constant(false),callbackFunc: {})
     }
 }
