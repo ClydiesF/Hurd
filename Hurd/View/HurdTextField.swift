@@ -15,6 +15,8 @@ struct HurdTextField: View {
     var body: some View {
         HStack {
             TextField(placeholderText, text: $text)
+                .autocorrectionDisabled(true)
+                .keyboardType(.emailAddress)
         }
         .frame(height: 40)
         .padding(.horizontal, 20)
@@ -22,6 +24,7 @@ struct HurdTextField: View {
             Capsule()
                 .stroke(color, lineWidth: 2)
         )
+        .animation(.easeInOut(duration: 0.4), value: color)
   
     }
 }

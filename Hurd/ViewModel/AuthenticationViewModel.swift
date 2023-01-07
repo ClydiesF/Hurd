@@ -28,11 +28,11 @@ class AuthenticationViewModel: ObservableObject {
     @Published var newEmail: String = ""
     @Published var newPassword: String = ""
     
-    
     @Published var emailTFBorderColor: Color = Color.gray
     @Published var passwordTFBorderColor: Color = Color.gray
     
-    
+    @Published var errorMsg: String = ""
+    @Published var presentAlert: Bool = false
     
     @Published var authState: AuthState = .signedOut
     @Published var currentUser: Firebase.User? = nil
@@ -52,6 +52,16 @@ class AuthenticationViewModel: ObservableObject {
                 }
             }
             .assign(to: &$emailTFBorderColor)
+        
+        $password
+            .map { text -> Color in
+                if text.count > 0 {
+                    return .bottleGreen
+                } else {
+                    return .gray
+                }
+            }
+            .assign(to: &$passwordTFBorderColor)
     }
     
     deinit {
@@ -74,45 +84,69 @@ class AuthenticationViewModel: ObservableObject {
     }
     
     func signup() {
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            if let error = error {
-                print("Sign in Failed: \(error.localizedDescription)")
-                return
-            }
-            
-            switch authResult {
-            case .none:
-                print("Could not sign up user.")
-            case .some(let something):
-                print("DEBUG: Sign up Success, \(something)")
-                let uid = authResult?.user.uid
-                USER_REF.document(uid!).setData(["emailAddress" : self.email.lowercased() as Any,
-                                                 "createdAt": Date().timeIntervalSince1970,
-                                                 "isFinishedOnboarding": false,
-                                                 "memberID": uid as Any]) { err in
-                    if let err = err {
-                        print("DEBUG: Error writingh document: \(err)")
+        if email.isEmpty || password.isEmpty {
+            errorMsg = "Please make sure both the Email and Password Fields are Populated."
+            presentAlert = true
+            return
+        }
+        
+        if !isValidEmailAddr(strToValidate: email) {
+            errorMsg = "Email is not valid, please correct."
+            presentAlert = true
+            return
+        } else {
+            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                if let error = error {
+                    print("Sign in Failed: \(error.localizedDescription)")
+                    return
+                }
+                
+                switch authResult {
+                case .none:
+                    print("Could not sign up user.")
+                case .some(let something):
+                    print("DEBUG: Sign up Success, \(something)")
+                    let uid = authResult?.user.uid
+                    USER_REF.document(uid!).setData(["emailAddress" : self.email.lowercased() as Any,
+                                                     "createdAt": Date().timeIntervalSince1970,
+                                                     "isFinishedOnboarding": false,
+                                                     "memberID": uid as Any]) { err in
+                        if let err = err {
+                            print("DEBUG: Error writingh document: \(err)")
+                        }
+                        self.authState = .signedIn
                     }
-                    self.authState = .signedIn
                 }
             }
         }
     }
     
     func signin() {
-        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-            if let error = error {
-                print("DEBUG: Sign in Failed: \(error.localizedDescription)")
-                return
-            }
-            
-            switch authResult {
-            case .none:
-                print("DEBUG: Could not sign in user.")
-            case .some(let something):
-                print("DEBUG: Sign in Success, \(something)")
-                self?.currentUser = authResult?.user
-                self?.authState = .signedIn
+        if email.isEmpty || password.isEmpty {
+            errorMsg = "Please make sure both the Email and Password Fields are Populated."
+            presentAlert = true
+            return
+        }
+        
+        if !isValidEmailAddr(strToValidate: email) {
+            errorMsg = "Email is not valid, please correct."
+            presentAlert = true
+            return
+        } else {
+            Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+                if let error = error {
+                    print("DEBUG: Sign in Failed: \(error.localizedDescription)")
+                    return
+                }
+                
+                switch authResult {
+                case .none:
+                    print("DEBUG: Could not sign in user.")
+                case .some(let something):
+                    print("DEBUG: Sign in Success, \(something)")
+                    self?.currentUser = authResult?.user
+                    self?.authState = .signedIn
+                }
             }
         }
     }
@@ -123,6 +157,8 @@ class AuthenticationViewModel: ObservableObject {
             self.authState = .signedOut
         } catch {
             print("DEBUG: Error with Signing out")
+            errorMsg = "Error Signing out"
+            presentAlert = true
         }
     }
     
@@ -170,6 +206,14 @@ class AuthenticationViewModel: ObservableObject {
                 print("DEBUG: Email changed success")
             }
         }
+    }
+    
+    func isValidEmailAddr(strToValidate: String) -> Bool {
+      let emailValidationRegex = "^[\\p{L}0-9!#$%&'*+\\/=?^_`{|}~-][\\p{L}0-9.!#$%&'*+\\/=?^_`{|}~-]{0,63}@[\\p{L}0-9-]+(?:\\.[\\p{L}0-9-]{2,7})*$"  // 1
+
+      let emailValidationPredicate = NSPredicate(format: "SELF MATCHES %@", emailValidationRegex)  // 2
+
+      return emailValidationPredicate.evaluate(with: strToValidate)  // 3
     }
     
     func performSensitiveAction(for actionType: SensitiveActionType) {

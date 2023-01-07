@@ -40,8 +40,6 @@
 		3BC9ECE4295C06A5004EFEEF /* PrimaryHurdButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECE3295C06A5004EFEEF /* PrimaryHurdButton.swift */; };
 		3BC9ECE6295C0924004EFEEF /* HurdButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECE5295C0924004EFEEF /* HurdButtonModel.swift */; };
 		3BC9ECE8295C1B02004EFEEF /* HurdIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECE7295C1B02004EFEEF /* HurdIconButton.swift */; };
-		3BC9ECEC295D37C8004EFEEF /* DraggableComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECEB295D37C8004EFEEF /* DraggableComponent.swift */; };
-		3BC9ECEE295D3944004EFEEF /* UnlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECED295D3944004EFEEF /* UnlockButton.swift */; };
 		3BC9ECF0295D4223004EFEEF /* HurdPasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECEF295D4223004EFEEF /* HurdPasswordTextField.swift */; };
 		3BC9ECF2295D49DC004EFEEF /* HurdLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECF1295D49DC004EFEEF /* HurdLandingView.swift */; };
 		3BC9ECF4295D56EE004EFEEF /* HurdSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECF3295D56EE004EFEEF /* HurdSignUpView.swift */; };
@@ -78,8 +76,6 @@
 		3BC9ECE3295C06A5004EFEEF /* PrimaryHurdButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryHurdButton.swift; sourceTree = "<group>"; };
 		3BC9ECE5295C0924004EFEEF /* HurdButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdButtonModel.swift; sourceTree = "<group>"; };
 		3BC9ECE7295C1B02004EFEEF /* HurdIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdIconButton.swift; sourceTree = "<group>"; };
-		3BC9ECEB295D37C8004EFEEF /* DraggableComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableComponent.swift; sourceTree = "<group>"; };
-		3BC9ECED295D3944004EFEEF /* UnlockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockButton.swift; sourceTree = "<group>"; };
 		3BC9ECEF295D4223004EFEEF /* HurdPasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdPasswordTextField.swift; sourceTree = "<group>"; };
 		3BC9ECF1295D49DC004EFEEF /* HurdLandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdLandingView.swift; sourceTree = "<group>"; };
 		3BC9ECF3295D56EE004EFEEF /* HurdSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdSignUpView.swift; sourceTree = "<group>"; };
@@ -202,8 +198,6 @@
 				3BC9ED01295ED40B004EFEEF /* TabBarViews */,
 				3BC9ECE3295C06A5004EFEEF /* PrimaryHurdButton.swift */,
 				3BC9ECE7295C1B02004EFEEF /* HurdIconButton.swift */,
-				3BC9ECEB295D37C8004EFEEF /* DraggableComponent.swift */,
-				3BC9ECED295D3944004EFEEF /* UnlockButton.swift */,
 				3BC9ECEF295D4223004EFEEF /* HurdPasswordTextField.swift */,
 				3BC9ECF1295D49DC004EFEEF /* HurdLandingView.swift */,
 				3BC9ECF3295D56EE004EFEEF /* HurdSignUpView.swift */,
@@ -380,12 +374,10 @@
 				3B530CC92965305F002C272B /* AuthenticationViewModel.swift in Sources */,
 				3B530C9B2960F535002C272B /* DestinationSuggestionView.swift in Sources */,
 				3B530CC7296237D2002C272B /* AuthenticationMethods.swift in Sources */,
-				3BC9ECEE295D3944004EFEEF /* UnlockButton.swift in Sources */,
 				3BC9ECF2295D49DC004EFEEF /* HurdLandingView.swift in Sources */,
 				3BC9ECFA295D73BD004EFEEF /* SocialSignInButtonView.swift in Sources */,
 				3BC9ECE6295C0924004EFEEF /* HurdButtonModel.swift in Sources */,
 				3BC9ECF6295D5C5E004EFEEF /* HurdTextField.swift in Sources */,
-				3BC9ECEC295D37C8004EFEEF /* DraggableComponent.swift in Sources */,
 				3BC9ECF8295D64D7004EFEEF /* DividerView.swift in Sources */,
 				3B530CCC2967BDE3002C272B /* AppConstants.swift in Sources */,
 				3BC9ED0B295ED472004EFEEF /* ProfileView.swift in Sources */,

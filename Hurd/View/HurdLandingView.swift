@@ -10,12 +10,6 @@ import FirebaseAuth
 
 struct HurdLandingView: View {
     
-    @State var isUnlocked: Bool = false
-    
-    // Related to Buttons
-    @State private var isLocked = true
-    @State private var isLoading = false
-    
     @EnvironmentObject var authVM: AuthenticationViewModel
     
     var body: some View {
@@ -47,27 +41,27 @@ struct HurdLandingView: View {
                         .fontWeight(.black)
                     
                     Spacer()
-                    
-                    UnlockButton(isLocked: $isLocked, isLoading: $isLoading,callbackFunc: navigateToSignUpPage)
-                    
-                    NavigationLink("Navigator",
-                                   destination: HurdSignUpView(),
-                                   isActive: $isUnlocked).hidden()
+                
+          
+            
+                    NavigationLink(destination: HurdSignUpView()) {
+                        Text("Start your journey")
+                            .frame(maxWidth: .infinity)
+                            .foregroundColor(.white)
+                            .fontWeight(.semibold)
+                            .padding()
+                            .frame(height: 50)
+                            .background(Capsule().fill(Color.bottleGreen))
+                 
+                        
+//                        PrimaryHurdButton(buttonModel: .init(buttonText: "Start your journey", buttonType: .primary, icon: .arrowRight, appendingIcon: true))
+                    }
+                    .padding(.bottom, Spacing.fortyeight)
                     
                 }
                 .padding(.horizontal, 40)
             }
         }
-        .onAppear {
-            self.isUnlocked = false
-            self.isLocked = true
-            self.isLoading = false
-        }
-    }
-    
-    // MARK: Functions:
-    func navigateToSignUpPage() {
-        self.isUnlocked = true
     }
 }
 
