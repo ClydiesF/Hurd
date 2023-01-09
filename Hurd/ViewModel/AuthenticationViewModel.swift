@@ -23,10 +23,12 @@ class AuthenticationViewModel: ObservableObject {
     }
     
     @Published var email: String = ""
-    @Published var password: String = ""
-    
     @Published var newEmail: String = ""
+    @Published var newConfirmEmail: String = ""
+    
+    @Published var password: String = ""
     @Published var newPassword: String = ""
+    @Published var newConfirmedPassword: String = ""
     
     @Published var emailTFBorderColor: Color = Color.gray
     @Published var passwordTFBorderColor: Color = Color.gray
@@ -36,6 +38,14 @@ class AuthenticationViewModel: ObservableObject {
     
     @Published var authState: AuthState = .signedOut
     @Published var currentUser: Firebase.User? = nil
+    
+    // Reset Password Email Send
+    @Published var resetStatustMsg: String = ""
+    
+    // Perform senstitive Action Password
+    @Published var reauthenticatedPassword: String = ""
+    @Published var reauthenticatedStatusMsg: String = ""
+    
     var handle: AuthStateDidChangeListenerHandle?
     
     
@@ -166,6 +176,12 @@ class AuthenticationViewModel: ObservableObject {
         Auth.auth().sendPasswordReset(withEmail: email) { err in
             if let err = err {
                 print("DEBUG: failed to send email \(err.localizedDescription)")
+                self.resetStatustMsg = err.localizedDescription
+            } else {
+                // Success Route
+                print("DEBUG: Success Reset Email sent.")
+                self.resetStatustMsg = "Reset Email has been Successfully Sent to your email Address"
+                
             }
         }
     }
@@ -175,6 +191,7 @@ class AuthenticationViewModel: ObservableObject {
             if let err = err {
                 // An error happened
                 print("DEBUG: \(err.localizedDescription)")
+                self.reauthenticatedStatusMsg = err.localizedDescription
             } else {
                 //Account deleted
                 print("DEBUG: Success Account Deletion")
@@ -185,25 +202,42 @@ class AuthenticationViewModel: ObservableObject {
     }
     
     func changePassword() {
+        
+        if newPassword != newConfirmedPassword {
+            self.reauthenticatedStatusMsg = "Password and new Password must match"
+            return
+        }
+        
         Auth.auth().currentUser?.updatePassword(to: newPassword) { err in
             if let err = err {
                 // An error happened
                 print("DEBUG: \(err.localizedDescription)")
+                self.reauthenticatedStatusMsg = err.localizedDescription
             } else {
                 //Account deleted
                 print("DEBUG: Password changed success")
+                self.reauthenticatedStatusMsg = "Password change successful"
             }
         }
     }
     
     func changeEmail() {
+        
+        if newEmail != newConfirmEmail {
+            self.reauthenticatedStatusMsg = "Email and new email must match"
+            return
+        }
+        
+        
         Auth.auth().currentUser?.updateEmail(to: newEmail) { err in
             if let err = err {
                 // An error happened
                 print("DEBUG: \(err.localizedDescription)")
+                self.reauthenticatedStatusMsg = err.localizedDescription
             } else {
                 //Account deleted
                 print("DEBUG: Email changed success")
+                self.reauthenticatedStatusMsg = "Email change successful"
             }
         }
     }
@@ -224,6 +258,7 @@ class AuthenticationViewModel: ObservableObject {
             if let err = err {
                 // An error happened
                 print("DEBUG: \(err.localizedDescription)")
+                self.reauthenticatedStatusMsg = err.localizedDescription
             } else {
                 print("DEBUG: Success User authenticated")
                 

@@ -10,6 +10,12 @@ import SwiftUI
 struct HurdSignInView: View {
     @EnvironmentObject var vm: AuthenticationViewModel
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) var dismiss
+    
+    @State var presentTOS: Bool = false
+    @State var presentResetEmailSheet: Bool = false
+    @State var showResetStatus: Bool = false
+    @State var statusMsg: String = ""
     
     var body: some View {
         ScrollView {
@@ -50,6 +56,9 @@ struct HurdSignInView: View {
                             .fontWeight(.semibold)
                         Spacer()
                     }
+                    .alert(isPresented: $vm.presentAlert) {
+                        Alert(title: Text("Error"), message: Text(vm.errorMsg))
+                    }
                     .padding(.top, 10)
                     
                     
@@ -58,7 +67,7 @@ struct HurdSignInView: View {
                 HStack {
                     Spacer()
                     Button {
-                        print("Do Something")
+                        self.presentResetEmailSheet = true
                     } label: {
                         Text("Forgot Password?")
                             .font(.caption2)
@@ -66,36 +75,69 @@ struct HurdSignInView: View {
                     }
                     
                 }
-                //                HStack {
-                //                   DividerView()
-                //                        .padding(.horizontal, 10)
-                //                    Text("or")
-                //                        .font(.caption)
-                //                        .fontWeight(.semibold)
-                //                    DividerView()
-                //                        .padding(.horizontal, 10)
-                //
-                //                }
-                //                .padding(.top, 10)
-                //
-                //            HStack(spacing: 50) {
-                //                SocialSignInButtonView(iconName: "appleLogo", color: .gray)
-                //                SocialSignInButtonView(iconName: "googleLogo", color: .green)
-                //                SocialSignInButtonView(iconName: "twitterLogo", color: .blue)
-                //            }
-                
+
                 Spacer()
+                
                 PrimaryHurdButton(buttonModel: .init(buttonText: "Log in", buttonType: .primary, icon: nil, appendingIcon: nil))
+                    .onTapGesture {
+                        vm.signin()
+                    }
                     .padding(.top, 200)
                 
                 HStack {
                     Spacer()
-                    Text("Terms Of Service")
-                        .font(.caption)
+                    Button {
+                        self.presentTOS = true
+                    } label: {
+                        Text("Terms Of Service")
+                            .font(.caption)
+                            .foregroundColor(.bottleGreen)
+                    }
                     Spacer()
                 }
                 .padding(.bottom, 40)
             }
+        }
+        .sheet(isPresented: $presentResetEmailSheet, content: {
+            VStack(alignment: .leading, spacing: Spacing.sixteen) {
+                Text("Reset Email")
+                    .fontWeight(.semibold)
+                
+                HurdTextField(placeholderText: "Send Reset Password", text: $vm.newEmail, color: $vm.emailTFBorderColor)
+                
+                Button {
+                    vm.sendPasswordResetEmail(email: vm.newEmail)
+                    simulateresetRequest()
+                    //self.presentResetEmailSheet = false
+                } label: {
+                    Text("Reset Email")
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                }
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(Capsule().fill(Color.bottleGreen))
+                
+                if showResetStatus {
+                    ProgressView()
+                } else {
+                    Text(vm.resetStatustMsg)
+                }
+                
+                
+                Spacer()
+
+            }
+            .onAppear {
+                vm.newEmail = ""
+                vm.resetStatustMsg = ""
+            }
+            .presentationDetents([.medium])
+            .padding()
+        })
+        .onAppear {
+            vm.email = ""
+            vm.password = ""
         }
         .padding(.horizontal, 20)
         .navigationBarBackButtonHidden(true)
@@ -111,7 +153,15 @@ struct HurdSignInView: View {
                 .font(.title3)
         })
         )}
-                            }
+    // Function
+    
+    func simulateresetRequest() {
+        self.showResetStatus = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+            self.showResetStatus = false
+        }
+    }
+}
 
 struct HurdSignInView_Previews: PreviewProvider {
     static var previews: some View {

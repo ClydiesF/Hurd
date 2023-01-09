@@ -19,6 +19,11 @@ struct HurdLandingView: View {
                 Image("landingPageImage")
                     .resizable()
                     .ignoresSafeArea()
+                    .overlay {
+                        Color.white.opacity(0.3)
+                            .ignoresSafeArea()
+                    }
+                
                 
                 VStack(alignment: .leading) {
                     HStack(spacing: 25) {
@@ -53,8 +58,6 @@ struct HurdLandingView: View {
                             .frame(height: 50)
                             .background(Capsule().fill(Color.bottleGreen))
                  
-                        
-//                        PrimaryHurdButton(buttonModel: .init(buttonText: "Start your journey", buttonType: .primary, icon: .arrowRight, appendingIcon: true))
                     }
                     .padding(.bottom, Spacing.fortyeight)
                     
