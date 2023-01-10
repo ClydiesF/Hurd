@@ -78,10 +78,9 @@ struct HurdSignInView: View {
 
                 Spacer()
                 
-                PrimaryHurdButton(buttonModel: .init(buttonText: "Log in", buttonType: .primary, icon: nil, appendingIcon: nil))
-                    .onTapGesture {
-                        vm.signin()
-                    }
+                PrimaryHurdButton(buttonModel: .init(buttonText: "Log in", buttonType: .primary, icon: nil, appendingIcon: nil), action: {
+                    vm.signin()
+                })
                     .padding(.top, 200)
                 
                 HStack {

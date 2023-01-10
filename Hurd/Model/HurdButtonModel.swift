@@ -23,6 +23,7 @@ enum HurdButtonType: String {
 
 enum HurdIcon: String {
     case arrowRight
+    case arrowLeft
     case sharePlane
     case group
     case itinarary

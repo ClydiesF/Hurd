@@ -88,10 +88,9 @@ struct HurdSignUpView: View {
                     //            }
                     
                 
-                    PrimaryHurdButton(buttonModel: .init(buttonText: "Join now", buttonType: .primary, icon: nil, appendingIcon: nil))
-                        .onTapGesture {
-                            vm.signup()
-                        }
+                    PrimaryHurdButton(buttonModel: .init(buttonText: "Join now", buttonType: .primary, icon: nil, appendingIcon: nil), action: {
+                        vm.signup()
+                    })
                         .padding(.top, 200)
                     
                     HStack {

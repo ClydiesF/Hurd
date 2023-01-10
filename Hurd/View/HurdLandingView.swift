@@ -15,15 +15,14 @@ struct HurdLandingView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                
                 Image("landingPageImage")
                     .resizable()
                     .ignoresSafeArea()
                     .overlay {
-                        Color.white.opacity(0.3)
+                        Color.black.opacity(0.1)
                             .ignoresSafeArea()
                     }
-                
+
                 
                 VStack(alignment: .leading) {
                     HStack(spacing: 25) {

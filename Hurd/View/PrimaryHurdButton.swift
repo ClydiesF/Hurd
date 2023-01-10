@@ -9,9 +9,10 @@ import SwiftUI
 
 struct PrimaryHurdButton: View {
     let buttonModel: HurdButtonModel
+    let action: () -> Void
     
     var body: some View {
-        Button(action: {}) {
+        Button(action: self.action) {
             ZStack {
                 HStack {
                     Text(buttonModel.buttonText)
@@ -29,7 +30,7 @@ struct PrimaryHurdButton: View {
                                 .padding((buttonModel.appendingIcon ?? false) ? .trailing : .leading, 20)
                                 
                         } else {
-                            Image(HurdIcon.arrowRight.rawValue)
+                            Image(HurdIcon.arrowLeft.rawValue)
                                 .frame(width: 20, height: 20)
                                 .padding((buttonModel.appendingIcon ?? false) ? .trailing : .leading, 20)
                             Spacer()

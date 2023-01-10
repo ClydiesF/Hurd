@@ -33,7 +33,7 @@ struct DestinationSuggestionView: View {
                 }
             }
             
-            PrimaryHurdButton(buttonModel: .init(buttonText: "Add Suggestion", buttonType: .primary, icon: nil, appendingIcon: nil))
+            PrimaryHurdButton(buttonModel: .init(buttonText: "Add Suggestion", buttonType: .primary, icon: nil, appendingIcon: nil), action: {})
                 .frame(width: 170)
                 .offset(x: 100, y: 170)
         }
