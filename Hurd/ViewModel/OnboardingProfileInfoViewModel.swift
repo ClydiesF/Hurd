@@ -41,13 +41,13 @@ class OnboardingProfileInfoViewModel: ObservableObject {
             .assign(to: &$characterCount)
     }
     
-     func addOnboardingInfoData() {
+    func addOnboardingInfoData(completion: @escaping(Bool) -> Void) {
         let displayName = " \(self.firstName) \(self.lastName)"
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequest?.displayName = displayName
         changeRequest?.commitChanges { error in
             if let error = error {
-                print("DEBUG: err -> \(error.localizedDescription)")
+                print("DEBUG: err add on boarding -> \(error.localizedDescription)")
                 return
             }
             let addedData: [String: Any] = [
@@ -61,6 +61,11 @@ class OnboardingProfileInfoViewModel: ObservableObject {
             guard let uid = Auth.auth().currentUser?.uid else { return }
             
             USER_REF.document(uid).setData(addedData, merge: true)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                completion(true)
+            }
+   
         }
     }
 }

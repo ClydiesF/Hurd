@@ -39,7 +39,12 @@ class AuthenticationViewModel: ObservableObject {
     
     @Published var authState: AuthState = .signedOut
     @Published var currentUser: Firebase.User? = nil
-    var user: User?
+    @Published var user: User? {
+        didSet {
+            registerCurrentUserListener()
+        }
+    }
+    
     
     // Reset Password Email Send
     @Published var resetStatustMsg: String = ""
@@ -54,6 +59,7 @@ class AuthenticationViewModel: ObservableObject {
     init() {
         currentUser = Auth.auth().currentUser
         registerStateListener()
+        registerCurrentUserListener()
         
         $email
             .map { text -> Color in
@@ -83,6 +89,36 @@ class AuthenticationViewModel: ObservableObject {
     
     // MARK: Auth Functions
     
+    func registerCurrentUserListener() {
+        guard let uid = currentUser?.uid else { return }
+        USER_REF.document(uid).addSnapshotListener { snapshot, err in
+            guard let document = snapshot else {
+              print("Error fetching document: \(err!)")
+              return
+            }
+            guard let data = document.data() else {
+              print("Document data was empty.")
+              return
+            }
+            do {
+                
+                let result = Result {
+                    try document.data(as: User.self)
+                }
+                
+                switch result {
+                case .success(let object):
+                    self.user = object
+                case .failure(let failure):
+                    print("DEBUG: Document data was empty.")
+                }
+            } catch {
+              fatalError("DEBUG: Couldn’t decode")
+            }
+            print("Current data: \(data)")
+            }
+    }
+    
     private func getCurrentUserObject(from userID: String) {
         USER_REF.document(userID).getDocument(as: User.self) { result in
             
@@ -92,7 +128,7 @@ class AuthenticationViewModel: ObservableObject {
                 self.authState = .signedIn
                 print("DEBUG: decoding wss successful")
             case .failure(let err):
-                print("DEBUG: err -> \(err.localizedDescription)")
+                print("DEBUG: get user errror err -> \(err.localizedDescription)")
             }
         }
     }

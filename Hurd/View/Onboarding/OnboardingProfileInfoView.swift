@@ -13,6 +13,8 @@ struct OnboardingProfileInfoView: View {
     
     @StateObject var vm = OnboardingProfileInfoViewModel()
     
+    @EnvironmentObject var authVM: AuthenticationViewModel
+    
     var body: some View {
         VStack(spacing: Spacing.sixteen) {
             
@@ -92,7 +94,10 @@ struct OnboardingProfileInfoView: View {
             // This will handle navigation to the main app.
             PrimaryHurdButton(buttonModel: .init(buttonText: "All Set!", buttonType: .primary, icon: .arrowRight, appendingIcon: true), action: {
                 // Set firebase data and mutate isfinishedOnboarding to true
-                vm.addOnboardingInfoData()
+        
+                vm.addOnboardingInfoData { _ in
+                    authVM.authState = .signedIn
+                }
             })
         }
         .padding()
