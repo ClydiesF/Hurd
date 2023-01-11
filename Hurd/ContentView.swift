@@ -10,30 +10,21 @@ import FirebaseAuth
 
 struct ContentView: View {
     
-    @State var selected = 0
+    @State var selection = 0
     @EnvironmentObject var authVM: AuthenticationViewModel
     
     var body: some View {
-        ZStack() {
-            switch self.selected {
-            case 0:
-                DiscoveryView()
-            case 1:
-                GroupPlannerView()
-            case 2:
-                AddTripView()
-            case 3:
-                ChatDmView()
-            case 4:
-                ProfileView()
-            default:
-                DiscoveryView()
-            }
+        
+        TabView(selection: $selection) {
+            DiscoveryView().tabItem {
+                Image(systemName: "house.fill")
+                Text("Home")
+            }.tag(0)
             
-            VStack {
-                Spacer()
-                FloatingTabbar(selected: $selected)
-            }
+            ProfileView().tabItem {
+                Image(systemName: "person.crop.circle")
+                Text("Profile")
+            }.tag(1)
         }
     }
 }
@@ -133,5 +124,26 @@ struct FloatingTabbar: View {
         }
       
     }
-    
 }
+
+//        ZStack() {
+//            switch self.selected {
+//            case 0:
+//                DiscoveryView()
+//            case 1:
+//                GroupPlannerView()
+//            case 2:
+//                AddTripView()
+//            case 3:
+//                ChatDmView()
+//            case 4:
+//                ProfileView()
+//            default:
+//                DiscoveryView()
+//            }
+//
+//            VStack {
+//                Spacer()
+//                FloatingTabbar(selected: $selection)
+//            }
+//        }

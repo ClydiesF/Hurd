@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct HurdButtonModel {
     let buttonText: String
@@ -21,6 +22,11 @@ enum HurdButtonType: String {
     case tertiary
 }
 
+struct mockPrimType {
+    let text: String
+    let num: Int
+}
+
 enum HurdIcon: String {
     case arrowRight
     case arrowLeft
@@ -30,8 +36,8 @@ enum HurdIcon: String {
     case bookmark
 }
 
-
 extension HurdButtonModel {
+
     static let mockPrimaryButtonWithAppendingIcon = HurdButtonModel(buttonText: "Primary",
                                                                     buttonType: .primary,
                                                                     icon: .arrowRight,

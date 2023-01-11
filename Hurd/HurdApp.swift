@@ -15,15 +15,23 @@ struct HurdApp: App {
     
     init() {
         FirebaseApp.configure()
-        
     }
     
     var body: some Scene {
         WindowGroup {
             switch authVM.authState {
-            case .signedIn: ContentView()
-                    .environmentObject(authVM)
-            case .signedOut: HurdLandingView()
+            case .signedIn:
+                if let user = authVM.user {
+                    if user.isFinishedOnboarding {
+                        ContentView()
+                            .environmentObject(authVM)
+                    } else {
+                        OnboardingSliderView()
+                            .environmentObject(authVM)
+                    }
+                }
+            case .signedOut:
+                HurdLandingView()
                    .environmentObject(authVM)
             }
         }

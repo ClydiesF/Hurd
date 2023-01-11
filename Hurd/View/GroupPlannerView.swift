@@ -55,11 +55,13 @@ struct GroupPlannerView: View {
                     .font(.title3)
                     .fontWeight(.heavy)
                     .foregroundColor(.corn)
+                    .padding(.bottom, 2)
+                    .padding(.top, 4)
                 
                 Text("Leave the hustle and bustle of the city behind as you look over the sparking blue waters of wakiki Springs. Featuring light... Read More")
-                    .font(.caption)
-                    .fontWeight(.heavy)
+                    .font(.body)
                     .foregroundColor(.white)
+
                 
                 HStack(alignment: .bottom) {
                     VStack(alignment: .leading) {
@@ -107,7 +109,7 @@ struct GroupPlannerView: View {
                     .resizable()
                     .ignoresSafeArea()
                     .overlay {
-                        Color.black.opacity(0.25)
+                        Color.black.opacity(0.6)
                             .ignoresSafeArea()
                     }
             )

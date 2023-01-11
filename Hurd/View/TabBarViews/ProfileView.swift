@@ -24,8 +24,14 @@ struct ProfileView: View {
     
     
     var body: some View {
-        VStack(spacing: 0) {
-            Group {
+        VStack(alignment: .leading) {
+                
+                Text("Profile")
+                    .font(.largeTitle)
+                    .fontWeight(.heavy)
+                    .padding(.horizontal)
+            
+            HStack(alignment: .top) {
                 HStack {
                     Image("mockAvatarImage")
                         .resizable()
@@ -46,49 +52,63 @@ struct ProfileView: View {
                 }
                 .frame(height: 100)
                 
-                HStack {
-                    Text("Boomy Freeman")
-                        .font(.title3)
-                        .fontWeight(.bold)
-                        .padding(.top, 20)
+                VStack(spacing:.zero) {
+                    HStack(alignment: .firstTextBaseline) {
+                        Text("Boomy Freeman")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .padding(.top, 20)
+                        
+                        Image(systemName: "qrcode")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                    }
                     
-                    Image(systemName: "qrcode")
-                        .resizable()
-                        .frame(width: 20, height: 20)
+                    Text("@travelMaster13")
+                        .foregroundColor(.gray)
+                        .fontWeight(.bold)
+                        .padding(.bottom, 10)
                 }
-                
-                Text("@travelMaster13")
-                    .foregroundColor(.gray)
-                    .fontWeight(.bold)
-                    .padding(.bottom, 10)
-                
-                LazyVGrid(columns: columns, spacing: 10) {
+             
+                Spacer()
+            }
+            .padding(.horizontal)
+     
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack {
                     ForEach(dataTags, id: \.self) { itemName in
                         TagView(tagName: itemName)
                     }
+                }
+                .padding(.leading)
+           
+            }
+                LazyVGrid(columns: columns, spacing: 10) {
+                
                 }
                 .padding(.bottom, 10)
                 
                 
                 Text("I love to travel to nice places and being able to hang out with a bunch of ppl. I like to drink and party hard like the rest of us. I love it so much. ")
                     .font(.caption)
-            }
-            .padding(.horizontal)
+                    .padding(.horizontal)
+                    .multilineTextAlignment(.center)
             
             // Slider //
-            // Slider View
-            HurdSlidingTabView(selection: $selectedTabIndex, tabs: tabs,activeAccentColor: .bottleGreen, selectionBarColor: .bottleGreen)
+            Picker("What is your favorite color?", selection: $selectedTabIndex) {
+                 Image(systemName: "globe.americas")
+                    .tag(0)
+                Image(systemName: "rectangle.3.group.bubble.left").tag(1)
+                
+               }
+               .pickerStyle(.segmented)// Slider View
             
             switch self.selectedTabIndex {
             case 0: Color.bottleGreen.ignoresSafeArea()
-            case 1:  Color.red.ignoresSafeArea()
-            case 2:  Color.blue.ignoresSafeArea()
-            case 3:  Color.gray.ignoresSafeArea()
-            case 4:  Color.purple.ignoresSafeArea()
-                
-            default:
-                Color.black.ignoresSafeArea()
+            case 1: Color.red.ignoresSafeArea()
+            default: Color.black.ignoresSafeArea()
             }
+
         }
     }
 }
@@ -98,3 +118,5 @@ struct ProfileView_Previews: PreviewProvider {
         ProfileView()
     }
 }
+
+//            HurdSlidingTabView(selection: $selectedTabIndex, tabs: tabs,activeAccentColor: .bottleGreen, selectionBarColor: .bottleGreen)

@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import SwiftUI
+import FirebaseFirestoreSwift
 
 class AuthenticationViewModel: ObservableObject {
     
@@ -38,6 +39,7 @@ class AuthenticationViewModel: ObservableObject {
     
     @Published var authState: AuthState = .signedOut
     @Published var currentUser: Firebase.User? = nil
+    var user: User?
     
     // Reset Password Email Send
     @Published var resetStatustMsg: String = ""
@@ -81,13 +83,30 @@ class AuthenticationViewModel: ObservableObject {
     
     // MARK: Auth Functions
     
+    private func getCurrentUserObject(from userID: String) {
+        USER_REF.document(userID).getDocument(as: User.self) { result in
+            
+            switch result {
+            case .success(let user):
+                self.user = user
+                self.authState = .signedIn
+                print("DEBUG: decoding wss successful")
+            case .failure(let err):
+                print("DEBUG: err -> \(err.localizedDescription)")
+            }
+        }
+    }
+    
     private func registerStateListener() {
         handle = Auth.auth().addStateDidChangeListener { _, user in
             print("DEBUG: Sign in state changed")
             
             if let user = user {
                 self.currentUser = user
-                self.authState = .signedIn
+                
+                // assign the user object making the firebase call. here
+                self.getCurrentUserObject(from: user.uid)
+               
                 print("DEBUG: User signed in with user ID \(user.uid)")
             }
         }
@@ -116,15 +135,21 @@ class AuthenticationViewModel: ObservableObject {
                     print("Could not sign up user.")
                 case .some(let something):
                     print("DEBUG: Sign up Success, \(something)")
-                    let uid = authResult?.user.uid
-                    USER_REF.document(uid!).setData(["emailAddress" : self.email.lowercased() as Any,
+                    
+                    guard let uid = authResult?.user.uid else { return }
+                    
+                    USER_REF.document(uid).setData(["emailAddress" : self.email.lowercased() as Any,
                                                      "createdAt": Date().timeIntervalSince1970,
                                                      "isFinishedOnboarding": false,
-                                                     "memberID": uid as Any]) { err in
+                                                    "firstName": "",
+                                                    "lastName": "",
+                                                    "phoneNumber": "",
+                                                    "bio": "",
+                                                     "id": uid as Any]) { err in
                         if let err = err {
                             print("DEBUG: Error writingh document: \(err)")
                         }
-                        self.authState = .signedIn
+                        self.getCurrentUserObject(from: uid)
                     }
                 }
             }
@@ -155,7 +180,8 @@ class AuthenticationViewModel: ObservableObject {
                 case .some(let something):
                     print("DEBUG: Sign in Success, \(something)")
                     self?.currentUser = authResult?.user
-                    self?.authState = .signedIn
+                    guard let uid = authResult?.user.uid else { return }
+                    self?.getCurrentUserObject(from: uid)
                 }
             }
         }

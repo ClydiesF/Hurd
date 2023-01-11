@@ -55,6 +55,7 @@ struct DiscoveryView: View {
                 }
                 .padding()
                 .presentationDetents([.height(200)])
+                .presentationDragIndicator(.visible)
             }
             
             Button("Delete Account") {
