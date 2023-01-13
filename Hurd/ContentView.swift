@@ -14,18 +14,57 @@ struct ContentView: View {
     @EnvironmentObject var authVM: AuthenticationViewModel
     
     var body: some View {
-        
-        TabView(selection: $selection) {
-            DiscoveryView().tabItem {
-                Image(systemName: "house.fill")
-                Text("Home")
-            }.tag(0)
+        ZStack(alignment: .bottomTrailing) {
             
-            ProfileView().tabItem {
-                Image(systemName: "person.crop.circle")
-                Text("Profile")
-            }.tag(1)
+            // 1
+            TabView(selection: $selection) {
+                AddTripFormView().tabItem {
+                    Image(systemName: "globe")
+                    Text("Home")
+                }.tag(0)
+                
+                DiscoveryView().tabItem {
+                    Image(systemName: "gearshape.fill")
+                    Text("Settings")
+                }.tag(1)
+                
+                ProfileView().tabItem {
+                    Image(systemName: "person.crop.circle")
+                    Text("Profile")
+                }.tag(2)
+            }
+            .accentColor(.bottleGreen)
+            .background(Color.white)
+            .onAppear {
+                let appearance = UITabBarAppearance()
+                appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterial)
+                appearance.backgroundColor = UIColor(Color.white.opacity(0.2))
+                
+                // Use this appearance when scrolling behind the TabView:
+                UITabBar.appearance().standardAppearance = appearance
+                // Use this appearance when scrolled all the way up:
+                UITabBar.appearance().scrollEdgeAppearance = appearance
+            }
+            
+            
+            //2
+            Button {
+                print("")
+            } label: {
+                Image(systemName: "plus")
+                    .foregroundColor(.white)
+                    .font(.title2)
+                    .fontWeight(.bold)
+            }
+            .padding()
+            .background(Color.bottleGreen)
+            .clipShape(Circle())
+            .shadow(radius: 4, x: 3, y:3)
+            .offset(x: -Spacing.twentyfour, y: -Spacing.sixtyfour)
+        
+   
         }
+
     }
 }
 

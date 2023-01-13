@@ -96,7 +96,7 @@ struct OnboardingProfileInfoView: View {
                 // Set firebase data and mutate isfinishedOnboarding to true
         
                 vm.addOnboardingInfoData { _ in
-                    authVM.authState = .signedIn
+                    //authVM.authState = .signedIn
                 }
             })
         }

@@ -17,4 +17,5 @@ struct User: Decodable {
     let bio: String
     let firstName: String
     let lastName: String
+    var profileImageUrl: String?
 }

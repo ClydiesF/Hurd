@@ -7,12 +7,23 @@
 
 import Foundation
 import Firebase
+import FirebaseStorage
 
 
+//firestore
 let db = Firestore.firestore()
 
 let USER_REF = db.collection("Users")
 let HURD_REF = db.collection("Hurds")
+
+// Storage
+
+let storage = Storage.storage()
+
+let storageRef = storage.reference()
+
+let profileAvatars = storageRef.child("profileAvatars")
+
 
 
 enum Spacing {

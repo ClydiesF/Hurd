@@ -39,11 +39,7 @@ class AuthenticationViewModel: ObservableObject {
     
     @Published var authState: AuthState = .signedOut
     @Published var currentUser: Firebase.User? = nil
-    @Published var user: User? {
-        didSet {
-            registerCurrentUserListener()
-        }
-    }
+    @Published var user: User?
     
     
     // Reset Password Email Send
@@ -59,7 +55,7 @@ class AuthenticationViewModel: ObservableObject {
     init() {
         currentUser = Auth.auth().currentUser
         registerStateListener()
-        registerCurrentUserListener()
+       registerCurrentUserListener()
         
         $email
             .map { text -> Color in
