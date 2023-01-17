@@ -318,10 +318,10 @@
             filePath = "Hurd/ViewModel/GroupPlannerViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "fetchMembers()"
-            landmarkType = "7">
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -334,10 +334,10 @@
             filePath = "Hurd/ViewModel/GroupPlannerViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "fetchMembers()"
-            landmarkType = "7">
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -350,42 +350,10 @@
             filePath = "Hurd/ViewModel/GroupPlannerViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "fetchMembers()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "8E472959-5348-48C2-ACF4-E1BEB365E44F - 18dfdd84b5fbcd0b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.FIRQueryDocumentSnapshot) -&gt; Swift.Optional&lt;Hurd.User&gt; in closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Hurd.GroupPlannerViewModel.fetchMembers() -&gt; ()"
-                  moduleName = "Hurd"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/GroupPlannerViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "42"
-                  endingLineNumber = "42"
-                  offsetFromSymbolStart = "444">
-               </Location>
-               <Location
-                  uuid = "8E472959-5348-48C2-ACF4-E1BEB365E44F - 3abb3d2929597a4b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () throws -&gt; Hurd.User in closure #1 (__C.FIRQueryDocumentSnapshot) -&gt; Swift.Optional&lt;Hurd.User&gt; in closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Hurd.GroupPlannerViewModel.fetchMembers() -&gt; ()"
-                  moduleName = "Hurd"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/GroupPlannerViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "42"
-                  endingLineNumber = "42"
-                  offsetFromSymbolStart = "52">
-               </Location>
-            </Locations>
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -398,10 +366,10 @@
             filePath = "Hurd/ViewModel/GroupPlannerViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "fetchMembers()"
-            landmarkType = "7">
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -414,10 +382,10 @@
             filePath = "Hurd/ViewModel/GroupPlannerViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "fetchMembers()"
-            landmarkType = "7">
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -430,10 +398,10 @@
             filePath = "Hurd/ViewModel/GroupPlannerViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "fetchMembers()"
-            landmarkType = "7">
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -462,10 +430,10 @@
             filePath = "Hurd/ViewModel/GroupPlannerViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "fetchMembers()"
-            landmarkType = "7">
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

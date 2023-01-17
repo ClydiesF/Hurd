@@ -19,9 +19,29 @@ class GroupPlannerViewModel: ObservableObject {
     
     @Published var errorMessage: String?
     
+    @Published var presentTripCancellationSheet: Bool = false
+    
     init(trip: Trip, hurd: Hurd) {
         self.trip = trip
         self.hurd = hurd
+    }
+    
+    // For Organizers.
+    func cancelTrip() {
+        // deletes an  field from the field propery or updates it less the person who is kicked out.
+        guard let tripID = trip.id else { return }
+        TRIP_REF.document(tripID).delete { err in
+            if let err = err {
+                print("DEBUG: Erro removing  document: \(err)")
+            } else {
+                print("DEBUG: Document successfully removed!")
+            }
+        }
+    }
+    
+    // For Members
+    func leaveTrip() {
+        //deltes the trip document
     }
     
     func fetchMembers() {
