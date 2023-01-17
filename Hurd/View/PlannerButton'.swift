@@ -26,7 +26,7 @@ struct PlannerButton_: View {
                 .fontWeight(.semibold)
                 .font(.system(size: 14))
         }
-        .padding(10)
+        .padding(8)
         .background(color)
         .clipShape(Capsule())
     }

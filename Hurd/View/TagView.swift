@@ -17,7 +17,7 @@ struct TagView: View {
             .foregroundColor(.white)
             .padding(.horizontal, 10)
             .padding(.vertical, 5)
-            .background(Capsule().fill(.black.opacity(0.6)))
+            .background(Capsule().fill(.black))
     }
 }
 

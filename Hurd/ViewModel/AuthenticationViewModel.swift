@@ -117,7 +117,7 @@ class AuthenticationViewModel: ObservableObject {
     
     private func getCurrentUserObject(from userID: String) {
         USER_REF.document(userID).getDocument(as: User.self) { result in
-            
+          
             switch result {
             case .success(let user):
                 self.user = user
@@ -132,12 +132,14 @@ class AuthenticationViewModel: ObservableObject {
     private func registerStateListener() {
         handle = Auth.auth().addStateDidChangeListener { _, user in
             print("DEBUG: Sign in state changed")
-            
+
             if let user = user {
                 self.currentUser = user
                 
                 // assign the user object making the firebase call. here
                 self.getCurrentUserObject(from: user.uid)
+                
+                Auth.auth().removeStateDidChangeListener(self.handle!)
                
                 print("DEBUG: User signed in with user ID \(user.uid)")
             }
@@ -177,7 +179,8 @@ class AuthenticationViewModel: ObservableObject {
                                                     "lastName": "",
                                                     "phoneNumber": "",
                                                     "bio": "",
-                                                     "id": uid as Any]) { err in
+                                                    "id": uid
+                                                     ]) { err in
                         if let err = err {
                             print("DEBUG: Error writingh document: \(err)")
                         }

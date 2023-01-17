@@ -10,31 +10,35 @@ struct AddTripFormView: View {
     @StateObject var vm = AddTripFormViewModel()
     
     var body: some View {
-        VStack(alignment: .trailing) {
+        ZStack(alignment: .topTrailing) {
             Button {
-                //code to post code to user's PRofile
+                //code to post code to trips database\
                 print("post a trip to user, profile")
+                vm.postTrip()
             } label: {
                 ZStack(alignment: .leading) {
                     HStack {
                         Image(systemName: "signpost.left.fill")
                             .foregroundColor(.white)
-                            .padding(8)
-                            .background(Color.black.opacity(0.4))
-                            .clipShape(Circle())
+                     
                         
                         Text("Post Trip")
                             .foregroundColor(.white)
                             .fontWeight(.semibold)
                             .padding(.trailing)
                     }
-                    .padding(8)
-                    .background(Capsule().fill(Color.gray))// turn green after validation
+                    .padding(10)
+                    .background(Capsule().fill(Color.bottleGreen))// turn green after validation
                 }
             }
             .padding(.trailing)
+            .zIndex(99)
 
             Form {
+                
+                Text("Add Trip")
+                                .font(.largeTitle)
+                                .fontWeight(.semibold)
                 TextField("Trip Name", text: $vm.tripNameText)
                 
                 ZStack(alignment: .trailing) {
@@ -101,7 +105,9 @@ struct AddTripFormView: View {
                 
                 
             }
+            .padding(.top, Spacing.twentyone)
         }
+        .padding(.top)
      
     }
 }

@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import MapKit
 import Combine
+import Firebase
 
 class AddTripFormViewModel: NSObject, ObservableObject {
     @Published var tripNameText: String = ""
@@ -22,6 +23,7 @@ class AddTripFormViewModel: NSObject, ObservableObject {
     @Published var tripEndDate: Date = Date.now
     
     @Published var selectedTripType: String = ""
+    @Published var selectedGender: String = ""
 
     private var queryCancellable: AnyCancellable?
     private let searchCompleter: MKLocalSearchCompleter!
@@ -44,6 +46,8 @@ class AddTripFormViewModel: NSObject, ObservableObject {
         case none = ""
     }
     
+ 
+   
     var tripTypes: [String] = ["","Vacation", "Cruise", "Road Trip", "Adventure", "Business", "Excursion"]
     
     init(searchCompleter: MKLocalSearchCompleter = MKLocalSearchCompleter()) {
@@ -68,6 +72,21 @@ class AddTripFormViewModel: NSObject, ObservableObject {
     }
     func selectedLocation() {
         self.status = .idle
+    }
+    
+    func postTrip() {
+        guard let userId = Auth.auth().currentUser?.uid else { return }
+        
+        var newHurd = Hurd(organizer: userId)
+        
+        do {
+            let ref = try HURD_REF.addDocument(from: newHurd)
+            newHurd.id = ref.documentID
+            let newTrip = Trip(tripName: self.tripNameText, tripDestination: self.tripLocationSearchQuery, tripType: self.selectedTripType, tripCostEstimate: self.tripCostEstimate, tripStartDate: self.tripStartDate.timeIntervalSince1970, tripEndDate: self.tripEndDate.timeIntervalSince1970, tripDescription: self.tripDescriptionText, hurd: newHurd)
+            try TRIP_REF.document().setData(from: newTrip)
+        } catch(let err) {
+            print("DEBUG: err \(err.localizedDescription)")
+        }
     }
 }
 

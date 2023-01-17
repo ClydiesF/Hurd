@@ -101,7 +101,7 @@ struct HurdSlidingTabView: View {
                     }) {
                         HStack {
                             Spacer()
-                           Image(systemName: tab).font(self.font)
+                           Text(tab).font(self.font)
                             Spacer()
                         }
                     }

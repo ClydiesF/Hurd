@@ -26,8 +26,11 @@ struct OnboardingProfileInfoView: View {
             if let photoData = vm.selectedPhotoData, let image = UIImage(data: photoData) {
                 Image(uiImage: image)
                     .resizable()
-                    .frame(height: 150)
+                    .frame(height: 100)
                     .clipShape(Circle())
+            } else {
+                Image(systemName: "person.crop.circle.fill")
+                    .font(.system(size: 100))
             }
   
             HStack {
@@ -52,22 +55,30 @@ struct OnboardingProfileInfoView: View {
                 .buttonStyle(.borderedProminent)
                 .onChange(of: vm.selectedItem) { newItem in
                     Task {
-                        if let  data = try? await newItem?.loadTransferable(type: Data.self) {
+                        
+                        if let data = try? await newItem?.loadTransferable(type: Data.self) {
                             vm.selectedPhotoData = data
+                        } else {
+                            //error state this
                         }
                     }
                 }
             }
  
-            HStack {
+            Group {
                 TextField("First Name *", text: $vm.firstName)
                     .textFieldStyle(.roundedBorder)
                 
                 TextField("Last Name *", text: $vm.lastName)
                     .textFieldStyle(.roundedBorder)
+
+            Picker("Gender", selection: $vm.selectedGender) {
+                ForEach(vm.gender, id: \.self) {
+                    Text($0)
+                }
             }
-         
             
+    
             TextField("Phone Number", text: $vm.phoneNumber)
                 .keyboardType(.phonePad)
                 .textFieldStyle(.roundedBorder)
@@ -90,6 +101,8 @@ struct OnboardingProfileInfoView: View {
             }
             
             Spacer()
+            }
+    
             
             // This will handle navigation to the main app.
             PrimaryHurdButton(buttonModel: .init(buttonText: "All Set!", buttonType: .primary, icon: .arrowRight, appendingIcon: true), action: {

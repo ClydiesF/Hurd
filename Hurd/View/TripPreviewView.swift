@@ -8,52 +8,80 @@
 import SwiftUI
 
 struct TripPreviewView: View {
+    let trip: Trip
+    var user: User?
+    
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
-                Image("mockAvatarImage")
+            ZStack(alignment: .bottomTrailing) {
+                Image("mockbackground")
                     .resizable()
-                    .frame(width: 30, height: 30)
-                    .cornerRadius(15)
+                    .frame(height: 170)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
                 
-                Text("Weekend Getaway")
-                    .foregroundColor(.corn)
+                Image(systemName: trip.iconName)
+                    .foregroundColor(.white)
+                    .padding(10)
+                    .background(
+                        Color.black
+                    )
+                    .clipShape(Circle())
+                    .padding()
+            }
+
+       
+            // TRIP Image
+            
+            HStack {
+                if let user = user, let profileImage = user.profileImageUrl {
+                    AsyncImage(url: URL(string: profileImage), content: { image in
+                        image
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .cornerRadius(15)
+                    }) {
+                        Circle()
+                            .frame(width: 30, height: 30)
+                            .cornerRadius(15)
+                        
+                    }
+                    
+                } else {
+                    Circle()
+                        .fill(Color.gray)
+                        .frame(width: 30, height: 30)
+                        .cornerRadius(15)
+                }
+                
+                Text(trip.tripName)
+                    .foregroundColor(.black)
                     .font(.title3)
                     .fontWeight(.heavy)
                 
                 Spacer()
             }
             
+            
             HStack {
-                TagView(tagName: "9 Days Left")
-                TagView(tagName: "Wakikki Springs")
-                TagView(tagName: "1/2/22-1/9/22")
+                Group {
+                    Label(trip.tripDestination, systemImage: "location.fill")
+                    Divider()
+                    Label(trip.dateRangeString, systemImage: "calendar")
+                }
+                .foregroundColor(.black)
+                .font(.system(size: 14))
+        
             }
+            .frame(height: 15)
             
             Spacer()
-            
-            HStack {
-                TagView(tagName: "Upcoming")
-                TagView(tagName: "Excursion")
-            }
         }
-        .frame(height: 150)
-        .frame(maxWidth: .infinity)
-        .padding()
-        .background(
-            Image("mockbackground")
-                .resizable()
-                .overlay(content: {
-                    Color.black.opacity(0.2)
-                })
-        )
-        .cornerRadius(10)
     }
 }
 
 struct TripPreviewView_Previews: PreviewProvider {
     static var previews: some View {
-        TripPreviewView()
+        TripPreviewView(trip: Trip.mockTrip2)
             .padding()
     }
 }

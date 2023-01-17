@@ -8,6 +8,17 @@
 import Foundation
 import Firebase
 import FirebaseStorage
+import os
+
+extension Logger {
+    static let subsystem = "com.HCHO.Hurd"
+
+    // Logger for the Trip model class.
+    static let tripsLogger = Logger(
+      subsystem: subsystem,
+      category: "TripModel"
+    )
+}
 
 
 //firestore
@@ -15,6 +26,19 @@ let db = Firestore.firestore()
 
 let USER_REF = db.collection("Users")
 let HURD_REF = db.collection("Hurds")
+let TRIP_REF = db.collection("Trips")
+let TRIPSUGGEST_REF = db.collection("TripSuggestions")
+
+
+enum TripTypeIcons: String {
+    case vacation = "beach.umbrella"
+    case cruise = "sailboat.fill"
+    case roadTrip = "car.fill"
+    case adventure = "figure.hiking"
+    case business = "suitcase.fill"
+    case excursion = "figure.play"
+    case none = ""
+}
 
 // Storage
 

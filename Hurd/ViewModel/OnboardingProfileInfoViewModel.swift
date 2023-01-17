@@ -27,10 +27,14 @@ class OnboardingProfileInfoViewModel: ObservableObject {
     }
     
     @Published var characterCount: Int = 0
+    @Published var selectedGender: String = ""
     
     @Published var selectedItem: PhotosPickerItem?
+    @Published var showfailedImageUploadAlert: Bool = false
     
     @Published var selectedPhotoData: Data?
+    
+    var gender: [String] = ["","Male", "Female", "Non-Binary"]
     
     
     init() {
