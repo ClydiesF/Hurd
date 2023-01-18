@@ -243,13 +243,13 @@
 				3BC9ECF9295D73BD004EFEEF /* SocialSignInButtonView.swift */,
 				3BC9ECFD295D7AE9004EFEEF /* TagView.swift */,
 				3BC9ECFF295D7C2D004EFEEF /* TripPreviewView.swift */,
+				3B603F182975FA8000E01D99 /* HurdView.swift */,
 				3BC9ED11295FB2F6004EFEEF /* GroupPlannerView.swift */,
 				3BC9ED16295FF829004EFEEF /* HurdSlidingTabView.swift */,
 				3B5C31B1296FD54A001354E6 /* AddTripFormView.swift */,
 				3B5C31B729723380001354E6 /* PlannerButton'.swift */,
 				3B5C31B929723459001354E6 /* MemberProfilePreview.swift */,
 				3B603F162975F55B00E01D99 /* TripDetailView.swift */,
-				3B603F182975FA8000E01D99 /* HurdView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

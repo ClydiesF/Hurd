@@ -19,22 +19,41 @@ class GroupPlannerViewModel: ObservableObject {
     
     @Published var errorMessage: String?
     
+    var timeRemaingTillTrip: String?
+    
     @Published var presentTripCancellationSheet: Bool = false
     
     init(trip: Trip, hurd: Hurd) {
         self.trip = trip
         self.hurd = hurd
+        
+        calculateTimeRemaining(from: trip.tripStartDate)
+    }
+    
+    func calculateTimeRemaining(from tripDate: Double) {
+        let dateFromDouble = Date(timeIntervalSince1970: tripDate)
+        let diffs = Calendar.current.dateComponents([.day,.hour, .weekOfYear, .month], from: Date(), to: dateFromDouble)
+        let arr = [diffs.month,diffs.weekOfYear,diffs.day, diffs.hour]
+        
+        timeRemaingTillTrip = "\(diffs.month ?? 0)M " + "\(diffs.weekOfYear ?? 0)W " + "\(diffs.day ?? 0)D " + "\(diffs.hour ?? 0)h "
     }
     
     // For Organizers.
     func cancelTrip() {
         // deletes an  field from the field propery or updates it less the person who is kicked out.
-        guard let tripID = trip.id else { return }
+        guard let tripID = trip.id, let hurdID = hurd.hurdID else { return }
+        
+        print("DEBUG: err \(hurdID) -\(tripID)")
         TRIP_REF.document(tripID).delete { err in
             if let err = err {
                 print("DEBUG: Erro removing  document: \(err)")
             } else {
                 print("DEBUG: Document successfully removed!")
+                HURD_REF.document(hurdID).delete { err in
+                    if let err = err {
+                        print("DEBUG: Erro removing  document: \(err)")
+                    }
+                }
             }
         }
     }

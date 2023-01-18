@@ -23,13 +23,16 @@ struct TripView: View {
                         EmptyView()
                     } else {
                         ForEach(vm.trips, id: \.id) { trip in
-                            NavigationLink(destination: {
-                                GroupPlannerView(vm: GroupPlannerViewModel(trip: trip, hurd: trip.hurd))
-                            }, label: {
-                                TripPreviewView(trip: trip, user: vm.user)
-                                    .padding(.horizontal)
-                                    .padding(.bottom, 10)
-                            })
+                            if let hurd = trip.hurd {
+                                NavigationLink(destination: {
+                                    GroupPlannerView(vm: GroupPlannerViewModel(trip: trip, hurd: hurd))
+                                }, label: {
+                                    TripPreviewView(trip: trip, user: vm.user)
+                                        .padding(.horizontal)
+                                        .padding(.bottom, 10)
+                                })
+                            }
+                    
                         }
                     }
                 case 1:

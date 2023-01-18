@@ -24,7 +24,7 @@ struct GroupPlannerView: View {
                             Color.black.opacity(0.1)
                         }
                     
-                    Label("5W 4D", systemImage: "clock")
+                    Label(vm.timeRemaingTillTrip ?? "", systemImage: "clock")
                         .font(.system(size: 14))
                         .foregroundColor(.black)
                         .padding(5)
@@ -60,23 +60,32 @@ struct GroupPlannerView: View {
                 Divider()
                     .padding(.bottom, 10)
                 
-                HurdView(organizer: $vm.organizer, members: $vm.members, tripDescription: vm.trip.tripDescription)
+                HurdView(organizer: $vm.organizer, members: $vm.members, trip: $vm.trip)
                 
                 Divider()
                     .padding(.bottom, 10)
                 
                 HStack(spacing: 15) {
+                    Button {
+                        vm.presentTripCancellationSheet = true
+                    } label: {
+                        Label("Cancel Trip", systemImage: "xmark")
+                            .foregroundColor(.red)
+                            .font(.system(size: 14))
+                            .padding(8)
+                            .background(Capsule().stroke(Color.red))
+                    }
                     
-                    Label("Cancel Trip", systemImage: "xmark")
-                        .foregroundColor(.red)
-                        .font(.system(size: 14))
-                        .padding(8)
-                        .background(Capsule().stroke(Color.red))
-                    
-                    Label("Edit Trip", systemImage: "pencil")
-                        .font(.system(size: 14))
-                        .padding(8)
-                        .background(Capsule().stroke(Color.gray.opacity(0.5)))
+                    NavigationLink {
+                        AddTripFormView(vm: returnPrepopulatedVM())
+                    } label: {
+                        Label("Edit Trip", systemImage: "pencil")
+                            .font(.system(size: 14))
+                            .padding(8)
+                            .background(Capsule().stroke(Color.gray.opacity(0.5)))
+                    }
+
+              
                  
                     Label("Share Trip", systemImage: "square.and.arrow.up")
                         .font(.system(size: 14))
@@ -91,8 +100,43 @@ struct GroupPlannerView: View {
                 vm.fetchMembers()
             }
         }
+        
+        .sheet(isPresented: $vm.presentTripCancellationSheet, content: {
+            VStack(alignment: .leading) {
+                Text("Are you sure?")
+                    .font(.largeTitle)
+                    .padding(.bottom, 10)
+                Text("Deleting this trip will remove this trip from everyone else in the Hurd as well.")
+                    .font(.system(size: 14))
+                    .foregroundColor(.gray)
+                    .padding(.bottom, 20)
+                
+                HStack {
+                    Button("Keep Trip") {
+                        // Dismiss
+                        vm.presentTripCancellationSheet = false
+                    }
+                    Spacer()
+                    Button("Cancel Trip") {
+                        // Dismiss
+                        vm.cancelTrip()
+                        vm.presentTripCancellationSheet = false
+                    }
+                }
+            }
+            .padding(.horizontal)
+            .presentationDetents([.height(220)])
+            .presentationDragIndicator(.visible)
+        })
         .navigationTitle("Trip Details")
         .navigationBarTitleDisplayMode(.large)
+    }
+    ///Func
+    
+    func returnPrepopulatedVM() -> AddTripFormViewModel {
+        let vm = AddTripFormViewModel()
+        vm.prepopulateValuesFrom(current: self.vm.trip)
+        return vm
     }
 }
 

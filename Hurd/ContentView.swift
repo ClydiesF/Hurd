@@ -65,7 +65,7 @@ struct ContentView: View {
    
         }
         .sheet(isPresented: $addTripFormPresented) {
-            AddTripFormView()
+            AddTripFormView(vm: AddTripFormViewModel())
         }
 
     }

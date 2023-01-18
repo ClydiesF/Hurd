@@ -10,7 +10,7 @@ import SwiftUI
 struct HurdView: View {
     @Binding var organizer: User?
     @Binding var members: [User]?
-    let tripDescription: String?
+    @Binding var trip: Trip
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -19,7 +19,7 @@ struct HurdView: View {
                     MemberProfilePreview(firstName: organizer.firstName, lastName: organizer.lastName, color: .bottleGreen, image: "mockAvatarImage", organizer: "Organizer")
                 }
             
-                Text(tripDescription ?? "Organizer has not entered a description for this trip")
+                Text((trip.tripDescription == "" ? "Organizer has not entered a description for this trip" : trip.tripDescription) ?? "")
                     .font(.system(size: 16))
             }
             
@@ -74,6 +74,6 @@ struct HurdView_Previews: PreviewProvider {
                                                                             User.mockUser1,
                                                                             User.mockUser1,
                                                                             User.mockUser1,
-                                                                            User.mockUser1]) , tripDescription: Trip.mockTrip2.tripDescription ?? "")
+                                                                            User.mockUser1]) , trip: .constant(Trip.mockTrip2))
     }
 }

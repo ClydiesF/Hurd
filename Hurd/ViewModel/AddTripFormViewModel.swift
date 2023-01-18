@@ -24,9 +24,18 @@ class AddTripFormViewModel: NSObject, ObservableObject {
     
     @Published var selectedTripType: String = ""
     @Published var selectedGender: String = ""
+    
+    @Published var formType: FormType = .add
+    
+    var currentEditableTripId: String?
 
     private var queryCancellable: AnyCancellable?
     private let searchCompleter: MKLocalSearchCompleter!
+    
+    enum FormType {
+        case add
+        case edit
+    }
     
     enum SearchStatus: Equatable {
         case idle
@@ -74,6 +83,35 @@ class AddTripFormViewModel: NSObject, ObservableObject {
         self.status = .idle
     }
     
+    func prepopulateValuesFrom(current trip: Trip) {
+        self.currentEditableTripId = trip.id
+        self.formType = .edit
+        self.tripDescriptionText = trip.tripDescription ?? ""
+        self.tripNameText = trip.tripName
+        self.tripStartDate = Date(timeIntervalSince1970: trip.tripStartDate)
+        self.tripEndDate = Date(timeIntervalSince1970: trip.tripEndDate)
+        self.tripLocationSearchQuery = trip.tripDestination
+        self.tripCostEstimate = trip.tripCostEstimate
+        self.selectedTripType = trip.tripType
+    }
+    
+    func editTrip() {
+        guard let tripId = self.currentEditableTripId else { return }
+        
+        let editedTrip = Trip(tripName: self.tripNameText,
+                              tripDestination: self.tripLocationSearchQuery,
+                              tripType: self.selectedTripType,
+                              tripCostEstimate: self.tripCostEstimate,
+                              tripStartDate: self.tripStartDate.timeIntervalSince1970,
+                              tripEndDate: self.tripEndDate.timeIntervalSince1970,
+                              tripDescription: self.tripDescriptionText == "" ? nil: self.tripDescriptionText )
+        do {
+            try TRIP_REF.document(tripId).setData(from: editedTrip,merge: true)
+        } catch(let err) {
+            print("DEBUG: err \(err.localizedDescription)")
+        }
+    }
+    
     func postTrip() {
         guard let userId = Auth.auth().currentUser?.uid else { return }
         
@@ -81,7 +119,9 @@ class AddTripFormViewModel: NSObject, ObservableObject {
         
         do {
             let ref = try HURD_REF.addDocument(from: newHurd)
-            newHurd.id = ref.documentID
+            newHurd.hurdID = ref.documentID
+            
+            print("DEBUG: difernece in UID's \(newHurd.id) - \(ref) ")
             let newTrip = Trip(tripName: self.tripNameText, tripDestination: self.tripLocationSearchQuery, tripType: self.selectedTripType, tripCostEstimate: self.tripCostEstimate, tripStartDate: self.tripStartDate.timeIntervalSince1970, tripEndDate: self.tripEndDate.timeIntervalSince1970, tripDescription: self.tripDescriptionText, hurd: newHurd)
             try TRIP_REF.document().setData(from: newTrip)
         } catch(let err) {

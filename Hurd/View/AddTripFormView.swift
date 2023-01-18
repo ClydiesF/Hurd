@@ -7,14 +7,19 @@
 import SwiftUI
 
 struct AddTripFormView: View {
-    @StateObject var vm = AddTripFormViewModel()
+    @ObservedObject var vm: AddTripFormViewModel
     
     var body: some View {
         ZStack(alignment: .topTrailing) {
             Button {
                 //code to post code to trips database\
                 print("post a trip to user, profile")
-                vm.postTrip()
+                switch vm.formType {
+                case .edit:
+                    vm.editTrip()
+                case .add:
+                    vm.postTrip()
+                }
             } label: {
                 ZStack(alignment: .leading) {
                     HStack {
@@ -22,7 +27,7 @@ struct AddTripFormView: View {
                             .foregroundColor(.white)
                      
                         
-                        Text("Post Trip")
+                        Text(vm.formType == .edit ? "Save Changes":"Post Trip")
                             .foregroundColor(.white)
                             .fontWeight(.semibold)
                             .padding(.trailing)
@@ -36,7 +41,7 @@ struct AddTripFormView: View {
 
             Form {
                 
-                Text("Add Trip")
+                Text(vm.formType == .edit ? "Edit Trip": "Add Trip")
                                 .font(.largeTitle)
                                 .fontWeight(.semibold)
                 TextField("Trip Name", text: $vm.tripNameText)
@@ -114,6 +119,6 @@ struct AddTripFormView: View {
 
 struct AddTripFormView_Previews: PreviewProvider {
     static var previews: some View {
-        AddTripFormView()
+        AddTripFormView(vm: AddTripFormViewModel())
     }
 }

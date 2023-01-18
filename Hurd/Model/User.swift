@@ -43,7 +43,7 @@ struct Trip: Codable {
     var tripStartDate: Double
     var tripEndDate: Double
     var tripDescription: String?
-    var hurd: Hurd // Reference
+    var hurd: Hurd?// Reference
     var suggestions: String? // Reference
     //Additional Details of a trip
 }
@@ -72,7 +72,7 @@ struct Hurd: Codable {
     var name: String?
     var members: [String]?
     var organizer: String
-    
+    var hurdID: String?
 }
 
 extension Hurd {
