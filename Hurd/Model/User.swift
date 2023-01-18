@@ -9,6 +9,21 @@ import Foundation
 import FirebaseFirestoreSwift
 
 
+
+enum NoteType {
+    case important
+    case generalNote
+    
+    var iconString: String {
+        switch self {
+        case .important:
+            return "exclamationmark.triangle.fill"
+        case .generalNote:
+            return "note.text"
+        }
+    }
+}
+
 struct User: Codable {
     var id: String?
     let createdAt: Double?

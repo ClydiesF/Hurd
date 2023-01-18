@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B4EB2652977A8C9008C26EF /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EB2642977A8C9008C26EF /* NotesView.swift */; };
+		3B4EB2672977B780008C26EF /* TripNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EB2662977B780008C26EF /* TripNotesView.swift */; };
 		3B530C9B2960F535002C272B /* DestinationSuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B530C9A2960F535002C272B /* DestinationSuggestionView.swift */; };
 		3B530C9D29622A99002C272B /* LodgingSuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B530C9C29622A99002C272B /* LodgingSuggestionsView.swift */; };
 		3B530C9F29623318002C272B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B530C9E29623318002C272B /* GoogleService-Info.plist */; };
@@ -73,6 +75,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B4EB2642977A8C9008C26EF /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
+		3B4EB2662977B780008C26EF /* TripNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripNotesView.swift; sourceTree = "<group>"; };
 		3B530C9A2960F535002C272B /* DestinationSuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationSuggestionView.swift; sourceTree = "<group>"; };
 		3B530C9C29622A99002C272B /* LodgingSuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LodgingSuggestionsView.swift; sourceTree = "<group>"; };
 		3B530C9E29623318002C272B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -250,6 +254,8 @@
 				3B5C31B729723380001354E6 /* PlannerButton'.swift */,
 				3B5C31B929723459001354E6 /* MemberProfilePreview.swift */,
 				3B603F162975F55B00E01D99 /* TripDetailView.swift */,
+				3B4EB2642977A8C9008C26EF /* NotesView.swift */,
+				3B4EB2662977B780008C26EF /* TripNotesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -415,6 +421,8 @@
 				3B5C31BA29723459001354E6 /* MemberProfilePreview.swift in Sources */,
 				3BC9ECE8295C1B02004EFEEF /* HurdIconButton.swift in Sources */,
 				3BC9ECE4295C06A5004EFEEF /* PrimaryHurdButton.swift in Sources */,
+				3B4EB2672977B780008C26EF /* TripNotesView.swift in Sources */,
+				3B4EB2652977A8C9008C26EF /* NotesView.swift in Sources */,
 				3B5C31B42970E4A8001354E6 /* AddTripFormViewModel.swift in Sources */,
 				3B8629F4296CEE4C0077DB92 /* OnboardingSliderView.swift in Sources */,
 				3BC9ED12295FB2F6004EFEEF /* GroupPlannerView.swift in Sources */,

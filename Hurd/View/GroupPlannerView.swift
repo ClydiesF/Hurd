@@ -45,10 +45,16 @@ struct GroupPlannerView: View {
                         .padding(8)
                         .background(Capsule().stroke(Color.gray.opacity(0.5)))
                     
-                    Label("Notes", systemImage: "note")
-                        .font(.system(size: 14))
-                        .padding(8)
-                        .background(Capsule().stroke(Color.gray.opacity(0.5)))
+                    NavigationLink {
+                        TripNotesView()
+                    } label: {
+                        Label("Notes", systemImage: "note")
+                            .font(.system(size: 14))
+                            .padding(8)
+                            .background(Capsule().stroke(Color.gray.opacity(0.5)))
+                    }
+
+                
                 }
                 .frame(height: 30)
                 .padding(.leading, 10)
