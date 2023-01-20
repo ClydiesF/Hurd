@@ -46,7 +46,7 @@ struct GroupPlannerView: View {
                         .background(Capsule().stroke(Color.gray.opacity(0.5)))
                     
                     NavigationLink {
-                        TripNotesView()
+                        TripNotesView(vm: vm)
                     } label: {
                         Label("Notes", systemImage: "note")
                             .font(.system(size: 14))

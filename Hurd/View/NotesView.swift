@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct NotesView: View {
-
+    let note:Note
+    
     var body: some View {
         HStack(alignment:.top, spacing: 15) {
             VStack(){
@@ -19,18 +20,18 @@ struct NotesView: View {
             // Text Title and Body
             VStack(alignment: .leading, spacing: 10) {
                 HStack {
-                    Text("PassPorts 🧨")
+                    Text(note.title)
                         .font(.system(size: 20))
                         .fontWeight(.semibold)
                     
                     Spacer()
                     
-                    Text("1/2/22 9:30am")
+                    Text("\(note.timestamp)")
                         .font(.caption2)
                         .foregroundColor(.black)
                 }
               
-                    Label("Important", systemImage: NoteType.important.iconString)
+                Label(note.noteType, systemImage: NoteType.important.iconString)
                         .font(.system(size: 12))
                         .padding(5)
                         .padding(.horizontal, 8)
@@ -38,7 +39,7 @@ struct NotesView: View {
             
            
                 
-                Text("Everyone please make sure that your bringing the passports or well we wont be able to go. ")
+                Text(note.body)
                     .font(.system(size: 14))
                     .foregroundColor(.gray)  
             }
@@ -51,7 +52,7 @@ struct NotesView: View {
 
 struct NotesView_Previews: PreviewProvider {
     static var previews: some View {
-        NotesView()
+        NotesView(note: Note.mockNote)
             .padding()
     }
 }

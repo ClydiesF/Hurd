@@ -10,9 +10,9 @@ import FirebaseFirestoreSwift
 
 
 
-enum NoteType {
-    case important
-    case generalNote
+enum NoteType: String, CaseIterable {
+    case important = "Important"
+    case generalNote = "General Note"
     
     var iconString: String {
         switch self {
@@ -89,6 +89,22 @@ struct Hurd: Codable {
     var organizer: String
     var hurdID: String?
 }
+
+struct Note: Codable, Hashable {
+    @DocumentID var id: String?
+    var title: String
+    var body: String
+    var noteType: String
+    var timestamp: Double
+    var authorID: String
+}
+
+extension Note {
+    static let mockNote = Note(id: UUID().uuidString, title: "Passport 🧨", body: "Everyone remember to bring your passports please", noteType: NoteType.important.rawValue, timestamp: 3434324233, authorID: UUID().uuidString)
+    
+    static let mockNote2 = Note(id: UUID().uuidString, title: "Hurd Rules 🦬", body: "Everyone remember to bring your passports please", noteType: NoteType.generalNote.rawValue, timestamp: 3434324233, authorID: UUID().uuidString)
+}
+
 
 extension Hurd {
     static let mockHurd = Hurd(organizer: "vwefwevewewe")

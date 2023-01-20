@@ -20,7 +20,7 @@ struct TripView: View {
                 switch vm.selection {
                 case 0:
                     if vm.trips.isEmpty {
-                        EmptyView()
+                        ProgressView()
                     } else {
                         ForEach(vm.trips, id: \.id) { trip in
                             if let hurd = trip.hurd {

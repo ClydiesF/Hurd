@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import Firebase
+import FirebaseFirestoreSwift
 
 class GroupPlannerViewModel: ObservableObject {
     
@@ -16,6 +17,15 @@ class GroupPlannerViewModel: ObservableObject {
     
     @Published var organizer: User?
     @Published var members: [User]?
+    
+    //Notes
+    @Published var notes: [Note]?
+    
+    @Published var title: String = ""
+    @Published var bodyText: String = ""
+    @Published var noteType: String = NoteType.generalNote.rawValue
+    
+    let noteTypes = ["Important", "General Note"]
     
     @Published var errorMessage: String?
     
@@ -58,6 +68,64 @@ class GroupPlannerViewModel: ObservableObject {
         }
     }
     
+    func addNote() {
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        
+        let dict: [String: Any] = ["title": self.title,
+                                   "body": self.bodyText ,
+                                   "noteType": self.noteType,
+                                       "authorID": userID,
+                                       "timestamp": Date().timeIntervalSince1970
+            ]
+            
+            _ = TRIP_REF.document(self.trip.id ?? "").collection("Notes").addDocument(data: dict)
+    }
+    
+    func fetchNotes() {
+        TRIP_REF.document(self.trip.id ?? "").collection("Notes").addSnapshotListener { snapshot, err in
+            if let err = err  {
+                print("DEBUG: \(err.localizedDescription)")
+                return
+            }
+            
+            guard let docs = snapshot?.documents else {
+                self.errorMessage = "No Docs"
+                return
+            }
+            
+            var notes = docs.compactMap { doc in
+                let result = Result { try doc.data(as: Note.self) }
+                
+                switch result {
+                case .success(let note):
+                    //self.errorMessage = nil
+                    return note
+                case .failure(let err):
+                    switch err {
+                    case DecodingError.typeMismatch(_, let context):
+                        self.errorMessage = "\(err.localizedDescription): \(context.debugDescription)"
+                        print("DEBUG: err getting docs- \(err.localizedDescription)")
+                    case DecodingError.valueNotFound(_, let context):
+                        self.errorMessage = "\(err.localizedDescription): \(context.debugDescription)"
+                        print("DEBUG: err getting docs- \(err.localizedDescription)")
+                    case DecodingError.keyNotFound(_, let context):
+                        self.errorMessage = "\(err.localizedDescription): \(context.debugDescription)"
+                        print("DEBUG: err getting docs- \(err.localizedDescription)")
+                    case DecodingError.dataCorrupted(let key):
+                        self.errorMessage = "\(err.localizedDescription): \(key)"
+                        print("DEBUG: err getting docs- \(err.localizedDescription)")
+                    default:
+                        self.errorMessage = "Error decoding document: \(err.localizedDescription)"
+                        print("DEBUG: err getting docs- \(err.localizedDescription)")
+                    }
+                    return nil
+                }
+            }
+            self.notes = notes
+        }
+    }
+    
+    
     // For Members
     func leaveTrip() {
         //deltes the trip document
@@ -67,23 +135,24 @@ class GroupPlannerViewModel: ObservableObject {
         var userIDs: [String] = [self.hurd.organizer]
         
         USER_REF.whereField("id", in: userIDs).getDocuments { snapshot, err in
-            
             if let err = err  {
                 print("DEBUG: \(err.localizedDescription)")
                 return
             }
+            
             guard let docs = snapshot?.documents else {
                 self.errorMessage = "No Docs"
                 return
             }
+    
             
-        var users = docs.compactMap { doc in
+            var users = docs.compactMap { doc in
                 let result = Result { try doc.data(as: User.self) }
                 
                 switch result {
                 case .success(let user):
-                        //self.errorMessage = nil
-                         return user
+                    //self.errorMessage = nil
+                    return user
                 case .failure(let err):
                     switch err {
                     case DecodingError.typeMismatch(_, let context):
@@ -107,7 +176,6 @@ class GroupPlannerViewModel: ObservableObject {
             }
             self.organizer = users.popLast()
             self.members = users
-        }
-       
+        }   
     }
 }

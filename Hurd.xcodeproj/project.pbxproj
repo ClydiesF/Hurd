@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		3B4EB2652977A8C9008C26EF /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EB2642977A8C9008C26EF /* NotesView.swift */; };
 		3B4EB2672977B780008C26EF /* TripNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EB2662977B780008C26EF /* TripNotesView.swift */; };
+		3B4EB26A2978D9AB008C26EF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3B4EB2692978D9AB008C26EF /* Alamofire */; };
+		3B4EB26D297911A9008C26EF /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3B4EB26C297911A9008C26EF /* SkeletonUI */; };
+		3B4EB2702979133B008C26EF /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 3B4EB26F2979133B008C26EF /* PopupView */; };
+		3B4EB272297A2AA8008C26EF /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EB271297A2AA8008C26EF /* AddNoteView.swift */; };
 		3B530C9B2960F535002C272B /* DestinationSuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B530C9A2960F535002C272B /* DestinationSuggestionView.swift */; };
 		3B530C9D29622A99002C272B /* LodgingSuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B530C9C29622A99002C272B /* LodgingSuggestionsView.swift */; };
 		3B530C9F29623318002C272B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B530C9E29623318002C272B /* GoogleService-Info.plist */; };
@@ -77,6 +81,7 @@
 /* Begin PBXFileReference section */
 		3B4EB2642977A8C9008C26EF /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
 		3B4EB2662977B780008C26EF /* TripNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripNotesView.swift; sourceTree = "<group>"; };
+		3B4EB271297A2AA8008C26EF /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
 		3B530C9A2960F535002C272B /* DestinationSuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationSuggestionView.swift; sourceTree = "<group>"; };
 		3B530C9C29622A99002C272B /* LodgingSuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LodgingSuggestionsView.swift; sourceTree = "<group>"; };
 		3B530C9E29623318002C272B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -133,7 +138,9 @@
 				3B530CBA296234E8002C272B /* FirebaseInAppMessaging-Beta in Frameworks */,
 				3B530CAA296234E8002C272B /* FirebaseAuthCombine-Community in Frameworks */,
 				3B530CA8296234E8002C272B /* FirebaseAuth in Frameworks */,
+				3B4EB26D297911A9008C26EF /* SkeletonUI in Frameworks */,
 				3B530CB6296234E8002C272B /* FirebaseFunctions in Frameworks */,
+				3B4EB26A2978D9AB008C26EF /* Alamofire in Frameworks */,
 				3B530CB2296234E8002C272B /* FirebaseFirestoreCombine-Community in Frameworks */,
 				3B530CC4296234E8002C272B /* FirebaseStorageCombine-Community in Frameworks */,
 				3B530CAE296234E8002C272B /* FirebaseDynamicLinks in Frameworks */,
@@ -141,6 +148,7 @@
 				3B530CBC296234E8002C272B /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
 				3B530CC0296234E8002C272B /* FirebaseRemoteConfigSwift in Frameworks */,
 				3B530CB4296234E8002C272B /* FirebaseFirestoreSwift in Frameworks */,
+				3B4EB2702979133B008C26EF /* PopupView in Frameworks */,
 				3B530CC2296234E8002C272B /* FirebaseStorage in Frameworks */,
 				3B530CAC296234E8002C272B /* FirebaseCrashlytics in Frameworks */,
 				3B530CB8296234E8002C272B /* FirebaseFunctionsCombine-Community in Frameworks */,
@@ -256,6 +264,7 @@
 				3B603F162975F55B00E01D99 /* TripDetailView.swift */,
 				3B4EB2642977A8C9008C26EF /* NotesView.swift */,
 				3B4EB2662977B780008C26EF /* TripNotesView.swift */,
+				3B4EB271297A2AA8008C26EF /* AddNoteView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -347,6 +356,9 @@
 				3B530CBF296234E8002C272B /* FirebaseRemoteConfigSwift */,
 				3B530CC1296234E8002C272B /* FirebaseStorage */,
 				3B530CC3296234E8002C272B /* FirebaseStorageCombine-Community */,
+				3B4EB2692978D9AB008C26EF /* Alamofire */,
+				3B4EB26C297911A9008C26EF /* SkeletonUI */,
+				3B4EB26F2979133B008C26EF /* PopupView */,
 			);
 			productName = Hurd;
 			productReference = 3BC9ECCC295C0372004EFEEF /* Hurd.app */;
@@ -379,6 +391,9 @@
 			packageReferences = (
 				3BC9ED13295FEC8E004EFEEF /* XCRemoteSwiftPackageReference "SlidingTabView" */,
 				3B530CA0296234E8002C272B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				3B4EB2682978D9AB008C26EF /* XCRemoteSwiftPackageReference "Alamofire" */,
+				3B4EB26B297911A9008C26EF /* XCRemoteSwiftPackageReference "SkeletonUI" */,
+				3B4EB26E2979133B008C26EF /* XCRemoteSwiftPackageReference "PopupView" */,
 			);
 			productRefGroup = 3BC9ECCD295C0372004EFEEF /* Products */;
 			projectDirPath = "";
@@ -417,6 +432,7 @@
 				3BC9ED09295ED465004EFEEF /* ChatDmView.swift in Sources */,
 				3B530C9D29622A99002C272B /* LodgingSuggestionsView.swift in Sources */,
 				3B5C31BC2972957B001354E6 /* GroupPlannerViewModel.swift in Sources */,
+				3B4EB272297A2AA8008C26EF /* AddNoteView.swift in Sources */,
 				3B603F152975B00A00E01D99 /* TripsViewModel.swift in Sources */,
 				3B5C31BA29723459001354E6 /* MemberProfilePreview.swift in Sources */,
 				3BC9ECE8295C1B02004EFEEF /* HurdIconButton.swift in Sources */,
@@ -652,6 +668,30 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3B4EB2682978D9AB008C26EF /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		3B4EB26B297911A9008C26EF /* XCRemoteSwiftPackageReference "SkeletonUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CSolanaM/SkeletonUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		3B4EB26E2979133B008C26EF /* XCRemoteSwiftPackageReference "PopupView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/PopupView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		3B530CA0296234E8002C272B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -671,6 +711,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3B4EB2692978D9AB008C26EF /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B4EB2682978D9AB008C26EF /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		3B4EB26C297911A9008C26EF /* SkeletonUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B4EB26B297911A9008C26EF /* XCRemoteSwiftPackageReference "SkeletonUI" */;
+			productName = SkeletonUI;
+		};
+		3B4EB26F2979133B008C26EF /* PopupView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B4EB26E2979133B008C26EF /* XCRemoteSwiftPackageReference "PopupView" */;
+			productName = PopupView;
+		};
 		3B530CA1296234E8002C272B /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3B530CA0296234E8002C272B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
