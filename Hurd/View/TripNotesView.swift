@@ -32,7 +32,7 @@ struct TripNotesView: View {
             }
            
             ForEach(vm.notes?.filter {$0.noteType == vm.noteTypes[selection]} ?? [], id: \.self) { note in
-                NotesView(note: note)
+                NotesView(note: note , vm: vm)
             }
             Spacer()
         }
@@ -44,6 +44,7 @@ struct TripNotesView: View {
         .onAppear {
             vm.fetchNotes()
         }
+        .animation(.easeInOut, value: vm.notes)
     }
 }
 

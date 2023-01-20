@@ -29,6 +29,8 @@ class GroupPlannerViewModel: ObservableObject {
     
     @Published var errorMessage: String?
     
+    @Published var noteSuccessDeleted: Bool = false
+    
     var timeRemaingTillTrip: String?
     
     @Published var presentTripCancellationSheet: Bool = false
@@ -66,6 +68,18 @@ class GroupPlannerViewModel: ObservableObject {
                 }
             }
         }
+    }
+    
+    
+    func deleteNote(with noteId: String) {
+        _ = TRIP_REF.document(self.trip.id ?? "").collection("Notes").document(noteId).delete(completion: { err in
+            if let err = err  {
+                print("DEBUG: \(err.localizedDescription)")
+                return
+            }
+            self.noteSuccessDeleted = true
+            
+        })
     }
     
     func addNote() {
