@@ -11,7 +11,7 @@ import FirebaseAuth
 struct ContentView: View {
     
     @State var selection = 0
-    @ObservedObject var vm = AddTripFormViewModel()
+    @StateObject var vm = AddTripFormViewModel()
     @EnvironmentObject var authVM: AuthenticationViewModel
     
     var body: some View {
