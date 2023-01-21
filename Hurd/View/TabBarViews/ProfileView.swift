@@ -18,84 +18,82 @@ struct ProfileView: View {
     
     
     var body: some View {
-        VStack(alignment: .center) {
-            Text("Profile")
-                .font(.largeTitle)
-                .fontWeight(.heavy)
-                .padding(.horizontal)
-            
-            HStack(alignment: .top, spacing: 0) {
-                ZStack(alignment: .topTrailing) {
-                    Image("mockAvatarImage")
-                        .resizable()
-                        .frame(width: 120, height: 150)
-                        .cornerRadius(10)
-                    
-                    
-                    Image(systemName: "checkmark.seal.fill")
-                        .foregroundColor(.bottleGreen)
-                        .font(.title3)
-                        .offset(x: 10, y: -10)
+        NavigationStack {
+            VStack(spacing: 8) {
+                ZStack {
+                    Rectangle()
+                        .fill(Color.bottleGreen)
+                        .ignoresSafeArea()
+
+                    VStack {
+                        Spacer()
+                        Image("mockAvatarImage")
+                            .resizable()
+                            .frame(width: 130, height: 130)
+                            .clipShape(Circle())
+
+                        Text("Boomy Freeman")
+                            .font(.system(size: 25))
+                            .foregroundColor(.white)
+                            .fontWeight(.semibold)
+
+                        Text("Joined Jan 2011")
+                            .font(.system(size: 14))
+                            .foregroundColor(.white)
+                            .fontWeight(.semibold)
+                            .padding(.vertical,5)
+                            .padding(.horizontal,15)
+                            .background(Capsule().fill(Color.black.opacity(0.5)))
+                            .padding(.bottom, Spacing.twentyone)
+
+                    }
                 }
- 
-                Spacer()
+                .frame(height: UIScreen.main.bounds.size.height * 0.3)
                 
-                VStack(alignment: .leading, spacing: 0) {
-                    Text("Boomy Freeman")
-                        .font(.title3)
-                        .fontWeight(.bold)
-                    
-                    Text("I love to travel to nice places and being able to hang out with a bunch of ppl. I like to drink and party hard like the rest of us. I love it so much.")
-                        .font(.caption)
-                        .multilineTextAlignment(.center)
-                        .padding(10)
-                        .background(Color.gray.opacity(0.1))
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .padding(.top, 5)
-                    
+                HStack {
+                    VStack(alignment: .leading, spacing: Spacing.eight) {
+                        Label("617-233-1242", systemImage: "phone.fill")
+                            .font(.system(size: 14))
+                        
+                        Label("Boston, MA", systemImage: "location.fill")
+                            .font(.system(size: 14))
+                        
+                        Label("c.edward.freeman@gmail.com", systemImage: "envelope.fill")
+                            .font(.system(size: 14))
+                            .tint(.black)
+                        
+                        Text("He/Him")
+                            .font(.system(size: 14))
+                        
+                        Text("African-American")
+                            .font(.system(size: 14))
+                    }
                     Spacer()
                 }
+                .padding(.horizontal, Spacing.twentyone)
+     
+                Text("I Love to travel to nice placesd and being able to hang out witha bunch of ppl. I Like to drink and part hard like the rest of us. i Love it so much,")
+                    .font(.system(size: 14))
+                    .padding()
+                    .background(Color.gray.opacity(0.1))
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .padding(.horizontal, Spacing.twentyone)
+        
+      
+                Spacer()
             }
-            .padding(.horizontal)
-            .frame(height: 160)
-            
-            HStack {
-         
-                   Label("Boston, MA", systemImage: "mappin")
-                        .font(.caption)
-                        .padding(5)
-                        .background(Capsule().stroke(Color.gray,lineWidth: 1))
-                
-                Label("Sept 2022", systemImage: "birthday.cake.fill")
-                     .font(.caption)
-                     .padding(5)
-                     .background(Capsule().stroke(Color.gray,lineWidth: 1))
-                
-                Label("617-233-1242", systemImage: "phone")
-                     .font(.caption)
-                     .padding(5)
-                     .background(Capsule().stroke(Color.gray,lineWidth: 1))
-              
-            
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+               
+                    NavigationLink {
+                        EmptyView()
+                    } label: {
+                        Image(systemName: "square.and.pencil")
+                            .foregroundColor(.white)
+                    }}
             }
-
-            // Slider ////
-            HurdSlidingTabView(selection: $selectedTabIndex, tabs: tabs,activeAccentColor: .bottleGreen, selectionBarColor: .bottleGreen)
-//            Picker("What is your favorite color?", selection: $selectedTabIndex) {
-//                Image(systemName: "globe.americas")
-//                    .tag(0)
-//                Image(systemName: "rectangle.3.group.bubble.left").tag(1)
-//
-//            }
-//            .pickerStyle(.segmented)// Slider View
-            
-            switch self.selectedTabIndex {
-            case 0: Color.bottleGreen.ignoresSafeArea()
-            case 1: Color.red.ignoresSafeArea()
-            default: Color.black.ignoresSafeArea()
-            }
-            
         }
+      
     }
 }
 
