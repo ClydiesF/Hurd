@@ -12,15 +12,17 @@ struct AddTripFormView: View {
     var body: some View {
         ZStack(alignment: .topTrailing) {
             Button {
-                //code to post code to trips database\
-                print("post a trip to user, profile")
-                switch vm.formType {
-                case .edit:
-                    vm.editTrip()
-                case .add:
-                    vm.postTrip()
+                if vm.fieldsArePopulated {
+                    //code to post code to trips database\
+                    print("post a trip to user, profile")
+                    switch vm.formType {
+                    case .edit:
+                        vm.editTrip()
+                    case .add:
+                        vm.postTrip()
+                    }
+                    vm.addTripFormPresented = false
                 }
-                vm.addTripFormPresented = false
             } label: {
                 ZStack(alignment: .leading) {
                     HStack {
@@ -34,11 +36,12 @@ struct AddTripFormView: View {
                             .padding(.trailing)
                     }
                     .padding(10)
-                    .background(Capsule().fill(Color.bottleGreen))// turn green after validation
+                    .background(Capsule().fill(vm.fieldsArePopulated ? Color.bottleGreen : Color.gray))
                 }
             }
             .padding(.trailing)
             .zIndex(99)
+            .disabled(!vm.fieldsArePopulated)
 
             Form {
                 

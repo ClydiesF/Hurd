@@ -29,6 +29,10 @@ class AddTripFormViewModel: NSObject, ObservableObject {
     
     @Published var addTripFormPresented: Bool = false
     
+    var fieldsArePopulated: Bool {
+        !tripNameText.isEmpty && !tripLocationSearchQuery.isEmpty && !selectedTripType.isEmpty && !tripDescriptionText.isEmpty && !tripCostEstimate.isZero
+    }
+    
     var currentEditableTripId: String?
 
     private var queryCancellable: AnyCancellable?
@@ -57,7 +61,6 @@ class AddTripFormViewModel: NSObject, ObservableObject {
         case none = ""
     }
     
- 
    
     var tripTypes: [String] = ["","Vacation", "Cruise", "Road Trip", "Adventure", "Business", "Excursion"]
     
