@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct TripPreviewView: View {
+    
+    @Binding var isPastTrip: Bool
+    
     let trip: Trip
     var user: User?
     
@@ -18,6 +21,7 @@ struct TripPreviewView: View {
                     .resizable()
                     .frame(height: 170)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .grayscale(isPastTrip ? 1 : 0)
                 
                 Image(systemName: trip.iconName)
                     .foregroundColor(.white)
@@ -79,9 +83,9 @@ struct TripPreviewView: View {
     }
 }
 
-struct TripPreviewView_Previews: PreviewProvider {
-    static var previews: some View {
-        TripPreviewView(trip: Trip.mockTrip2)
-            .padding()
-    }
-}
+//struct TripPreviewView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TripPreviewView(isPastTrip: true, trip: Trip.mockTrip2)
+//            .padding()
+//    }
+//}

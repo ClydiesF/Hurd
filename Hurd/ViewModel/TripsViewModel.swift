@@ -7,19 +7,29 @@
 
 import Foundation
 import Firebase
-
+import Combine
 
 class TripViewModel : ObservableObject {
     
     @Published var trips: [Trip] = []
+    @Published var currentDate = Date().timeIntervalSince1970
     @Published var viewDidLoad: Bool = false
     @Published var user: User?
     @Published var selection: Int = 0
     
     @Published var errorMessage: String?
     
+    @Published var isPastTrip: Bool = false
+    
     
     private var listenerRegistration: ListenerRegistration?
+    
+    init() {
+        $selection
+            .receive(on: RunLoop.main)
+            .map { $0 == 1 ? true : false }
+            .assign(to: &$isPastTrip)
+    }
     
     func getUser() {
         guard let currentUserID = Auth.auth().currentUser?.uid else { return }

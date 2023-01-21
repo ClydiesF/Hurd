@@ -27,7 +27,7 @@ struct TripView: View {
                                 NavigationLink(destination: {
                                     GroupPlannerView(vm: GroupPlannerViewModel(trip: trip, hurd: hurd))
                                 }, label: {
-                                    TripPreviewView(trip: trip, user: vm.user)
+                                    TripPreviewView(isPastTrip: $vm.isPastTrip, trip: trip, user: vm.user)
                                         .padding(.horizontal)
                                         .padding(.bottom, 10)
                                 })
@@ -36,7 +36,22 @@ struct TripView: View {
                         }
                     }
                 case 1:
-                    EmptyView()
+                    if vm.trips.filter { $0.tripEndDate < vm.currentDate }.isEmpty {
+                        ProgressView()
+                    } else {
+                        ForEach(vm.trips.filter { $0.tripEndDate < vm.currentDate }, id: \.id) { trip in
+                            if let hurd = trip.hurd {
+                                NavigationLink(destination: {
+                                    GroupPlannerView(vm: GroupPlannerViewModel(trip: trip, hurd: hurd))
+                                }, label: {
+                                    TripPreviewView(isPastTrip: $vm.isPastTrip, trip: trip, user: vm.user)
+                                        .padding(.horizontal)
+                                        .padding(.bottom, 10)
+                                })
+                            }
+                    
+                        }
+                    }
                 default:
                     EmptyView()
                 }
