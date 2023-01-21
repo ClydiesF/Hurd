@@ -35,6 +35,8 @@ class GroupPlannerViewModel: ObservableObject {
     
     @Published var presentTripCancellationSheet: Bool = false
     
+    @Published var showAddNoteForm: Bool = false
+    
     init(trip: Trip, hurd: Hurd) {
         self.trip = trip
         self.hurd = hurd
@@ -93,6 +95,8 @@ class GroupPlannerViewModel: ObservableObject {
             ]
             
             _ = TRIP_REF.document(self.trip.id ?? "").collection("Notes").addDocument(data: dict)
+        
+        showAddNoteForm = false
     }
     
     func fetchNotes() {
