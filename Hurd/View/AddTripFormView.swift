@@ -20,6 +20,7 @@ struct AddTripFormView: View {
                 case .add:
                     vm.postTrip()
                 }
+                vm.addTripFormPresented = false
             } label: {
                 ZStack(alignment: .leading) {
                     HStack {
