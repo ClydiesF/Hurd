@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct TripNotesView: View {
-    @ObservedObject var vm: GroupPlannerViewModel
+    @StateObject var vm: GroupPlannerViewModel
     @State var selection: Int = 0
-    @State var showAddNoteForm: Bool = false
     
     var body: some View {
         VStack(spacing: 10) {
@@ -20,7 +19,7 @@ struct TripNotesView: View {
                 
                 Button {
                     // toogle for full screen
-                    showAddNoteForm = true
+                    vm.showAddNoteForm = true
                     
                 } label: {
                     Label("Add Note", systemImage: "note.text")
@@ -36,7 +35,7 @@ struct TripNotesView: View {
             }
             Spacer()
         }
-        .sheet(isPresented: $showAddNoteForm, content: {
+        .sheet(isPresented: $vm.showAddNoteForm, content: {
             AddNoteView(vm: vm)
         })
         .padding(.horizontal)
