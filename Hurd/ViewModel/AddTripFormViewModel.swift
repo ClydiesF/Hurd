@@ -27,6 +27,8 @@ class AddTripFormViewModel: NSObject, ObservableObject {
     
     @Published var formType: FormType = .add
     
+    @Published var addTripFormPresented: Bool = false
+    
     var currentEditableTripId: String?
 
     private var queryCancellable: AnyCancellable?

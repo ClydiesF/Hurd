@@ -11,7 +11,7 @@ import FirebaseAuth
 struct ContentView: View {
     
     @State var selection = 0
-    @State var addTripFormPresented: Bool = false
+    @StateObject var vm = AddTripFormViewModel()
     @EnvironmentObject var authVM: AuthenticationViewModel
     
     var body: some View {
@@ -50,7 +50,7 @@ struct ContentView: View {
             
             //2
             Button {
-                addTripFormPresented = true
+                vm.addTripFormPresented = true
             } label: {
                 Image(systemName: "plus")
                     .foregroundColor(.white)
@@ -64,8 +64,8 @@ struct ContentView: View {
             .offset(x: -Spacing.twentyfour, y: -Spacing.sixtyfour)
    
         }
-        .sheet(isPresented: $addTripFormPresented) {
-            AddTripFormView(vm: AddTripFormViewModel())
+        .sheet(isPresented: $vm.addTripFormPresented) {
+            AddTripFormView(vm: vm)
         }
 
     }
