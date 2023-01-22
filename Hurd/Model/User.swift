@@ -29,7 +29,9 @@ struct User: Codable {
     let createdAt: Double?
     let isFinishedOnboarding: Bool
     let emailAddress: String?
-    let phoneNumber: String
+    let phoneNumber: String?
+    let gender: String?
+    let ethnicity: String?
     let bio: String
     let firstName: String
     let lastName: String
@@ -38,15 +40,15 @@ struct User: Codable {
 }
 
 extension User {
-    static let mockUser1 = User(id: "1",createdAt: 33424332432, isFinishedOnboarding: true, emailAddress: "c.edward.freeman@gmail.com", phoneNumber: "617-233-1242", bio: "I really like alot of ppl. that i liek to go over the same thing i want to get some money and i like more money than i have mow. lets go!", firstName: "Clyde", lastName: "Freeman", profileImageUrl: "mockAvatarImage")
+    static let mockUser1 = User(id: "1",createdAt: 33424332432, isFinishedOnboarding: true, emailAddress: "c.edward.freeman@gmail.com", phoneNumber: "617-233-1242", gender: "I really like alot of ppl. that i liek to go over the same thing i want to get some money and i like more money than i have mow. lets go!", ethnicity: "Clyde", bio: "Freeman", firstName: "mockAvatarImage", lastName: "", profileImageUrl: "")
     
-    static let mockUser2 = User(id: "2",createdAt: 33424332432, isFinishedOnboarding: true, emailAddress: "c.edward.freeman@gmail.com", phoneNumber: "617-233-1242", bio: "I really like alot of ppl. that i liek to go over the same thing i want to get some money and i like more money than i have mow. lets go!", firstName: "Clyde", lastName: "Freeman", profileImageUrl: "mockAvatarImage")
+    static let mockUser2 = User(id: "2",createdAt: 33424332432, isFinishedOnboarding: true, emailAddress: "c.edward.freeman@gmail.com", phoneNumber: "617-233-1242", gender: "I really like alot of ppl. that i liek to go over the same thing i want to get some money and i like more money than i have mow. lets go!", ethnicity: "Clyde", bio: "Freeman", firstName: "mockAvatarImage", lastName: "", profileImageUrl: "")
     
-    static let mockUser3 = User(id: "3",createdAt: 33424332432, isFinishedOnboarding: true, emailAddress: "c.edward.freeman@gmail.com", phoneNumber: "617-233-1242", bio: "I really like alot of ppl. that i liek to go over the same thing i want to get some money and i like more money than i have mow. lets go!", firstName: "Clyde", lastName: "Freeman", profileImageUrl: "mockAvatarImage")
+    static let mockUser3 = User(id: "3",createdAt: 33424332432, isFinishedOnboarding: true, emailAddress: "c.edward.freeman@gmail.com", phoneNumber: "617-233-1242", gender: "I really like alot of ppl. that i liek to go over the same thing i want to get some money and i like more money than i have mow. lets go!", ethnicity: "Clyde", bio: "Freeman", firstName: "mockAvatarImage",  lastName: "", profileImageUrl: "")
     
-    static let mockUser4 = User(id: "4",createdAt: 33424332432, isFinishedOnboarding: true, emailAddress: "c.edward.freeman@gmail.com", phoneNumber: "617-233-1242", bio: "I really like alot of ppl. that i liek to go over the same thing i want to get some money and i like more money than i have mow. lets go!", firstName: "Clyde", lastName: "Freeman", profileImageUrl: "mockAvatarImage")
+    static let mockUser4 = User(id: "4",createdAt: 33424332432, isFinishedOnboarding: true, emailAddress: "c.edward.freeman@gmail.com", phoneNumber: "617-233-1242", gender: "I really like alot of ppl. that i liek to go over the same thing i want to get some money and i like more money than i have mow. lets go!", ethnicity: "Clyde", bio: "Freeman", firstName: "mockAvatarImage",  lastName: "", profileImageUrl: "")
     
-    static let mockUser5 = User(id: "5",createdAt: 33424332432, isFinishedOnboarding: true, emailAddress: "c.edward.freeman@gmail.com", phoneNumber: "617-233-1242", bio: "I really like alot of ppl. that i liek to go over the same thing i want to get some money and i like more money than i have mow. lets go!", firstName: "Clyde", lastName: "Freeman", profileImageUrl: "mockAvatarImage")
+    static let mockUser5 = User(id: "5",createdAt: 33424332432, isFinishedOnboarding: true, emailAddress: "c.edward.freeman@gmail.com", phoneNumber: "617-233-1242", gender: "I really like alot of ppl. that i liek to go over the same thing i want to get some money and i like more money than i have mow. lets go!", ethnicity: "Clyde", bio: "Freeman", firstName: "mockAvatarImage",  lastName: "", profileImageUrl: "")
 }
 
 struct Trip: Codable {
@@ -148,7 +150,6 @@ extension Trip {
     }
     
     var dateRangeString: String {
-        
         let startDate = Date(timeIntervalSince1970: self.tripStartDate)
         let endDate = Date(timeIntervalSince1970: self.tripEndDate)
         

@@ -43,6 +43,8 @@ class OnboardingProfileInfoViewModel: ObservableObject {
                 return char.count
             }
             .assign(to: &$characterCount)
+        
+       
     }
     
     func addOnboardingInfoData(completion: @escaping(Bool) -> Void) {
