@@ -14,6 +14,7 @@
 		3B4EB2702979133B008C26EF /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 3B4EB26F2979133B008C26EF /* PopupView */; };
 		3B4EB272297A2AA8008C26EF /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EB271297A2AA8008C26EF /* AddNoteView.swift */; };
 		3B4EB275297A66C7008C26EF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3B4EB274297A66C7008C26EF /* Kingfisher */; };
+		3B4EB277297BEB1D008C26EF /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EB276297BEB1D008C26EF /* EditProfileView.swift */; };
 		3B530C9B2960F535002C272B /* DestinationSuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B530C9A2960F535002C272B /* DestinationSuggestionView.swift */; };
 		3B530C9D29622A99002C272B /* LodgingSuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B530C9C29622A99002C272B /* LodgingSuggestionsView.swift */; };
 		3B530C9F29623318002C272B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B530C9E29623318002C272B /* GoogleService-Info.plist */; };
@@ -83,6 +84,7 @@
 		3B4EB2642977A8C9008C26EF /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
 		3B4EB2662977B780008C26EF /* TripNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripNotesView.swift; sourceTree = "<group>"; };
 		3B4EB271297A2AA8008C26EF /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
+		3B4EB276297BEB1D008C26EF /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		3B530C9A2960F535002C272B /* DestinationSuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationSuggestionView.swift; sourceTree = "<group>"; };
 		3B530C9C29622A99002C272B /* LodgingSuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LodgingSuggestionsView.swift; sourceTree = "<group>"; };
 		3B530C9E29623318002C272B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				3B4EB2642977A8C9008C26EF /* NotesView.swift */,
 				3B4EB2662977B780008C26EF /* TripNotesView.swift */,
 				3B4EB271297A2AA8008C26EF /* AddNoteView.swift */,
+				3B4EB276297BEB1D008C26EF /* EditProfileView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B4EB277297BEB1D008C26EF /* EditProfileView.swift in Sources */,
 				3BC9ECD2295C0372004EFEEF /* ContentView.swift in Sources */,
 				3BC9ED05295ED42C004EFEEF /* SearchView.swift in Sources */,
 				3BC9ED17295FF829004EFEEF /* HurdSlidingTabView.swift in Sources */,

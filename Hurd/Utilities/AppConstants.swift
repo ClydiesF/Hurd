@@ -8,18 +8,6 @@
 import Foundation
 import Firebase
 import FirebaseStorage
-import os
-
-extension Logger {
-    static let subsystem = "com.HCHO.Hurd"
-
-    // Logger for the Trip model class.
-    static let tripsLogger = Logger(
-      subsystem: subsystem,
-      category: "TripModel"
-    )
-}
-
 
 //firestore
 let db = Firestore.firestore()

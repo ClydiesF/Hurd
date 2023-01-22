@@ -13,6 +13,7 @@ struct ContentView: View {
     @State var selection = 0
     @StateObject var vm = AddTripFormViewModel()
     @EnvironmentObject var authVM: AuthenticationViewModel
+
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -29,7 +30,7 @@ struct ContentView: View {
                     Text("Settings")
                 }.tag(1)
                 
-                ProfileView().tabItem {
+                ProfileView(vm: ProfileViewModel(user: authVM.user!)).tabItem {
                     Image(systemName: "person.crop.circle")
                     Text("Profile")
                 }.tag(2)
@@ -167,25 +168,3 @@ struct FloatingTabbar: View {
       
     }
 }
-
-//        ZStack() {
-//            switch self.selected {
-//            case 0:
-//                DiscoveryView()
-//            case 1:
-//                GroupPlannerView()
-//            case 2:
-//                AddTripView()
-//            case 3:
-//                ChatDmView()
-//            case 4:
-//                ProfileView()
-//            default:
-//                DiscoveryView()
-//            }
-//
-//            VStack {
-//                Spacer()
-//                FloatingTabbar(selected: $selection)
-//            }
-//        }

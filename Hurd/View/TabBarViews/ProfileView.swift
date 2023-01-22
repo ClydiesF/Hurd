@@ -6,16 +6,12 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ProfileView: View {
     
-    let dataTags = ["Boston,MA","Joined Sept 2022","617-233-1242", "Born Sep 18, 2022","Partying"]
-    
     @State private var selectedTabIndex = 0
-    let tabs = ["globe.americas.fill",
-                "rectangle.3.group",
-    ]
-    
+    @ObservedObject var vm: ProfileViewModel
     
     var body: some View {
         NavigationStack {
@@ -27,17 +23,18 @@ struct ProfileView: View {
 
                     VStack {
                         Spacer()
-                        Image("mockAvatarImage")
+
+                        KFImage(URL(string: vm.profilePicture))
                             .resizable()
                             .frame(width: 130, height: 130)
                             .clipShape(Circle())
 
-                        Text("Boomy Freeman")
+                        Text("\(vm.firstName) \(vm.lastName)")
                             .font(.system(size: 25))
                             .foregroundColor(.white)
                             .fontWeight(.semibold)
 
-                        Text("Joined Jan 2011")
+                        Text(reformatJoinDate())
                             .font(.system(size: 14))
                             .foregroundColor(.white)
                             .fontWeight(.semibold)
@@ -52,32 +49,45 @@ struct ProfileView: View {
                 
                 HStack {
                     VStack(alignment: .leading, spacing: Spacing.eight) {
-                        Label("617-233-1242", systemImage: "phone.fill")
-                            .font(.system(size: 14))
+                        
+                        if vm.phoneNumber != "" {
+                            Label(vm.phoneNumber, systemImage: "phone.fill")
+                                .font(.system(size: 14))
+                        }
                         
                         Label("Boston, MA", systemImage: "location.fill")
                             .font(.system(size: 14))
                         
-                        Label("c.edward.freeman@gmail.com", systemImage: "envelope.fill")
-                            .font(.system(size: 14))
-                            .tint(.black)
+                        if let email = vm.user.emailAddress {
+                            Label(email, systemImage: "envelope.fill")
+                                .font(.system(size: 14))
+                                .tint(.black)
+                        }
                         
-                        Text("He/Him")
-                            .font(.system(size: 14))
-                        
-                        Text("African-American")
-                            .font(.system(size: 14))
+                        if vm.gender != "" {
+                            Text(vm.gender)
+                                .font(.system(size: 14))
+                        }
+              
+                        if vm.ethnicity != "" {
+                            Text(vm.ethnicity)
+                                .font(.system(size: 14))
+                        }
+                 
                     }
                     Spacer()
                 }
                 .padding(.horizontal, Spacing.twentyone)
      
-                Text("I Love to travel to nice placesd and being able to hang out witha bunch of ppl. I Like to drink and part hard like the rest of us. i Love it so much,")
-                    .font(.system(size: 14))
-                    .padding()
-                    .background(Color.gray.opacity(0.1))
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .padding(.horizontal, Spacing.twentyone)
+                if vm.bio != "" {
+                    Text(vm.bio)
+                        .font(.system(size: 14))
+                        .padding()
+                        .background(Color.gray.opacity(0.1))
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .padding(.horizontal, Spacing.twentyone)
+                }
+
         
       
                 Spacer()
@@ -86,7 +96,7 @@ struct ProfileView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                
                     NavigationLink {
-                        EmptyView()
+                        EditProfileView(vm: vm)
                     } label: {
                         Image(systemName: "square.and.pencil")
                             .foregroundColor(.white)
@@ -95,10 +105,23 @@ struct ProfileView: View {
         }
       
     }
+    func reformatJoinDate() -> String {
+        guard let joinDate = vm.user.createdAt else { return "" }
+        let ts = Date(timeIntervalSince1970: joinDate)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
+        dateFormatter.locale = NSLocale.current
+        dateFormatter.dateFormat = "MMM d, yyyy" //Specify your format that you want
+        let timestamp = dateFormatter.string(from: ts)
+        
+        
+        return "Joined \(timestamp)"
+    }
 }
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView()
+        ProfileView(vm: ProfileViewModel(user: User.mockUser1))
     }
 }
