@@ -19,10 +19,10 @@ struct TripView: View {
                 HurdSlidingTabView(selection: $vm.selection, tabs: ["Upcoming", "Past"], activeAccentColor: .black, selectionBarColor: .black)
                 switch vm.selection {
                 case 0:
-                    if vm.trips.isEmpty {
+                    if vm.trips.filter { ($0.tripEndDate + 86400) >= vm.currentDate }.isEmpty {
                         ProgressView()
                     } else {
-                        ForEach(vm.trips, id: \.id) { trip in
+                        ForEach(vm.trips.filter { ($0.tripEndDate + 86400) >= vm.currentDate }, id: \.id) { trip in
                             if let hurd = trip.hurd {
                                 NavigationLink(destination: {
                                     GroupPlannerView(vm: GroupPlannerViewModel(trip: trip, hurd: hurd))
@@ -36,10 +36,10 @@ struct TripView: View {
                         }
                     }
                 case 1:
-                    if vm.trips.filter { $0.tripEndDate < vm.currentDate }.isEmpty {
+                    if vm.trips.filter { ($0.tripEndDate + 86400) < vm.currentDate }.isEmpty {
                         ProgressView()
                     } else {
-                        ForEach(vm.trips.filter { $0.tripEndDate < vm.currentDate }, id: \.id) { trip in
+                        ForEach(vm.trips.filter { ($0.tripEndDate + 86400) < vm.currentDate }, id: \.id) { trip in
                             if let hurd = trip.hurd {
                                 NavigationLink(destination: {
                                     GroupPlannerView(vm: GroupPlannerViewModel(trip: trip, hurd: hurd))
