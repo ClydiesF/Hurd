@@ -75,6 +75,7 @@ struct HurdSignInView: View {
                     }
                     
                 }
+                SignInWithAppleButtonView(vm: vm, signinType: .signin)
 
                 Spacer()
                 

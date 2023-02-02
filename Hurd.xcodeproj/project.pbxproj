@@ -78,6 +78,7 @@
 		3BC9ED12295FB2F6004EFEEF /* GroupPlannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ED11295FB2F6004EFEEF /* GroupPlannerView.swift */; };
 		3BC9ED15295FEC8E004EFEEF /* SlidingTabView in Frameworks */ = {isa = PBXBuildFile; productRef = 3BC9ED14295FEC8E004EFEEF /* SlidingTabView */; };
 		3BC9ED17295FF829004EFEEF /* HurdSlidingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ED16295FF829004EFEEF /* HurdSlidingTabView.swift */; };
+		3BE57A47298501C40099D7E4 /* SignInWithAppleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE57A46298501C40099D7E4 /* SignInWithAppleButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +131,8 @@
 		3BC9ED0A295ED472004EFEEF /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		3BC9ED11295FB2F6004EFEEF /* GroupPlannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPlannerView.swift; sourceTree = "<group>"; };
 		3BC9ED16295FF829004EFEEF /* HurdSlidingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdSlidingTabView.swift; sourceTree = "<group>"; };
+		3BE57A412984C64C0099D7E4 /* HurdDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HurdDebug.entitlements; sourceTree = "<group>"; };
+		3BE57A46298501C40099D7E4 /* SignInWithAppleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +199,7 @@
 			children = (
 				3B8629F3296CEE4C0077DB92 /* OnboardingSliderView.swift */,
 				3B8629F5296D166C0077DB92 /* OnboardingProfileInfoView.swift */,
+				3BE57A46298501C40099D7E4 /* SignInWithAppleButtonView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -219,6 +223,7 @@
 		3BC9ECCE295C0372004EFEEF /* Hurd */ = {
 			isa = PBXGroup;
 			children = (
+				3BE57A412984C64C0099D7E4 /* HurdDebug.entitlements */,
 				3B530CCA2967BDCE002C272B /* Utilities */,
 				3B530CC529623781002C272B /* Networking */,
 				3B530C9E29623318002C272B /* GoogleService-Info.plist */,
@@ -474,6 +479,7 @@
 				3B8629F6296D166C0077DB92 /* OnboardingProfileInfoView.swift in Sources */,
 				3BC9ED0B295ED472004EFEEF /* ProfileView.swift in Sources */,
 				3BC9ECFE295D7AE9004EFEEF /* TagView.swift in Sources */,
+				3BE57A47298501C40099D7E4 /* SignInWithAppleButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,6 +605,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Hurd/HurdDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Hurd/Preview Content\"";
