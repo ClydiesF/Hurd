@@ -16,7 +16,7 @@ struct HurdView: View {
         VStack(alignment: .leading, spacing: 20) {
             HStack(alignment: .top, spacing: 12) {
                 if let organizer {
-                    MemberProfilePreview(firstName: organizer.firstName, lastName: organizer.lastName, color: .bottleGreen, image: "mockAvatarImage", organizer: "Organizer")
+                    MemberProfilePreview(firstName: organizer.firstName, lastName: organizer.lastName, color: .bottleGreen, image: organizer.profileImageUrl, organizer: "Organizer")
                 }
             
                 Text((trip.tripDescription == "" ? "Organizer has not entered a description for this trip" : trip.tripDescription) ?? "")

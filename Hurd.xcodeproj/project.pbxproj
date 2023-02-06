@@ -49,6 +49,7 @@
 		3B603F152975B00A00E01D99 /* TripsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B603F142975B00A00E01D99 /* TripsViewModel.swift */; };
 		3B603F172975F55B00E01D99 /* TripDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B603F162975F55B00E01D99 /* TripDetailView.swift */; };
 		3B603F192975FA8000E01D99 /* HurdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B603F182975FA8000E01D99 /* HurdView.swift */; };
+		3B6E292C298F5AED00A90449 /* SavePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E292B298F5AED00A90449 /* SavePopUp.swift */; };
 		3B8629F4296CEE4C0077DB92 /* OnboardingSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8629F3296CEE4C0077DB92 /* OnboardingSliderView.swift */; };
 		3B8629F6296D166C0077DB92 /* OnboardingProfileInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8629F5296D166C0077DB92 /* OnboardingProfileInfoView.swift */; };
 		3B8629F8296D48600077DB92 /* OnboardingProfileInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8629F7296D48600077DB92 /* OnboardingProfileInfoViewModel.swift */; };
@@ -102,6 +103,7 @@
 		3B603F142975B00A00E01D99 /* TripsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsViewModel.swift; sourceTree = "<group>"; };
 		3B603F162975F55B00E01D99 /* TripDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailView.swift; sourceTree = "<group>"; };
 		3B603F182975FA8000E01D99 /* HurdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdView.swift; sourceTree = "<group>"; };
+		3B6E292B298F5AED00A90449 /* SavePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePopUp.swift; sourceTree = "<group>"; };
 		3B8629F3296CEE4C0077DB92 /* OnboardingSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSliderView.swift; sourceTree = "<group>"; };
 		3B8629F5296D166C0077DB92 /* OnboardingProfileInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProfileInfoView.swift; sourceTree = "<group>"; };
 		3B8629F7296D48600077DB92 /* OnboardingProfileInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProfileInfoViewModel.swift; sourceTree = "<group>"; };
@@ -194,6 +196,14 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		3B6E292A298F5ACA00A90449 /* PopUps */ = {
+			isa = PBXGroup;
+			children = (
+				3B6E292B298F5AED00A90449 /* SavePopUp.swift */,
+			);
+			path = PopUps;
+			sourceTree = "<group>";
+		};
 		3B8629F2296BF3720077DB92 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +260,7 @@
 		3BC9ECDD295C0399004EFEEF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3B6E292A298F5ACA00A90449 /* PopUps */,
 				3B8629F2296BF3720077DB92 /* Onboarding */,
 				3B530C992960F44E002C272B /* SliderViews */,
 				3BC9ED01295ED40B004EFEEF /* TabBarViews */,
@@ -450,6 +461,7 @@
 				3B5C31BA29723459001354E6 /* MemberProfilePreview.swift in Sources */,
 				3BC9ECE8295C1B02004EFEEF /* HurdIconButton.swift in Sources */,
 				3BC9ECE4295C06A5004EFEEF /* PrimaryHurdButton.swift in Sources */,
+				3B6E292C298F5AED00A90449 /* SavePopUp.swift in Sources */,
 				3B4EB2672977B780008C26EF /* TripNotesView.swift in Sources */,
 				3B4EB2652977A8C9008C26EF /* NotesView.swift in Sources */,
 				3B5C31B42970E4A8001354E6 /* AddTripFormViewModel.swift in Sources */,

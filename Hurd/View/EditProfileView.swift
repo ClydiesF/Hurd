@@ -8,6 +8,7 @@
 import SwiftUI
 import PhotosUI
 import Kingfisher
+import PopupView
 
 struct EditProfileView: View {
     
@@ -25,30 +26,55 @@ struct EditProfileView: View {
    
             Form {
                 KFImage(URL(string: vm.profilePicture))
+                    .placeholder {
+                        // Placeholder while downloading.
+                        Image("mockAvatarImage")
+                            .font(.largeTitle)
+                            .opacity(0.3)
+                    }
+                    .retry(maxCount: 3, interval: .seconds(5))
+                    .onSuccess { r in
+                        // r: RetrieveImageResult
+                        print("success: \(r)")
+                    }
+                    .onFailure { e in
+                        // e: KingfisherError
+                        print("failure: \(e)")
+                    }
                     .resizable()
                     .frame(width: 100, height: 100)
                     .clipShape(Circle())
                 
-                PhotosPicker(selection: $vm.selectedItemPhoto, matching: .any(of: [.images, .not(.livePhotos)])) {
+                PhotosPicker(selection: $vm.selectedItemPhoto,
+                             matching: .images,
+                             photoLibrary: .shared()) {
                     Label("Change/Add", systemImage: "photo")
                 }
                 .onChange(of: vm.selectedItemPhoto) { newItem in
                     Task {
-                        
-                        if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                        do {
+                            let data = try await newItem?.loadTransferable(type: Data.self)
                             vm.selectedPhotoData = data
-                            // look into change this method. something combine is not working.
-                            vm.changeAvatarImage(photoData: data)
-                        } else {
-                            //error state this
+                        } catch(let err) {
+                            print("DEBUG: photo upload- \(err)")
                         }
                     }
+                }
+                
+                if vm.profilePicture != "" {
+                    Button {
+                        self.vm.profilePicture = ""
+                    } label: {
+                        Label("Remove", systemImage: "trash")
+                    }
+                    .tint(.red)
                 }
                 
                 Section {
                     TextField("First Name", text: $vm.firstName)
                     TextField("Last Name", text: $vm.lastName)
                     TextField("Phone Number", text: $vm.phoneNumber)
+                        .keyboardType(.numberPad)
                     
                     Picker("Gender (Optional)", selection: $vm.gender) {
                         ForEach(genders, id: \.self) {
@@ -76,6 +102,13 @@ struct EditProfileView: View {
                     vm.saveChanges()
                 }
             }
+            .popup(isPresented: $vm.showSaveStatus) {
+                SavePopUp()
+                    } customize: {
+                        $0
+                            .autohideIn(4)
+                            .backgroundColor(.black.opacity(0.4))
+                    }
         .navigationBarTitle("Edit Profile")
     }
 }

@@ -18,8 +18,8 @@ struct GroupPlannerView: View {
                 ZStack(alignment: .topTrailing) {
                     Image("mockbackground")
                         .resizable()
-                        .frame(height: 170)
-                        .ignoresSafeArea()
+                        .frame(height: 370)
+                        //.ignoresSafeArea()
                         .overlay {
                             Color.black.opacity(0.1)
                         }
@@ -135,7 +135,16 @@ struct GroupPlannerView: View {
             .presentationDragIndicator(.visible)
         })
         .navigationTitle("Trip Details")
-        .navigationBarTitleDisplayMode(.large)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    print("setting screens")
+                } label: {
+                    Image(systemName: "ellipsis")
+                }
+            }
+        }
     }
     ///Func
     

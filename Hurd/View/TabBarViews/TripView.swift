@@ -12,6 +12,7 @@ import os
 struct TripView: View {
     
     @StateObject var vm = TripViewModel()
+    @StateObject var addTripVM = AddTripFormViewModel()
     
     var body: some View {
         NavigationView {
@@ -58,9 +59,18 @@ struct TripView: View {
                 
                 
             }
-            
+            .sheet(isPresented: $addTripVM.addTripFormPresented) {
+                AddTripFormView(vm: addTripVM)
+            }
             .navigationTitle("Your Trips")
-            .navigationBarTitleDisplayMode(.large)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("add") {
+                        addTripVM.addTripFormPresented = true
+                     }
+                }
+            }
             
         }
         .onAppear {

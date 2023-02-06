@@ -8,19 +8,29 @@
 import SwiftUI
 
 struct AddNoteView: View {
-
+    
     @ObservedObject var vm: GroupPlannerViewModel
-
+    
     var body: some View {
         Form {
-            TextField("Add Title", text: $vm.title)
             
-            TextField("Add Message", text: $vm.bodyText)
+            Section("Title") {
+                TextField("Add Title", text: $vm.title)
+            }
             
-            Picker("Choose a note Type", selection: $vm.noteType ) {
-                ForEach(vm.noteTypes, id: \.self) { nteType in
-                    Text(nteType)
+            
+            Section("Note Type") {
+                Picker("Choose a note Type", selection: $vm.noteType ) {
+                    ForEach(vm.noteTypes, id: \.self) { nteType in
+                        Text(nteType)
+                    }
                 }
+            }
+            
+            Section {
+                TextEditor(text: $vm.bodyText)
+            } header: {
+                Text("Enter the body of the text")
             }
             
             Button {
@@ -28,8 +38,6 @@ struct AddNoteView: View {
             } label: {
                 Text("Add Note")
             }
-
-            
         }
     }
 }

@@ -202,6 +202,8 @@ struct DiscoveryView: View {
                         HurdTextField(placeholderText: "Re-enter Password", text: $vm.newPassword, color: $vm.emailTFBorderColor)
                         
                         Text(vm.reauthenticatedStatusMsg)
+                            .font(.caption)
+                            .foregroundColor(Color.gray.opacity(0.3))
                             .padding(.vertical, Spacing.twentyfour)
                         
                         Button {

@@ -10,54 +10,23 @@ struct AddTripFormView: View {
     @ObservedObject var vm: AddTripFormViewModel
     
     var body: some View {
-        ZStack(alignment: .topTrailing) {
-            Button {
-                if vm.fieldsArePopulated {
-                    //code to post code to trips database\
-                    print("post a trip to user, profile")
-                    switch vm.formType {
-                    case .edit:
-                        vm.editTrip()
-                    case .add:
-                        vm.postTrip()
-                    }
-                    vm.addTripFormPresented = false
-                }
-            } label: {
-                ZStack(alignment: .leading) {
-                    HStack {
-                        Image(systemName: "signpost.left.fill")
-                            .foregroundColor(.white)
-                     
-                        
-                        Text(vm.formType == .edit ? "Save Changes":"Post Trip")
-                            .foregroundColor(.white)
-                            .fontWeight(.semibold)
-                            .padding(.trailing)
-                    }
-                    .padding(10)
-                    .background(Capsule().fill(vm.fieldsArePopulated ? Color.bottleGreen : Color.gray))
-                }
-            }
-            .padding(.trailing)
-            .zIndex(99)
-            .disabled(!vm.fieldsArePopulated)
-
             Form {
-                
-                Text(vm.formType == .edit ? "Edit Trip": "Add Trip")
-                                .font(.largeTitle)
-                                .fontWeight(.semibold)
-                TextField("Trip Name", text: $vm.tripNameText)
-                
-                ZStack(alignment: .trailing) {
-                    TextField("Trip Location", text: $vm.tripLocationSearchQuery)
-                    if vm.status == .isSearching {
-                        Image(systemName: "clock")
-                            .foregroundColor(.gray)
-                    }
-                    
+                Section(vm.formType == .edit ? "Edit Trip": "Add Trip") {
+                    TextField("Trip Name", text: $vm.tripNameText)
                 }
+                
+                
+                Section("Trip Location") {
+                    ZStack(alignment: .trailing) {
+                        TextField("Trip Location", text: $vm.tripLocationSearchQuery)
+                        if vm.status == .isSearching {
+                            Image(systemName: "clock")
+                                .foregroundColor(.gray)
+                        }
+                        
+                    }
+                }
+     
                 if vm.status == .result && !vm.searchResults.isEmpty {
                     List {
                         ForEach(vm.searchResults, id: \.self) { resultItem in
@@ -111,14 +80,39 @@ struct AddTripFormView: View {
                 } header: {
                     Text("Tell us about why this trip will be cool")
                 }
+               
                 
+                // button to add Trip
+                Button {
+                    if vm.fieldsArePopulated {
+                        //code to post code to trips database\
+                        print("post a trip to user, profile")
+                        switch vm.formType {
+                        case .edit:
+                            vm.editTrip()
+                        case .add:
+                            vm.postTrip()
+                        }
+                        vm.addTripFormPresented = false
+                    }
+                } label: {
+                    ZStack(alignment: .leading) {
+                        HStack {
+                            Image(systemName: "signpost.left.fill")
+                                .foregroundColor(.gray)
+                         
+                            
+                            Text(vm.formType == .edit ? "Save Changes":"Post Trip")
+                                .fontWeight(.semibold)
+                                .padding(.trailing)
+                        }
+                        .padding(10)
+                    }
+                }
+                .disabled(!vm.fieldsArePopulated)
                 
             }
-            .padding(.top, Spacing.twentyone)
         }
-        .padding(.top)
-     
-    }
 }
 
 struct AddTripFormView_Previews: PreviewProvider {

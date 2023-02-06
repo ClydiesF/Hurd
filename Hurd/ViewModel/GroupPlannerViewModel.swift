@@ -95,7 +95,8 @@ class GroupPlannerViewModel: ObservableObject {
             ]
             
             _ = TRIP_REF.document(self.trip.id ?? "").collection("Notes").addDocument(data: dict)
-        
+        self.title = ""
+        self.bodyText = ""
         showAddNoteForm = false
     }
     
