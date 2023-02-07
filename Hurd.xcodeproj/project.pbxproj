@@ -49,6 +49,9 @@
 		3B603F152975B00A00E01D99 /* TripsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B603F142975B00A00E01D99 /* TripsViewModel.swift */; };
 		3B603F172975F55B00E01D99 /* TripDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B603F162975F55B00E01D99 /* TripDetailView.swift */; };
 		3B603F192975FA8000E01D99 /* HurdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B603F182975FA8000E01D99 /* HurdView.swift */; };
+		3B6E292C298F5AED00A90449 /* SavePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E292B298F5AED00A90449 /* SavePopUp.swift */; };
+		3B6E292E2990BE2300A90449 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E292D2990BE2300A90449 /* SwiftUIView.swift */; };
+		3B6E29302991F7C500A90449 /* UnSplashResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E292F2991F7C500A90449 /* UnSplashResponseModel.swift */; };
 		3B8629F4296CEE4C0077DB92 /* OnboardingSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8629F3296CEE4C0077DB92 /* OnboardingSliderView.swift */; };
 		3B8629F6296D166C0077DB92 /* OnboardingProfileInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8629F5296D166C0077DB92 /* OnboardingProfileInfoView.swift */; };
 		3B8629F8296D48600077DB92 /* OnboardingProfileInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8629F7296D48600077DB92 /* OnboardingProfileInfoViewModel.swift */; };
@@ -78,6 +81,7 @@
 		3BC9ED12295FB2F6004EFEEF /* GroupPlannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ED11295FB2F6004EFEEF /* GroupPlannerView.swift */; };
 		3BC9ED15295FEC8E004EFEEF /* SlidingTabView in Frameworks */ = {isa = PBXBuildFile; productRef = 3BC9ED14295FEC8E004EFEEF /* SlidingTabView */; };
 		3BC9ED17295FF829004EFEEF /* HurdSlidingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ED16295FF829004EFEEF /* HurdSlidingTabView.swift */; };
+		3BE57A47298501C40099D7E4 /* SignInWithAppleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE57A46298501C40099D7E4 /* SignInWithAppleButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +105,9 @@
 		3B603F142975B00A00E01D99 /* TripsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsViewModel.swift; sourceTree = "<group>"; };
 		3B603F162975F55B00E01D99 /* TripDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailView.swift; sourceTree = "<group>"; };
 		3B603F182975FA8000E01D99 /* HurdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdView.swift; sourceTree = "<group>"; };
+		3B6E292B298F5AED00A90449 /* SavePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePopUp.swift; sourceTree = "<group>"; };
+		3B6E292D2990BE2300A90449 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		3B6E292F2991F7C500A90449 /* UnSplashResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnSplashResponseModel.swift; sourceTree = "<group>"; };
 		3B8629F3296CEE4C0077DB92 /* OnboardingSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSliderView.swift; sourceTree = "<group>"; };
 		3B8629F5296D166C0077DB92 /* OnboardingProfileInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProfileInfoView.swift; sourceTree = "<group>"; };
 		3B8629F7296D48600077DB92 /* OnboardingProfileInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProfileInfoViewModel.swift; sourceTree = "<group>"; };
@@ -130,6 +137,8 @@
 		3BC9ED0A295ED472004EFEEF /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		3BC9ED11295FB2F6004EFEEF /* GroupPlannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPlannerView.swift; sourceTree = "<group>"; };
 		3BC9ED16295FF829004EFEEF /* HurdSlidingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdSlidingTabView.swift; sourceTree = "<group>"; };
+		3BE57A412984C64C0099D7E4 /* HurdDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HurdDebug.entitlements; sourceTree = "<group>"; };
+		3BE57A46298501C40099D7E4 /* SignInWithAppleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,11 +200,20 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		3B6E292A298F5ACA00A90449 /* PopUps */ = {
+			isa = PBXGroup;
+			children = (
+				3B6E292B298F5AED00A90449 /* SavePopUp.swift */,
+			);
+			path = PopUps;
+			sourceTree = "<group>";
+		};
 		3B8629F2296BF3720077DB92 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
 				3B8629F3296CEE4C0077DB92 /* OnboardingSliderView.swift */,
 				3B8629F5296D166C0077DB92 /* OnboardingProfileInfoView.swift */,
+				3BE57A46298501C40099D7E4 /* SignInWithAppleButtonView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -219,6 +237,7 @@
 		3BC9ECCE295C0372004EFEEF /* Hurd */ = {
 			isa = PBXGroup;
 			children = (
+				3BE57A412984C64C0099D7E4 /* HurdDebug.entitlements */,
 				3B530CCA2967BDCE002C272B /* Utilities */,
 				3B530CC529623781002C272B /* Networking */,
 				3B530C9E29623318002C272B /* GoogleService-Info.plist */,
@@ -245,6 +264,7 @@
 		3BC9ECDD295C0399004EFEEF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3B6E292A298F5ACA00A90449 /* PopUps */,
 				3B8629F2296BF3720077DB92 /* Onboarding */,
 				3B530C992960F44E002C272B /* SliderViews */,
 				3BC9ED01295ED40B004EFEEF /* TabBarViews */,
@@ -270,6 +290,7 @@
 				3B4EB2662977B780008C26EF /* TripNotesView.swift */,
 				3B4EB271297A2AA8008C26EF /* AddNoteView.swift */,
 				3B4EB276297BEB1D008C26EF /* EditProfileView.swift */,
+				3B6E292D2990BE2300A90449 /* SwiftUIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -280,6 +301,7 @@
 				3BC9ECE5295C0924004EFEEF /* HurdButtonModel.swift */,
 				3B530CCD2967E942002C272B /* AuthCredentials.swift */,
 				3B8629F9296E604A0077DB92 /* User.swift */,
+				3B6E292F2991F7C500A90449 /* UnSplashResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -431,6 +453,7 @@
 			files = (
 				3B4EB277297BEB1D008C26EF /* EditProfileView.swift in Sources */,
 				3BC9ECD2295C0372004EFEEF /* ContentView.swift in Sources */,
+				3B6E292E2990BE2300A90449 /* SwiftUIView.swift in Sources */,
 				3BC9ED05295ED42C004EFEEF /* SearchView.swift in Sources */,
 				3BC9ED17295FF829004EFEEF /* HurdSlidingTabView.swift in Sources */,
 				3BC9ECFC295D79F3004EFEEF /* HurdSignInView.swift in Sources */,
@@ -445,6 +468,7 @@
 				3B5C31BA29723459001354E6 /* MemberProfilePreview.swift in Sources */,
 				3BC9ECE8295C1B02004EFEEF /* HurdIconButton.swift in Sources */,
 				3BC9ECE4295C06A5004EFEEF /* PrimaryHurdButton.swift in Sources */,
+				3B6E292C298F5AED00A90449 /* SavePopUp.swift in Sources */,
 				3B4EB2672977B780008C26EF /* TripNotesView.swift in Sources */,
 				3B4EB2652977A8C9008C26EF /* NotesView.swift in Sources */,
 				3B5C31B42970E4A8001354E6 /* AddTripFormViewModel.swift in Sources */,
@@ -466,6 +490,7 @@
 				3B530CC7296237D2002C272B /* AuthenticationMethods.swift in Sources */,
 				3B5C31B829723380001354E6 /* PlannerButton'.swift in Sources */,
 				3BC9ECF2295D49DC004EFEEF /* HurdLandingView.swift in Sources */,
+				3B6E29302991F7C500A90449 /* UnSplashResponseModel.swift in Sources */,
 				3BC9ECFA295D73BD004EFEEF /* SocialSignInButtonView.swift in Sources */,
 				3BC9ECE6295C0924004EFEEF /* HurdButtonModel.swift in Sources */,
 				3BC9ECF6295D5C5E004EFEEF /* HurdTextField.swift in Sources */,
@@ -474,6 +499,7 @@
 				3B8629F6296D166C0077DB92 /* OnboardingProfileInfoView.swift in Sources */,
 				3BC9ED0B295ED472004EFEEF /* ProfileView.swift in Sources */,
 				3BC9ECFE295D7AE9004EFEEF /* TagView.swift in Sources */,
+				3BE57A47298501C40099D7E4 /* SignInWithAppleButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,6 +625,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Hurd/HurdDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Hurd/Preview Content\"";

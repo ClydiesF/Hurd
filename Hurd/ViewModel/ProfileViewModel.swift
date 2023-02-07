@@ -22,7 +22,9 @@ class ProfileViewModel: ObservableObject {
     @Published var phoneNumber: String = ""
     
     @Published var selectedPhotoData: Data?
-    @Published var selectedItemPhoto: PhotosPickerItem?
+    @Published var selectedItemPhoto: PhotosPickerItem? = nil
+    
+    @Published var showSaveStatus: Bool = false
     
     
     init(user: User) {
@@ -80,8 +82,6 @@ class ProfileViewModel: ObservableObject {
                     USER_REF.document(uid).setData(addedData, merge: true)
                     
                 }
-                
-                
             }
         }
     }
@@ -101,5 +101,6 @@ class ProfileViewModel: ObservableObject {
             
             
             let _ = USER_REF.document(userID).setData(saveUser, merge: true)
+            self.showSaveStatus = true
         }
     }

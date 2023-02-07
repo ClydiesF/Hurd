@@ -10,12 +10,19 @@ import Firebase
 import SwiftUI
 import FirebaseFirestoreSwift
 
+enum signInType {
+    case signup
+    case signin
+}
+
 class AuthenticationViewModel: ObservableObject {
     
     enum AuthState {
         case signedOut
         case signedIn
     }
+    
+
     
     enum SensitiveActionType {
         case deleteAccount
@@ -114,6 +121,7 @@ class AuthenticationViewModel: ObservableObject {
             print("Current data: \(data)")
             }
     }
+
     
     private func getCurrentUserObject(from userID: String) {
         USER_REF.document(userID).getDocument(as: User.self) { result in
@@ -188,6 +196,40 @@ class AuthenticationViewModel: ObservableObject {
                     }
                 }
             }
+        }
+    }
+    
+    func signinWithApple(credential: Firebase.AuthCredential, signinType: signInType) {
+        Auth.auth().signIn(with: credential) { (authResult, error) in
+            if (error != nil) {
+                // Error. If error.code == .MissingOrInvalidNonce, make sure
+                // you're sending the SHA256-hashed nonce as a hex string with
+                // your request to Apple.
+                print(error?.localizedDescription as Any)
+                print("DEBUG: there was an erro \(error?.localizedDescription)")
+                return
+            }
+            if signinType == .signup {
+                guard let uid = authResult?.user.uid else { return }
+                
+                USER_REF.document(uid).setData(["emailAddress" : "",
+                                                 "createdAt": Date().timeIntervalSince1970,
+                                                 "isFinishedOnboarding": false,
+                                                "firstName": "",
+                                                "lastName": "",
+                                                "phoneNumber": "",
+                                                "bio": "",
+                                                "id": uid
+                                               ]) { err in
+                    if let err = err {
+                        print("DEBUG: Error writingh document: \(err)")
+                    }
+                }
+            }
+            print("DEBUG: signed in")
+            self.currentUser = authResult?.user
+            guard let uid = authResult?.user.uid else { return }
+            self.getCurrentUserObject(from: uid)
         }
     }
     

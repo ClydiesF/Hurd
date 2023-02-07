@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import Firebase
+import AuthenticationServices
+import CryptoKit
 
 struct HurdSignUpView: View {
     @EnvironmentObject var vm: AuthenticationViewModel
     @Environment(\.presentationMode) var presentationMode
     
     @State var presentTOS: Bool = false
+    @State var currentNonce: String?
     
     var body: some View {
         ScrollView {
@@ -68,26 +72,10 @@ struct HurdSignUpView: View {
                         
                         HurdPasswordTextField(placeholderText: "Enter your password", text: $vm.password, color: $vm.passwordTFBorderColor)
                     }
-                    // ADD Back in LAter
-                    //                HStack {
-                    //                   DividerView()
-                    //                        .padding(.horizontal, 10)
-                    //                    Text("or")
-                    //                        .font(.caption)
-                    //                        .fontWeight(.semibold)
-                    //                    DividerView()
-                    //                        .padding(.horizontal, 10)
-                    //
-                    //                }
-                    //                .padding(.top, 10)
-                    //
-                    //            HStack(spacing: 50) {
-                    //                SocialSignInButtonView(iconName: "appleLogo", color: .gray)
-                    //                SocialSignInButtonView(iconName: "googleLogo", color: .green)
-                    //                SocialSignInButtonView(iconName: "twitterLogo", color: .blue)
-                    //            }
                     
-                
+          
+                    SignInWithAppleButtonView(vm: vm, signinType: .signup)
+    
                     PrimaryHurdButton(buttonModel: .init(buttonText: "Join now", buttonType: .primary, icon: nil, appendingIcon: nil), action: {
                         vm.signup()
                     })
@@ -143,6 +131,23 @@ struct HurdSignUpView: View {
             .presentationDetents([.medium, .large])
         }
     }
+    //Functions
+
+    
+//    func startSignInWithAppleFlow() {
+//        let nonce = randomNonceString()
+//          currentNonce = nonce
+//          let appleIDProvider = ASAuthorizationAppleIDProvider()
+//          let request = appleIDProvider.createRequest()
+//          request.requestedScopes = [.fullName, .email]
+//          request.nonce = sha256(nonce)
+//
+//          let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+//          authorizationController.delegate = self
+//          authorizationController.presentationContextProvider = self
+//          authorizationController.performRequests()
+//
+//    }
 }
 
 struct HurdSignUpView_Previews: PreviewProvider {
