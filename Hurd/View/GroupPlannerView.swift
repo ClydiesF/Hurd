@@ -7,133 +7,153 @@
 
 import SwiftUI
 import SlidingTabView
+import Kingfisher
+import CoreLocation
+import MapKit
+import Alamofire
 
 struct GroupPlannerView: View {
     
     @ObservedObject var vm: GroupPlannerViewModel
+    let accessKey = "OQ56zpALUrsgNX0WDbMccCIsZ1CUDT9fD1skJIUhrY8"
+    @State var photoURL = ""
     
     var body: some View {
+        
         ScrollView {
-            VStack(alignment: .leading, spacing: 10) {
+            VStack(alignment: .leading) {
                 ZStack(alignment: .topTrailing) {
-                    Image("mockbackground")
+                    KFImage(URL(string: photoURL))
                         .resizable()
-                        .frame(height: 370)
-                        //.ignoresSafeArea()
+                        .scaledToFill()
+                        .frame(width: 350)
                         .overlay {
                             Color.black.opacity(0.1)
                         }
                     
-                    Label(vm.timeRemaingTillTrip ?? "", systemImage: "clock")
-                        .font(.system(size: 14))
-                        .foregroundColor(.black)
-                        .padding(5)
-                        .background(Capsule().fill(Color.white))
-                        .padding(.horizontal, 10)
-                        .padding(.top, 10)
-                }
-                
-                HStack(spacing: 15) {
-                    
-                    Label("Broadcast", systemImage: "speaker.wave.3.fill")
-                        .font(.system(size: 14))
-                        .padding(8)
-                        .background(Capsule().stroke(Color.gray.opacity(0.5)))
-                    
-                    Label("Planner", systemImage: "list.bullet.clipboard.fill")
-                        .font(.system(size: 14))
-                        .padding(8)
-                        .background(Capsule().stroke(Color.gray.opacity(0.5)))
-                    
-                    NavigationLink {
-                        TripNotesView(vm: vm)
-                    } label: {
-                        Label("Notes", systemImage: "note")
-                            .font(.system(size: 14))
-                            .padding(8)
-                            .background(Capsule().stroke(Color.gray.opacity(0.5)))
+                    VStack(alignment: .trailing,spacing: 0) {
+                        SwiftUIView()
+                            .padding(.vertical,10)
+                        
+                        SwiftUIView()
+                            .padding(.vertical,10)
+                        
+                        Image(systemName: "car.fill")
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Circle().fill(.black))
                     }
-
-                
+                    .padding(.trailing, 10)
                 }
-                .frame(height: 30)
-                .padding(.leading, 10)
+                .frame(height: 340)
+                .frame(width: UIScreen.main.bounds.width * 0.9)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
                 
-                Divider()
-                //TRIP DETAIL VIEW
-                TripDetailView(trip: $vm.trip)
                 
-                Divider()
-                    .padding(.bottom, 10)
-                
-                HurdView(organizer: $vm.organizer, members: $vm.members, trip: $vm.trip)
-                
-                Divider()
-                    .padding(.bottom, 10)
-                
-                HStack(spacing: 15) {
-                    Button {
-                        vm.presentTripCancellationSheet = true
-                    } label: {
-                        Label("Cancel Trip", systemImage: "xmark")
-                            .foregroundColor(.red)
-                            .font(.system(size: 14))
-                            .padding(8)
-                            .background(Capsule().stroke(Color.red))
+                HStack(alignment: .top) {
+                    VStack(alignment: .leading) {
+                        Text("Brazile Trip")
+                            .font(.system(size: 30))
+                            .fontWeight(.bold)
+                        Label("Rio De Janiero, Brazil", systemImage: "mappin")
+                            .foregroundColor(.gray)
+                        
                     }
                     
-                    NavigationLink {
-                        AddTripFormView(vm: returnPrepopulatedVM())
-                    } label: {
-                        Label("Edit Trip", systemImage: "pencil")
-                            .font(.system(size: 14))
-                            .padding(8)
-                            .background(Capsule().stroke(Color.gray.opacity(0.5)))
-                    }
-
-              
-                 
-                    Label("Share Trip", systemImage: "square.and.arrow.up")
+                    Spacer()
+                    Text("$3.5K/PP")
                         .font(.system(size: 14))
-                        .padding(8)
-                        .background(Capsule().stroke(Color.gray.opacity(0.5)))
+                        .foregroundColor(.black.opacity(0.7))
+                        .padding(10)
+                        .fontWeight(.bold)
+                        .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))
                 }
-                .frame(height: 30)
-                .padding(.leading, 10)
                 
-            }
-            .onAppear{
-                vm.fetchMembers()
-            }
-        }
-        
-        .sheet(isPresented: $vm.presentTripCancellationSheet, content: {
-            VStack(alignment: .leading) {
-                Text("Are you sure?")
-                    .font(.largeTitle)
-                    .padding(.bottom, 10)
-                Text("Deleting this trip will remove this trip from everyone else in the Hurd as well.")
-                    .font(.system(size: 14))
-                    .foregroundColor(.gray)
-                    .padding(.bottom, 20)
+                Divider()
+                HStack {
+                    Image(systemName: "speaker.wave.3.fill")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Circle().fill(.black))
+                    
+                    Image(systemName: "list.bullet.clipboard.fill")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Circle().fill(.black))
+                    
+                    Image(systemName: "note")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Circle().fill(.black))
+                    
+                    Image(systemName: "square.and.arrow.up")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Circle().fill(.black))
+                }
+                Divider()
                 
                 HStack {
-                    Button("Keep Trip") {
-                        // Dismiss
-                        vm.presentTripCancellationSheet = false
-                    }
+                    Image("mockAvatarImage")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                        .clipShape(Circle())
+                        .background(Circle().stroke(Color.black.opacity(0.5), lineWidth: 10))
+                        .padding(.vertical, 10)
+                    
                     Spacer()
-                    Button("Cancel Trip") {
-                        // Dismiss
-                        vm.cancelTrip()
-                        vm.presentTripCancellationSheet = false
-                    }
+                    
+                    Image(systemName: "plus")
+                        .foregroundColor(.white)
+                        .padding(10)
+                        .background(Circle().fill(.black))
                 }
+                
+                Text("Description")
+                    .font(.system(size: 25))
+                    .fontWeight(.bold)
+                
+                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent a diam vel nisi aliquam finibus aliquet sed turpis. Cras lorem enim, suscipit nec semper cursus, semper quis ipsum. In ut consequat eros. Morbi enim neque, cursus id eros ac, mollis pellentesque augue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent nisl dui, dignissim quis egestas quis, lacinia a libero. In hac habitasse platea dictumst.")
+                    .foregroundColor(.gray)
+                
+                //            if let imageString = vm.organizer?.profileImageUrl {
+                //                KFImage(URL(string: imageString))
+                //                    .placeholder {
+                //                        // Placeholder while downloading.
+                //                        Image("mockAvatarImage")
+                //                            .font(.largeTitle)
+                //                            .opacity(0.3)
+                //                    }
+                //                    .retry(maxCount: 3, interval: .seconds(5))
+                //                    .onSuccess { r in
+                //                        // r: RetrieveImageResult
+                //                        print("success: \(r)")
+                //                    }
+                //                    .onFailure { e in
+                //                        // e: KingfisherError
+                //                        print("failure: \(e)")
+                //                    }
+                //                    .resizable()
+                //                    .frame(width: 50, height: 50)
+                //                    .scaledToFit()
+                //                    .clipShape(Circle())
+                //            }
+                //            Label(vm.timeRemaingTillTrip ?? "", systemImage: "clock")
+                //                .font(.system(size: 14))
+                //                .foregroundColor(.black)
+                //                .padding(5)
+                //                .background(Capsule().fill(Color.white))
+                //                .padding(.horizontal, 10)
+                //                .padding(.top, 10)
             }
-            .padding(.horizontal)
-            .presentationDetents([.height(220)])
-            .presentationDragIndicator(.visible)
-        })
+            .padding(.horizontal, Spacing.twentyone)
+            
+            
+            Map(coordinateRegion: .constant(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: vm.tripCoordinates.latitude, longitude: vm.tripCoordinates.longitude), span:  MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))))
+                .frame(width: 350, height: 300)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+            
+        }
         .navigationTitle("Trip Details")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -142,17 +162,149 @@ struct GroupPlannerView: View {
                     print("setting screens")
                 } label: {
                     Image(systemName: "ellipsis")
+                        .font(.title3)
                 }
             }
         }
+        .onAppear{
+            AF.request("https://api.unsplash.com/search/photos/?client_id=\(accessKey)&query=RioDeJaniero,Brazil").responseDecodable(of: UnSplashResponseModel.self) { response in
+                
+                switch response.result {
+                case .success(let res):
+                    print("DEBUG: -> success \(res.results[2].urls.regular)")
+                    photoURL = "\(res.results[2].urls.regular)"
+                case .failure(_):
+                    print("DEBUG: ->err")
+                }
+            }
+            
+        }
     }
-    ///Func
-    
-    func returnPrepopulatedVM() -> AddTripFormViewModel {
-        let vm = AddTripFormViewModel()
-        vm.prepopulateValuesFrom(current: self.vm.trip)
-        return vm
-    }
+    //        ScrollView {
+//            VStack(alignment: .leading, spacing: 10) {
+//
+//
+//
+//                HStack(spacing: 15) {
+//
+//                    Label("Broadcast", systemImage: "speaker.wave.3.fill")
+//                        .font(.system(size: 14))
+//                        .padding(8)
+//                        .background(Capsule().stroke(Color.gray.opacity(0.5)))
+//
+//                    Label("Planner", systemImage: "list.bullet.clipboard.fill")
+//                        .font(.system(size: 14))
+//                        .padding(8)
+//                        .background(Capsule().stroke(Color.gray.opacity(0.5)))
+//
+//                    NavigationLink {
+//                        TripNotesView(vm: vm)
+//                    } label: {
+//                        Label("Notes", systemImage: "note")
+//                            .font(.system(size: 14))
+//                            .padding(8)
+//                            .background(Capsule().stroke(Color.gray.opacity(0.5)))
+//                    }
+//
+//
+//                }
+//                .frame(height: 30)
+//                .padding(.leading, 10)
+//
+//                Divider()
+//                //TRIP DETAIL VIEW
+//                TripDetailView(trip: $vm.trip)
+//
+//                Divider()
+//                    .padding(.bottom, 10)
+//
+//                HurdView(organizer: $vm.organizer, members: $vm.members, trip: $vm.trip)
+//
+//                Divider()
+//                    .padding(.bottom, 10)
+//
+//                HStack(spacing: 15) {
+//                    Button {
+//                        vm.presentTripCancellationSheet = true
+//                    } label: {
+//                        Label("Cancel Trip", systemImage: "xmark")
+//                            .foregroundColor(.red)
+//                            .font(.system(size: 14))
+//                            .padding(8)
+//                            .background(Capsule().stroke(Color.red))
+//                    }
+//
+//                    NavigationLink {
+//                        AddTripFormView(vm: returnPrepopulatedVM())
+//                    } label: {
+//                        Label("Edit Trip", systemImage: "pencil")
+//                            .font(.system(size: 14))
+//                            .padding(8)
+//                            .background(Capsule().stroke(Color.gray.opacity(0.5)))
+//                    }
+//
+//
+//
+//                    Label("Share Trip", systemImage: "square.and.arrow.up")
+//                        .font(.system(size: 14))
+//                        .padding(8)
+//                        .background(Capsule().stroke(Color.gray.opacity(0.5)))
+//                }
+//                .frame(height: 30)
+//                .padding(.leading, 10)
+//
+//            }
+//            .onAppear{
+//                vm.fetchMembers()
+//            }
+//        }
+//
+//        .sheet(isPresented: $vm.presentTripCancellationSheet, content: {
+//            VStack(alignment: .leading) {
+//                Text("Are you sure?")
+//                    .font(.largeTitle)
+//                    .padding(.bottom, 10)
+//                Text("Deleting this trip will remove this trip from everyone else in the Hurd as well.")
+//                    .font(.system(size: 14))
+//                    .foregroundColor(.gray)
+//                    .padding(.bottom, 20)
+//
+//                HStack {
+//                    Button("Keep Trip") {
+//                        // Dismiss
+//                        vm.presentTripCancellationSheet = false
+//                    }
+//                    Spacer()
+//                    Button("Cancel Trip") {
+//                        // Dismiss
+//                        vm.cancelTrip()
+//                        vm.presentTripCancellationSheet = false
+//                    }
+//                }
+//            }
+//            .padding(.horizontal)
+//            .presentationDetents([.height(220)])
+//            .presentationDragIndicator(.visible)
+//        })
+//        .navigationTitle("Trip Details")
+//        .navigationBarTitleDisplayMode(.inline)
+//        .toolbar {
+//            ToolbarItem(placement: .navigationBarTrailing) {
+//                Button {
+//                    print("setting screens")
+//                } label: {
+//                    Image(systemName: "ellipsis")
+//                }
+//            }
+//        }
+//    }
+//    ///Func
+//
+//    func returnPrepopulatedVM() -> AddTripFormViewModel {
+//        let vm = AddTripFormViewModel()
+//        vm.prepopulateValuesFrom(current: self.vm.trip)
+//        return vm
+//    }
 }
 
 struct GroupPlannerView_Previews: PreviewProvider {
