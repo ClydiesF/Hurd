@@ -32,10 +32,10 @@ struct GroupPlannerView: View {
                         }
                     
                     VStack(alignment: .trailing,spacing: 0) {
-                        SwiftUIView()
+                        TripDateView(tripDate: vm.trip.tripStartDate)
                             .padding(.vertical,10)
                         
-                        SwiftUIView()
+                        TripDateView(tripDate: vm.trip.tripEndDate)
                             .padding(.vertical,10)
                         
                         Image(systemName: "car.fill")
@@ -180,7 +180,17 @@ struct GroupPlannerView: View {
             
         }
     }
-    //        ScrollView {
+
+}
+
+struct GroupPlannerView_Previews: PreviewProvider {
+    static var previews: some View {
+        GroupPlannerView(vm: GroupPlannerViewModel(trip: Trip.mockTrip, hurd: Hurd.mockHurd))
+    }
+}
+
+
+//        ScrollView {
 //            VStack(alignment: .leading, spacing: 10) {
 //
 //
@@ -305,10 +315,3 @@ struct GroupPlannerView: View {
 //        vm.prepopulateValuesFrom(current: self.vm.trip)
 //        return vm
 //    }
-}
-
-struct GroupPlannerView_Previews: PreviewProvider {
-    static var previews: some View {
-        GroupPlannerView(vm: GroupPlannerViewModel(trip: Trip.mockTrip, hurd: Hurd.mockHurd))
-    }
-}

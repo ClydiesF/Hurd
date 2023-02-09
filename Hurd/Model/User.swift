@@ -62,6 +62,7 @@ struct Trip: Codable {
     var tripDescription: String?
     var hurd: Hurd?// Reference
     var suggestions: String? // Reference
+    var tripImageURLString: String?
     //Additional Details of a trip
 }
 

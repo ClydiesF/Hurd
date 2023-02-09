@@ -6,86 +6,93 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct TripPreviewView: View {
     
     @Binding var isPastTrip: Bool
-    
-    let trip: Trip
+    var trip: Trip
     var user: User?
     
     var body: some View {
-        VStack(alignment: .leading) {
-            ZStack(alignment: .bottomTrailing) {
+        VStack(alignment: .leading, spacing: 5) {
+            ZStack(alignment: .topTrailing) {
+                //KFImage(URL(string: trip.tripImageURLString ?? ""))
                 Image("mockbackground")
                     .resizable()
-                    .frame(height: 170)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .grayscale(isPastTrip ? 1 : 0)
+                    .frame(height: 220)
+                    .frame(width: UIScreen.main.bounds.width * 0.9)
+                    .scaledToFill()
+                    .overlay {
+                        Color.black.opacity(0.2)
+                    }
                 
-                Image(systemName: trip.iconName)
-                    .foregroundColor(.white)
-                    .padding(10)
-                    .background(
-                        Color.black
-                    )
-                    .clipShape(Circle())
-                    .padding()
-            }
-
-       
-            // TRIP Image
-            
-            HStack {
-                if let user = user, let profileImage = user.profileImageUrl {
-                    AsyncImage(url: URL(string: profileImage), content: { image in
-                        image
-                            .resizable()
-                            .frame(width: 30, height: 30)
-                            .cornerRadius(15)
-                    }) {
-                        Circle()
-                            .frame(width: 30, height: 30)
-                            .cornerRadius(15)
+                HStack(alignment: .top) {
+                    if let user = user, let profileImage = user.profileImageUrl {
+                        AsyncImage(url: URL(string: profileImage), content: { image in
+                            image
+                                .resizable()
+                                .frame(width: 60, height: 60)
+                                .clipShape(Circle())
+                                .background(Circle().stroke(Color.black, lineWidth: 8))
+                                .padding()
+                        }) {
+                            Circle()
+                                .fill(.gray)
+                                .frame(width: 60, height: 60)
+                                .padding()
+      
+                        }
                         
+                    } else {
+                        Circle()
+                            .fill(.gray)
+                            .frame(width: 60, height: 60)
+                            .background(Circle().stroke(Color.black, lineWidth: 8))
+                            .padding()
                     }
                     
-                } else {
-                    Circle()
-                        .fill(Color.gray)
-                        .frame(width: 30, height: 30)
-                        .cornerRadius(15)
+                    Spacer()
+                    VStack(alignment: .trailing,spacing: 10) {
+                        HStack {
+                            TripDateView(tripDate: trip.tripStartDate)
+                            
+                            TripDateView(tripDate: trip.tripEndDate)
+                        }
+                      
+                     
+                        Spacer()
+                        
+                        Image(systemName: trip.iconName)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Circle().fill(.black))
+                    }
+                    .padding()
                 }
-                
-                Text(trip.tripName)
-                    .foregroundColor(.black)
-                    .font(.title3)
-                    .fontWeight(.heavy)
-                
-                Spacer()
+     
             }
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .frame(height: 220)
+            .frame(width: UIScreen.main.bounds.width * 0.9)
             
-            
-            HStack {
-                Group {
-                    Label(trip.tripDestination, systemImage: "location.fill")
-                    Divider()
-                    Label(trip.dateRangeString, systemImage: "calendar")
-                }
+            Text(trip.tripName)
+                .font(.system(size: 25))
                 .foregroundColor(.black)
-                .font(.system(size: 14))
-        
-            }
-            .frame(height: 15)
+                .fontWeight(.bold)
             
-            Spacer()
+            Label(trip.tripDestination, systemImage: "mappin")
+                .foregroundColor(.gray)
+            
         }
+        .grayscale(isPastTrip ? 1 : 0)
+
     }
 }
 
-//struct TripPreviewView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TripPreviewView(isPastTrip: true, trip: Trip.mockTrip2)
-//            .padding()
-//    }
-//}
+struct TripPreviewView_Previews: PreviewProvider {
+    static var previews: some View {
+        TripPreviewView(isPastTrip: .constant(true), trip: Trip.mockTrip2)
+            .padding()
+    }
+}
