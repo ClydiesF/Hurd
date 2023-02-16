@@ -52,16 +52,16 @@ struct GroupPlannerView: View {
                 
                 HStack(alignment: .top) {
                     VStack(alignment: .leading) {
-                        Text("Brazile Trip")
+                        Text(vm.trip.tripName)
                             .font(.system(size: 30))
                             .fontWeight(.bold)
-                        Label("Rio De Janiero, Brazil", systemImage: "mappin")
+                        Label(vm.trip.tripDestination, systemImage: "mappin")
                             .foregroundColor(.gray)
                         
                     }
                     
                     Spacer()
-                    Text("$3.5K/PP")
+                    Text("\(vm.trip.tripCostString)/PP")
                         .font(.system(size: 14))
                         .foregroundColor(.black.opacity(0.7))
                         .padding(10)
@@ -113,7 +113,7 @@ struct GroupPlannerView: View {
                     .font(.system(size: 25))
                     .fontWeight(.bold)
                 
-                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent a diam vel nisi aliquam finibus aliquet sed turpis. Cras lorem enim, suscipit nec semper cursus, semper quis ipsum. In ut consequat eros. Morbi enim neque, cursus id eros ac, mollis pellentesque augue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent nisl dui, dignissim quis egestas quis, lacinia a libero. In hac habitasse platea dictumst.")
+                Text(vm.trip.tripDescription ?? "")
                     .foregroundColor(.gray)
                 
                 //            if let imageString = vm.organizer?.profileImageUrl {

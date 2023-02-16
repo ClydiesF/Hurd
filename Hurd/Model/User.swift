@@ -115,7 +115,7 @@ extension Hurd {
 extension Trip {
     static let mockTrip = Trip(tripName: "Mock Trip", tripDestination: "Boston, MA", tripType: "Cruise", tripCostEstimate: 5600.0,tripStartDate: 329773023, tripEndDate: 3434324233, hurd: Hurd.mockHurd)
     
-    static let mockTrip2 = Trip(tripName: "Mock Trip 2", tripDestination: "Charlotte, NC", tripType: "Adventure", tripCostEstimate: 600.0,tripStartDate: 329773023, tripEndDate: 3434324233, tripDescription: "i  dont like it becuase this is so scrayx i and i liek that most ppl dont like to travel and i konw thaty mosty ppl will like to tracvel but cant. " ,hurd: Hurd.mockHurd)
+    static let mockTrip2 = Trip(tripName: "Mock Trip 2", tripDestination: "Charlotte, NC", tripType: "Adventure", tripCostEstimate: 1577.0,tripStartDate: 329773023, tripEndDate: 3434324233, tripDescription: "i  dont like it becuase this is so scrayx i and i liek that most ppl dont like to travel and i konw thaty mosty ppl will like to tracvel but cant. " ,hurd: Hurd.mockHurd)
     
     static let mockTrip3 = Trip(tripName: "Mock Trip 3", tripDestination: "Dallas, TX", tripType: "Road Trip", tripCostEstimate: 7600.0,tripStartDate: 329773023, tripEndDate: 3434324233, hurd: Hurd.mockHurd)
     
@@ -126,7 +126,30 @@ extension Trip {
     static let mockTrip6 = Trip(tripName: "Mock Trip 6", tripDestination: "New York City, NY", tripType: "Business", tripCostEstimate: 500.0,tripStartDate: 329773023, tripEndDate: 3434324233, hurd: Hurd.mockHurd)
     
     var tripCostString: String {
-        return String(format: "%.02f", self.tripCostEstimate)
+        var cost = tripCostEstimate
+
+        if tripCostEstimate < 1000 {
+            if tripCostEstimate >= 50 {
+                cost = round(tripCostEstimate / 50) * 50
+            } else {
+                cost = round(tripCostEstimate / 100) * 100
+            }
+        }
+
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.maximumFractionDigits = cost < 1000 ? 0 : 1
+        numberFormatter.decimalSeparator = "."
+
+        let number = NSNumber(value: cost)
+        var result = numberFormatter.string(from: number) ?? ""
+
+        if cost >= 1000 {
+            cost = round(cost / 100) / 10
+            result = String(cost) + "k"
+        }
+
+        return result
     }
     
     var iconName: String {
