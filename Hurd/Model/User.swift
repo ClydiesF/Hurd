@@ -62,7 +62,14 @@ struct Trip: Codable {
     var tripDescription: String?
     var hurd: Hurd?// Reference
     var suggestions: String? // Reference
+    var tripImageURLString: UnsplashPhoto?
     //Additional Details of a trip
+}
+
+
+struct UnsplashPhoto: Codable {
+    var photoURL: String?
+    var authorName: String?
 }
 
 struct TripSuggestions: Codable {
@@ -113,7 +120,7 @@ extension Hurd {
 }
 
 extension Trip {
-    static let mockTrip = Trip(tripName: "Mock Trip", tripDestination: "Boston, MA", tripType: "Cruise", tripCostEstimate: 5600.0,tripStartDate: 329773023, tripEndDate: 3434324233, hurd: Hurd.mockHurd)
+    static let mockTrip = Trip(tripName: "Mock Trip", tripDestination: "Boston, MA", tripType: "Cruise", tripCostEstimate: 5600.0,tripStartDate: 329773023, tripEndDate: 3434324233, hurd: Hurd.mockHurd, tripImageURLString: UnsplashPhoto(photoURL: "https://via.placeholder.com/300.png/09f/fff", authorName: "Fake Author"))
     
     static let mockTrip2 = Trip(tripName: "Mock Trip 2", tripDestination: "Charlotte, NC", tripType: "Adventure", tripCostEstimate: 1577.0,tripStartDate: 329773023, tripEndDate: 3434324233, tripDescription: "i  dont like it becuase this is so scrayx i and i liek that most ppl dont like to travel and i konw thaty mosty ppl will like to tracvel but cant. " ,hurd: Hurd.mockHurd)
     

@@ -91,7 +91,9 @@ struct AddTripFormView: View {
                         case .edit:
                             vm.editTrip()
                         case .add:
-                            vm.postTrip()
+                            Task {
+                               await vm.postTrip()
+                            }
                         }
                         vm.addTripFormPresented = false
                     }

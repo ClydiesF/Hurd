@@ -15,35 +15,42 @@ import Alamofire
 struct GroupPlannerView: View {
     
     @ObservedObject var vm: GroupPlannerViewModel
-    let accessKey = "OQ56zpALUrsgNX0WDbMccCIsZ1CUDT9fD1skJIUhrY8"
-    @State var photoURL = ""
     
     var body: some View {
         
         ScrollView {
             VStack(alignment: .leading) {
                 ZStack(alignment: .topTrailing) {
-                    KFImage(URL(string: photoURL))
+                    KFImage(URL(string: vm.trip.tripImageURLString?.photoURL ?? ""))
                         .resizable()
                         .scaledToFill()
                         .frame(width: 350)
                         .overlay {
-                            Color.black.opacity(0.1)
+                            Color.black.opacity(0.2)
                         }
                     
-                    VStack(alignment: .trailing,spacing: 0) {
-                        SwiftUIView()
-                            .padding(.vertical,10)
-                        
-                        SwiftUIView()
-                            .padding(.vertical,10)
-                        
-                        Image(systemName: "car.fill")
+                    HStack(alignment: .bottom) {
+                        Text(vm.trip.tripImageURLString?.authorName ?? "")
                             .foregroundColor(.white)
-                            .padding()
-                            .background(Circle().fill(.black))
+                        
+                        Spacer()
+                        
+                        VStack(alignment: .trailing,spacing: 0) {
+                            TripDateView(tripDate: vm.trip.tripStartDate)
+                                .padding(.bottom,10)
+                            
+                            TripDateView(tripDate: vm.trip.tripEndDate)
+                                .padding(.bottom,10)
+                            
+                            Image(systemName: "car.fill")
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(Circle().fill(.black))
+                            
+                            Spacer()
+                        }
                     }
-                    .padding(.trailing, 10)
+                    .padding()
                 }
                 .frame(height: 340)
                 .frame(width: UIScreen.main.bounds.width * 0.9)
@@ -61,7 +68,8 @@ struct GroupPlannerView: View {
                     }
                     
                     Spacer()
-                    Text("\(vm.trip.tripCostString)/PP")
+
+                    Text("$\(vm.trip.tripCostEstimate)/PP")
                         .font(.system(size: 14))
                         .foregroundColor(.black.opacity(0.7))
                         .padding(10)
@@ -92,9 +100,9 @@ struct GroupPlannerView: View {
                         .background(Circle().fill(.black))
                 }
                 Divider()
-                
+                            
                 HStack {
-                    Image("mockAvatarImage")
+                    KFImage(URL(string: vm.organizer?.profileImageUrl ?? ""))
                         .resizable()
                         .frame(width: 50, height: 50)
                         .clipShape(Circle())
@@ -166,21 +174,20 @@ struct GroupPlannerView: View {
                 }
             }
         }
-        .onAppear{
-            AF.request("https://api.unsplash.com/search/photos/?client_id=\(accessKey)&query=RioDeJaniero,Brazil").responseDecodable(of: UnSplashResponseModel.self) { response in
-                
-                switch response.result {
-                case .success(let res):
-                    print("DEBUG: -> success \(res.results[2].urls.regular)")
-                    photoURL = "\(res.results[2].urls.regular)"
-                case .failure(_):
-                    print("DEBUG: ->err")
-                }
-            }
-            
+        .onAppear {
+            vm.fetchMembers()
         }
     }
-    //        ScrollView {
+}
+
+struct GroupPlannerView_Previews: PreviewProvider {
+    static var previews: some View {
+        GroupPlannerView(vm: GroupPlannerViewModel(trip: Trip.mockTrip, hurd: Hurd.mockHurd))
+    }
+}
+
+
+//        ScrollView {
 //            VStack(alignment: .leading, spacing: 10) {
 //
 //
@@ -305,10 +312,3 @@ struct GroupPlannerView: View {
 //        vm.prepopulateValuesFrom(current: self.vm.trip)
 //        return vm
 //    }
-}
-
-struct GroupPlannerView_Previews: PreviewProvider {
-    static var previews: some View {
-        GroupPlannerView(vm: GroupPlannerViewModel(trip: Trip.mockTrip, hurd: Hurd.mockHurd))
-    }
-}

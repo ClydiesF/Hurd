@@ -222,8 +222,8 @@
             filePath = "Hurd/ViewModel/AddTripFormViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
             landmarkName = "unknown"
             landmarkType = "0">
          </BreakpointContent>
@@ -247,22 +247,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BD9B9A14-F2AD-499B-A9DA-B56E14D13DC5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Hurd/ViewModel/AddTripFormViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "postTrip()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "6EC460AE-7B68-4F7E-9629-C41D85A4CEB9"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -276,7 +260,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "6EC460AE-7B68-4F7E-9629-C41D85A4CEB9 - 6ed30c29b16d8a8a"
+                  uuid = "6EC460AE-7B68-4F7E-9629-C41D85A4CEB9 - 6ed30c29b16d8806"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -286,12 +270,12 @@
                   urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/GroupPlannerViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
                   offsetFromSymbolStart = "276">
                </Location>
                <Location
-                  uuid = "6EC460AE-7B68-4F7E-9629-C41D85A4CEB9 - a5ac290bb06bcc25"
+                  uuid = "6EC460AE-7B68-4F7E-9629-C41D85A4CEB9 - a5ac290bb06bce91"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -301,8 +285,8 @@
                   urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/GroupPlannerViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "67"
-                  endingLineNumber = "67"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
                   offsetFromSymbolStart = "56">
                </Location>
             </Locations>
@@ -353,22 +337,6 @@
             startingLineNumber = "76"
             endingLineNumber = "76"
             landmarkName = "cancelTrip()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "207B74C0-1C5B-4F96-ABB7-1D7DFC4AACC6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Hurd/ViewModel/AddTripFormViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "postTrip()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -832,6 +800,182 @@
                   startingLineNumber = "70"
                   endingLineNumber = "70"
                   offsetFromSymbolStart = "252">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0803200C-1C54-46BF-A341-CC23368219DF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hurd/ViewModel/AddTripFormViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "fetchLocationImage()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0803200C-1C54-46BF-A341-CC23368219DF - db8776eafda83e60"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Hurd.AddTripFormViewModel.fetchLocationImage() async -&gt; ()"
+                  moduleName = "Hurd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AddTripFormViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "126"
+                  endingLineNumber = "126"
+                  offsetFromSymbolStart = "140">
+               </Location>
+               <Location
+                  uuid = "0803200C-1C54-46BF-A341-CC23368219DF - 51e2a16c78e80bfd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Hurd.UnSplashResponseModel, Alamofire.AFError&gt;) -&gt; () in Hurd.AddTripFormViewModel.fetchLocationImage() async -&gt; ()"
+                  moduleName = "Hurd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AddTripFormViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128"
+                  offsetFromSymbolStart = "344">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FFC8017F-6BB8-4088-A926-2A003CB43671"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hurd/ViewModel/AddTripFormViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "fetchLocationImage()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D437CF8E-3F0A-4C3C-B65C-38202BA78FF1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hurd/ViewModel/AddTripFormViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "fetchLocationImage()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2EC08B76-910D-4672-947C-4E0E277DEDC2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hurd/ViewModel/AddTripFormViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "postTrip()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2EC08B76-910D-4672-947C-4E0E277DEDC2 - 57d569a7d528f60c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Hurd.AddTripFormViewModel.postTrip() async -&gt; ()"
+                  moduleName = "Hurd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AddTripFormViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "150"
+                  endingLineNumber = "150"
+                  offsetFromSymbolStart = "928">
+               </Location>
+               <Location
+                  uuid = "2EC08B76-910D-4672-947C-4E0E277DEDC2 - 1ae2d01e1262275a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Character) -&gt; Swift.Bool in Hurd.AddTripFormViewModel.postTrip() async -&gt; ()"
+                  moduleName = "Hurd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AddTripFormViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "150"
+                  endingLineNumber = "150"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1E97D078-EB2E-423D-936F-D35D52E4AC97"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hurd/ViewModel/AddTripFormViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "postTrip()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1E97D078-EB2E-423D-936F-D35D52E4AC97 - 57d569a7d528f6a1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Hurd.AddTripFormViewModel.postTrip() async -&gt; ()"
+                  moduleName = "Hurd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AddTripFormViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "153"
+                  endingLineNumber = "153"
+                  offsetFromSymbolStart = "1220">
+               </Location>
+               <Location
+                  uuid = "1E97D078-EB2E-423D-936F-D35D52E4AC97 - eeb7a2dc9f71c5f3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Alamofire.DataResponse&lt;Hurd.UnSplashResponseModel, Alamofire.AFError&gt;) -&gt; () in Hurd.AddTripFormViewModel.postTrip() async -&gt; ()"
+                  moduleName = "Hurd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AddTripFormViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "146"
+                  endingLineNumber = "146"
+                  offsetFromSymbolStart = "552">
                </Location>
             </Locations>
          </BreakpointContent>
