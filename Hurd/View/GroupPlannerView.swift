@@ -69,7 +69,7 @@ struct GroupPlannerView: View {
                     
                     Spacer()
 
-                    Text("$\(vm.trip.tripCostEstimate)/PP")
+                    Text("$\(vm.trip.tripCostString)/PP")
                         .font(.system(size: 14))
                         .foregroundColor(.black.opacity(0.7))
                         .padding(10)
