@@ -15,35 +15,42 @@ import Alamofire
 struct GroupPlannerView: View {
     
     @ObservedObject var vm: GroupPlannerViewModel
-    let accessKey = "OQ56zpALUrsgNX0WDbMccCIsZ1CUDT9fD1skJIUhrY8"
-    @State var photoURL = ""
     
     var body: some View {
         
         ScrollView {
             VStack(alignment: .leading) {
                 ZStack(alignment: .topTrailing) {
-                    KFImage(URL(string: photoURL))
+                    KFImage(URL(string: vm.trip.tripImageURLString?.photoURL ?? ""))
                         .resizable()
                         .scaledToFill()
                         .frame(width: 350)
                         .overlay {
-                            Color.black.opacity(0.1)
+                            Color.black.opacity(0.2)
                         }
                     
-                    VStack(alignment: .trailing,spacing: 0) {
-                        TripDateView(tripDate: vm.trip.tripStartDate)
-                            .padding(.vertical,10)
-                        
-                        TripDateView(tripDate: vm.trip.tripEndDate)
-                            .padding(.vertical,10)
-                        
-                        Image(systemName: "car.fill")
+                    HStack(alignment: .bottom) {
+                        Text(vm.trip.tripImageURLString?.authorName ?? "")
                             .foregroundColor(.white)
-                            .padding()
-                            .background(Circle().fill(.black))
+                        
+                        Spacer()
+                        
+                        VStack(alignment: .trailing,spacing: 0) {
+                            TripDateView(tripDate: vm.trip.tripStartDate)
+                                .padding(.bottom,10)
+                            
+                            TripDateView(tripDate: vm.trip.tripEndDate)
+                                .padding(.bottom,10)
+                            
+                            Image(systemName: "car.fill")
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(Circle().fill(.black))
+                            
+                            Spacer()
+                        }
                     }
-                    .padding(.trailing, 10)
+                    .padding()
                 }
                 .frame(height: 340)
                 .frame(width: UIScreen.main.bounds.width * 0.9)
@@ -52,16 +59,16 @@ struct GroupPlannerView: View {
                 
                 HStack(alignment: .top) {
                     VStack(alignment: .leading) {
-                        Text("Brazile Trip")
+                        Text(vm.trip.tripName)
                             .font(.system(size: 30))
                             .fontWeight(.bold)
-                        Label("Rio De Janiero, Brazil", systemImage: "mappin")
+                        Label(vm.trip.tripDestination, systemImage: "mappin")
                             .foregroundColor(.gray)
                         
                     }
                     
                     Spacer()
-                    Text("$3.5K/PP")
+                    Text("$\(vm.trip.tripCostEstimate)/PP")
                         .font(.system(size: 14))
                         .foregroundColor(.black.opacity(0.7))
                         .padding(10)
@@ -92,9 +99,9 @@ struct GroupPlannerView: View {
                         .background(Circle().fill(.black))
                 }
                 Divider()
-                
+                            
                 HStack {
-                    Image("mockAvatarImage")
+                    KFImage(URL(string: vm.organizer?.profileImageUrl ?? ""))
                         .resizable()
                         .frame(width: 50, height: 50)
                         .clipShape(Circle())
@@ -113,7 +120,7 @@ struct GroupPlannerView: View {
                     .font(.system(size: 25))
                     .fontWeight(.bold)
                 
-                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent a diam vel nisi aliquam finibus aliquet sed turpis. Cras lorem enim, suscipit nec semper cursus, semper quis ipsum. In ut consequat eros. Morbi enim neque, cursus id eros ac, mollis pellentesque augue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent nisl dui, dignissim quis egestas quis, lacinia a libero. In hac habitasse platea dictumst.")
+                Text(vm.trip.tripDestination)
                     .foregroundColor(.gray)
                 
                 //            if let imageString = vm.organizer?.profileImageUrl {
@@ -166,21 +173,10 @@ struct GroupPlannerView: View {
                 }
             }
         }
-        .onAppear{
-            AF.request("https://api.unsplash.com/search/photos/?client_id=\(accessKey)&query=RioDeJaniero,Brazil").responseDecodable(of: UnSplashResponseModel.self) { response in
-                
-                switch response.result {
-                case .success(let res):
-                    print("DEBUG: -> success \(res.results[2].urls.regular)")
-                    photoURL = "\(res.results[2].urls.regular)"
-                case .failure(_):
-                    print("DEBUG: ->err")
-                }
-            }
-            
+        .onAppear {
+            vm.fetchMembers()
         }
     }
-
 }
 
 struct GroupPlannerView_Previews: PreviewProvider {

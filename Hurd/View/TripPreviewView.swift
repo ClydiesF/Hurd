@@ -17,8 +17,9 @@ struct TripPreviewView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             ZStack(alignment: .topTrailing) {
-                //KFImage(URL(string: trip.tripImageURLString ?? ""))
-                Image("mockbackground")
+                
+                //Image("mockbackground")
+                KFImage(URL(string: trip.tripImageURLString?.photoURL ?? ""))
                     .resizable()
                     .frame(height: 220)
                     .frame(width: UIScreen.main.bounds.width * 0.9)
@@ -32,9 +33,9 @@ struct TripPreviewView: View {
                         AsyncImage(url: URL(string: profileImage), content: { image in
                             image
                                 .resizable()
-                                .frame(width: 60, height: 60)
+                                .frame(width: 40, height: 40)
                                 .clipShape(Circle())
-                                .background(Circle().stroke(Color.black, lineWidth: 8))
+                                .background(Circle().stroke(Color.white, lineWidth: 5))
                                 .padding()
                         }) {
                             Circle()
