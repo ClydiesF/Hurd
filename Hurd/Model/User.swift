@@ -130,7 +130,7 @@ extension Trip {
     
     static let mockTrip5 = Trip(tripName: "Mock Trip 5", tripDestination: "Los Angeles, LA", tripType: "Excursion", tripCostEstimate: 9600.0,tripStartDate: 329773023, tripEndDate: 3434324233, hurd: Hurd.mockHurd)
     
-    static let mockTrip6 = Trip(tripName: "Mock Trip 6", tripDestination: "New York City, NY", tripType: "Business", tripCostEstimate: 500.0,tripStartDate: 329773023, tripEndDate: 3434324233, hurd: Hurd.mockHurd)
+    static let mockTrip6 = Trip(tripName: "Mock Trip 6", tripDestination: "New York City, NY", tripType: "Business", tripCostEstimate: 577.0,tripStartDate: 329773023, tripEndDate: 3434324233, hurd: Hurd.mockHurd)
     
     var tripCostString: String {
         var cost = tripCostEstimate
