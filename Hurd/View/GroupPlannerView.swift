@@ -68,7 +68,8 @@ struct GroupPlannerView: View {
                     }
                     
                     Spacer()
-                    Text("$\(vm.trip.tripCostEstimate)/PP")
+
+                    Text("$\(vm.trip.tripCostString)/PP")
                         .font(.system(size: 14))
                         .foregroundColor(.black.opacity(0.7))
                         .padding(10)
@@ -120,7 +121,7 @@ struct GroupPlannerView: View {
                     .font(.system(size: 25))
                     .fontWeight(.bold)
                 
-                Text(vm.trip.tripDestination)
+                Text(vm.trip.tripDescription ?? "")
                     .foregroundColor(.gray)
                 
                 //            if let imageString = vm.organizer?.profileImageUrl {
