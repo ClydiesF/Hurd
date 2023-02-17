@@ -47,11 +47,12 @@
 		3B5C31BC2972957B001354E6 /* GroupPlannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C31BB2972957A001354E6 /* GroupPlannerViewModel.swift */; };
 		3B5C31BE29736965001354E6 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C31BD29736965001354E6 /* ProfileViewModel.swift */; };
 		3B603F152975B00A00E01D99 /* TripsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B603F142975B00A00E01D99 /* TripsViewModel.swift */; };
-		3B603F172975F55B00E01D99 /* TripDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B603F162975F55B00E01D99 /* TripDetailView.swift */; };
 		3B603F192975FA8000E01D99 /* HurdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B603F182975FA8000E01D99 /* HurdView.swift */; };
 		3B6E292C298F5AED00A90449 /* SavePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E292B298F5AED00A90449 /* SavePopUp.swift */; };
 		3B6E292E2990BE2300A90449 /* TripDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E292D2990BE2300A90449 /* TripDateView.swift */; };
 		3B6E29302991F7C500A90449 /* UnSplashResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E292F2991F7C500A90449 /* UnSplashResponseModel.swift */; };
+		3B823FBF299F32AE00639D04 /* TripSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B823FBE299F32AE00639D04 /* TripSettingsView.swift */; };
+		3B823FC1299F36CB00639D04 /* TripSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B823FC0299F36CB00639D04 /* TripSettingsViewModel.swift */; };
 		3B8629F4296CEE4C0077DB92 /* OnboardingSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8629F3296CEE4C0077DB92 /* OnboardingSliderView.swift */; };
 		3B8629F6296D166C0077DB92 /* OnboardingProfileInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8629F5296D166C0077DB92 /* OnboardingProfileInfoView.swift */; };
 		3B8629F8296D48600077DB92 /* OnboardingProfileInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8629F7296D48600077DB92 /* OnboardingProfileInfoViewModel.swift */; };
@@ -103,11 +104,12 @@
 		3B5C31BB2972957A001354E6 /* GroupPlannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPlannerViewModel.swift; sourceTree = "<group>"; };
 		3B5C31BD29736965001354E6 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		3B603F142975B00A00E01D99 /* TripsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsViewModel.swift; sourceTree = "<group>"; };
-		3B603F162975F55B00E01D99 /* TripDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailView.swift; sourceTree = "<group>"; };
 		3B603F182975FA8000E01D99 /* HurdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdView.swift; sourceTree = "<group>"; };
 		3B6E292B298F5AED00A90449 /* SavePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePopUp.swift; sourceTree = "<group>"; };
 		3B6E292D2990BE2300A90449 /* TripDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDateView.swift; sourceTree = "<group>"; };
 		3B6E292F2991F7C500A90449 /* UnSplashResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnSplashResponseModel.swift; sourceTree = "<group>"; };
+		3B823FBE299F32AE00639D04 /* TripSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSettingsView.swift; sourceTree = "<group>"; };
+		3B823FC0299F36CB00639D04 /* TripSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSettingsViewModel.swift; sourceTree = "<group>"; };
 		3B8629F3296CEE4C0077DB92 /* OnboardingSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSliderView.swift; sourceTree = "<group>"; };
 		3B8629F5296D166C0077DB92 /* OnboardingProfileInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProfileInfoView.swift; sourceTree = "<group>"; };
 		3B8629F7296D48600077DB92 /* OnboardingProfileInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProfileInfoViewModel.swift; sourceTree = "<group>"; };
@@ -285,12 +287,12 @@
 				3B5C31B1296FD54A001354E6 /* AddTripFormView.swift */,
 				3B5C31B729723380001354E6 /* PlannerButton'.swift */,
 				3B5C31B929723459001354E6 /* MemberProfilePreview.swift */,
-				3B603F162975F55B00E01D99 /* TripDetailView.swift */,
 				3B4EB2642977A8C9008C26EF /* NotesView.swift */,
 				3B4EB2662977B780008C26EF /* TripNotesView.swift */,
 				3B4EB271297A2AA8008C26EF /* AddNoteView.swift */,
 				3B4EB276297BEB1D008C26EF /* EditProfileView.swift */,
 				3B6E292D2990BE2300A90449 /* TripDateView.swift */,
+				3B823FBE299F32AE00639D04 /* TripSettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -315,6 +317,7 @@
 				3B5C31BB2972957A001354E6 /* GroupPlannerViewModel.swift */,
 				3B5C31BD29736965001354E6 /* ProfileViewModel.swift */,
 				3B603F142975B00A00E01D99 /* TripsViewModel.swift */,
+				3B823FC0299F36CB00639D04 /* TripSettingsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -477,7 +480,7 @@
 				3B8629F8296D48600077DB92 /* OnboardingProfileInfoViewModel.swift in Sources */,
 				3BC9ED00295D7C2D004EFEEF /* TripPreviewView.swift in Sources */,
 				3BC9ED03295ED420004EFEEF /* DiscoveryView.swift in Sources */,
-				3B603F172975F55B00E01D99 /* TripDetailView.swift in Sources */,
+				3B823FC1299F36CB00639D04 /* TripSettingsViewModel.swift in Sources */,
 				3BC9ECD0295C0372004EFEEF /* HurdApp.swift in Sources */,
 				3B5C31BE29736965001354E6 /* ProfileViewModel.swift in Sources */,
 				3B5C31B2296FD54A001354E6 /* AddTripFormView.swift in Sources */,
@@ -491,6 +494,7 @@
 				3B5C31B829723380001354E6 /* PlannerButton'.swift in Sources */,
 				3BC9ECF2295D49DC004EFEEF /* HurdLandingView.swift in Sources */,
 				3B6E29302991F7C500A90449 /* UnSplashResponseModel.swift in Sources */,
+				3B823FBF299F32AE00639D04 /* TripSettingsView.swift in Sources */,
 				3BC9ECFA295D73BD004EFEEF /* SocialSignInButtonView.swift in Sources */,
 				3BC9ECE6295C0924004EFEEF /* HurdButtonModel.swift in Sources */,
 				3BC9ECF6295D5C5E004EFEEF /* HurdTextField.swift in Sources */,
