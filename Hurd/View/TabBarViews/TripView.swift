@@ -67,9 +67,14 @@ struct TripView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button("add") {
+                        Button {
                             addTripVM.addTripFormPresented = true
-                         }
+                        } label: {
+                            Image(systemName: "plus")
+                                .foregroundColor(.white)
+                                .padding(5)
+                                .background(Circle().fill(.black))
+                        }
                     }
                 }
             }
