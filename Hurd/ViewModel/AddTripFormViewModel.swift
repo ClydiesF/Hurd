@@ -21,6 +21,7 @@ class AddTripFormViewModel: NSObject, ObservableObject {
     @Published var tripCostEstimate: Double = 0
     
     @Published private(set) var status: SearchStatus = .idle
+    @Published private(set) var locationStatus: LocationStatus = .notSelected
     @Published private(set) var searchResults: [MKLocalSearchCompletion] = []
     @Published var tripStartDate = Date.now
     @Published var tripEndDate: Date = Date.now
@@ -56,6 +57,11 @@ class AddTripFormViewModel: NSObject, ObservableObject {
         case result
     }
     
+    enum LocationStatus {
+        case notSelected
+        case selected
+    }
+    
     enum TripType: String {
         case vacation
         case cruise
@@ -89,8 +95,10 @@ class AddTripFormViewModel: NSObject, ObservableObject {
                 }
         })
     }
-    func selectedLocation() {
+    func selectedLocation(_ location: MKLocalSearchCompletion) {
         self.status = .idle
+        self.locationStatus = .selected
+        self.tripLocationSearchQuery = "\(location.title), \(location.subtitle)"
     }
     
     func prepopulateValuesFrom(current trip: Trip) {
