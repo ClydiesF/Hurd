@@ -146,7 +146,7 @@ class AddTripFormViewModel: NSObject, ObservableObject {
         var newHurd = Hurd(organizer: userId)
         var tripString = tripLocationSearchQuery.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        let comma: Set<Character> = [",", " "]
+        let comma: Set<Character> = [" "]
         tripString.removeAll(where: { comma.contains($0) })
         print("DEBUG: Trip String", tripString)
         
@@ -155,11 +155,15 @@ class AddTripFormViewModel: NSObject, ObservableObject {
             switch response.result {
             case .success(let res):
                 let upperLimit = (res.results.count) - 1
-                let index = Int.random(in: 0...upperLimit)
-                print("DEBUG: image-> success \(res.results[index].urls.regular)")
-                self.tripPhoto = "\(res.results[index].urls.regular)"
-                self.tripPhotoAuthor =  "\(res.results[index].user.name)"
-//                return UnsplashPhoto(photoURL: tripPhoto, authorName: tripPhotoAuthor)
+                if upperLimit > 0 {
+                    let index = Int.random(in: 0...upperLimit)
+                    print("DEBUG: image-> success \(res.results[index].urls.regular)")
+                    self.tripPhoto = "\(res.results[index].urls.regular)"
+                    self.tripPhotoAuthor =  "\(res.results[index].user.name)"
+                } else {
+                    self.tripPhoto = "\(res.results[0].urls.regular)"
+                    self.tripPhotoAuthor =  "\(res.results[0].user.name)"
+                }
                 
                 do {
                     let ref = try HURD_REF.addDocument(from: newHurd)
@@ -170,6 +174,17 @@ class AddTripFormViewModel: NSObject, ObservableObject {
                     
                     let newTrip = Trip(tripName: self.tripNameText, tripDestination: self.tripLocationSearchQuery, tripType: self.selectedTripType, tripCostEstimate: self.tripCostEstimate, tripStartDate: self.tripStartDate.timeIntervalSince1970, tripEndDate: self.tripEndDate.timeIntervalSince1970, tripDescription: self.tripDescriptionText, hurd: newHurd, tripImageURLString: photoInfo)
                     try TRIP_REF.document().setData(from: newTrip)
+                    
+                    self.tripNameText = ""
+                    self.tripDescriptionText = ""
+                    self.tripLocationSearchQuery  = ""
+                    self.tripCostEstimate = 0
+                    
+                    self.status = .idle
+                    self.tripStartDate = Date.now
+                    self.tripEndDate = Date.now
+                    
+                    self.selectedTripType = ""
                 } catch(let err) {
                     print("DEBUG: err \(err.localizedDescription)")
                 }
@@ -177,6 +192,7 @@ class AddTripFormViewModel: NSObject, ObservableObject {
                 print("DEBUG: image ->err \(err)")
 //                return nil
             }
+            
         }
         
         

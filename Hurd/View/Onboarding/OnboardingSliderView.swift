@@ -25,23 +25,20 @@ struct OnboardingSliderView: View {
                     Image(onboardingModels[selectedPage].imageName)
                         .resizable()
                         .scaledToFill()
-                        .ignoresSafeArea()
                         .tag(0)
                     
                     Image(onboardingModels[selectedPage].imageName)
                         .resizable()
                         .scaledToFill()
-                        .ignoresSafeArea()
                         .tag(1)
                     
                     Image(onboardingModels[selectedPage].imageName)
                         .resizable()
                         .scaledToFill()
-                        .ignoresSafeArea()
                         .tag(2)
                 }
-                .ignoresSafeArea()
                 .frame(height: 400)
+                .ignoresSafeArea()
                 .tabViewStyle(.page)
                 
                 Group {
