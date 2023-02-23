@@ -10,7 +10,7 @@ struct AddTripFormView: View {
     @ObservedObject var vm: AddTripFormViewModel
     
     var body: some View {
-    Form {
+        Form {
             Section(vm.formType == .edit ? "Edit Trip": "Add Trip") {
                 TextField("Trip Name", text: $vm.tripNameText)
             }
@@ -19,28 +19,23 @@ struct AddTripFormView: View {
             Section("Trip Location") {
                 ZStack(alignment: .trailing) {
                     TextField("Trip Location", text: $vm.tripLocationSearchQuery)
-                    if vm.status == .isSearching {
+                    if vm.locationStatus != .selected {
                         Image(systemName: "clock")
                             .foregroundColor(.gray)
                     }
                     
                 }
-            }
-            
-            if vm.status == .result && !vm.searchResults.isEmpty {
-                List {
-                    ForEach(vm.searchResults, id: \.self) { resultItem in
-                        
-                        Button {
-                            vm.selectedLocation()
-                            vm.tripLocationSearchQuery = "\(resultItem.title), \(resultItem.subtitle)"
-                            
-                            // make a call to grab lat and long, based off title and subtitle of resul Item Object
-                            
-                        } label: {
-                            Text("\(resultItem.title), \(resultItem.subtitle)")
+                
+                if vm.locationStatus != .selected {
+                    List {
+                        ForEach(vm.searchResults, id: \.self) { resultItem in
+                            Button {
+                                vm.selectedLocation(resultItem)
+                                // make a call to grab lat and long, based off title and subtitle of resul Item Object
+                            } label: {
+                                Text("\(resultItem.title), \(resultItem.subtitle)")
+                            }
                         }
-                        
                     }
                 }
             }
