@@ -17,7 +17,7 @@ struct TripView: View {
     var body: some View {
         NavigationView {
             VStack {
-                HurdSlidingTabView(selection: $vm.selection, tabs: ["Upcoming", "Past"], activeAccentColor: .black, selectionBarColor: .black)
+                HurdSlidingTabView(selection: $vm.selection, tabs: ["Upcoming", "Past"], activeAccentColor: Color("textColor"), selectionBarColor: Color("textColor"))
                 ScrollView {
                     switch vm.selection {
                     case 0:
@@ -71,9 +71,9 @@ struct TripView: View {
                             addTripVM.addTripFormPresented = true
                         } label: {
                             Image(systemName: "plus")
-                                .foregroundColor(.white)
+                                .foregroundColor(Color("backgroundColor"))
                                 .padding(5)
-                                .background(Circle().fill(.black))
+                                .background(Circle().fill(Color("textColor")))
                         }
                     }
                 }

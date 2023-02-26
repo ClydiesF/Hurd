@@ -14,13 +14,15 @@ struct TripDateView: View {
         VStack {
             Text(returnDateNumber())
                 .font(.system(size: 25))
+                .foregroundColor(Color("textColor"))
                 .fontWeight(.bold)
+            
             Text(returnDateMonth().uppercased())
-                
+                .foregroundColor(Color("textColor"))
         }
         .padding(10)
         .background(
-            RoundedRectangle(cornerRadius: 10).fill(.white)
+            RoundedRectangle(cornerRadius: 10).fill(Color("backgroundColor"))
                 .shadow(color: .gray.opacity(0.3), radius: 5, x: 3, y: 3))
     }
     

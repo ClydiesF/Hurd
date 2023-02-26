@@ -49,6 +49,7 @@ struct NotesView: View {
                     Text(note.title)
                         .font(.system(size: 17))
                         .fontWeight(.semibold)
+                        .foregroundColor(.black)
                     
                     Spacer()
                     

@@ -65,7 +65,7 @@ struct HurdSlidingTabView: View {
                 font: Font = .body,
                 animation: Animation = .spring(),
                 activeAccentColor: Color = .blue,
-                inactiveAccentColor: Color = Color.black.opacity(0.4),
+                inactiveAccentColor: Color = Color("textColor").opacity(0.4),
                 selectionBarColor: Color = .blue,
                 inactiveTabColor: Color = .clear,
                 activeTabColor: Color = .clear,

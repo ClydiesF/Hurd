@@ -25,7 +25,7 @@ struct TripPreviewView: View {
                     .frame(width: UIScreen.main.bounds.width * 0.9)
                     .scaledToFill()
                     .overlay {
-                        Color.black.opacity(0.2)
+                        Color("textColor").opacity(0.2)
                     }
                 
                 HStack(alignment: .top) {
@@ -35,7 +35,7 @@ struct TripPreviewView: View {
                                 .resizable()
                                 .frame(width: 40, height: 40)
                                 .clipShape(Circle())
-                                .background(Circle().stroke(Color.white, lineWidth: 5))
+                                .background(Circle().stroke(Color("backgroundColor"), lineWidth: 5))
                                 .padding()
                         }) {
                             Circle()
@@ -49,7 +49,7 @@ struct TripPreviewView: View {
                         Circle()
                             .fill(.gray)
                             .frame(width: 60, height: 60)
-                            .background(Circle().stroke(Color.black, lineWidth: 8))
+                            .background(Circle().stroke(Color("textColor"), lineWidth: 8))
                             .padding()
                     }
                     
@@ -65,9 +65,9 @@ struct TripPreviewView: View {
                         Spacer()
                         
                         Image(systemName: trip.iconName)
-                            .foregroundColor(.white)
+                            .foregroundColor(Color("backgroundColor"))
                             .padding()
-                            .background(Circle().fill(.black))
+                            .background(Circle().fill(Color("textColor")))
                     }
                     .padding()
                 }
@@ -79,7 +79,7 @@ struct TripPreviewView: View {
             
             Text(trip.tripName)
                 .font(.system(size: 25))
-                .foregroundColor(.black)
+                .foregroundColor(Color("textColor"))
                 .fontWeight(.bold)
             
             Label(trip.tripDestination, systemImage: "mappin")

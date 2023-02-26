@@ -22,7 +22,7 @@ struct HurdPasswordTextField: View {
                 } label: {
                     showPassword ? Image(systemName: "eye") : Image(systemName: "eye.slash")
                 }
-                .tint(.black)
+                .tint(Color("textColor"))
             } else {
                 SecureField(placeholderText, text: $text)
                 Button {
@@ -30,7 +30,7 @@ struct HurdPasswordTextField: View {
                 } label: {
                     showPassword ? Image(systemName: "eye") : Image(systemName: "eye.slash")
                 }
-                .tint(.black)
+                .tint(Color("textColor"))
             }
         }
         .frame(height: 40)
