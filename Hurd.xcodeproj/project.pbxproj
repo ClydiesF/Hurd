@@ -46,6 +46,7 @@
 		3B5C31BA29723459001354E6 /* MemberProfilePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C31B929723459001354E6 /* MemberProfilePreview.swift */; };
 		3B5C31BC2972957B001354E6 /* GroupPlannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C31BB2972957A001354E6 /* GroupPlannerViewModel.swift */; };
 		3B5C31BE29736965001354E6 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C31BD29736965001354E6 /* ProfileViewModel.swift */; };
+		3B5E1C3E29AB3B2B008E8831 /* NoTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E1C3D29AB3B2B008E8831 /* NoTripView.swift */; };
 		3B603F152975B00A00E01D99 /* TripsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B603F142975B00A00E01D99 /* TripsViewModel.swift */; };
 		3B603F192975FA8000E01D99 /* HurdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B603F182975FA8000E01D99 /* HurdView.swift */; };
 		3B6E292C298F5AED00A90449 /* SavePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E292B298F5AED00A90449 /* SavePopUp.swift */; };
@@ -103,6 +104,7 @@
 		3B5C31B929723459001354E6 /* MemberProfilePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberProfilePreview.swift; sourceTree = "<group>"; };
 		3B5C31BB2972957A001354E6 /* GroupPlannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPlannerViewModel.swift; sourceTree = "<group>"; };
 		3B5C31BD29736965001354E6 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		3B5E1C3D29AB3B2B008E8831 /* NoTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoTripView.swift; sourceTree = "<group>"; };
 		3B603F142975B00A00E01D99 /* TripsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsViewModel.swift; sourceTree = "<group>"; };
 		3B603F182975FA8000E01D99 /* HurdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdView.swift; sourceTree = "<group>"; };
 		3B6E292B298F5AED00A90449 /* SavePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePopUp.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				3B4EB276297BEB1D008C26EF /* EditProfileView.swift */,
 				3B6E292D2990BE2300A90449 /* TripDateView.swift */,
 				3B823FBE299F32AE00639D04 /* TripSettingsView.swift */,
+				3B5E1C3D29AB3B2B008E8831 /* NoTripView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				3BC9ECE2295C0464004EFEEF /* Color+Extensions.swift in Sources */,
 				3BC9ED07295ED43F004EFEEF /* TripView.swift in Sources */,
 				3B530CCE2967E942002C272B /* AuthCredentials.swift in Sources */,
+				3B5E1C3E29AB3B2B008E8831 /* NoTripView.swift in Sources */,
 				3B530CC92965305F002C272B /* AuthenticationViewModel.swift in Sources */,
 				3B530C9B2960F535002C272B /* DestinationSuggestionView.swift in Sources */,
 				3B530CC7296237D2002C272B /* AuthenticationMethods.swift in Sources */,

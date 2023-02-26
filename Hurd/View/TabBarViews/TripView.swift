@@ -22,7 +22,7 @@ struct TripView: View {
                     switch vm.selection {
                     case 0:
                         if vm.trips.filter { ($0.tripEndDate + 86400) >= vm.currentDate }.isEmpty {
-                            ProgressView()
+                            NoTripView(isPastTrip: $vm.isPastTrip)
                         } else {
                             ForEach(vm.trips.filter { ($0.tripEndDate + 86400) >= vm.currentDate }, id: \.id) { trip in
                                 if let hurd = trip.hurd {
@@ -39,7 +39,7 @@ struct TripView: View {
                         }
                     case 1:
                         if vm.trips.filter { ($0.tripEndDate + 86400) < vm.currentDate }.isEmpty {
-                            ProgressView()
+                            NoTripView(isPastTrip: $vm.isPastTrip)
                         } else {
                             ForEach(vm.trips.filter { ($0.tripEndDate + 86400) < vm.currentDate }, id: \.id) { trip in
                                 if let hurd = trip.hurd {

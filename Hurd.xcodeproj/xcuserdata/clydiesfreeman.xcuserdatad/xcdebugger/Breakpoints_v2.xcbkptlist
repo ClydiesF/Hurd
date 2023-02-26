@@ -224,7 +224,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "202"
             endingLineNumber = "202"
-            landmarkName = "completer(_:didFailWithError:)"
+            landmarkName = "postTrip()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -704,7 +704,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "126"
             endingLineNumber = "126"
-            landmarkName = "fetchLocationImage()"
+            landmarkName = "editTrip()"
             landmarkType = "7">
             <Locations>
                <Location
@@ -768,7 +768,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "131"
             endingLineNumber = "131"
-            landmarkName = "fetchLocationImage()"
+            landmarkName = "editTrip()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
