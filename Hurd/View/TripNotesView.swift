@@ -14,7 +14,7 @@ struct TripNotesView: View {
     var body: some View {
         VStack(spacing: 10) {
             HStack(spacing: 20) {
-                HurdSlidingTabView(selection: $selection, tabs: ["Important","general"])
+                HurdSlidingTabView(selection: $selection, tabs: ["Important","general"], activeAccentColor: Color("textColor"), selectionBarColor: Color("textColor"))
                     //.padding(.trailing, 130)
             }
            
@@ -34,9 +34,9 @@ struct TripNotesView: View {
                     vm.showAddNoteForm = true
                 } label: {
                     Image(systemName: "plus")
-                        .foregroundColor(.white)
+                        .foregroundColor(Color("backgroundColor"))
                         .padding(5)
-                        .background(Circle().fill(.black))
+                        .background(Circle().fill(Color("textColor")))
                 }
 
             }

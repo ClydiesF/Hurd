@@ -17,11 +17,13 @@ struct NoTripView: View {
         VStack {
             Text("No Trips")
                 .font(.largeTitle)
+                .foregroundColor(.black)
                 .bold()
                 .padding(.bottom, Spacing.sixteen)
             
             Text(isPastTrip ? noPastTripMsg : noCurrentTripMsg)
                 .multilineTextAlignment(.center)
+                .foregroundColor(.black)
         }
         .padding()
         .background(RoundedRectangle(cornerRadius: 10).fill(.white).shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5))

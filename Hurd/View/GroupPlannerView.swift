@@ -26,7 +26,7 @@ struct GroupPlannerView: View {
                         .scaledToFill()
                         .frame(width: 350)
                         .overlay {
-                            Color.black.opacity(0.2)
+                            Color("textColor").opacity(0.2)
                         }
                     
                     HStack(alignment: .bottom) {
@@ -43,9 +43,9 @@ struct GroupPlannerView: View {
                                 .padding(.bottom,10)
                             
                             Image(systemName: "car.fill")
-                                .foregroundColor(.white)
+                                .foregroundColor(Color("backgroundColor"))
                                 .padding()
-                                .background(Circle().fill(.black))
+                                .background(Circle().fill(Color("textColor")))
                             
                             Spacer()
                         }
@@ -71,7 +71,7 @@ struct GroupPlannerView: View {
 
                     Text("$\(vm.trip.tripCostString)/PP")
                         .font(.system(size: 14))
-                        .foregroundColor(.black.opacity(0.7))
+                        .foregroundColor(Color("textColor").opacity(0.7))
                         .padding(10)
                         .fontWeight(.bold)
                         .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))
@@ -80,14 +80,14 @@ struct GroupPlannerView: View {
                 Divider()
                 HStack {
                     Image(systemName: "speaker.wave.3.fill")
-                        .foregroundColor(.white)
+                        .foregroundColor(Color("backgroundColor"))
                         .padding()
-                        .background(Circle().fill(.black))
+                        .background(Circle().fill(Color("textColor")))
                     
                     Image(systemName: "list.bullet.clipboard.fill")
-                        .foregroundColor(.white)
+                        .foregroundColor(Color("backgroundColor"))
                         .padding()
-                        .background(Circle().fill(.black))
+                        .background(Circle().fill(Color("textColor")))
                     
                     NavigationLink {
                         TripNotesView(vm: vm)
@@ -95,14 +95,14 @@ struct GroupPlannerView: View {
                         ZStack(alignment: .topTrailing) {
                             Image(systemName: "note")
                                 .badge(20)
-                                .foregroundColor(.white)
+                                .foregroundColor(Color("backgroundColor"))
                                 .padding()
-                                .background(Circle().fill(.black))
+                                .background(Circle().fill(Color("textColor")))
                             
                             if let noteCount = vm.notes?.count, noteCount > 0 {
                                 Text("\(noteCount)")
                                     .padding(3)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(Color("backgroundColor"))
                                     .font(.system(size: 14))
                                     .frame(width: 25)
                                     .background(RoundedRectangle(cornerRadius: 8).fill(.orange))
@@ -114,9 +114,9 @@ struct GroupPlannerView: View {
                     
                     
                     Image(systemName: "square.and.arrow.up")
-                        .foregroundColor(.white)
+                        .foregroundColor(Color("backgroundColor"))
                         .padding()
-                        .background(Circle().fill(.black))
+                        .background(Circle().fill(Color("textColor")))
                 }
                 Divider()
                             
@@ -125,15 +125,15 @@ struct GroupPlannerView: View {
                         .resizable()
                         .frame(width: 50, height: 50)
                         .clipShape(Circle())
-                        .background(Circle().stroke(Color.black.opacity(0.5), lineWidth: 10))
+                        .background(Circle().stroke(Color("textColor").opacity(0.5), lineWidth: 10))
                         .padding(.vertical, 10)
                     
                     Spacer()
                     
                     Image(systemName: "plus")
-                        .foregroundColor(.white)
+                        .foregroundColor(Color("backgroundColor"))
                         .padding(10)
-                        .background(Circle().fill(.black))
+                        .background(Circle().fill(Color("textColor")))
                 }
             
                 NavigationLink("",
