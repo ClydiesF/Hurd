@@ -26,6 +26,10 @@ class OnboardingProfileInfoViewModel: ObservableObject {
         }
     }
     
+    var fieldsArePopulated: Bool {
+        return !firstName.isEmpty && !lastName.isEmpty
+    }
+    
     @Published var characterCount: Int = 0
     @Published var selectedGender: String = ""
     

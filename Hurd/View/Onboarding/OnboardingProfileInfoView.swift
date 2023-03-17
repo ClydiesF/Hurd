@@ -15,13 +15,16 @@ struct OnboardingProfileInfoView: View {
     
     @EnvironmentObject var authVM: AuthenticationViewModel
     
+    private let phoneNumberFormatter = PhoneNumberFormatter()
+    
     var body: some View {
         VStack(spacing: Spacing.sixteen) {
             
-            Text("let us know some basic info about yourself!")
-                .font(.largeTitle)
+            Text("Let us know some basic info about yourself!")
+                .font(.title)
                 .fontWeight(.semibold)
                 .foregroundColor(.bottleGreen)
+                .multilineTextAlignment(.center)
             
             if let photoData = vm.selectedPhotoData, let image = UIImage(data: photoData) {
                 Image(uiImage: image)
@@ -78,10 +81,15 @@ struct OnboardingProfileInfoView: View {
                 }
             }
             
-    
             TextField("Phone Number", text: $vm.phoneNumber)
                 .keyboardType(.phonePad)
                 .textFieldStyle(.roundedBorder)
+                .onReceive(vm.$phoneNumber) { newValue in
+                    let formatted = phoneNumberFormatter.string(for: newValue) ?? ""
+                    if formatted != newValue {
+                        vm.phoneNumber = formatted
+                    }
+                }
             
             VStack(alignment: .leading) {
                 Text("Tell us what kind of traveler you are!")
@@ -103,13 +111,23 @@ struct OnboardingProfileInfoView: View {
             Spacer()
             }
     
-            
-            // This will handle navigation to the main app.
-            PrimaryHurdButton(buttonModel: .init(buttonText: "All Set!", buttonType: .primary, icon: .arrowRight, appendingIcon: true), action: {
-                vm.addOnboardingInfoData { _ in
-                    authVM.authState = .signedIn
+            Button {
+                // This will handle navigation to the main app.
+                if vm.fieldsArePopulated {
+                    vm.addOnboardingInfoData { _ in
+                        authVM.authState = .signedIn
+                    }
                 }
-            })
+            } label: {
+                Text("All Set!")
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.white)
+                    .frame(height: 50)
+                    .frame(maxWidth: .infinity)
+                    .background(Capsule().foregroundColor(vm.fieldsArePopulated ? .bottleGreen : .gray))
+            }
+            .disabled(!vm.fieldsArePopulated)
         }
         .padding()
     }
