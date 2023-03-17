@@ -21,7 +21,7 @@ struct OnboardingProfileInfoView: View {
         VStack(spacing: Spacing.sixteen) {
             
             Text("Let us know some basic info about yourself!")
-                .font(.title)
+                .font(.title3)
                 .fontWeight(.semibold)
                 .foregroundColor(.bottleGreen)
                 .multilineTextAlignment(.center)
@@ -116,9 +116,14 @@ struct OnboardingProfileInfoView: View {
             Button {
                 // This will handle navigation to the main app.
                 if vm.fieldsArePopulated {
-                    vm.addOnboardingInfoData { _ in
-                        authVM.authState = .signedIn
+                    vm.addOnboardingInfoData { uid in
+                        if let uid {
+                            authVM.getCurrentUserObject(from: uid)
+                        }
+                        
+                        print("DEBUG: Something wrong happened here and is not good here ")
                     }
+                  
                 }
             } label: {
                 Text("All Set!")

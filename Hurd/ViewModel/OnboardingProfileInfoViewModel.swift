@@ -51,7 +51,7 @@ class OnboardingProfileInfoViewModel: ObservableObject {
        
     }
     
-    func addOnboardingInfoData(completion: @escaping(Bool) -> Void) {
+    func addOnboardingInfoData(completion: @escaping (String?) -> Void) {
         let displayName = " \(self.firstName) \(self.lastName)"
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequest?.displayName = displayName
@@ -88,10 +88,7 @@ class OnboardingProfileInfoViewModel: ObservableObject {
                         guard let uid = Auth.auth().currentUser?.uid else { return }
                         
                         USER_REF.document(uid).setData(addedData, merge: true)
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                            completion(true)
-                        }
+                        completion(nil)
                     }
                     
                 }
@@ -114,10 +111,16 @@ class OnboardingProfileInfoViewModel: ObservableObject {
                 
                 guard let uid = Auth.auth().currentUser?.uid else { return }
                 
-                USER_REF.document(uid).setData(addedData, merge: true)
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    completion(true)
+                //USER_REF.document(uid).setData(addedData, merge: true)
+                USER_REF.document(uid).setData(addedData, merge: true) { err in
+                    if let err {
+                        print("DEBUG: ERROR: \(err)")
+                    completion(nil)
+                    }
+                    
+                 completion(uid)
+                    
+                    
                 }
        
             }

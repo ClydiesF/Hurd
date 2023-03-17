@@ -74,7 +74,7 @@ struct HurdSignUpView: View {
                     }
                     
           
-                    SignInWithAppleButtonView(vm: vm, signinType: .signup)
+                    //SignInWithAppleButtonView(vm: vm, signinType: .signup)
     
                     PrimaryHurdButton(buttonModel: .init(buttonText: "Join now", buttonType: .primary, icon: nil, appendingIcon: nil), action: {
                         vm.signup()

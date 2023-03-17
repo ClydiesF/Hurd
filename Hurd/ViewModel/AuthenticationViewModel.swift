@@ -60,7 +60,7 @@ class AuthenticationViewModel: ObservableObject {
     
     
     init() {
-        currentUser = Auth.auth().currentUser
+       currentUser = Auth.auth().currentUser
         registerStateListener()
        registerCurrentUserListener()
         
@@ -123,7 +123,7 @@ class AuthenticationViewModel: ObservableObject {
     }
 
     
-    private func getCurrentUserObject(from userID: String) {
+    func getCurrentUserObject(from userID: String) {
         USER_REF.document(userID).getDocument(as: User.self) { result in
           
             switch result {

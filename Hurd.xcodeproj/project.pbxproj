@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B3F682629C41BA600FBC7B6 /* PhoneNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F682529C41BA600FBC7B6 /* PhoneNumberFormatter.swift */; };
 		3B4EB2652977A8C9008C26EF /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EB2642977A8C9008C26EF /* NotesView.swift */; };
 		3B4EB2672977B780008C26EF /* TripNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EB2662977B780008C26EF /* TripNotesView.swift */; };
 		3B4EB26A2978D9AB008C26EF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3B4EB2692978D9AB008C26EF /* Alamofire */; };
@@ -87,6 +88,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B3F682529C41BA600FBC7B6 /* PhoneNumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberFormatter.swift; sourceTree = "<group>"; };
 		3B4EB2642977A8C9008C26EF /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
 		3B4EB2662977B780008C26EF /* TripNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripNotesView.swift; sourceTree = "<group>"; };
 		3B4EB271297A2AA8008C26EF /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 		3BC9ECE0295C03E8004EFEEF /* extensions */ = {
 			isa = PBXGroup;
 			children = (
+				3B3F682529C41BA600FBC7B6 /* PhoneNumberFormatter.swift */,
 				3BC9ECE1295C0464004EFEEF /* Color+Extensions.swift */,
 			);
 			path = extensions;
@@ -493,6 +496,7 @@
 				3B530CCE2967E942002C272B /* AuthCredentials.swift in Sources */,
 				3B5E1C3E29AB3B2B008E8831 /* NoTripView.swift in Sources */,
 				3B530CC92965305F002C272B /* AuthenticationViewModel.swift in Sources */,
+				3B3F682629C41BA600FBC7B6 /* PhoneNumberFormatter.swift in Sources */,
 				3B530C9B2960F535002C272B /* DestinationSuggestionView.swift in Sources */,
 				3B530CC7296237D2002C272B /* AuthenticationMethods.swift in Sources */,
 				3B5C31B829723380001354E6 /* PlannerButton'.swift in Sources */,

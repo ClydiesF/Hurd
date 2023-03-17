@@ -25,14 +25,17 @@ struct GroupPlannerView: View {
                         .resizable()
                         .scaledToFill()
                         .frame(width: 350)
+                        .frame(height: 340)
                         .overlay {
                             Color("textColor").opacity(0.2)
                         }
                     
                     HStack(alignment: .bottom) {
-                        Text(vm.trip.tripImageURLString?.authorName ?? "")
-                            .foregroundColor(.white)
-                        
+                        if let authorName = vm.trip.tripImageURLString?.authorName {
+                            Label(authorName, systemImage: "camera.fill")
+                                .foregroundColor(.white)
+                        }
+
                         Spacer()
                         
                         VStack(alignment: .trailing,spacing: 0) {
