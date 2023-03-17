@@ -84,10 +84,12 @@ struct OnboardingProfileInfoView: View {
             TextField("Phone Number", text: $vm.phoneNumber)
                 .keyboardType(.phonePad)
                 .textFieldStyle(.roundedBorder)
-                .onReceive(vm.$phoneNumber) { newValue in
+                .onChange(of: vm.phoneNumber) { newValue in
                     let formatted = phoneNumberFormatter.string(for: newValue) ?? ""
                     if formatted != newValue {
-                        vm.phoneNumber = formatted
+                        DispatchQueue.main.async {
+                            vm.phoneNumber = formatted
+                        }
                     }
                 }
             
