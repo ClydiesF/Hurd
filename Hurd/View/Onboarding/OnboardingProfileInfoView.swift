@@ -25,6 +25,7 @@ struct OnboardingProfileInfoView: View {
                 .fontWeight(.semibold)
                 .foregroundColor(.bottleGreen)
                 .multilineTextAlignment(.center)
+                .fixedSize(horizontal: false, vertical: true)
             
             if let photoData = vm.selectedPhotoData, let image = UIImage(data: photoData) {
                 Image(uiImage: image)

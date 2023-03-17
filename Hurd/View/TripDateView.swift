@@ -22,7 +22,7 @@ struct TripDateView: View {
         }
         .padding(10)
         .background(
-            RoundedRectangle(cornerRadius: 10).fill(Color("backgroundColor"))
+            RoundedRectangle(cornerRadius: 10).fill(Color("backgroundColor").gradient)
                 .shadow(color: .gray.opacity(0.3), radius: 5, x: 3, y: 3))
     }
     
