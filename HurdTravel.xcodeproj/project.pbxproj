@@ -124,7 +124,7 @@
 		3B8629F5296D166C0077DB92 /* OnboardingProfileInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProfileInfoView.swift; sourceTree = "<group>"; };
 		3B8629F7296D48600077DB92 /* OnboardingProfileInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProfileInfoViewModel.swift; sourceTree = "<group>"; };
 		3B8629F9296E604A0077DB92 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		3BC9ECCC295C0372004EFEEF /* Hurd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hurd.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BC9ECCC295C0372004EFEEF /* HurdTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HurdTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BC9ECCF295C0372004EFEEF /* HurdApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdApp.swift; sourceTree = "<group>"; };
 		3BC9ECD1295C0372004EFEEF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3BC9ECD3295C0373004EFEEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -241,7 +241,7 @@
 		3BC9ECCD295C0372004EFEEF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3BC9ECCC295C0372004EFEEF /* Hurd.app */,
+				3BC9ECCC295C0372004EFEEF /* HurdTravel.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -368,9 +368,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3BC9ECCB295C0372004EFEEF /* Hurd */ = {
+		3BC9ECCB295C0372004EFEEF /* HurdTravel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3BC9ECDA295C0373004EFEEF /* Build configuration list for PBXNativeTarget "Hurd" */;
+			buildConfigurationList = 3BC9ECDA295C0373004EFEEF /* Build configuration list for PBXNativeTarget "HurdTravel" */;
 			buildPhases = (
 				3BC9ECC8295C0372004EFEEF /* Sources */,
 				3BC9ECC9295C0372004EFEEF /* Frameworks */,
@@ -380,7 +380,7 @@
 			);
 			dependencies = (
 			);
-			name = Hurd;
+			name = HurdTravel;
 			packageProductDependencies = (
 				3BC9ED14295FEC8E004EFEEF /* SlidingTabView */,
 				3B530CA1296234E8002C272B /* FirebaseAnalytics */,
@@ -407,7 +407,7 @@
 				3B4EB274297A66C7008C26EF /* Kingfisher */,
 			);
 			productName = Hurd;
-			productReference = 3BC9ECCC295C0372004EFEEF /* Hurd.app */;
+			productReference = 3BC9ECCC295C0372004EFEEF /* HurdTravel.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -425,7 +425,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3BC9ECC7295C0372004EFEEF /* Build configuration list for PBXProject "Hurd" */;
+			buildConfigurationList = 3BC9ECC7295C0372004EFEEF /* Build configuration list for PBXProject "HurdTravel" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -446,7 +446,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3BC9ECCB295C0372004EFEEF /* Hurd */,
+				3BC9ECCB295C0372004EFEEF /* HurdTravel */,
 			);
 		};
 /* End PBXProject section */
@@ -706,7 +706,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3BC9ECC7295C0372004EFEEF /* Build configuration list for PBXProject "Hurd" */ = {
+		3BC9ECC7295C0372004EFEEF /* Build configuration list for PBXProject "HurdTravel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3BC9ECD8295C0373004EFEEF /* Debug */,
@@ -715,7 +715,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3BC9ECDA295C0373004EFEEF /* Build configuration list for PBXNativeTarget "Hurd" */ = {
+		3BC9ECDA295C0373004EFEEF /* Build configuration list for PBXNativeTarget "HurdTravel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3BC9ECDB295C0373004EFEEF /* Debug */,
