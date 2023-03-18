@@ -19,14 +19,28 @@ struct TripPreviewView: View {
             ZStack(alignment: .topTrailing) {
                 
                 //Image("mockbackground")
-                KFImage(URL(string: trip.tripImageURLString?.photoURL ?? ""))
-                    .resizable()
-                    .frame(height: 220)
-                    .frame(width: UIScreen.main.bounds.width * 0.9)
-                    .scaledToFill()
-                    .overlay {
-                        Color("textColor").opacity(0.2)
+                
+                AsyncImage(url: URL(string: trip.tripImageURLString?.photoURL ?? "")) { phase in
+                    if let image = phase.image {
+                        image
+                            .resizable()
+                            .frame(height: 220)
+                            .frame(width: UIScreen.main.bounds.width * 0.9)
+                            .aspectRatio(contentMode: .fill)
+                            .overlay {
+                                Color("textColor").opacity(0.2)
+                            }
+                        
+                    } else if phase.error != nil { // 3
+                        // some kind of error appears
+                        Text("No image available")
+                    } else {
+                        //appears as placeholder image
+                        Image(systemName: "photo") // 4
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
                     }
+                }
                 
                 HStack(alignment: .top) {
                     if let user = user, let profileImage = user.profileImageUrl {

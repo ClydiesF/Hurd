@@ -101,6 +101,16 @@ class AddTripFormViewModel: NSObject, ObservableObject {
         self.tripLocationSearchQuery = "\(location.title), \(location.subtitle)"
     }
     
+    func resetFormValues() {
+        self.tripDescriptionText = ""
+        self.tripNameText = ""
+        self.tripStartDate = Date()
+        self.tripEndDate = Date()
+        self.tripLocationSearchQuery = ""
+        self.tripCostEstimate = 0
+        self.selectedTripType = TripType.none.rawValue
+    }
+    
     func prepopulateValuesFrom(current trip: Trip) {
         self.currentEditableTripId = trip.id
         self.formType = .edit

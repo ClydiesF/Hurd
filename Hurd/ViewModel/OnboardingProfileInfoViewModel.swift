@@ -48,7 +48,6 @@ class OnboardingProfileInfoViewModel: ObservableObject {
             }
             .assign(to: &$characterCount)
         
-       
     }
     
     func addOnboardingInfoData(completion: @escaping (String?) -> Void) {
@@ -88,7 +87,7 @@ class OnboardingProfileInfoViewModel: ObservableObject {
                         guard let uid = Auth.auth().currentUser?.uid else { return }
                         
                         USER_REF.document(uid).setData(addedData, merge: true)
-                        completion(nil)
+                        completion(uid)
                     }
                     
                 }

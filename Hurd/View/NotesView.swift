@@ -52,21 +52,19 @@ struct NotesView: View {
                         .foregroundColor(.black)
                     
                     Spacer()
+                    Label(note.noteType, systemImage: NoteType(rawValue: note.noteType)!.iconString)
+                            .font(.system(size: 12))
+                            .padding(8)
+                            .foregroundColor(note.noteType == "Important" ? .black : .white)
+                            .background(Circle().fill(note.noteType == "Important" ? Color.corn : Color.bottleGreen))
+                            .labelStyle(.iconOnly)
                     
                     Text(formatTimestamp())
                         .font(.caption2)
                         .foregroundColor(.black)
                 }
               
-                Label(note.noteType, systemImage: NoteType(rawValue: note.noteType)!.iconString)
-                        .font(.system(size: 12))
-                        .padding(8)
-                        .foregroundColor(note.noteType == "Important" ? .black : .white)
-                        .background(Circle().fill(note.noteType == "Important" ? Color.corn : Color.bottleGreen))
-                        .labelStyle(.iconOnly)
-            
-           
-                
+
                 Text(note.body)
                     .font(.system(size: 14))
                     .foregroundColor(.gray)  

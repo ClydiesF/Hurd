@@ -57,12 +57,16 @@ struct TripView: View {
                     default:
                         EmptyView()
                     }
-                    
+                           
                     
                 }
-                .sheet(isPresented: $addTripVM.addTripFormPresented) {
+                .sheet(isPresented: $addTripVM.addTripFormPresented, onDismiss: {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                        addTripVM.resetFormValues()
+                    }
+                }, content: {
                     AddTripFormView(vm: addTripVM)
-                }
+                })
                 .navigationTitle("Your Trips")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {

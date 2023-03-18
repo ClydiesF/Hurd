@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3B3F682629C41BA600FBC7B6 /* PhoneNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F682529C41BA600FBC7B6 /* PhoneNumberFormatter.swift */; };
+		3B3F682829C555F400FBC7B6 /* Publishers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F682729C555F400FBC7B6 /* Publishers+Extensions.swift */; };
+		3B3F682A29C556D600FBC7B6 /* Notifications+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F682929C556D600FBC7B6 /* Notifications+Extensions.swift */; };
+		3B3F682C29C559B700FBC7B6 /* AdaptsToKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F682B29C559B700FBC7B6 /* AdaptsToKeyboard.swift */; };
 		3B4EB2652977A8C9008C26EF /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EB2642977A8C9008C26EF /* NotesView.swift */; };
 		3B4EB2672977B780008C26EF /* TripNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EB2662977B780008C26EF /* TripNotesView.swift */; };
 		3B4EB26A2978D9AB008C26EF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3B4EB2692978D9AB008C26EF /* Alamofire */; };
@@ -89,6 +92,9 @@
 
 /* Begin PBXFileReference section */
 		3B3F682529C41BA600FBC7B6 /* PhoneNumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberFormatter.swift; sourceTree = "<group>"; };
+		3B3F682729C555F400FBC7B6 /* Publishers+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+Extensions.swift"; sourceTree = "<group>"; };
+		3B3F682929C556D600FBC7B6 /* Notifications+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notifications+Extensions.swift"; sourceTree = "<group>"; };
+		3B3F682B29C559B700FBC7B6 /* AdaptsToKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptsToKeyboard.swift; sourceTree = "<group>"; };
 		3B4EB2642977A8C9008C26EF /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
 		3B4EB2662977B780008C26EF /* TripNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripNotesView.swift; sourceTree = "<group>"; };
 		3B4EB271297A2AA8008C26EF /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
@@ -332,6 +338,9 @@
 			children = (
 				3B3F682529C41BA600FBC7B6 /* PhoneNumberFormatter.swift */,
 				3BC9ECE1295C0464004EFEEF /* Color+Extensions.swift */,
+				3B3F682729C555F400FBC7B6 /* Publishers+Extensions.swift */,
+				3B3F682929C556D600FBC7B6 /* Notifications+Extensions.swift */,
+				3B3F682B29C559B700FBC7B6 /* AdaptsToKeyboard.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -460,6 +469,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B3F682829C555F400FBC7B6 /* Publishers+Extensions.swift in Sources */,
 				3B4EB277297BEB1D008C26EF /* EditProfileView.swift in Sources */,
 				3BC9ECD2295C0372004EFEEF /* ContentView.swift in Sources */,
 				3B6E292E2990BE2300A90449 /* TripDateView.swift in Sources */,
@@ -478,6 +488,7 @@
 				3BC9ECE8295C1B02004EFEEF /* HurdIconButton.swift in Sources */,
 				3BC9ECE4295C06A5004EFEEF /* PrimaryHurdButton.swift in Sources */,
 				3B6E292C298F5AED00A90449 /* SavePopUp.swift in Sources */,
+				3B3F682C29C559B700FBC7B6 /* AdaptsToKeyboard.swift in Sources */,
 				3B4EB2672977B780008C26EF /* TripNotesView.swift in Sources */,
 				3B4EB2652977A8C9008C26EF /* NotesView.swift in Sources */,
 				3B5C31B42970E4A8001354E6 /* AddTripFormViewModel.swift in Sources */,
@@ -501,6 +512,7 @@
 				3B530CC7296237D2002C272B /* AuthenticationMethods.swift in Sources */,
 				3B5C31B829723380001354E6 /* PlannerButton'.swift in Sources */,
 				3BC9ECF2295D49DC004EFEEF /* HurdLandingView.swift in Sources */,
+				3B3F682A29C556D600FBC7B6 /* Notifications+Extensions.swift in Sources */,
 				3B6E29302991F7C500A90449 /* UnSplashResponseModel.swift in Sources */,
 				3B823FBF299F32AE00639D04 /* TripSettingsView.swift in Sources */,
 				3BC9ECFA295D73BD004EFEEF /* SocialSignInButtonView.swift in Sources */,
