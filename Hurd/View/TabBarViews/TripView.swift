@@ -73,7 +73,7 @@ struct TripView: View {
                             Image(systemName: "plus")
                                 .foregroundColor(Color("backgroundColor"))
                                 .padding(5)
-                                .background(Circle().fill(Color("textColor")))
+                                .background(Circle().fill(Color("textColor").gradient))
                         }
                     }
                 }

@@ -17,7 +17,7 @@ struct TagView: View {
             .foregroundColor(Color("backgroundColor"))
             .padding(.horizontal, 10)
             .padding(.vertical, 5)
-            .background(Capsule().fill(Color("textColor")))
+            .background(Capsule().fill(Color("textColor").gradient))
     }
 }
 

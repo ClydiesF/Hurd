@@ -48,7 +48,7 @@ struct GroupPlannerView: View {
                             Image(systemName: "car.fill")
                                 .foregroundColor(Color("backgroundColor"))
                                 .padding()
-                                .background(Circle().fill(Color("textColor")))
+                                .background(Circle().fill(Color("textColor").gradient))
                             
                             Spacer()
                         }
@@ -85,12 +85,12 @@ struct GroupPlannerView: View {
                     Image(systemName: "speaker.wave.3.fill")
                         .foregroundColor(Color("backgroundColor"))
                         .padding()
-                        .background(Circle().fill(Color("textColor")))
+                        .background(Circle().fill(Color("textColor").gradient))
                     
                     Image(systemName: "list.bullet.clipboard.fill")
                         .foregroundColor(Color("backgroundColor"))
                         .padding()
-                        .background(Circle().fill(Color("textColor")))
+                        .background(Circle().fill(Color("textColor").gradient))
                     
                     NavigationLink {
                         TripNotesView(vm: vm)
@@ -100,7 +100,7 @@ struct GroupPlannerView: View {
                                 .badge(20)
                                 .foregroundColor(Color("backgroundColor"))
                                 .padding()
-                                .background(Circle().fill(Color("textColor")))
+                                .background(Circle().fill(Color("textColor").gradient))
                             
                             if let noteCount = vm.notes?.count, noteCount > 0 {
                                 Text("\(noteCount)")
@@ -119,7 +119,7 @@ struct GroupPlannerView: View {
                     Image(systemName: "square.and.arrow.up")
                         .foregroundColor(Color("backgroundColor"))
                         .padding()
-                        .background(Circle().fill(Color("textColor")))
+                        .background(Circle().fill(Color("textColor").gradient))
                 }
                 Divider()
                             
@@ -136,7 +136,7 @@ struct GroupPlannerView: View {
                     Image(systemName: "plus")
                         .foregroundColor(Color("backgroundColor"))
                         .padding(10)
-                        .background(Circle().fill(Color("textColor")))
+                        .background(Circle().fill(Color("textColor").gradient))
                 }
             
                 NavigationLink("",

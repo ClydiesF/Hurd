@@ -67,7 +67,7 @@ struct TripPreviewView: View {
                         Image(systemName: trip.iconName)
                             .foregroundColor(Color("backgroundColor"))
                             .padding()
-                            .background(Circle().fill(Color("textColor")))
+                            .background(Circle().fill(Color("textColor").gradient))
                     }
                     .padding()
                 }
