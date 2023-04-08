@@ -169,12 +169,16 @@ class AuthenticationViewModel: ObservableObject {
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if let error = error {
                     print("Sign in Failed: \(error.localizedDescription)")
+                    self.errorMsg = "Sign in Failed: \(error.localizedDescription)"
+                    self.presentAlert = true
                     return
                 }
                 
                 switch authResult {
                 case .none:
                     print("Could not sign up user.")
+                    self.errorMsg = "Sign up Failed: Could not sign up user."
+                    self.presentAlert = true
                 case .some(let something):
                     print("DEBUG: Sign up Success, \(something)")
                     
@@ -248,12 +252,16 @@ class AuthenticationViewModel: ObservableObject {
             Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
                 if let error = error {
                     print("DEBUG: Sign in Failed: \(error.localizedDescription)")
+                    self?.errorMsg = "Sign in Failed: \(error.localizedDescription)"
+                    self?.presentAlert = true
                     return
                 }
                 
                 switch authResult {
                 case .none:
                     print("DEBUG: Could not sign in user.")
+                    self?.errorMsg = "Sign in Failed: Could not sign in user."
+                    self?.presentAlert = true
                 case .some(let something):
                     print("DEBUG: Sign in Success, \(something)")
                     self?.currentUser = authResult?.user

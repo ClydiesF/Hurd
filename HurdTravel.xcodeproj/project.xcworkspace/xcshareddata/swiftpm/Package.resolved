@@ -15,7 +15,7 @@
       "location" : "https://github.com/Alamofire/Alamofire.git",
       "state" : {
         "branch" : "master",
-        "revision" : "ce7f662709a152e840b130a158b9afef3402e146"
+        "revision" : "fd87f7ce7461197ea5af6e4a865168b8fc913ee0"
       }
     },
     {
@@ -50,8 +50,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/GoogleDataTransport.git",
       "state" : {
-        "revision" : "f6b558e3f801f2cac336b04f615ce111fa9ddaa0",
-        "version" : "9.2.1"
+        "revision" : "cc7265b8e3906304e6e81f32c1662a94bbae2357",
+        "version" : "9.2.2"
       }
     },
     {
@@ -59,8 +59,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/GoogleUtilities.git",
       "state" : {
-        "revision" : "0543562f85620b5b7c510c6bcbef75b562a5127b",
-        "version" : "7.11.0"
+        "revision" : "871d43135925cde39ef7421d8723ce47edfdcc39",
+        "version" : "7.11.1"
       }
     },
     {
@@ -87,7 +87,7 @@
       "location" : "https://github.com/onevcat/Kingfisher.git",
       "state" : {
         "branch" : "master",
-        "revision" : "0ce2b6b09be2f46c505e31ca012ad555ef6160a9"
+        "revision" : "9375e4a0e5db3698c1f92bd5d1dc88b0b71caa8b"
       }
     },
     {
@@ -113,8 +113,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/exyte/PopupView",
       "state" : {
-        "revision" : "ee306aede532d941c05ff8c63b3b0f3b8cc208cc",
-        "version" : "2.0.1"
+        "revision" : "1ee6f91fe06ed2c1bdc7ebdae5073a2a8da73807",
+        "version" : "2.1.3"
       }
     },
     {
@@ -131,8 +131,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/CSolanaM/SkeletonUI",
       "state" : {
-        "revision" : "98225dbb0459477dfeac063e1c7d0750102325d1",
-        "version" : "1.0.9"
+        "revision" : "be1116a61861ab4cf0b5270c24be2c7a5e05de4f",
+        "version" : "1.0.11"
       }
     },
     {
@@ -149,8 +149,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-protobuf.git",
       "state" : {
-        "revision" : "ab3a58b7209a17d781c0d1dbb3e1ff3da306bae8",
-        "version" : "1.20.3"
+        "revision" : "0af9125c4eae12a4973fb66574c53a54962a9e1e",
+        "version" : "1.21.0"
       }
     },
     {

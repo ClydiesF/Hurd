@@ -72,9 +72,6 @@ struct HurdSignUpView: View {
                         
                         HurdPasswordTextField(placeholderText: "Enter your password", text: $vm.password, color: $vm.passwordTFBorderColor)
                     }
-                    
-          
-                    //SignInWithAppleButtonView(vm: vm, signinType: .signup)
     
                     PrimaryHurdButton(buttonModel: .init(buttonText: "Join now", buttonType: .primary, icon: nil, appendingIcon: nil), action: {
                         vm.signup()
