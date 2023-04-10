@@ -78,8 +78,8 @@
             filePath = "Hurd/ViewModel/AddTripFormViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
             landmarkName = "postTrip()"
             landmarkType = "7">
          </BreakpointContent>
@@ -720,8 +720,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "161"
             endingLineNumber = "161"
-            landmarkName = "AddTripFormViewModel"
-            landmarkType = "3">
+            landmarkName = "postTrip()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

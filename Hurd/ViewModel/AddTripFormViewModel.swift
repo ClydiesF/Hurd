@@ -203,6 +203,8 @@ class AddTripFormViewModel: NSObject, ObservableObject {
                     self.tripEndDate = Date.now
                     
                     self.selectedTripType = ""
+                    self.searchResults = []
+                    self.locationStatus = .notSelected
                 } catch(let err) {
                     print("DEBUG: err \(err.localizedDescription)")
                 }
