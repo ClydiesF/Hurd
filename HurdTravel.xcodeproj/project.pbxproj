@@ -44,6 +44,7 @@
 		3B530CC92965305F002C272B /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B530CC82965305F002C272B /* AuthenticationViewModel.swift */; };
 		3B530CCC2967BDE3002C272B /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B530CCB2967BDE3002C272B /* AppConstants.swift */; };
 		3B530CCE2967E942002C272B /* AuthCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B530CCD2967E942002C272B /* AuthCredentials.swift */; };
+		3B5BED2929FE32EF0028C793 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BED2829FE32EF0028C793 /* ImagePicker.swift */; };
 		3B5C31B2296FD54A001354E6 /* AddTripFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C31B1296FD54A001354E6 /* AddTripFormView.swift */; };
 		3B5C31B42970E4A8001354E6 /* AddTripFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C31B32970E4A8001354E6 /* AddTripFormViewModel.swift */; };
 		3B5C31B829723380001354E6 /* PlannerButton'.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C31B729723380001354E6 /* PlannerButton'.swift */; };
@@ -106,6 +107,7 @@
 		3B530CC82965305F002C272B /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		3B530CCB2967BDE3002C272B /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		3B530CCD2967E942002C272B /* AuthCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCredentials.swift; sourceTree = "<group>"; };
+		3B5BED2829FE32EF0028C793 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		3B5C31B1296FD54A001354E6 /* AddTripFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripFormView.swift; sourceTree = "<group>"; };
 		3B5C31B32970E4A8001354E6 /* AddTripFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripFormViewModel.swift; sourceTree = "<group>"; };
 		3B5C31B729723380001354E6 /* PlannerButton'.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlannerButton'.swift"; sourceTree = "<group>"; };
@@ -212,6 +214,14 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		3B5BED2729FE32DB0028C793 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				3B5BED2829FE32EF0028C793 /* ImagePicker.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
 		3B6E292A298F5ACA00A90449 /* PopUps */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +259,7 @@
 		3BC9ECCE295C0372004EFEEF /* Hurd */ = {
 			isa = PBXGroup;
 			children = (
+				3B5BED2729FE32DB0028C793 /* UIKit */,
 				3BE57A412984C64C0099D7E4 /* HurdDebug.entitlements */,
 				3B530CCA2967BDCE002C272B /* Utilities */,
 				3B530CC529623781002C272B /* Networking */,
@@ -514,6 +525,7 @@
 				3BC9ECF2295D49DC004EFEEF /* HurdLandingView.swift in Sources */,
 				3B3F682A29C556D600FBC7B6 /* Notifications+Extensions.swift in Sources */,
 				3B6E29302991F7C500A90449 /* UnSplashResponseModel.swift in Sources */,
+				3B5BED2929FE32EF0028C793 /* ImagePicker.swift in Sources */,
 				3B823FBF299F32AE00639D04 /* TripSettingsView.swift in Sources */,
 				3BC9ECFA295D73BD004EFEEF /* SocialSignInButtonView.swift in Sources */,
 				3BC9ECE6295C0924004EFEEF /* HurdButtonModel.swift in Sources */,
@@ -656,6 +668,7 @@
 				DEVELOPMENT_TEAM = 4D9Z74XGM7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "App needs Access to photos for profile image";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -685,6 +698,7 @@
 				DEVELOPMENT_TEAM = 4D9Z74XGM7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "App needs Access to photos for profile image";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

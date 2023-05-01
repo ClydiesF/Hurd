@@ -22,6 +22,8 @@ struct EditProfileView: View {
                        "Asian-Pacific Islander",
                        "Mixed-Race"]
     
+    private let phoneNumberFormatter = PhoneNumberFormatter()
+    
     var body: some View {
    
             Form {
@@ -45,22 +47,35 @@ struct EditProfileView: View {
                     .frame(width: 100, height: 100)
                     .clipShape(Circle())
                 
-                PhotosPicker(selection: $vm.selectedItemPhoto,
-                             matching: .images,
-                             photoLibrary: .shared()) {
-                    Label("Change/Add", systemImage: "photo")
+//                PhotosPicker(selection: $vm.selectedItemPhoto,
+//                             matching: .images,
+//                             photoLibrary: .shared()) {
+//                    Label("Change/Add", systemImage: "photo")
+//                }
+//                .onChange(of: vm.selectedItemPhoto) { newItem in
+//                    Task {
+//                        do {
+//                            let data = try await newItem?.loadTransferable(type: Data.self)
+//                            vm.selectedPhotoData = data
+//                        } catch(let err) {
+//                            print("DEBUG: photo upload- \(err)")
+//                        }
+//                    }
+//                }
+                Button {
+                    vm.showPhotosPicker = true
+                } label: {
+                    Text("Change / Add")
                 }
-                .onChange(of: vm.selectedItemPhoto) { newItem in
-                    Task {
-                        do {
-                            let data = try await newItem?.loadTransferable(type: Data.self)
-                            vm.selectedPhotoData = data
-                        } catch(let err) {
-                            print("DEBUG: photo upload- \(err)")
-                        }
+                .sheet(isPresented: $vm.showPhotosPicker) {
+                    ImagePicker(sourceType: .photoLibrary, selectedImage: $vm.image)
+                }
+                .onChange(of: vm.image) { newValue in
+                    if let data = newValue.jpegData(compressionQuality: 0.8) {
+                        vm.changeAvatarImage(photoData: data)
                     }
                 }
-                
+
                 if vm.profilePicture != "" {
                     Button {
                         self.vm.profilePicture = ""
@@ -72,8 +87,19 @@ struct EditProfileView: View {
                 
                 Section {
                     TextField("First Name", text: $vm.firstName)
+                    
                     TextField("Last Name", text: $vm.lastName)
+                    
                     TextField("Phone Number", text: $vm.phoneNumber)
+                        .onChange(of: vm.phoneNumber) { newValue in
+                                let formatted = phoneNumberFormatter.string(for: newValue) ?? ""
+                            print("DEBUG: \(formatted)")
+                               // if formatted != newValue {
+                                   // DispatchQueue.main.async {
+                                        vm.phoneNumber = formatted
+                                  //  }
+                               // }
+                        }
                         .keyboardType(.numberPad)
                     
                     Picker("Gender (Optional)", selection: $vm.gender) {

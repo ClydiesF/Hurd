@@ -51,22 +51,35 @@ struct OnboardingProfileInfoView: View {
 
                 }
                 
-                PhotosPicker(selection: $vm.selectedItem, matching: .any(of: [.images, .not(.livePhotos)])) {
-                    Label("Pick your Avatar", systemImage: "photo")
+                Button {
+                    vm.showPhotosPicker = true
+                } label: {
+                    Text("Change / Add")
                 }
-                .tint(.bottleGreen)
-                .controlSize(.large)
-                .buttonStyle(.borderedProminent)
-                .onChange(of: vm.selectedItem) { newItem in
-                    Task {
-                        
-                        if let data = try? await newItem?.loadTransferable(type: Data.self) {
-                            vm.selectedPhotoData = data
-                        } else {
-                            //error state this
-                        }
+                .sheet(isPresented: $vm.showPhotosPicker) {
+                    ImagePicker(sourceType: .photoLibrary, selectedImage: $vm.image)
+                }
+                .onChange(of: vm.image) { newValue in
+                    if let data = newValue.jpegData(compressionQuality: 0.8) {
+                        vm.selectedPhotoData = data
                     }
                 }
+//                PhotosPicker(selection: $vm.selectedItem, matching: .any(of: [.images, .not(.livePhotos)])) {
+//                    Label("Pick your Avatar", systemImage: "photo")
+//                }
+//                .tint(.bottleGreen)
+//                .controlSize(.large)
+//                .buttonStyle(.borderedProminent)
+//                .onChange(of: vm.selectedItem) { newItem in
+//                    Task {
+//                        
+//                        if let data = try? await newItem?.loadTransferable(type: Data.self) {
+//                            vm.selectedPhotoData = data
+//                        } else {
+//                            //error state this
+//                        }
+//                    }
+//                }
             }
  
             Group {
@@ -75,12 +88,24 @@ struct OnboardingProfileInfoView: View {
                 
                 TextField("Last Name *", text: $vm.lastName)
                     .textFieldStyle(.roundedBorder)
-
-            Picker("Gender", selection: $vm.selectedGender) {
-                ForEach(vm.gender, id: \.self) {
-                    Text($0)
+                
+                HStack {
+                    Text("Select Your Gender:")
+                        .foregroundColor(.gray)
+                    
+                    Spacer()
+                    
+                    Picker("Gender", selection: $vm.selectedGender) {
+                        ForEach(vm.gender, id: \.self) {
+                            Text($0)
+                        }
+                    }
                 }
-            }
+                .background(
+                    RoundedRectangle(cornerRadius: Spacing.eight).stroke(Color.gray.opacity(0.4), lineWidth: 1)
+                )
+
+
             
             TextField("Phone Number", text: $vm.phoneNumber)
                 .keyboardType(.phonePad)

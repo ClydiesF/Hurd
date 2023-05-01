@@ -10,14 +10,29 @@ import PhotosUI
 import SwiftUI
 import Combine
 import Firebase
+import UIKit
 
 
 class OnboardingProfileInfoViewModel: ObservableObject {
+    
+    @Published var showPhotosPicker: Bool = false
+    @Published var image = UIImage()
+    
     var characterLimit = 100
+    var maxPhoneNumberCharLimit = 14
     
     @Published var firstName: String = ""
     @Published var lastName: String = ""
-    @Published var phoneNumber: String = ""
+    @Published var phoneNumber: String = "" {
+        didSet {
+            if phoneNumber.count > maxPhoneNumberCharLimit && oldValue.count <= maxPhoneNumberCharLimit {
+                phoneNumber = oldValue
+            }
+         
+        }
+    }
+    
+    
     @Published var description: String = ""  {
         didSet {
             if description.count > characterLimit && oldValue.count <= characterLimit {

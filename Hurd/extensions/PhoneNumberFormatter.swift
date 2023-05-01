@@ -27,10 +27,10 @@ class PhoneNumberFormatter: Formatter {
             switch index {
             case 0:
                 result += "(\(character)"
-            case 2:
-                result += "\(character)) "
-            case 5:
-                result += "\(character)-"
+            case 3:
+                result += ") \(character)"
+            case 6:
+                result += "-\(character)"
             default:
                 result += "\(character)"
             }
