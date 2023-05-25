@@ -66,7 +66,7 @@ class OnboardingProfileInfoViewModel: ObservableObject {
     }
     
     func addOnboardingInfoData(completion: @escaping (String?) -> Void) {
-        let displayName = " \(self.firstName) \(self.lastName)"
+        let displayName = " \(firstName) \(lastName)"
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequest?.displayName = displayName
         

@@ -88,8 +88,19 @@
 		3BC9ED15295FEC8E004EFEEF /* SlidingTabView in Frameworks */ = {isa = PBXBuildFile; productRef = 3BC9ED14295FEC8E004EFEEF /* SlidingTabView */; };
 		3BC9ED17295FF829004EFEEF /* HurdSlidingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ED16295FF829004EFEEF /* HurdSlidingTabView.swift */; };
 		3BCAC2D929C5889C0007EE57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BC9ECD3295C0373004EFEEF /* Assets.xcassets */; };
+		3BD769C22A061915009A27AC /* HurdTravelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD769C12A061915009A27AC /* HurdTravelTests.swift */; };
 		3BE57A47298501C40099D7E4 /* SignInWithAppleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE57A46298501C40099D7E4 /* SignInWithAppleButtonView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3BD769C32A061915009A27AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BC9ECC4295C0372004EFEEF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3BC9ECCB295C0372004EFEEF;
+			remoteInfo = HurdTravel;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3B3F682529C41BA600FBC7B6 /* PhoneNumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberFormatter.swift; sourceTree = "<group>"; };
@@ -151,6 +162,8 @@
 		3BC9ED0A295ED472004EFEEF /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		3BC9ED11295FB2F6004EFEEF /* GroupPlannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPlannerView.swift; sourceTree = "<group>"; };
 		3BC9ED16295FF829004EFEEF /* HurdSlidingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdSlidingTabView.swift; sourceTree = "<group>"; };
+		3BD769BF2A061915009A27AC /* HurdTravelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HurdTravelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BD769C12A061915009A27AC /* HurdTravelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdTravelTests.swift; sourceTree = "<group>"; };
 		3BE57A412984C64C0099D7E4 /* HurdDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HurdDebug.entitlements; sourceTree = "<group>"; };
 		3BE57A46298501C40099D7E4 /* SignInWithAppleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,6 +196,13 @@
 				3B530CA4296234E8002C272B /* FirebaseAnalyticsSwift in Frameworks */,
 				3B530CA2296234E8002C272B /* FirebaseAnalytics in Frameworks */,
 				3BC9ED15295FEC8E004EFEEF /* SlidingTabView in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BD769BC2A061915009A27AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				3BC9ECCE295C0372004EFEEF /* Hurd */,
+				3BD769C02A061915009A27AC /* HurdTravelTests */,
 				3BC9ECCD295C0372004EFEEF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -252,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				3BC9ECCC295C0372004EFEEF /* HurdTravel.app */,
+				3BD769BF2A061915009A27AC /* HurdTravelTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -376,6 +398,14 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		3BD769C02A061915009A27AC /* HurdTravelTests */ = {
+			isa = PBXGroup;
+			children = (
+				3BD769C12A061915009A27AC /* HurdTravelTests.swift */,
+			);
+			path = HurdTravelTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -421,6 +451,24 @@
 			productReference = 3BC9ECCC295C0372004EFEEF /* HurdTravel.app */;
 			productType = "com.apple.product-type.application";
 		};
+		3BD769BE2A061915009A27AC /* HurdTravelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BD769C72A061915009A27AC /* Build configuration list for PBXNativeTarget "HurdTravelTests" */;
+			buildPhases = (
+				3BD769BB2A061915009A27AC /* Sources */,
+				3BD769BC2A061915009A27AC /* Frameworks */,
+				3BD769BD2A061915009A27AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3BD769C42A061915009A27AC /* PBXTargetDependency */,
+			);
+			name = HurdTravelTests;
+			productName = HurdTravelTests;
+			productReference = 3BD769BF2A061915009A27AC /* HurdTravelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -428,11 +476,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1400;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					3BC9ECCB295C0372004EFEEF = {
 						CreatedOnToolsVersion = 14.0;
+					};
+					3BD769BE2A061915009A27AC = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 3BC9ECCB295C0372004EFEEF;
 					};
 				};
 			};
@@ -458,6 +510,7 @@
 			projectRoot = "";
 			targets = (
 				3BC9ECCB295C0372004EFEEF /* HurdTravel */,
+				3BD769BE2A061915009A27AC /* HurdTravelTests */,
 			);
 		};
 /* End PBXProject section */
@@ -470,6 +523,13 @@
 				3BC9ECD7295C0373004EFEEF /* Preview Assets.xcassets in Resources */,
 				3BCAC2D929C5889C0007EE57 /* Assets.xcassets in Resources */,
 				3B530C9F29623318002C272B /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BD769BD2A061915009A27AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,7 +599,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3BD769BB2A061915009A27AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BD769C22A061915009A27AC /* HurdTravelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3BD769C42A061915009A27AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3BC9ECCB295C0372004EFEEF /* HurdTravel */;
+			targetProxy = 3BD769C32A061915009A27AC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		3BC9ECD8295C0373004EFEEF /* Debug */ = {
@@ -717,6 +793,46 @@
 			};
 			name = Release;
 		};
+		3BD769C52A061915009A27AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4D9Z74XGM7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.HCHO.HurdTravelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HurdTravel.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HurdTravel";
+			};
+			name = Debug;
+		};
+		3BD769C62A061915009A27AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4D9Z74XGM7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.HCHO.HurdTravelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HurdTravel.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HurdTravel";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -734,6 +850,15 @@
 			buildConfigurations = (
 				3BC9ECDB295C0373004EFEEF /* Debug */,
 				3BC9ECDC295C0373004EFEEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BD769C72A061915009A27AC /* Build configuration list for PBXNativeTarget "HurdTravelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BD769C52A061915009A27AC /* Debug */,
+				3BD769C62A061915009A27AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
