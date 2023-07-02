@@ -85,12 +85,14 @@ struct GroupPlannerView: View {
                     Image(systemName: "speaker.wave.3.fill")
                         .foregroundColor(Color("backgroundColor"))
                         .padding()
-                        .background(Circle().fill(Color("textColor").gradient))
+                        .background(Circle()
+                            .fill(Color.gray.gradient))
                     
                     Image(systemName: "list.bullet.clipboard.fill")
                         .foregroundColor(Color("backgroundColor"))
                         .padding()
-                        .background(Circle().fill(Color("textColor").gradient))
+                        .background(Circle()
+                            .fill(Color.gray.gradient))
                     
                     NavigationLink {
                         TripNotesView(vm: vm)
@@ -119,7 +121,8 @@ struct GroupPlannerView: View {
                     Image(systemName: "square.and.arrow.up")
                         .foregroundColor(Color("backgroundColor"))
                         .padding()
-                        .background(Circle().fill(Color("textColor").gradient))
+                        .background(Circle()
+                            .fill(Color.gray.gradient))
                 }
                 Divider()
                             
@@ -172,10 +175,11 @@ struct GroupPlannerView: View {
                 }
             }
         }
-        .onAppear {
-            vm.fetchMembers()
-            vm.fetchNotes()
-        }
+//        #if DE
+//        .onAppear {
+//            vm.fetchMembers()
+//            vm.fetchNotes()
+//        }
     }
 }
 
