@@ -30,6 +30,7 @@ class AddTripFormViewModel: NSObject, ObservableObject {
     @Published var selectedGender: String = ""
     
     @Published var formType: FormType = .add
+    @Published var previousTripSettings: Trip?
     
     @Published var addTripFormPresented: Bool = false
     var tripPhoto: String?
@@ -121,41 +122,53 @@ class AddTripFormViewModel: NSObject, ObservableObject {
         self.tripLocationSearchQuery = trip.tripDestination
         self.tripCostEstimate = trip.tripCostEstimate
         self.selectedTripType = trip.tripType
+        self.previousTripSettings = trip
     }
     
-    func editTrip() {
+    func editTrip() async {
         guard let tripId = self.currentEditableTripId else { return }
         
-        let editedTrip = Trip(tripName: self.tripNameText,
-                              tripDestination: self.tripLocationSearchQuery,
-                              tripType: self.selectedTripType,
-                              tripCostEstimate: self.tripCostEstimate,
-                              tripStartDate: self.tripStartDate.timeIntervalSince1970,
-                              tripEndDate: self.tripEndDate.timeIntervalSince1970,
-                              tripDescription: self.tripDescriptionText == "" ? nil: self.tripDescriptionText )
         do {
+            var editedTrip = Trip(tripName: self.tripNameText,
+                                  tripDestination: self.tripLocationSearchQuery,
+                                  tripType: self.selectedTripType,
+                                  tripCostEstimate: self.tripCostEstimate,
+                                  tripStartDate: self.tripStartDate.timeIntervalSince1970,
+                                  tripEndDate: self.tripEndDate.timeIntervalSince1970,
+                                  tripDescription: self.tripDescriptionText == "" ? nil: self.tripDescriptionText)
+            
+            if previousTripSettings?.tripDestination != self.tripLocationSearchQuery {
+                let locationImage = await fetchLocationImage()
+                editedTrip.tripImageURLString = locationImage
+            }
+            
             try TRIP_REF.document(tripId).setData(from: editedTrip,merge: true)
+
         } catch(let err) {
             print("DEBUG: err \(err.localizedDescription)")
         }
     }
     
-    func fetchLocationImage() async {
-        AF.request("https://api.unsplash.com/search/photos/?client_id=\(accessKey)&query=\(tripLocationSearchQuery)").responseDecodable(of: UnSplashResponseModel.self) { response in
+    func fetchLocationImage() async -> UnsplashPhoto? {
+        var tripString = tripLocationSearchQuery.trimmingCharacters(in: .whitespacesAndNewlines)
+        let comma: Set<Character> = [" "]
+        tripString.removeAll(where: { comma.contains($0) })
+        
+        do {
+            let responseModel = try await AF.request("https://api.unsplash.com/search/photos/?client_id=\(accessKey)&query=\(tripString)").serializingDecodable(UnSplashResponseModel.self).value
             
-            switch response.result {
-            case .success(let res):
-                let upperLimit = (res.results.count) - 1
-                let index = Int.random(in: 0...upperLimit)
-                print("DEBUG: image-> success \(res.results[index].urls.regular)")
-                self.tripPhoto = "\(res.results[index].urls.regular)"
-                self.tripPhotoAuthor =  "\(res.results[index].user.name)"
-//                return UnsplashPhoto(photoURL: tripPhoto, authorName: tripPhotoAuthor)
-            case .failure(let err):
-                print("DEBUG: image ->err \(err)")
-//                return nil
-            }
+            let upperLimit = (responseModel.results.count) - 1
+            let index = Int.random(in: 0...upperLimit)
+            print("DEBUG: image-> success \(responseModel.results[index].urls.regular)")
+            self.tripPhoto = "\(responseModel.results[index].urls.regular)"
+            self.tripPhotoAuthor =  "\(responseModel.results[index].user.name)"
+            
+        } catch (let err) {
+            print("DEBUG: err with unsplash response- \(err.localizedDescription)")
+            return nil
         }
+        
+        return UnsplashPhoto(photoURL: tripPhoto, authorName: tripPhotoAuthor)
     }
     
     func postTrip() async {

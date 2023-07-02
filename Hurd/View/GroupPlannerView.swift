@@ -139,7 +139,7 @@ struct GroupPlannerView: View {
                     Image(systemName: "plus")
                         .foregroundColor(Color("backgroundColor"))
                         .padding(10)
-                        .background(Circle().fill(Color("textColor").gradient))
+                        .background(Circle().fill(Color.gray.gradient))
                 }
             
                 NavigationLink("",
