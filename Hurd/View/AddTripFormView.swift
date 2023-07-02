@@ -112,7 +112,9 @@ struct AddTripFormView: View {
                     print("post a trip to user, profile")
                     switch vm.formType {
                     case .edit:
-                        vm.editTrip()
+                        Task {
+                            await vm.editTrip()
+                        }
                     case .add:
                         Task {
                             await vm.postTrip()
