@@ -45,7 +45,7 @@ struct GroupPlannerView: View {
                             TripDateView(tripDate: vm.trip.tripEndDate)
                                 .padding(.bottom,10)
                             
-                            Image(systemName: "car.fill")
+                            Image(systemName: vm.trip.iconName)
                                 .foregroundColor(Color("backgroundColor"))
                                 .padding()
                                 .background(Circle().fill(Color("textColor").gradient))
@@ -175,11 +175,10 @@ struct GroupPlannerView: View {
                 }
             }
         }
-//        #if DE
-//        .onAppear {
-//            vm.fetchMembers()
-//            vm.fetchNotes()
-//        }
+        .onAppear {
+            vm.fetchMembers()
+            vm.fetchNotes()
+        }
     }
 }
 
