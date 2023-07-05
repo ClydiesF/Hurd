@@ -15,13 +15,17 @@ struct OnboardingProfileInfoView: View {
     
     @EnvironmentObject var authVM: AuthenticationViewModel
     
+    private let phoneNumberFormatter = PhoneNumberFormatter()
+    
     var body: some View {
         VStack(spacing: Spacing.sixteen) {
             
-            Text("let us know some basic info about yourself!")
-                .font(.largeTitle)
+            Text("Let us know some basic info about yourself!")
+                .font(.title3)
                 .fontWeight(.semibold)
                 .foregroundColor(.bottleGreen)
+                .multilineTextAlignment(.center)
+                .fixedSize(horizontal: false, vertical: true)
             
             if let photoData = vm.selectedPhotoData, let image = UIImage(data: photoData) {
                 Image(uiImage: image)
@@ -47,22 +51,35 @@ struct OnboardingProfileInfoView: View {
 
                 }
                 
-                PhotosPicker(selection: $vm.selectedItem, matching: .any(of: [.images, .not(.livePhotos)])) {
-                    Label("Pick your Avatar", systemImage: "photo")
+                Button {
+                    vm.showPhotosPicker = true
+                } label: {
+                    Text("Change / Add")
                 }
-                .tint(.bottleGreen)
-                .controlSize(.large)
-                .buttonStyle(.borderedProminent)
-                .onChange(of: vm.selectedItem) { newItem in
-                    Task {
-                        
-                        if let data = try? await newItem?.loadTransferable(type: Data.self) {
-                            vm.selectedPhotoData = data
-                        } else {
-                            //error state this
-                        }
+                .sheet(isPresented: $vm.showPhotosPicker) {
+                    ImagePicker(sourceType: .photoLibrary, selectedImage: $vm.image)
+                }
+                .onChange(of: vm.image) { newValue in
+                    if let data = newValue.jpegData(compressionQuality: 0.8) {
+                        vm.selectedPhotoData = data
                     }
                 }
+//                PhotosPicker(selection: $vm.selectedItem, matching: .any(of: [.images, .not(.livePhotos)])) {
+//                    Label("Pick your Avatar", systemImage: "photo")
+//                }
+//                .tint(.bottleGreen)
+//                .controlSize(.large)
+//                .buttonStyle(.borderedProminent)
+//                .onChange(of: vm.selectedItem) { newItem in
+//                    Task {
+//                        
+//                        if let data = try? await newItem?.loadTransferable(type: Data.self) {
+//                            vm.selectedPhotoData = data
+//                        } else {
+//                            //error state this
+//                        }
+//                    }
+//                }
             }
  
             Group {
@@ -71,17 +88,36 @@ struct OnboardingProfileInfoView: View {
                 
                 TextField("Last Name *", text: $vm.lastName)
                     .textFieldStyle(.roundedBorder)
-
-            Picker("Gender", selection: $vm.selectedGender) {
-                ForEach(vm.gender, id: \.self) {
-                    Text($0)
+                
+                HStack {
+                    Text("Select Your Gender:")
+                        .foregroundColor(.gray)
+                    
+                    Spacer()
+                    
+                    Picker("Gender", selection: $vm.selectedGender) {
+                        ForEach(vm.gender, id: \.self) {
+                            Text($0)
+                        }
+                    }
                 }
-            }
+                .background(
+                    RoundedRectangle(cornerRadius: Spacing.eight).stroke(Color.gray.opacity(0.4), lineWidth: 1)
+                )
+
+
             
-    
             TextField("Phone Number", text: $vm.phoneNumber)
                 .keyboardType(.phonePad)
                 .textFieldStyle(.roundedBorder)
+                .onChange(of: vm.phoneNumber) { newValue in
+                    let formatted = phoneNumberFormatter.string(for: newValue) ?? ""
+                    if formatted != newValue {
+                        DispatchQueue.main.async {
+                            vm.phoneNumber = formatted
+                        }
+                    }
+                }
             
             VStack(alignment: .leading) {
                 Text("Tell us what kind of traveler you are!")
@@ -103,15 +139,28 @@ struct OnboardingProfileInfoView: View {
             Spacer()
             }
     
-            
-            // This will handle navigation to the main app.
-            PrimaryHurdButton(buttonModel: .init(buttonText: "All Set!", buttonType: .primary, icon: .arrowRight, appendingIcon: true), action: {
-                // Set firebase data and mutate isfinishedOnboarding to true
-        
-                vm.addOnboardingInfoData { _ in
-                    //authVM.authState = .signedIn
+            Button {
+                // This will handle navigation to the main app.
+                if vm.fieldsArePopulated {
+                    vm.addOnboardingInfoData { uid in
+                        if let uid {
+                            authVM.getCurrentUserObject(from: uid)
+                        }
+                        
+                        print("DEBUG: Something wrong happened here and is not good here ")
+                    }
+                  
                 }
-            })
+            } label: {
+                Text("All Set!")
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.white)
+                    .frame(height: 50)
+                    .frame(maxWidth: .infinity)
+                    .background(Capsule().foregroundColor(vm.fieldsArePopulated ? .bottleGreen : .gray))
+            }
+            .disabled(!vm.fieldsArePopulated)
         }
         .padding()
     }

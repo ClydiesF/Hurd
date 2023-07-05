@@ -14,20 +14,8 @@ struct TripNotesView: View {
     var body: some View {
         VStack(spacing: 10) {
             HStack(spacing: 20) {
-                HurdSlidingTabView(selection: $selection, tabs: ["Important","general"])
+                HurdSlidingTabView(selection: $selection, tabs: ["Important","general"], activeAccentColor: Color("textColor"), selectionBarColor: Color("textColor"))
                     //.padding(.trailing, 130)
-                
-                Button {
-                    // toogle for full screen
-                    vm.showAddNoteForm = true
-                    
-                } label: {
-                    Label("Add Note", systemImage: "note.text")
-                        .foregroundColor(.white)
-                        .font(.system(size: 14))
-                        .padding(8)
-                        .background(Capsule().fill(Color.bottleGreen))
-                }
             }
            
             ForEach(vm.notes?.filter {$0.noteType == vm.noteTypes[selection]} ?? [], id: \.self) { note in
@@ -40,10 +28,23 @@ struct TripNotesView: View {
         })
         .padding(.horizontal)
         .navigationTitle("Trip Notes")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    vm.showAddNoteForm = true
+                } label: {
+                    Image(systemName: "plus")
+                        .foregroundColor(Color("backgroundColor"))
+                        .padding(5)
+                        .background(Circle().fill(Color("textColor").gradient))
+                }
+
+            }
+        }
         .onAppear {
             vm.fetchNotes()
         }
-        .animation(.easeInOut, value: vm.notes)
+        //.animation(.easeInOut, value: vm.notes)
     }
 }
 

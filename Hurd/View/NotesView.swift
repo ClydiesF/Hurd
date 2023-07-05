@@ -27,13 +27,14 @@ struct NotesView: View {
                         .clipShape(Circle())
                 
                 if note.authorID == Auth.auth().currentUser?.uid {
+      
                     Button {
                         //Delete this note
                         print("Delete this note")
                         vm.deleteNote(with: note.id ?? "")
                     } label: {
                         Image(systemName: "xmark")
-                            .padding(10)
+                            .padding(5)
                             .foregroundColor(.red)
                             .background(Circle().fill(Color.red.opacity(0.3)))
                             .frame(width: 40,height: 40)
@@ -48,38 +49,36 @@ struct NotesView: View {
                     Text(note.title)
                         .font(.system(size: 17))
                         .fontWeight(.semibold)
+                        .foregroundColor(.black)
                     
                     Spacer()
+                    Label(note.noteType, systemImage: NoteType(rawValue: note.noteType)!.iconString)
+                            .font(.system(size: 12))
+                            .padding(8)
+                            .foregroundColor(note.noteType == "Important" ? .black : .white)
+                            .background(Circle().fill(note.noteType == "Important" ? Color.corn : Color.bottleGreen))
+                            .labelStyle(.iconOnly)
                     
                     Text(formatTimestamp())
                         .font(.caption2)
                         .foregroundColor(.black)
                 }
               
-                Label(note.noteType, systemImage: NoteType(rawValue: note.noteType)!.iconString)
-                        .font(.system(size: 12))
-                        .padding(3)
-                        .foregroundColor(note.noteType == "Important" ? .black : .white)
-                        .padding(.horizontal, 8)
-                        .background(Capsule().fill(note.noteType == "Important" ? Color.corn : Color.bottleGreen))
-                        .labelStyle(.iconOnly)
-            
-           
-                
+
                 Text(note.body)
                     .font(.system(size: 14))
                     .foregroundColor(.gray)  
             }
+            .popup(isPresented: $vm.noteSuccessDeleted, view: {
+                Text("Successfully deleted Note")
+                
+            }, customize: {
+                $0
+                .type (.toast)
+                .position(.bottom)
+                .dragToDismiss(true)
+            })
         }
-        .popup(isPresented: $vm.noteSuccessDeleted, view: {
-            Text("Successfully deleted Note")
-            
-        }, customize: {
-            $0
-            .type (.toast)
-            .position(.bottom)
-            .dragToDismiss(true)
-        })
         .padding()
         .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
         .shadow(color: Color.gray.opacity(0.3),radius:5,x:3,y:5)

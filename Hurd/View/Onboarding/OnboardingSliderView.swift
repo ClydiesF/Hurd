@@ -11,12 +11,23 @@ struct OnboardingSliderView: View {
     
     @State private var selectedPage = 0
     
-    
-    let onboardingModels: [Onboarding] = [.init(imageName: "sliderImage1",
-                                                titleText: "Connect with the like-minded",
-                                                bodyText: "Connect with Friedns through travel or connect with other people, you havent yet met and make new memories with eachother"),
-                                          .init(imageName: "sliderImage2", titleText: "Share Iteniaries", bodyText: "Always be in the know about what the plans are and show your support on which activities you like best!"),
-                                          .init(imageName: "sliderImage3", titleText: "Show Off", bodyText: "Get Badges for what you already love to do!.. let others know how accomplished a travelr you are!")]
+    let onboardingModels: [Onboarding] = [
+        .init(
+            imageName: "sliderImage1",
+            titleText: "Connect with the like-minded",
+            bodyText: "Discover new horizons with your friends or meet new people on your travels. Whether you're exploring new cultures, trying new foods, or experiencing new adventures, our app helps you connect with others to make unforgettable memories together."
+        ),
+        .init(
+            imageName: "sliderImage2",
+            titleText: "Share Itineraries",
+            bodyText: "With our app, you'll always be in the know about the latest travel plans and activities. You can easily communicate with your travel companions and show your support for the activities that interest you the most. Our app helps ensure that everyone has a great time on your travels."
+        ),
+        .init(
+            imageName: "sliderImage3",
+            titleText: "Show Off",
+            bodyText: "Showcase your travel accomplishments and earn badges for the activities you love to do. Our app lets you track your progress and share your achievements with others. Whether you're a seasoned traveler or just starting out, our app helps you stay motivated and inspired to explore the world."
+        )
+    ]
     
     var body: some View {
         NavigationView {
@@ -25,36 +36,34 @@ struct OnboardingSliderView: View {
                     Image(onboardingModels[selectedPage].imageName)
                         .resizable()
                         .scaledToFill()
-                        .ignoresSafeArea()
                         .tag(0)
                     
                     Image(onboardingModels[selectedPage].imageName)
                         .resizable()
                         .scaledToFill()
-                        .ignoresSafeArea()
                         .tag(1)
                     
                     Image(onboardingModels[selectedPage].imageName)
                         .resizable()
                         .scaledToFill()
-                        .ignoresSafeArea()
                         .tag(2)
                 }
-                .ignoresSafeArea()
                 .frame(height: 400)
+                .ignoresSafeArea()
                 .tabViewStyle(.page)
                 
                 Group {
                     Text(onboardingModels[selectedPage].titleText)
-                        .font(.title3)
+                        .font(.title2)
                         .fontWeight(.heavy)
                         .foregroundColor(.bottleGreen)
                         .animation(.easeInOut, value: selectedPage)
                     
                     Text(onboardingModels[selectedPage].bodyText)
-                        .font(.caption)
+                        .font(.subheadline)
                         .foregroundColor(.gray)
                         .multilineTextAlignment(.center)
+                        .fixedSize(horizontal: false, vertical: true)
                         .animation(.easeInOut, value: selectedPage)
                     
                     Spacer()

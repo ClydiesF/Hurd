@@ -6,86 +6,108 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct TripPreviewView: View {
     
     @Binding var isPastTrip: Bool
-    
-    let trip: Trip
+    var trip: Trip
     var user: User?
     
     var body: some View {
-        VStack(alignment: .leading) {
-            ZStack(alignment: .bottomTrailing) {
-                Image("mockbackground")
-                    .resizable()
-                    .frame(height: 170)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .grayscale(isPastTrip ? 1 : 0)
+        VStack(alignment: .leading, spacing: 5) {
+            ZStack(alignment: .topTrailing) {
                 
-                Image(systemName: trip.iconName)
-                    .foregroundColor(.white)
-                    .padding(10)
-                    .background(
-                        Color.black
-                    )
-                    .clipShape(Circle())
-                    .padding()
-            }
-
-       
-            // TRIP Image
-            
-            HStack {
-                if let user = user, let profileImage = user.profileImageUrl {
-                    AsyncImage(url: URL(string: profileImage), content: { image in
+                //Image("mockbackground")
+                
+                AsyncImage(url: URL(string: trip.tripImageURLString?.photoURL ?? "")) { phase in
+                    if let image = phase.image {
                         image
                             .resizable()
-                            .frame(width: 30, height: 30)
-                            .cornerRadius(15)
-                    }) {
-                        Circle()
-                            .frame(width: 30, height: 30)
-                            .cornerRadius(15)
+                            .frame(height: 220)
+                            .frame(width: UIScreen.main.bounds.width * 0.9)
+                            .aspectRatio(contentMode: .fill)
+                            .overlay {
+                                Color("textColor").opacity(0.2)
+                            }
                         
+                    } else if phase.error != nil { // 3
+                        // some kind of error appears
+                        Text("No image available")
+                    } else {
+                        //appears as placeholder image
+                        Image(systemName: "photo") // 4
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                    }
+                }
+                
+                HStack(alignment: .top) {
+                    if let user = user, let profileImage = user.profileImageUrl {
+                        AsyncImage(url: URL(string: profileImage), content: { image in
+                            image
+                                .resizable()
+                                .frame(width: 40, height: 40)
+                                .clipShape(Circle())
+                                .background(Circle().stroke(Color("backgroundColor"), lineWidth: 5))
+                                .padding()
+                        }) {
+                            Circle()
+                                .fill(.gray)
+                                .frame(width: 60, height: 60)
+                                .padding()
+      
+                        }
+                        
+                    } else {
+                        Circle()
+                            .fill(.gray)
+                            .frame(width: 60, height: 60)
+                            .background(Circle().stroke(Color("textColor"), lineWidth: 8))
+                            .padding()
                     }
                     
-                } else {
-                    Circle()
-                        .fill(Color.gray)
-                        .frame(width: 30, height: 30)
-                        .cornerRadius(15)
+                    Spacer()
+                    VStack(alignment: .trailing,spacing: 10) {
+                        HStack {
+                            TripDateView(tripDate: trip.tripStartDate)
+                            
+                            TripDateView(tripDate: trip.tripEndDate)
+                        }
+                      
+                     
+                        Spacer()
+                        
+                        Image(systemName: trip.iconName)
+                            .foregroundColor(Color("backgroundColor"))
+                            .padding()
+                            .background(Circle().fill(Color("textColor").gradient))
+                    }
+                    .padding()
                 }
-                
-                Text(trip.tripName)
-                    .foregroundColor(.black)
-                    .font(.title3)
-                    .fontWeight(.heavy)
-                
-                Spacer()
+     
             }
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .frame(height: 220)
+            .frame(width: UIScreen.main.bounds.width * 0.9)
             
+            Text(trip.tripName)
+                .font(.system(size: 25))
+                .foregroundColor(Color("textColor"))
+                .fontWeight(.bold)
             
-            HStack {
-                Group {
-                    Label(trip.tripDestination, systemImage: "location.fill")
-                    Divider()
-                    Label(trip.dateRangeString, systemImage: "calendar")
-                }
-                .foregroundColor(.black)
-                .font(.system(size: 14))
-        
-            }
-            .frame(height: 15)
+            Label(trip.tripDestination, systemImage: "mappin")
+                .foregroundColor(.gray)
             
-            Spacer()
         }
+        .grayscale(isPastTrip ? 1 : 0)
+
     }
 }
 
-//struct TripPreviewView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TripPreviewView(isPastTrip: true, trip: Trip.mockTrip2)
-//            .padding()
-//    }
-//}
+struct TripPreviewView_Previews: PreviewProvider {
+    static var previews: some View {
+        TripPreviewView(isPastTrip: .constant(true), trip: Trip.mockTrip2)
+            .padding()
+    }
+}

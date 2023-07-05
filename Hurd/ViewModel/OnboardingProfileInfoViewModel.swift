@@ -10,20 +10,39 @@ import PhotosUI
 import SwiftUI
 import Combine
 import Firebase
+import UIKit
 
 
 class OnboardingProfileInfoViewModel: ObservableObject {
+    
+    @Published var showPhotosPicker: Bool = false
+    @Published var image = UIImage()
+    
     var characterLimit = 100
+    var maxPhoneNumberCharLimit = 14
     
     @Published var firstName: String = ""
     @Published var lastName: String = ""
-    @Published var phoneNumber: String = ""
+    @Published var phoneNumber: String = "" {
+        didSet {
+            if phoneNumber.count > maxPhoneNumberCharLimit && oldValue.count <= maxPhoneNumberCharLimit {
+                phoneNumber = oldValue
+            }
+         
+        }
+    }
+    
+    
     @Published var description: String = ""  {
         didSet {
             if description.count > characterLimit && oldValue.count <= characterLimit {
                 description = oldValue
             }
         }
+    }
+    
+    var fieldsArePopulated: Bool {
+        return !firstName.isEmpty && !lastName.isEmpty
     }
     
     @Published var characterCount: Int = 0
@@ -44,11 +63,10 @@ class OnboardingProfileInfoViewModel: ObservableObject {
             }
             .assign(to: &$characterCount)
         
-       
     }
     
-    func addOnboardingInfoData(completion: @escaping(Bool) -> Void) {
-        let displayName = " \(self.firstName) \(self.lastName)"
+    func addOnboardingInfoData(completion: @escaping (String?) -> Void) {
+        let displayName = " \(firstName) \(lastName)"
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequest?.displayName = displayName
         
@@ -84,10 +102,7 @@ class OnboardingProfileInfoViewModel: ObservableObject {
                         guard let uid = Auth.auth().currentUser?.uid else { return }
                         
                         USER_REF.document(uid).setData(addedData, merge: true)
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                            completion(true)
-                        }
+                        completion(uid)
                     }
                     
                 }
@@ -110,10 +125,16 @@ class OnboardingProfileInfoViewModel: ObservableObject {
                 
                 guard let uid = Auth.auth().currentUser?.uid else { return }
                 
-                USER_REF.document(uid).setData(addedData, merge: true)
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    completion(true)
+                //USER_REF.document(uid).setData(addedData, merge: true)
+                USER_REF.document(uid).setData(addedData, merge: true) { err in
+                    if let err {
+                        print("DEBUG: ERROR: \(err)")
+                    completion(nil)
+                    }
+                    
+                 completion(uid)
+                    
+                    
                 }
        
             }

@@ -10,12 +10,19 @@ import Firebase
 import SwiftUI
 import FirebaseFirestoreSwift
 
+enum signInType {
+    case signup
+    case signin
+}
+
 class AuthenticationViewModel: ObservableObject {
     
     enum AuthState {
         case signedOut
         case signedIn
     }
+    
+
     
     enum SensitiveActionType {
         case deleteAccount
@@ -53,7 +60,7 @@ class AuthenticationViewModel: ObservableObject {
     
     
     init() {
-        currentUser = Auth.auth().currentUser
+       currentUser = Auth.auth().currentUser
         registerStateListener()
        registerCurrentUserListener()
         
@@ -114,8 +121,9 @@ class AuthenticationViewModel: ObservableObject {
             print("Current data: \(data)")
             }
     }
+
     
-    private func getCurrentUserObject(from userID: String) {
+    func getCurrentUserObject(from userID: String) {
         USER_REF.document(userID).getDocument(as: User.self) { result in
           
             switch result {
@@ -161,12 +169,16 @@ class AuthenticationViewModel: ObservableObject {
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if let error = error {
                     print("Sign in Failed: \(error.localizedDescription)")
+                    self.errorMsg = "Sign in Failed: \(error.localizedDescription)"
+                    self.presentAlert = true
                     return
                 }
                 
                 switch authResult {
                 case .none:
                     print("Could not sign up user.")
+                    self.errorMsg = "Sign up Failed: Could not sign up user."
+                    self.presentAlert = true
                 case .some(let something):
                     print("DEBUG: Sign up Success, \(something)")
                     
@@ -191,6 +203,40 @@ class AuthenticationViewModel: ObservableObject {
         }
     }
     
+    func signinWithApple(credential: Firebase.AuthCredential, signinType: signInType) {
+        Auth.auth().signIn(with: credential) { (authResult, error) in
+            if (error != nil) {
+                // Error. If error.code == .MissingOrInvalidNonce, make sure
+                // you're sending the SHA256-hashed nonce as a hex string with
+                // your request to Apple.
+                print(error?.localizedDescription as Any)
+                print("DEBUG: there was an erro \(error?.localizedDescription)")
+                return
+            }
+            if signinType == .signup {
+                guard let uid = authResult?.user.uid else { return }
+                
+                USER_REF.document(uid).setData(["emailAddress" : "",
+                                                 "createdAt": Date().timeIntervalSince1970,
+                                                 "isFinishedOnboarding": false,
+                                                "firstName": "",
+                                                "lastName": "",
+                                                "phoneNumber": "",
+                                                "bio": "",
+                                                "id": uid
+                                               ]) { err in
+                    if let err = err {
+                        print("DEBUG: Error writingh document: \(err)")
+                    }
+                }
+            }
+            print("DEBUG: signed in")
+            self.currentUser = authResult?.user
+            guard let uid = authResult?.user.uid else { return }
+            self.getCurrentUserObject(from: uid)
+        }
+    }
+    
     func signin() {
         if email.isEmpty || password.isEmpty {
             errorMsg = "Please make sure both the Email and Password Fields are Populated."
@@ -206,12 +252,16 @@ class AuthenticationViewModel: ObservableObject {
             Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
                 if let error = error {
                     print("DEBUG: Sign in Failed: \(error.localizedDescription)")
+                    self?.errorMsg = "Sign in Failed: \(error.localizedDescription)"
+                    self?.presentAlert = true
                     return
                 }
                 
                 switch authResult {
                 case .none:
                     print("DEBUG: Could not sign in user.")
+                    self?.errorMsg = "Sign in Failed: Could not sign in user."
+                    self?.presentAlert = true
                 case .some(let something):
                     print("DEBUG: Sign in Success, \(something)")
                     self?.currentUser = authResult?.user

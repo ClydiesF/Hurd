@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import Firebase
 import FirebaseFirestoreSwift
+import CoreLocation
 
 class GroupPlannerViewModel: ObservableObject {
     
@@ -17,6 +18,9 @@ class GroupPlannerViewModel: ObservableObject {
     
     @Published var organizer: User?
     @Published var members: [User]?
+    
+    // Trip Settings
+    @Published var goToTripSettings: Bool = false
     
     //Notes
     @Published var notes: [Note]?
@@ -36,12 +40,23 @@ class GroupPlannerViewModel: ObservableObject {
     @Published var presentTripCancellationSheet: Bool = false
     
     @Published var showAddNoteForm: Bool = false
+    @Published var tripCoordinates: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 50, longitude: 50)
     
     init(trip: Trip, hurd: Hurd) {
         self.trip = trip
         self.hurd = hurd
         
         calculateTimeRemaining(from: trip.tripStartDate)
+        getCoordinateFrom(address: trip.tripDestination) { coordinate, error in
+            
+            guard let coordinate = coordinate, error == nil else { return }
+             // don't forget to update the UI from the main thread
+             DispatchQueue.main.async {
+                 print("DEBUG", "Location:", coordinate) // Rio de Janeiro, Brazil Location: CLLocationCoordinate2D(latitude: -22.9108638, longitude: -43.2045436)
+                 self.tripCoordinates = coordinate
+             }
+        
+        }
     }
     
     func calculateTimeRemaining(from tripDate: Double) {
@@ -52,27 +67,6 @@ class GroupPlannerViewModel: ObservableObject {
         timeRemaingTillTrip = "\(diffs.month ?? 0)M " + "\(diffs.weekOfYear ?? 0)W " + "\(diffs.day ?? 0)D " + "\(diffs.hour ?? 0)h "
     }
     
-    // For Organizers.
-    func cancelTrip() {
-        // deletes an  field from the field propery or updates it less the person who is kicked out.
-        guard let tripID = trip.id, let hurdID = hurd.hurdID else { return }
-        
-        print("DEBUG: err \(hurdID) -\(tripID)")
-        TRIP_REF.document(tripID).delete { err in
-            if let err = err {
-                print("DEBUG: Erro removing  document: \(err)")
-            } else {
-                print("DEBUG: Document successfully removed!")
-                HURD_REF.document(hurdID).delete { err in
-                    if let err = err {
-                        print("DEBUG: Erro removing  document: \(err)")
-                    }
-                }
-            }
-        }
-    }
-    
-    
     func deleteNote(with noteId: String) {
         _ = TRIP_REF.document(self.trip.id ?? "").collection("Notes").document(noteId).delete(completion: { err in
             if let err = err  {
@@ -82,6 +76,12 @@ class GroupPlannerViewModel: ObservableObject {
             self.noteSuccessDeleted = true
             
         })
+    }
+    
+   
+
+    func getCoordinateFrom(address: String, completion: @escaping(_ coordinate: CLLocationCoordinate2D?, _ error: Error?) -> () ) {
+        CLGeocoder().geocodeAddressString(address) { completion($0?.first?.location?.coordinate, $1) }
     }
     
     func addNote() {
@@ -95,7 +95,8 @@ class GroupPlannerViewModel: ObservableObject {
             ]
             
             _ = TRIP_REF.document(self.trip.id ?? "").collection("Notes").addDocument(data: dict)
-        
+        self.title = ""
+        self.bodyText = ""
         showAddNoteForm = false
     }
     

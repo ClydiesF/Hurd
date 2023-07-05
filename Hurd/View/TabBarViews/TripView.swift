@@ -12,56 +12,76 @@ import os
 struct TripView: View {
     
     @StateObject var vm = TripViewModel()
+    @StateObject var addTripVM = AddTripFormViewModel()
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                HurdSlidingTabView(selection: $vm.selection, tabs: ["Upcoming", "Past"], activeAccentColor: .black, selectionBarColor: .black)
-                switch vm.selection {
-                case 0:
-                    if vm.trips.isEmpty {
-                        ProgressView()
-                    } else {
-                        ForEach(vm.trips, id: \.id) { trip in
-                            if let hurd = trip.hurd {
-                                NavigationLink(destination: {
-                                    GroupPlannerView(vm: GroupPlannerViewModel(trip: trip, hurd: hurd))
-                                }, label: {
-                                    TripPreviewView(isPastTrip: $vm.isPastTrip, trip: trip, user: vm.user)
-                                        .padding(.horizontal)
-                                        .padding(.bottom, 10)
-                                })
+            VStack {
+                HurdSlidingTabView(selection: $vm.selection, tabs: ["Upcoming", "Past"], activeAccentColor: Color("textColor"), selectionBarColor: Color("textColor"))
+                ScrollView {
+                    switch vm.selection {
+                    case 0:
+                        if vm.trips.filter { ($0.tripEndDate + 86400) >= vm.currentDate }.isEmpty {
+                            NoTripView(isPastTrip: $vm.isPastTrip)
+                        } else {
+                            ForEach(vm.trips.filter { ($0.tripEndDate + 86400) >= vm.currentDate }, id: \.id) { trip in
+                                if let hurd = trip.hurd {
+                                    NavigationLink(destination: {
+                                        GroupPlannerView(vm: GroupPlannerViewModel(trip: trip, hurd: hurd))
+                                    }, label: {
+                                        TripPreviewView(isPastTrip: $vm.isPastTrip, trip: trip, user: vm.user)
+                                            .padding(.horizontal)
+                                            .padding(.bottom, 10)
+                                    })
+                                }
+                        
                             }
-                    
                         }
-                    }
-                case 1:
-                    if vm.trips.filter { $0.tripEndDate < vm.currentDate }.isEmpty {
-                        ProgressView()
-                    } else {
-                        ForEach(vm.trips.filter { $0.tripEndDate < vm.currentDate }, id: \.id) { trip in
-                            if let hurd = trip.hurd {
-                                NavigationLink(destination: {
-                                    GroupPlannerView(vm: GroupPlannerViewModel(trip: trip, hurd: hurd))
-                                }, label: {
-                                    TripPreviewView(isPastTrip: $vm.isPastTrip, trip: trip, user: vm.user)
-                                        .padding(.horizontal)
-                                        .padding(.bottom, 10)
-                                })
+                    case 1:
+                        if vm.trips.filter { ($0.tripEndDate + 86400) < vm.currentDate }.isEmpty {
+                            NoTripView(isPastTrip: $vm.isPastTrip)
+                        } else {
+                            ForEach(vm.trips.filter { ($0.tripEndDate + 86400) < vm.currentDate }, id: \.id) { trip in
+                                if let hurd = trip.hurd {
+                                    NavigationLink(destination: {
+                                        GroupPlannerView(vm: GroupPlannerViewModel(trip: trip, hurd: hurd))
+                                    }, label: {
+                                        TripPreviewView(isPastTrip: $vm.isPastTrip, trip: trip, user: vm.user)
+                                            .padding(.horizontal)
+                                            .padding(.bottom, 10)
+                                    })
+                                }
+                        
                             }
-                    
                         }
+                    default:
+                        EmptyView()
                     }
-                default:
-                    EmptyView()
+                           
+                    
                 }
-                
-                
+                .sheet(isPresented: $addTripVM.addTripFormPresented, onDismiss: {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                        addTripVM.resetFormValues()
+                    }
+                }, content: {
+                    AddTripFormView(vm: addTripVM)
+                })
+                .navigationTitle("Your Trips")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            addTripVM.addTripFormPresented = true
+                        } label: {
+                            Image(systemName: "plus")
+                                .foregroundColor(Color("backgroundColor"))
+                                .padding(5)
+                                .background(Circle().fill(Color("textColor").gradient))
+                        }
+                    }
+                }
             }
-            
-            .navigationTitle("Your Trips")
-            .navigationBarTitleDisplayMode(.large)
-            
         }
         .onAppear {
             if vm.viewDidLoad == false {

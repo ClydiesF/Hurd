@@ -7,142 +7,178 @@
 
 import SwiftUI
 import SlidingTabView
+import Kingfisher
+import CoreLocation
+import MapKit
+import Alamofire
 
 struct GroupPlannerView: View {
     
     @ObservedObject var vm: GroupPlannerViewModel
     
     var body: some View {
+        
         ScrollView {
-            VStack(alignment: .leading, spacing: 10) {
+            VStack(alignment: .leading) {
                 ZStack(alignment: .topTrailing) {
-                    Image("mockbackground")
+                    KFImage(URL(string: vm.trip.tripImageURLString?.photoURL ?? ""))
                         .resizable()
-                        .frame(height: 170)
-                        .ignoresSafeArea()
+                        .scaledToFill()
+                        .frame(width: 350)
+                        .frame(height: 340)
                         .overlay {
-                            Color.black.opacity(0.1)
+                            Color("textColor").opacity(0.2)
                         }
                     
-                    Label(vm.timeRemaingTillTrip ?? "", systemImage: "clock")
+                    HStack(alignment: .bottom) {
+                        if let authorName = vm.trip.tripImageURLString?.authorName {
+                            Label(authorName, systemImage: "camera.fill")
+                                .foregroundColor(.white)
+                        }
+
+                        Spacer()
+                        
+                        VStack(alignment: .trailing,spacing: 0) {
+                            TripDateView(tripDate: vm.trip.tripStartDate)
+                                .padding(.bottom,10)
+                            
+                            TripDateView(tripDate: vm.trip.tripEndDate)
+                                .padding(.bottom,10)
+                            
+                            Image(systemName: vm.trip.iconName)
+                                .foregroundColor(Color("backgroundColor"))
+                                .padding()
+                                .background(Circle().fill(Color("textColor").gradient))
+                            
+                            Spacer()
+                        }
+                    }
+                    .padding()
+                }
+                .frame(height: 340)
+                .frame(width: UIScreen.main.bounds.width * 0.9)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                
+                
+                HStack(alignment: .top) {
+                    VStack(alignment: .leading) {
+                        Text(vm.trip.tripName)
+                            .font(.system(size: 30))
+                            .fontWeight(.bold)
+                        Label(vm.trip.tripDestination, systemImage: "mappin")
+                            .foregroundColor(.gray)
+                        
+                    }
+                    
+                    Spacer()
+
+                    Text("$\(vm.trip.tripCostString)/PP")
                         .font(.system(size: 14))
-                        .foregroundColor(.black)
-                        .padding(5)
-                        .background(Capsule().fill(Color.white))
-                        .padding(.horizontal, 10)
-                        .padding(.top, 10)
+                        .foregroundColor(Color("textColor").opacity(0.7))
+                        .padding(10)
+                        .fontWeight(.bold)
+                        .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))
                 }
                 
-                HStack(spacing: 15) {
+                Divider()
+                HStack {
+                    Image(systemName: "speaker.wave.3.fill")
+                        .foregroundColor(Color("backgroundColor"))
+                        .padding()
+                        .background(Circle()
+                            .fill(Color.gray.gradient))
                     
-                    Label("Broadcast", systemImage: "speaker.wave.3.fill")
-                        .font(.system(size: 14))
-                        .padding(8)
-                        .background(Capsule().stroke(Color.gray.opacity(0.5)))
-                    
-                    Label("Planner", systemImage: "list.bullet.clipboard.fill")
-                        .font(.system(size: 14))
-                        .padding(8)
-                        .background(Capsule().stroke(Color.gray.opacity(0.5)))
+                    Image(systemName: "list.bullet.clipboard.fill")
+                        .foregroundColor(Color("backgroundColor"))
+                        .padding()
+                        .background(Circle()
+                            .fill(Color.gray.gradient))
                     
                     NavigationLink {
                         TripNotesView(vm: vm)
                     } label: {
-                        Label("Notes", systemImage: "note")
-                            .font(.system(size: 14))
-                            .padding(8)
-                            .background(Capsule().stroke(Color.gray.opacity(0.5)))
-                    }
-
-                
-                }
-                .frame(height: 30)
-                .padding(.leading, 10)
-                
-                Divider()
-                //TRIP DETAIL VIEW
-                TripDetailView(trip: $vm.trip)
-                
-                Divider()
-                    .padding(.bottom, 10)
-                
-                HurdView(organizer: $vm.organizer, members: $vm.members, trip: $vm.trip)
-                
-                Divider()
-                    .padding(.bottom, 10)
-                
-                HStack(spacing: 15) {
-                    Button {
-                        vm.presentTripCancellationSheet = true
-                    } label: {
-                        Label("Cancel Trip", systemImage: "xmark")
-                            .foregroundColor(.red)
-                            .font(.system(size: 14))
-                            .padding(8)
-                            .background(Capsule().stroke(Color.red))
+                        ZStack(alignment: .topTrailing) {
+                            Image(systemName: "note")
+                                .badge(20)
+                                .foregroundColor(Color("backgroundColor"))
+                                .padding()
+                                .background(Circle().fill(Color("textColor").gradient))
+                            
+                            if let noteCount = vm.notes?.count, noteCount > 0 {
+                                Text("\(noteCount)")
+                                    .padding(3)
+                                    .foregroundColor(Color("backgroundColor"))
+                                    .font(.system(size: 14))
+                                    .frame(width: 25)
+                                    .background(RoundedRectangle(cornerRadius: 8).fill(.orange))
+                                    .offset(x: 5,y: -8)
+                            }
+                        }
+                        
                     }
                     
-                    NavigationLink {
-                        AddTripFormView(vm: returnPrepopulatedVM())
-                    } label: {
-                        Label("Edit Trip", systemImage: "pencil")
-                            .font(.system(size: 14))
-                            .padding(8)
-                            .background(Capsule().stroke(Color.gray.opacity(0.5)))
-                    }
-
-              
-                 
-                    Label("Share Trip", systemImage: "square.and.arrow.up")
-                        .font(.system(size: 14))
-                        .padding(8)
-                        .background(Capsule().stroke(Color.gray.opacity(0.5)))
+                    
+                    Image(systemName: "square.and.arrow.up")
+                        .foregroundColor(Color("backgroundColor"))
+                        .padding()
+                        .background(Circle()
+                            .fill(Color.gray.gradient))
                 }
-                .frame(height: 30)
-                .padding(.leading, 10)
+                Divider()
+                            
+                HStack {
+                    KFImage(URL(string: vm.organizer?.profileImageUrl ?? ""))
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                        .clipShape(Circle())
+                        .background(Circle().stroke(Color("textColor").opacity(0.5), lineWidth: 10))
+                        .padding(.vertical, 10)
+                    
+                    Spacer()
+                    
+                    Image(systemName: "plus")
+                        .foregroundColor(Color("backgroundColor"))
+                        .padding(10)
+                        .background(Circle().fill(Color.gray.gradient))
+                }
+            
+                NavigationLink("",
+                               destination: TripSettingsView(vm: TripSettingsViewModel(trip: vm.trip)),
+                               isActive: $vm.goToTripSettings)
                 
+                Text("Description")
+                    .font(.system(size: 25))
+                    .fontWeight(.bold)
+                
+                
+                Text(vm.trip.tripDescription ?? "")
+                    .foregroundColor(.gray)
             }
-            .onAppear{
-                vm.fetchMembers()
+            .padding(.horizontal, Spacing.twentyone)
+            
+            
+            Map(coordinateRegion: .constant(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: vm.tripCoordinates.latitude, longitude: vm.tripCoordinates.longitude), span:  MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))))
+                .frame(width: 350, height: 300)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+            
+        }
+        .navigationTitle("Trip Details")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    print("setting screens")
+                    vm.goToTripSettings = true
+                } label: {
+                    Image(systemName: "ellipsis")
+                        .font(.title3)
+                }
             }
         }
-        
-        .sheet(isPresented: $vm.presentTripCancellationSheet, content: {
-            VStack(alignment: .leading) {
-                Text("Are you sure?")
-                    .font(.largeTitle)
-                    .padding(.bottom, 10)
-                Text("Deleting this trip will remove this trip from everyone else in the Hurd as well.")
-                    .font(.system(size: 14))
-                    .foregroundColor(.gray)
-                    .padding(.bottom, 20)
-                
-                HStack {
-                    Button("Keep Trip") {
-                        // Dismiss
-                        vm.presentTripCancellationSheet = false
-                    }
-                    Spacer()
-                    Button("Cancel Trip") {
-                        // Dismiss
-                        vm.cancelTrip()
-                        vm.presentTripCancellationSheet = false
-                    }
-                }
-            }
-            .padding(.horizontal)
-            .presentationDetents([.height(220)])
-            .presentationDragIndicator(.visible)
-        })
-        .navigationTitle("Trip Details")
-        .navigationBarTitleDisplayMode(.large)
-    }
-    ///Func
-    
-    func returnPrepopulatedVM() -> AddTripFormViewModel {
-        let vm = AddTripFormViewModel()
-        vm.prepopulateValuesFrom(current: self.vm.trip)
-        return vm
+        .onAppear {
+            vm.fetchMembers()
+            vm.fetchNotes()
+        }
     }
 }
 

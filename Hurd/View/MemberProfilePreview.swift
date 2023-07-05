@@ -6,22 +6,40 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct MemberProfilePreview: View {
     let firstName: String
     let lastName: String
     let color: Color
-    let image: String
+    let image: String?
     var organizer: String? = nil
     
     var body: some View {
         VStack {
-            Image(image)
-                .resizable()
-                .frame(width: 50, height: 50)
-                .scaledToFit()
-                .clipShape(Circle())
-            
+            if let imageString = image {
+                KFImage(URL(string: imageString))
+                    .placeholder {
+                        // Placeholder while downloading.
+                        Image("mockAvatarImage")
+                            .font(.largeTitle)
+                            .opacity(0.3)
+                    }
+                    .retry(maxCount: 3, interval: .seconds(5))
+                    .onSuccess { r in
+                        // r: RetrieveImageResult
+                        print("success: \(r)")
+                    }
+                    .onFailure { e in
+                        // e: KingfisherError
+                        print("failure: \(e)")
+                    }
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    .scaledToFit()
+                    .clipShape(Circle())
+            }
+   
             Group {
                 Text(firstName)
                 Text(lastName)

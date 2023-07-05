@@ -11,7 +11,11 @@ import PhotosUI
 import SwiftUI
 
 class ProfileViewModel: ObservableObject {
+    let maxPhoneNumberCharLimit = 14
+    
     @Published var user: User
+    
+    @Published var image = UIImage()
     
     @Published var firstName: String = ""
     @Published var lastName: String = ""
@@ -19,10 +23,21 @@ class ProfileViewModel: ObservableObject {
     @Published var ethnicity: String = ""
     @Published var profilePicture: String = ""
     @Published var bio: String = ""
-    @Published var phoneNumber: String = ""
-    
+    @Published var phoneNumber: String = "" {
+        didSet {
+            if phoneNumber.count > maxPhoneNumberCharLimit && oldValue.count <= maxPhoneNumberCharLimit {
+                phoneNumber = oldValue
+            }
+         
+        }
+    }
+
+    @Published var showPhotosPicker: Bool = false
     @Published var selectedPhotoData: Data?
-    @Published var selectedItemPhoto: PhotosPickerItem?
+    @Published var selectedItemPhoto: PhotosPickerItem? = nil
+    
+    @Published var showSaveStatus: Bool = false
+    let phoneNumberFormatter = PhoneNumberFormatter()
     
     
     init(user: User) {
@@ -34,6 +49,14 @@ class ProfileViewModel: ObservableObject {
         self.profilePicture = user.profileImageUrl ?? ""
         self.phoneNumber = user.phoneNumber ?? ""
         self.bio = user.bio
+        
+        $image
+            .receive(on: RunLoop.main)
+            .sink {  d in
+                    if let data = d.jpegData(compressionQuality: 0.8) {
+                        self.changeAvatarImage(photoData: data)
+                    }
+            }
         
         $selectedPhotoData
             .receive(on: RunLoop.main)
@@ -80,8 +103,6 @@ class ProfileViewModel: ObservableObject {
                     USER_REF.document(uid).setData(addedData, merge: true)
                     
                 }
-                
-                
             }
         }
     }
@@ -101,5 +122,6 @@ class ProfileViewModel: ObservableObject {
             
             
             let _ = USER_REF.document(userID).setData(saveUser, merge: true)
+            self.showSaveStatus = true
         }
     }

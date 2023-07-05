@@ -18,7 +18,7 @@ struct ProfileView: View {
             VStack(spacing: 8) {
                 ZStack {
                     Rectangle()
-                        .fill(Color.bottleGreen)
+                        .fill(Color.bottleGreen.gradient)
                         .ignoresSafeArea()
 
                     VStack {

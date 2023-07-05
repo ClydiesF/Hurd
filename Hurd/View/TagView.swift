@@ -14,10 +14,10 @@ struct TagView: View {
     var body: some View {
         Text(tagName)
             .font(.caption2)
-            .foregroundColor(.white)
+            .foregroundColor(Color("backgroundColor"))
             .padding(.horizontal, 10)
             .padding(.vertical, 5)
-            .background(Capsule().fill(.black))
+            .background(Capsule().fill(Color("textColor").gradient))
     }
 }
 

@@ -75,6 +75,7 @@ struct HurdSignInView: View {
                     }
                     
                 }
+                //SignInWithAppleButtonView(vm: vm, signinType: .signin)
 
                 Spacer()
                 
@@ -102,14 +103,14 @@ struct HurdSignInView: View {
                 Text("Reset Email")
                     .fontWeight(.semibold)
                 
-                HurdTextField(placeholderText: "Send Reset Password", text: $vm.newEmail, color: $vm.emailTFBorderColor)
+                HurdTextField(placeholderText: "Enter Email", text: $vm.newEmail, color: $vm.emailTFBorderColor)
                 
                 Button {
                     vm.sendPasswordResetEmail(email: vm.newEmail)
                     simulateresetRequest()
                     //self.presentResetEmailSheet = false
                 } label: {
-                    Text("Reset Email")
+                    Text("Enter Email")
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
                 }
@@ -151,7 +152,25 @@ struct HurdSignInView: View {
                 .fontWeight(.heavy)
                 .font(.title3)
         })
-        )}
+        )
+        .sheet(isPresented: $presentTOS) {
+            ScrollView(showsIndicators: false) {
+                VStack(alignment: .leading) {
+                    Text("Terms Of Service")
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .padding(.bottom, Spacing.twentyfour)
+                    
+                    Text(randomText)
+                }
+            }
+            .padding()
+            .presentationDetents([.medium, .large])
+        }
+    }
+
+    
+    
     // Function
     
     func simulateresetRequest() {
