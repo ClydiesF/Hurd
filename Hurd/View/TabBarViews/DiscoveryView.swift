@@ -14,11 +14,11 @@ struct DiscoveryView: View {
     @State var presentDeleteAccountSheet: Bool = false
     @State var signoutSheet: Bool = false
     
+    private let appStoreURL = URL(string: "https://apps.apple.com/us/app/hurdtravel/id6446421364")
+    
     var body: some View {
         VStack(spacing: Spacing.twentyfour) {
           
-            
-            
             List {
                 
                 Text("Settings")
@@ -184,8 +184,6 @@ struct DiscoveryView: View {
                 } footer: {
                     Text("common Methods to manage account")
                 }
-
-
                 
                 Button("Delete Account") {
                     presentDeleteAccountSheet = true
@@ -227,12 +225,16 @@ struct DiscoveryView: View {
                     }
                 }
                 
-           
+                Section {
+                    ShareLink(item: appStoreURL!) {
+                        Label("Share App", systemImage:  "square.and.arrow.up")
+                    }
+                } header: {
+                    Text("OTHER")
+                }
             }
-            
-         
         }
-    }
+    }// BODY
 }
 
 struct DiscoveryView_Previews: PreviewProvider {
