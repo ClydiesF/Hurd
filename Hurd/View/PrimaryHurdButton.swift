@@ -21,6 +21,9 @@ struct PrimaryHurdButton: View {
                         .foregroundColor((buttonModel.buttonType == .primary) ? .white : Color.bottleGreen)
                     
                 }
+                .frame(maxWidth: .infinity) // Added this to make the entire HStack clickable
+                // Otherwise only the Text is tappable
+                
                 if buttonModel.icon != nil {
                     HStack {
                         if buttonModel.appendingIcon ?? false {

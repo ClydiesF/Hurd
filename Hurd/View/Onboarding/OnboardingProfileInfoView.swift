@@ -92,6 +92,7 @@ struct OnboardingProfileInfoView: View {
                 HStack {
                     Text("Select Your Gender:")
                         .foregroundColor(.gray)
+                        .padding(.horizontal)
                     
                     Spacer()
                     
