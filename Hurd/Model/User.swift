@@ -53,6 +53,7 @@ extension User {
 
 struct Trip: Codable {
     @DocumentID var id: String?
+    let createdAt: Double?
     var tripName: String
     var tripDestination: String
     var tripType: String
@@ -120,17 +121,17 @@ extension Hurd {
 }
 
 extension Trip {
-    static let mockTrip = Trip(tripName: "Mock Trip", tripDestination: "Boston, MA", tripType: "Cruise", tripCostEstimate: 5600.0,tripStartDate: 329773023, tripEndDate: 3434324233, hurd: Hurd.mockHurd, tripImageURLString: UnsplashPhoto(photoURL: "https://via.placeholder.com/300.png/09f/fff", authorName: "Fake Author"))
+    static let mockTrip = Trip(createdAt: 1688865798, tripName: "Mock Trip", tripDestination: "Boston, MA", tripType: "Cruise", tripCostEstimate: 5600.0,tripStartDate: 329773023, tripEndDate: 3434324233, hurd: Hurd.mockHurd, tripImageURLString: UnsplashPhoto(photoURL: "https://via.placeholder.com/300.png/09f/fff", authorName: "Fake Author"))
     
-    static let mockTrip2 = Trip(tripName: "Mock Trip 2", tripDestination: "Charlotte, NC", tripType: "Adventure", tripCostEstimate: 1577.0,tripStartDate: 329773023, tripEndDate: 3434324233, tripDescription: "i  dont like it becuase this is so scrayx i and i liek that most ppl dont like to travel and i konw thaty mosty ppl will like to tracvel but cant. " ,hurd: Hurd.mockHurd)
+    static let mockTrip2 = Trip(createdAt: 1688865798, tripName: "Mock Trip 2", tripDestination: "Charlotte, NC", tripType: "Adventure", tripCostEstimate: 1577.0,tripStartDate: 329773023, tripEndDate: 3434324233, tripDescription: "i  dont like it becuase this is so scrayx i and i liek that most ppl dont like to travel and i konw thaty mosty ppl will like to tracvel but cant. " ,hurd: Hurd.mockHurd)
     
-    static let mockTrip3 = Trip(tripName: "Mock Trip 3", tripDestination: "Dallas, TX", tripType: "Road Trip", tripCostEstimate: 7600.0,tripStartDate: 329773023, tripEndDate: 3434324233, hurd: Hurd.mockHurd)
+    static let mockTrip3 = Trip(createdAt: 1688865798, tripName: "Mock Trip 3", tripDestination: "Dallas, TX", tripType: "Road Trip", tripCostEstimate: 7600.0,tripStartDate: 329773023, tripEndDate: 3434324233, hurd: Hurd.mockHurd)
     
-    static let mockTrip4 = Trip(tripName: "Mock Trip 4", tripDestination: "Houston, TX", tripType: "Vacation", tripCostEstimate: 8600.0,tripStartDate: 329773023, tripEndDate: 3434324233, hurd: Hurd.mockHurd)
+    static let mockTrip4 = Trip(createdAt: 1688865798, tripName: "Mock Trip 4", tripDestination: "Houston, TX", tripType: "Vacation", tripCostEstimate: 8600.0,tripStartDate: 329773023, tripEndDate: 3434324233, hurd: Hurd.mockHurd)
     
-    static let mockTrip5 = Trip(tripName: "Mock Trip 5", tripDestination: "Los Angeles, LA", tripType: "Excursion", tripCostEstimate: 9600.0,tripStartDate: 329773023, tripEndDate: 3434324233, hurd: Hurd.mockHurd)
+    static let mockTrip5 = Trip(createdAt: 1688865798, tripName: "Mock Trip 5", tripDestination: "Los Angeles, LA", tripType: "Excursion", tripCostEstimate: 9600.0,tripStartDate: 329773023, tripEndDate: 3434324233, hurd: Hurd.mockHurd)
     
-    static let mockTrip6 = Trip(tripName: "Mock Trip 6", tripDestination: "New York City, NY", tripType: "Business", tripCostEstimate: 577.0,tripStartDate: 329773023, tripEndDate: 3434324233, hurd: Hurd.mockHurd)
+    static let mockTrip6 = Trip(createdAt: 1688865798, tripName: "Mock Trip 6", tripDestination: "New York City, NY", tripType: "Business", tripCostEstimate: 577.0,tripStartDate: 329773023, tripEndDate: 3434324233, hurd: Hurd.mockHurd)
     
     var tripCostString: String {
         var cost = tripCostEstimate
@@ -178,13 +179,62 @@ extension Trip {
             
         }
     }
+    var TripDuration: String {
+        let start_date = Date(timeIntervalSince1970: self.tripStartDate)
+        let end_date = Date(timeIntervalSince1970: self.tripEndDate)
+         let calendar = Calendar.current
+         let components = calendar.dateComponents([.day], from: start_date, to: end_date)
+        
+        if let day = components.day {
+            let stringDuration = String(day)
+            return stringDuration
+        }
+         return "0"
+    }
+    
+    var countDownTimer: [String:Int] {
+        var localTimeZoneAbbreviation: String { return TimeZone.current.abbreviation() ?? "" }
+
+        let start_date = Date()
+    
+        let end_date = Date(timeIntervalSince1970: self.tripStartDate)
+        let calendar = Calendar.current
+
+        let components = calendar.dateComponents([.day, .hour, .minute, .second], from: start_date, to: end_date)
+        let countdown = [
+          "days": components.day!,
+          "hours": components.hour!,
+          "minutes": components.minute!,
+          "seconds": components.second!,
+        ]
+        print("DEBUG: TIMER COUNT \(countdown["days"])")
+        return countdown
+    }
+    
+    var countdownPercentage: Double? {
+        guard let createdAtDate = self.createdAt else { return nil }
+        
+        let create = Date(timeIntervalSince1970: createdAtDate)
+        let start = Date(timeIntervalSince1970: self.tripStartDate)
+         let calendar = Calendar.current
+         let components = calendar.dateComponents([.day], from: create, to: start)
+        
+        if let day = components.day, let counDownTimerDays = countDownTimer["days"] {
+            let percentage =  abs((Double(counDownTimerDays) / Double(day)) - 1.0)
+            print("DEBUG: \(percentage), create day \(day) cTimerDay \(counDownTimerDays)")
+            return percentage
+        }
+        
+        return nil
+    }
+    
     
     var dateRangeString: String {
         let startDate = Date(timeIntervalSince1970: self.tripStartDate)
         let endDate = Date(timeIntervalSince1970: self.tripEndDate)
-        
+        var localTimeZoneAbbreviation: String { return TimeZone.current.abbreviation() ?? "" }
         let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
+        dateFormatter.timeZone = TimeZone(abbreviation: localTimeZoneAbbreviation) //Set timezone that you want
         dateFormatter.locale = NSLocale.current
         dateFormatter.dateFormat = "MM/dd/yy" //Specify your format that you want
         let strDate = dateFormatter.string(from: startDate)

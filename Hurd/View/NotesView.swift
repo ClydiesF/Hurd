@@ -97,9 +97,9 @@ struct NotesView: View {
     
     func formatTimestamp() -> String {
         let ts = Date(timeIntervalSince1970: self.note.timestamp)
-        
+        var localTimeZoneAbbreviation: String { return TimeZone.current.abbreviation() ?? "" }
         let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
+        dateFormatter.timeZone = TimeZone(abbreviation: localTimeZoneAbbreviation) //Set timezone that you want
         dateFormatter.locale = NSLocale.current
         dateFormatter.dateFormat = "MMM d yy | h:mm a" //Specify your format that you want
         let timestamp = dateFormatter.string(from: ts)

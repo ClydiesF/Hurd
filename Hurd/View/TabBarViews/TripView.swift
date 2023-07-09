@@ -20,7 +20,7 @@ struct TripView: View {
                 HurdSlidingTabView(selection: $vm.selection, tabs: ["Upcoming", "Past"], activeAccentColor: Color("textColor"), selectionBarColor: Color("textColor"))
                 ScrollView {
                     switch vm.selection {
-                    case 0:
+                    case 0: // Upcoming Trips
                         if vm.trips.filter { ($0.tripEndDate + 86400) >= vm.currentDate }.isEmpty {
                             NoTripView(isPastTrip: $vm.isPastTrip)
                         } else {
@@ -37,7 +37,7 @@ struct TripView: View {
                         
                             }
                         }
-                    case 1:
+                    case 1: // Past Trip
                         if vm.trips.filter { ($0.tripEndDate + 86400) < vm.currentDate }.isEmpty {
                             NoTripView(isPastTrip: $vm.isPastTrip)
                         } else {

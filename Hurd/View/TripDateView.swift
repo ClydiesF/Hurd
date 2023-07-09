@@ -13,11 +13,12 @@ struct TripDateView: View {
     var body: some View {
         VStack {
             Text(returnDateNumber())
-                .font(.system(size: 25))
+                .font(.system(size: 18))
                 .foregroundColor(Color("textColor"))
                 .fontWeight(.bold)
             
             Text(returnDateMonth().uppercased())
+            
                 .foregroundColor(Color("textColor"))
         }
         .padding(10)
@@ -28,10 +29,11 @@ struct TripDateView: View {
     
     // Func
     private func  returnDateNumber() -> String {
+        var localTimeZoneAbbreviation: String { return TimeZone.current.abbreviation() ?? "" }
         
         let dateFromDouble = Date(timeIntervalSince1970: tripDate)
         let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
+        dateFormatter.timeZone = TimeZone(abbreviation: localTimeZoneAbbreviation) //Set timezone that you want
         dateFormatter.locale = NSLocale.current
         dateFormatter.dateFormat = "dd" //Specify your format that you want
         let strDate = dateFormatter.string(from: dateFromDouble)
@@ -40,9 +42,10 @@ struct TripDateView: View {
     }
     
     private func  returnDateMonth() -> String {
+        var localTimeZoneAbbreviation: String { return TimeZone.current.abbreviation() ?? "" }
         let dateFromDouble = Date(timeIntervalSince1970: tripDate)
         let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
+        dateFormatter.timeZone = TimeZone(abbreviation: localTimeZoneAbbreviation) //Set timezone that you want
         dateFormatter.locale = NSLocale.current
         dateFormatter.dateFormat = "MMM" //Specify your format that you want
         let strDate = dateFormatter.string(from: dateFromDouble)

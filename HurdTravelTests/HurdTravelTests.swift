@@ -30,5 +30,26 @@ final class HurdTravelTests: XCTestCase {
         
         XCTAssert(formattedMockNumber == expectedValue)
     }
+    
+    func test_Days_Between_Dates() {
+      let start_date = Date(timeIntervalSince1970: 1657228800.0)
+      let end_date = Date(timeIntervalSince1970: 1657232400.0)
+      let expectedDays = 3
+      let actualDays = daysBetweenDates(start: start_date, end: end_date)
+      XCTAssertEqual(actualDays, expectedDays)
+    }
+    
+    func test_Countdown_Timer() {
+      let start_date = Date(timeIntervalSince1970: 1657228800.0)
+      let end_date = Date(timeIntervalSince1970: 1657232400.0)
+      let expectedCountdown = [
+        "days": 3,
+        "hours": 0,
+        "minutes": 4,
+        "seconds": 0,
+      ]
+      let actualCountdown = countdownTimer(start: start_date, end: end_date)
+      XCTAssertEqual(actualCountdown, expectedCountdown)
+    }
 
 }
