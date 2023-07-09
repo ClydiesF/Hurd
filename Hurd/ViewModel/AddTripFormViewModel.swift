@@ -35,7 +35,7 @@ class AddTripFormViewModel: NSObject, ObservableObject {
     @Published var addTripFormPresented: Bool = false
     var tripPhoto: String?
     var tripPhotoAuthor: String?
-    
+
     var fieldsArePopulated: Bool {
         !tripNameText.isEmpty && !tripLocationSearchQuery.isEmpty && !selectedTripType.isEmpty && !tripDescriptionText.isEmpty && !tripCostEstimate.isZero
     }
@@ -129,7 +129,8 @@ class AddTripFormViewModel: NSObject, ObservableObject {
         guard let tripId = self.currentEditableTripId else { return }
         
         do {
-            var editedTrip = Trip(tripName: self.tripNameText,
+            var editedTrip = Trip(createdAt: previousTripSettings?.createdAt,
+                                  tripName: self.tripNameText,
                                   tripDestination: self.tripLocationSearchQuery,
                                   tripType: self.selectedTripType,
                                   tripCostEstimate: self.tripCostEstimate,
@@ -203,7 +204,7 @@ class AddTripFormViewModel: NSObject, ObservableObject {
                     
                     let photoInfo = UnsplashPhoto(photoURL: self.tripPhoto, authorName: self.tripPhotoAuthor)
                     
-                    let newTrip = Trip(tripName: self.tripNameText, tripDestination: self.tripLocationSearchQuery, tripType: self.selectedTripType, tripCostEstimate: self.tripCostEstimate, tripStartDate: self.tripStartDate.timeIntervalSince1970, tripEndDate: self.tripEndDate.timeIntervalSince1970, tripDescription: self.tripDescriptionText, hurd: newHurd, tripImageURLString: photoInfo)
+                    let newTrip = Trip(createdAt: Date().timeIntervalSince1970, tripName: self.tripNameText, tripDestination: self.tripLocationSearchQuery, tripType: self.selectedTripType, tripCostEstimate: self.tripCostEstimate, tripStartDate: self.tripStartDate.timeIntervalSince1970, tripEndDate: self.tripEndDate.timeIntervalSince1970, tripDescription: self.tripDescriptionText, hurd: newHurd, tripImageURLString: photoInfo)
                     try TRIP_REF.document().setData(from: newTrip)
                     
                     self.tripNameText = ""
@@ -227,9 +228,6 @@ class AddTripFormViewModel: NSObject, ObservableObject {
             }
             
         }
-        
-        
-
     }
 }
 

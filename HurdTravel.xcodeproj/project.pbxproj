@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B335C592A592CC900020FD3 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B335C582A592CC900020FD3 /* CircularProgressView.swift */; };
 		3B3F682629C41BA600FBC7B6 /* PhoneNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F682529C41BA600FBC7B6 /* PhoneNumberFormatter.swift */; };
 		3B3F682829C555F400FBC7B6 /* Publishers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F682729C555F400FBC7B6 /* Publishers+Extensions.swift */; };
 		3B3F682A29C556D600FBC7B6 /* Notifications+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F682929C556D600FBC7B6 /* Notifications+Extensions.swift */; };
@@ -103,6 +104,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B335C582A592CC900020FD3 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		3B3F682529C41BA600FBC7B6 /* PhoneNumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberFormatter.swift; sourceTree = "<group>"; };
 		3B3F682729C555F400FBC7B6 /* Publishers+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+Extensions.swift"; sourceTree = "<group>"; };
 		3B3F682929C556D600FBC7B6 /* Notifications+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notifications+Extensions.swift"; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 				3B6E292D2990BE2300A90449 /* TripDateView.swift */,
 				3B823FBE299F32AE00639D04 /* TripSettingsView.swift */,
 				3B5E1C3D29AB3B2B008E8831 /* NoTripView.swift */,
+				3B335C582A592CC900020FD3 /* CircularProgressView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -580,6 +583,7 @@
 				3B530CC92965305F002C272B /* AuthenticationViewModel.swift in Sources */,
 				3B3F682629C41BA600FBC7B6 /* PhoneNumberFormatter.swift in Sources */,
 				3B530C9B2960F535002C272B /* DestinationSuggestionView.swift in Sources */,
+				3B335C592A592CC900020FD3 /* CircularProgressView.swift in Sources */,
 				3B530CC7296237D2002C272B /* AuthenticationMethods.swift in Sources */,
 				3B5C31B829723380001354E6 /* PlannerButton'.swift in Sources */,
 				3BC9ECF2295D49DC004EFEEF /* HurdLandingView.swift in Sources */,
