@@ -2252,5 +2252,477 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1D9EEFB3-0886-4D34-A23B-1E5CB8BDA75A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hurdtravel Widget/Hurdtravel_Widget.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "getTimeline(for:in:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1D9EEFB3-0886-4D34-A23B-1E5CB8BDA75A - ecd3c822f407ecc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hurdtravel_WidgetExtension.Provider.getTimeline(for: Hurdtravel_WidgetExtension.ConfigurationIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;Hurdtravel_WidgetExtension.TripEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Hurdtravel WidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurdtravel%20Widget/Hurdtravel_Widget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "1200">
+               </Location>
+               <Location
+                  uuid = "1D9EEFB3-0886-4D34-A23B-1E5CB8BDA75A - ecd3c822f407ecc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hurdtravel_WidgetExtension.Provider.getTimeline(for: Hurdtravel_WidgetExtension.ConfigurationIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;Hurdtravel_WidgetExtension.TripEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Hurdtravel WidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurdtravel%20Widget/Hurdtravel_Widget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "1396">
+               </Location>
+               <Location
+                  uuid = "1D9EEFB3-0886-4D34-A23B-1E5CB8BDA75A - ecd3c822f407ecc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hurdtravel_WidgetExtension.Provider.getTimeline(for: Hurdtravel_WidgetExtension.ConfigurationIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;Hurdtravel_WidgetExtension.TripEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Hurdtravel WidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurdtravel%20Widget/Hurdtravel_Widget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "2984">
+               </Location>
+               <Location
+                  uuid = "1D9EEFB3-0886-4D34-A23B-1E5CB8BDA75A - ecd3c822f407ecc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hurdtravel_WidgetExtension.Provider.getTimeline(for: Hurdtravel_WidgetExtension.ConfigurationIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;Hurdtravel_WidgetExtension.TripEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Hurdtravel WidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurdtravel%20Widget/Hurdtravel_Widget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "764">
+               </Location>
+               <Location
+                  uuid = "1D9EEFB3-0886-4D34-A23B-1E5CB8BDA75A - ecd3c822f407ecc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hurdtravel_WidgetExtension.Provider.getTimeline(for: Hurdtravel_WidgetExtension.ConfigurationIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;Hurdtravel_WidgetExtension.TripEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Hurdtravel WidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurdtravel%20Widget/Hurdtravel_Widget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "960">
+               </Location>
+               <Location
+                  uuid = "1D9EEFB3-0886-4D34-A23B-1E5CB8BDA75A - ecd3c822f407ecc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hurdtravel_WidgetExtension.Provider.getTimeline(for: Hurdtravel_WidgetExtension.ConfigurationIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;Hurdtravel_WidgetExtension.TripEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Hurdtravel WidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurdtravel%20Widget/Hurdtravel_Widget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "2968">
+               </Location>
+               <Location
+                  uuid = "1D9EEFB3-0886-4D34-A23B-1E5CB8BDA75A - ecd3c822f407ecc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hurdtravel_WidgetExtension.Provider.getTimeline(for: Hurdtravel_WidgetExtension.ConfigurationIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;Hurdtravel_WidgetExtension.TripEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Hurdtravel WidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurdtravel%20Widget/Hurdtravel_Widget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "752">
+               </Location>
+               <Location
+                  uuid = "1D9EEFB3-0886-4D34-A23B-1E5CB8BDA75A - ecd3c822f407ecc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hurdtravel_WidgetExtension.Provider.getTimeline(for: Hurdtravel_WidgetExtension.ConfigurationIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;Hurdtravel_WidgetExtension.TripEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Hurdtravel WidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurdtravel%20Widget/Hurdtravel_Widget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "948">
+               </Location>
+               <Location
+                  uuid = "1D9EEFB3-0886-4D34-A23B-1E5CB8BDA75A - ecd3c822f407ecc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hurdtravel_WidgetExtension.Provider.getTimeline(for: Hurdtravel_WidgetExtension.ConfigurationIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;Hurdtravel_WidgetExtension.TripEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Hurdtravel WidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurdtravel%20Widget/Hurdtravel_Widget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "2996">
+               </Location>
+               <Location
+                  uuid = "1D9EEFB3-0886-4D34-A23B-1E5CB8BDA75A - ecd3c822f407ecc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hurdtravel_WidgetExtension.Provider.getTimeline(for: Hurdtravel_WidgetExtension.ConfigurationIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;Hurdtravel_WidgetExtension.TripEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Hurdtravel WidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurdtravel%20Widget/Hurdtravel_Widget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "3020">
+               </Location>
+               <Location
+                  uuid = "1D9EEFB3-0886-4D34-A23B-1E5CB8BDA75A - ecd3c822f407ecc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hurdtravel_WidgetExtension.Provider.getTimeline(for: Hurdtravel_WidgetExtension.ConfigurationIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;Hurdtravel_WidgetExtension.TripEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Hurdtravel WidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurdtravel%20Widget/Hurdtravel_Widget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "784">
+               </Location>
+               <Location
+                  uuid = "1D9EEFB3-0886-4D34-A23B-1E5CB8BDA75A - ecd3c822f407ecc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hurdtravel_WidgetExtension.Provider.getTimeline(for: Hurdtravel_WidgetExtension.ConfigurationIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;Hurdtravel_WidgetExtension.TripEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Hurdtravel WidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurdtravel%20Widget/Hurdtravel_Widget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "980">
+               </Location>
+               <Location
+                  uuid = "1D9EEFB3-0886-4D34-A23B-1E5CB8BDA75A - ecd3c822f407ecc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hurdtravel_WidgetExtension.Provider.getTimeline(for: Hurdtravel_WidgetExtension.ConfigurationIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;Hurdtravel_WidgetExtension.TripEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Hurdtravel WidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurdtravel%20Widget/Hurdtravel_Widget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "3420">
+               </Location>
+               <Location
+                  uuid = "1D9EEFB3-0886-4D34-A23B-1E5CB8BDA75A - ecd3c822f407ecc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hurdtravel_WidgetExtension.Provider.getTimeline(for: Hurdtravel_WidgetExtension.ConfigurationIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;Hurdtravel_WidgetExtension.TripEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Hurdtravel WidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurdtravel%20Widget/Hurdtravel_Widget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "3556">
+               </Location>
+               <Location
+                  uuid = "1D9EEFB3-0886-4D34-A23B-1E5CB8BDA75A - ecd3c822f407ecc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hurdtravel_WidgetExtension.Provider.getTimeline(for: Hurdtravel_WidgetExtension.ConfigurationIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;Hurdtravel_WidgetExtension.TripEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Hurdtravel WidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurdtravel%20Widget/Hurdtravel_Widget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "836">
+               </Location>
+               <Location
+                  uuid = "1D9EEFB3-0886-4D34-A23B-1E5CB8BDA75A - ecd3c822f407ecc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hurdtravel_WidgetExtension.Provider.getTimeline(for: Hurdtravel_WidgetExtension.ConfigurationIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;Hurdtravel_WidgetExtension.TripEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Hurdtravel WidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurdtravel%20Widget/Hurdtravel_Widget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "1032">
+               </Location>
+               <Location
+                  uuid = "1D9EEFB3-0886-4D34-A23B-1E5CB8BDA75A - ecd3c822f407ecc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hurdtravel_WidgetExtension.Provider.getTimeline(for: Hurdtravel_WidgetExtension.ConfigurationIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;Hurdtravel_WidgetExtension.TripEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Hurdtravel WidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurdtravel%20Widget/Hurdtravel_Widget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "3924">
+               </Location>
+               <Location
+                  uuid = "1D9EEFB3-0886-4D34-A23B-1E5CB8BDA75A - ecd3c822f407ecc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hurdtravel_WidgetExtension.Provider.getTimeline(for: Hurdtravel_WidgetExtension.ConfigurationIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;Hurdtravel_WidgetExtension.TripEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Hurdtravel WidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurdtravel%20Widget/Hurdtravel_Widget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "844">
+               </Location>
+               <Location
+                  uuid = "1D9EEFB3-0886-4D34-A23B-1E5CB8BDA75A - ecd3c822f407ecc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hurdtravel_WidgetExtension.Provider.getTimeline(for: Hurdtravel_WidgetExtension.ConfigurationIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;Hurdtravel_WidgetExtension.TripEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Hurdtravel WidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurdtravel%20Widget/Hurdtravel_Widget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "1040">
+               </Location>
+               <Location
+                  uuid = "1D9EEFB3-0886-4D34-A23B-1E5CB8BDA75A - ecd3c822f407ecc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hurdtravel_WidgetExtension.Provider.getTimeline(for: Hurdtravel_WidgetExtension.ConfigurationIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;Hurdtravel_WidgetExtension.TripEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Hurdtravel WidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurdtravel%20Widget/Hurdtravel_Widget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "3912">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4B6F3DEE-DA40-4553-9AD9-0D71E9F9FF47"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hurdtravel Widget/Hurdtravel_Widget.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "getTimeline(for:in:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4B6F3DEE-DA40-4553-9AD9-0D71E9F9FF47 - ecd3c822f407e21"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hurdtravel_WidgetExtension.Provider.getTimeline(for: Hurdtravel_WidgetExtension.ConfigurationIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;Hurdtravel_WidgetExtension.TripEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Hurdtravel WidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurdtravel%20Widget/Hurdtravel_Widget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "2116">
+               </Location>
+               <Location
+                  uuid = "4B6F3DEE-DA40-4553-9AD9-0D71E9F9FF47 - ecd3c822f407e21"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hurdtravel_WidgetExtension.Provider.getTimeline(for: Hurdtravel_WidgetExtension.ConfigurationIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;Hurdtravel_WidgetExtension.TripEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Hurdtravel WidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurdtravel%20Widget/Hurdtravel_Widget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "2312">
+               </Location>
+               <Location
+                  uuid = "4B6F3DEE-DA40-4553-9AD9-0D71E9F9FF47 - ecd3c822f407e21"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hurdtravel_WidgetExtension.Provider.getTimeline(for: Hurdtravel_WidgetExtension.ConfigurationIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;Hurdtravel_WidgetExtension.TripEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Hurdtravel WidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurdtravel%20Widget/Hurdtravel_Widget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "3468">
+               </Location>
+               <Location
+                  uuid = "4B6F3DEE-DA40-4553-9AD9-0D71E9F9FF47 - ecd3c822f407e21"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hurdtravel_WidgetExtension.Provider.getTimeline(for: Hurdtravel_WidgetExtension.ConfigurationIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;Hurdtravel_WidgetExtension.TripEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Hurdtravel WidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurdtravel%20Widget/Hurdtravel_Widget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "2420">
+               </Location>
+               <Location
+                  uuid = "4B6F3DEE-DA40-4553-9AD9-0D71E9F9FF47 - ecd3c822f407e21"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hurdtravel_WidgetExtension.Provider.getTimeline(for: Hurdtravel_WidgetExtension.ConfigurationIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;Hurdtravel_WidgetExtension.TripEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Hurdtravel WidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurdtravel%20Widget/Hurdtravel_Widget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "2168">
+               </Location>
+               <Location
+                  uuid = "4B6F3DEE-DA40-4553-9AD9-0D71E9F9FF47 - ecd3c822f407e21"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hurdtravel_WidgetExtension.Provider.getTimeline(for: Hurdtravel_WidgetExtension.ConfigurationIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;Hurdtravel_WidgetExtension.TripEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Hurdtravel WidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurdtravel%20Widget/Hurdtravel_Widget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "2472">
+               </Location>
+               <Location
+                  uuid = "4B6F3DEE-DA40-4553-9AD9-0D71E9F9FF47 - ecd3c822f407e21"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hurdtravel_WidgetExtension.Provider.getTimeline(for: Hurdtravel_WidgetExtension.ConfigurationIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;Hurdtravel_WidgetExtension.TripEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Hurdtravel WidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurdtravel%20Widget/Hurdtravel_Widget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "2176">
+               </Location>
+               <Location
+                  uuid = "4B6F3DEE-DA40-4553-9AD9-0D71E9F9FF47 - ecd3c822f407e21"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hurdtravel_WidgetExtension.Provider.getTimeline(for: Hurdtravel_WidgetExtension.ConfigurationIntent, in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;Hurdtravel_WidgetExtension.TripEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Hurdtravel WidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurdtravel%20Widget/Hurdtravel_Widget.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "2480">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E46A5A80-FDA0-46B8-9CF1-E36603C95E72"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hurd/ViewModel/TripsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "subscribe()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

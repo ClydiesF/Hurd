@@ -12,6 +12,15 @@
 		3B3F682829C555F400FBC7B6 /* Publishers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F682729C555F400FBC7B6 /* Publishers+Extensions.swift */; };
 		3B3F682A29C556D600FBC7B6 /* Notifications+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F682929C556D600FBC7B6 /* Notifications+Extensions.swift */; };
 		3B3F682C29C559B700FBC7B6 /* AdaptsToKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F682B29C559B700FBC7B6 /* AdaptsToKeyboard.swift */; };
+		3B4BCCB02A5B6209002ED2E3 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4BCCAF2A5B6209002ED2E3 /* WidgetKit.framework */; };
+		3B4BCCB22A5B6209002ED2E3 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4BCCB12A5B6209002ED2E3 /* SwiftUI.framework */; };
+		3B4BCCB52A5B6209002ED2E3 /* Hurdtravel_WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BCCB42A5B6209002ED2E3 /* Hurdtravel_WidgetBundle.swift */; };
+		3B4BCCB72A5B6209002ED2E3 /* Hurdtravel_WidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BCCB62A5B6209002ED2E3 /* Hurdtravel_WidgetLiveActivity.swift */; };
+		3B4BCCB92A5B6209002ED2E3 /* Hurdtravel_Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BCCB82A5B6209002ED2E3 /* Hurdtravel_Widget.swift */; };
+		3B4BCCBC2A5B620B002ED2E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B4BCCBB2A5B620B002ED2E3 /* Assets.xcassets */; };
+		3B4BCCBE2A5B620B002ED2E3 /* Hurdtravel_Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BCCBA2A5B6209002ED2E3 /* Hurdtravel_Widget.intentdefinition */; };
+		3B4BCCBF2A5B620B002ED2E3 /* Hurdtravel_Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BCCBA2A5B6209002ED2E3 /* Hurdtravel_Widget.intentdefinition */; };
+		3B4BCCC22A5B620B002ED2E3 /* Hurdtravel WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3B4BCCAD2A5B6209002ED2E3 /* Hurdtravel WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3B4EB2652977A8C9008C26EF /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EB2642977A8C9008C26EF /* NotesView.swift */; };
 		3B4EB2672977B780008C26EF /* TripNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EB2662977B780008C26EF /* TripNotesView.swift */; };
 		3B4EB26A2978D9AB008C26EF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3B4EB2692978D9AB008C26EF /* Alamofire */; };
@@ -94,6 +103,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3B4BCCC02A5B620B002ED2E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BC9ECC4295C0372004EFEEF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B4BCCAC2A5B6209002ED2E3;
+			remoteInfo = "Hurdtravel WidgetExtension";
+		};
 		3BD769C32A061915009A27AC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3BC9ECC4295C0372004EFEEF /* Project object */;
@@ -103,12 +119,37 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3B4BCCC32A5B620B002ED2E3 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				3B4BCCC22A5B620B002ED2E3 /* Hurdtravel WidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		3B335C582A592CC900020FD3 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		3B3F682529C41BA600FBC7B6 /* PhoneNumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberFormatter.swift; sourceTree = "<group>"; };
 		3B3F682729C555F400FBC7B6 /* Publishers+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+Extensions.swift"; sourceTree = "<group>"; };
 		3B3F682929C556D600FBC7B6 /* Notifications+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notifications+Extensions.swift"; sourceTree = "<group>"; };
 		3B3F682B29C559B700FBC7B6 /* AdaptsToKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptsToKeyboard.swift; sourceTree = "<group>"; };
+		3B4BCCAD2A5B6209002ED2E3 /* Hurdtravel WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Hurdtravel WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B4BCCAF2A5B6209002ED2E3 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		3B4BCCB12A5B6209002ED2E3 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		3B4BCCB42A5B6209002ED2E3 /* Hurdtravel_WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hurdtravel_WidgetBundle.swift; sourceTree = "<group>"; };
+		3B4BCCB62A5B6209002ED2E3 /* Hurdtravel_WidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hurdtravel_WidgetLiveActivity.swift; sourceTree = "<group>"; };
+		3B4BCCB82A5B6209002ED2E3 /* Hurdtravel_Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hurdtravel_Widget.swift; sourceTree = "<group>"; };
+		3B4BCCBA2A5B6209002ED2E3 /* Hurdtravel_Widget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Hurdtravel_Widget.intentdefinition; sourceTree = "<group>"; };
+		3B4BCCBB2A5B620B002ED2E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3B4BCCBD2A5B620B002ED2E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B4BCCC72A5CE9AA002ED2E3 /* HurdTravel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HurdTravel.entitlements; sourceTree = "<group>"; };
+		3B4BCCC82A5CE9B6002ED2E3 /* Hurdtravel WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Hurdtravel WidgetExtension.entitlements"; sourceTree = "<group>"; };
 		3B4EB2642977A8C9008C26EF /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
 		3B4EB2662977B780008C26EF /* TripNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripNotesView.swift; sourceTree = "<group>"; };
 		3B4EB271297A2AA8008C26EF /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
@@ -171,6 +212,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3B4BCCAA2A5B6209002ED2E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B4BCCB22A5B6209002ED2E3 /* SwiftUI.framework in Frameworks */,
+				3B4BCCB02A5B6209002ED2E3 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3BC9ECC9295C0372004EFEEF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -211,6 +261,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B4BCCAE2A5B6209002ED2E3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3B4BCCAF2A5B6209002ED2E3 /* WidgetKit.framework */,
+				3B4BCCB12A5B6209002ED2E3 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3B4BCCB32A5B6209002ED2E3 /* Hurdtravel Widget */ = {
+			isa = PBXGroup;
+			children = (
+				3B4BCCB42A5B6209002ED2E3 /* Hurdtravel_WidgetBundle.swift */,
+				3B4BCCB62A5B6209002ED2E3 /* Hurdtravel_WidgetLiveActivity.swift */,
+				3B4BCCB82A5B6209002ED2E3 /* Hurdtravel_Widget.swift */,
+				3B4BCCBA2A5B6209002ED2E3 /* Hurdtravel_Widget.intentdefinition */,
+				3B4BCCBB2A5B620B002ED2E3 /* Assets.xcassets */,
+				3B4BCCBD2A5B620B002ED2E3 /* Info.plist */,
+			);
+			path = "Hurdtravel Widget";
+			sourceTree = "<group>";
+		};
 		3B530C992960F44E002C272B /* SliderViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,8 +337,12 @@
 		3BC9ECC3295C0372004EFEEF = {
 			isa = PBXGroup;
 			children = (
+				3B4BCCC82A5CE9B6002ED2E3 /* Hurdtravel WidgetExtension.entitlements */,
+				3B4BCCC72A5CE9AA002ED2E3 /* HurdTravel.entitlements */,
 				3BC9ECCE295C0372004EFEEF /* Hurd */,
 				3BD769C02A061915009A27AC /* HurdTravelTests */,
+				3B4BCCB32A5B6209002ED2E3 /* Hurdtravel Widget */,
+				3B4BCCAE2A5B6209002ED2E3 /* Frameworks */,
 				3BC9ECCD295C0372004EFEEF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -276,6 +352,7 @@
 			children = (
 				3BC9ECCC295C0372004EFEEF /* HurdTravel.app */,
 				3BD769BF2A061915009A27AC /* HurdTravelTests.xctest */,
+				3B4BCCAD2A5B6209002ED2E3 /* Hurdtravel WidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -412,6 +489,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3B4BCCAC2A5B6209002ED2E3 /* Hurdtravel WidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B4BCCC62A5B620B002ED2E3 /* Build configuration list for PBXNativeTarget "Hurdtravel WidgetExtension" */;
+			buildPhases = (
+				3B4BCCA92A5B6209002ED2E3 /* Sources */,
+				3B4BCCAA2A5B6209002ED2E3 /* Frameworks */,
+				3B4BCCAB2A5B6209002ED2E3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Hurdtravel WidgetExtension";
+			productName = "Hurdtravel WidgetExtension";
+			productReference = 3B4BCCAD2A5B6209002ED2E3 /* Hurdtravel WidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		3BC9ECCB295C0372004EFEEF /* HurdTravel */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3BC9ECDA295C0373004EFEEF /* Build configuration list for PBXNativeTarget "HurdTravel" */;
@@ -419,10 +513,12 @@
 				3BC9ECC8295C0372004EFEEF /* Sources */,
 				3BC9ECC9295C0372004EFEEF /* Frameworks */,
 				3BC9ECCA295C0372004EFEEF /* Resources */,
+				3B4BCCC32A5B620B002ED2E3 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3B4BCCC12A5B620B002ED2E3 /* PBXTargetDependency */,
 			);
 			name = HurdTravel;
 			packageProductDependencies = (
@@ -482,6 +578,9 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
+					3B4BCCAC2A5B6209002ED2E3 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
 					3BC9ECCB295C0372004EFEEF = {
 						CreatedOnToolsVersion = 14.0;
 					};
@@ -514,11 +613,20 @@
 			targets = (
 				3BC9ECCB295C0372004EFEEF /* HurdTravel */,
 				3BD769BE2A061915009A27AC /* HurdTravelTests */,
+				3B4BCCAC2A5B6209002ED2E3 /* Hurdtravel WidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3B4BCCAB2A5B6209002ED2E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B4BCCBC2A5B620B002ED2E3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3BC9ECCA295C0372004EFEEF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -539,6 +647,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3B4BCCA92A5B6209002ED2E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B4BCCB92A5B6209002ED2E3 /* Hurdtravel_Widget.swift in Sources */,
+				3B4BCCB52A5B6209002ED2E3 /* Hurdtravel_WidgetBundle.swift in Sources */,
+				3B4BCCB72A5B6209002ED2E3 /* Hurdtravel_WidgetLiveActivity.swift in Sources */,
+				3B4BCCBE2A5B620B002ED2E3 /* Hurdtravel_Widget.intentdefinition in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3BC9ECC8295C0372004EFEEF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -554,6 +673,7 @@
 				3BC9ECF4295D56EE004EFEEF /* HurdSignUpView.swift in Sources */,
 				3BC9ECF0295D4223004EFEEF /* HurdPasswordTextField.swift in Sources */,
 				3BC9ED09295ED465004EFEEF /* ChatDmView.swift in Sources */,
+				3B4BCCBF2A5B620B002ED2E3 /* Hurdtravel_Widget.intentdefinition in Sources */,
 				3B530C9D29622A99002C272B /* LodgingSuggestionsView.swift in Sources */,
 				3B5C31BC2972957B001354E6 /* GroupPlannerViewModel.swift in Sources */,
 				3B4EB272297A2AA8008C26EF /* AddNoteView.swift in Sources */,
@@ -614,6 +734,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3B4BCCC12A5B620B002ED2E3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B4BCCAC2A5B6209002ED2E3 /* Hurdtravel WidgetExtension */;
+			targetProxy = 3B4BCCC02A5B620B002ED2E3 /* PBXContainerItemProxy */;
+		};
 		3BD769C42A061915009A27AC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3BC9ECCB295C0372004EFEEF /* HurdTravel */;
@@ -622,6 +747,66 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		3B4BCCC42A5B620B002ED2E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "Hurdtravel WidgetExtension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4D9Z74XGM7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Hurdtravel Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Hurdtravel Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.HCHO.Hurd.Hurdtravel-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3B4BCCC52A5B620B002ED2E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "Hurdtravel WidgetExtension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4D9Z74XGM7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Hurdtravel Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Hurdtravel Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.HCHO.Hurd.Hurdtravel-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		3BC9ECD8295C0373004EFEEF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -739,6 +924,7 @@
 		3BC9ECDB295C0373004EFEEF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Hurd/HurdDebug.entitlements;
@@ -770,8 +956,10 @@
 		3BC9ECDC295C0373004EFEEF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HurdTravel.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Hurd/Preview Content\"";
@@ -846,6 +1034,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3B4BCCC62A5B620B002ED2E3 /* Build configuration list for PBXNativeTarget "Hurdtravel WidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B4BCCC42A5B620B002ED2E3 /* Debug */,
+				3B4BCCC52A5B620B002ED2E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3BC9ECC7295C0372004EFEEF /* Build configuration list for PBXProject "HurdTravel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

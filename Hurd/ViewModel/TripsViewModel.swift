@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import Combine
+import WidgetKit
 
 class TripViewModel : ObservableObject {
     
@@ -82,7 +83,43 @@ class TripViewModel : ObservableObject {
                         return nil
                     }
                 }
+                
+                // take the trip that is closet to the current date
+                guard let closestTrip = self.closestTrip(trips: self.trips), let photoString = closestTrip.tripImageURLString?.photoURL else { return }
+                
+                
+                // then i want to assign those vaibles to the user default
+                let userDefault = UserDefaults(suiteName: "group.widgetTripCache")
+                
+                userDefault?.setValue(closestTrip.tripName, forKeyPath: "tripName")
+                let stringDate = String(Date(timeIntervalSince1970: closestTrip.tripStartDate).formatted(date: .numeric, time: .omitted))
+                userDefault?.setValue(stringDate, forKeyPath: "startDate")
+                userDefault?.setValue(closestTrip.countDownTimer["days"], forKeyPath: "countdownDays")
+                userDefault?.setValue(photoString, forKey: "photoImage")
+                userDefault?.setValue(closestTrip.iconName, forKey: "icon")
+                // tthen i want to refresh the widget.
+                WidgetCenter.shared.reloadAllTimelines()
+                
             })
         }
+    }
+    
+    func closestTrip(trips: [Trip]) -> Trip? {
+      let currentDate = Date()
+      var closestTrip: Trip? = nil
+      var closestDifference: TimeInterval = .infinity
+      for trip in trips {
+          // ignore past due trips
+          if trip.tripStartDate < currentDate.timeIntervalSince1970 { continue }
+          
+          let startDate = Date(timeIntervalSince1970: trip.tripStartDate)
+          let difference = startDate.timeIntervalSince(currentDate)
+          
+        if difference < closestDifference {
+          closestDifference = difference
+          closestTrip = trip
+        }
+      }
+      return closestTrip
     }
 }
