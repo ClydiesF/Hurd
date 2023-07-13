@@ -11,6 +11,7 @@ import Kingfisher
 import CoreLocation
 import MapKit
 import Alamofire
+import BranchSDK
 
 struct GroupPlannerView: View {
     
@@ -163,6 +164,9 @@ struct GroupPlannerView: View {
                 Text(vm.trip.tripDescription ?? "")
                     .foregroundColor(.gray)
                 
+//                let qrCode = BranchQRCode()
+//                qrCode.codeColor = .white
+                
 //                Map(coordinateRegion: .constant(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: vm.tripCoordinates.latitude, longitude: vm.tripCoordinates.longitude), span:  MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))))
 //                    .frame(width: 250, height: 200)
 //                    .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -186,8 +190,8 @@ struct GroupPlannerView: View {
             }
         }
         .onAppear {
-            vm.fetchMembers()
-            vm.fetchNotes()
+//            vm.fetchMembers()
+//            vm.fetchNotes()
         }
     }
 }

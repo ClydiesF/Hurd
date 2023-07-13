@@ -29,6 +29,17 @@
 		3B4EB272297A2AA8008C26EF /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EB271297A2AA8008C26EF /* AddNoteView.swift */; };
 		3B4EB275297A66C7008C26EF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3B4EB274297A66C7008C26EF /* Kingfisher */; };
 		3B4EB277297BEB1D008C26EF /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EB276297BEB1D008C26EF /* EditProfileView.swift */; };
+		3B5110F62A5FA538004DFD47 /* BranchSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 3B5110F52A5FA538004DFD47 /* BranchSDK */; };
+		3B5110F82A5FA75C004DFD47 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5110F72A5FA75C004DFD47 /* SystemConfiguration.framework */; };
+		3B5110FA2A5FA76A004DFD47 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5110F92A5FA76A004DFD47 /* CoreServices.framework */; };
+		3B5110FC2A5FA778004DFD47 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5110FB2A5FA777004DFD47 /* CoreTelephony.framework */; };
+		3B5110FE2A5FA785004DFD47 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5110FD2A5FA785004DFD47 /* WebKit.framework */; };
+		3B5111002A5FA79A004DFD47 /* CoreSpotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5110FF2A5FA79A004DFD47 /* CoreSpotlight.framework */; };
+		3B5111022A5FA7A5004DFD47 /* LinkPresentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5111012A5FA7A5004DFD47 /* LinkPresentation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3B5111042A5FA7DA004DFD47 /* AdServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5111032A5FA7DA004DFD47 /* AdServices.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3B5111062A5FA7E1004DFD47 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5111052A5FA7E1004DFD47 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3B5111082A5FA7EE004DFD47 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5111072A5FA7EE004DFD47 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3B51110A2A5FA897004DFD47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5111092A5FA897004DFD47 /* AppDelegate.swift */; };
 		3B530C9B2960F535002C272B /* DestinationSuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B530C9A2960F535002C272B /* DestinationSuggestionView.swift */; };
 		3B530C9D29622A99002C272B /* LodgingSuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B530C9C29622A99002C272B /* LodgingSuggestionsView.swift */; };
 		3B530C9F29623318002C272B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B530C9E29623318002C272B /* GoogleService-Info.plist */; };
@@ -154,6 +165,17 @@
 		3B4EB2662977B780008C26EF /* TripNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripNotesView.swift; sourceTree = "<group>"; };
 		3B4EB271297A2AA8008C26EF /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
 		3B4EB276297BEB1D008C26EF /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		3B5110F72A5FA75C004DFD47 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3B5110F92A5FA76A004DFD47 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		3B5110FB2A5FA777004DFD47 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		3B5110FD2A5FA785004DFD47 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		3B5110FF2A5FA79A004DFD47 /* CoreSpotlight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreSpotlight.framework; path = System/Library/Frameworks/CoreSpotlight.framework; sourceTree = SDKROOT; };
+		3B5111012A5FA7A5004DFD47 /* LinkPresentation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LinkPresentation.framework; path = System/Library/Frameworks/LinkPresentation.framework; sourceTree = SDKROOT; };
+		3B5111032A5FA7DA004DFD47 /* AdServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdServices.framework; path = System/Library/Frameworks/AdServices.framework; sourceTree = SDKROOT; };
+		3B5111052A5FA7E1004DFD47 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		3B5111072A5FA7EE004DFD47 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		3B5111092A5FA897004DFD47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3B51110D2A5FB513004DFD47 /* HurdTravel-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "HurdTravel-Info.plist"; sourceTree = "<group>"; };
 		3B530C9A2960F535002C272B /* DestinationSuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationSuggestionView.swift; sourceTree = "<group>"; };
 		3B530C9C29622A99002C272B /* LodgingSuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LodgingSuggestionsView.swift; sourceTree = "<group>"; };
 		3B530C9E29623318002C272B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -225,6 +247,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B5111082A5FA7EE004DFD47 /* StoreKit.framework in Frameworks */,
+				3B5111062A5FA7E1004DFD47 /* AdSupport.framework in Frameworks */,
+				3B5111042A5FA7DA004DFD47 /* AdServices.framework in Frameworks */,
+				3B5111022A5FA7A5004DFD47 /* LinkPresentation.framework in Frameworks */,
+				3B5111002A5FA79A004DFD47 /* CoreSpotlight.framework in Frameworks */,
+				3B5110FE2A5FA785004DFD47 /* WebKit.framework in Frameworks */,
+				3B5110FC2A5FA778004DFD47 /* CoreTelephony.framework in Frameworks */,
+				3B5110FA2A5FA76A004DFD47 /* CoreServices.framework in Frameworks */,
+				3B5110F82A5FA75C004DFD47 /* SystemConfiguration.framework in Frameworks */,
 				3B530CA6296234E8002C272B /* FirebaseAppCheck in Frameworks */,
 				3B530CBA296234E8002C272B /* FirebaseInAppMessaging-Beta in Frameworks */,
 				3B530CAA296234E8002C272B /* FirebaseAuthCombine-Community in Frameworks */,
@@ -234,6 +265,7 @@
 				3B4EB26A2978D9AB008C26EF /* Alamofire in Frameworks */,
 				3B530CB2296234E8002C272B /* FirebaseFirestoreCombine-Community in Frameworks */,
 				3B530CC4296234E8002C272B /* FirebaseStorageCombine-Community in Frameworks */,
+				3B5110F62A5FA538004DFD47 /* BranchSDK in Frameworks */,
 				3B530CAE296234E8002C272B /* FirebaseDynamicLinks in Frameworks */,
 				3B530CBE296234E8002C272B /* FirebaseRemoteConfig in Frameworks */,
 				3B530CBC296234E8002C272B /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
@@ -264,6 +296,15 @@
 		3B4BCCAE2A5B6209002ED2E3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3B5111072A5FA7EE004DFD47 /* StoreKit.framework */,
+				3B5111052A5FA7E1004DFD47 /* AdSupport.framework */,
+				3B5111032A5FA7DA004DFD47 /* AdServices.framework */,
+				3B5111012A5FA7A5004DFD47 /* LinkPresentation.framework */,
+				3B5110FF2A5FA79A004DFD47 /* CoreSpotlight.framework */,
+				3B5110FD2A5FA785004DFD47 /* WebKit.framework */,
+				3B5110FB2A5FA777004DFD47 /* CoreTelephony.framework */,
+				3B5110F92A5FA76A004DFD47 /* CoreServices.framework */,
+				3B5110F72A5FA75C004DFD47 /* SystemConfiguration.framework */,
 				3B4BCCAF2A5B6209002ED2E3 /* WidgetKit.framework */,
 				3B4BCCB12A5B6209002ED2E3 /* SwiftUI.framework */,
 			);
@@ -337,6 +378,7 @@
 		3BC9ECC3295C0372004EFEEF = {
 			isa = PBXGroup;
 			children = (
+				3B51110D2A5FB513004DFD47 /* HurdTravel-Info.plist */,
 				3B4BCCC82A5CE9B6002ED2E3 /* Hurdtravel WidgetExtension.entitlements */,
 				3B4BCCC72A5CE9AA002ED2E3 /* HurdTravel.entitlements */,
 				3BC9ECCE295C0372004EFEEF /* Hurd */,
@@ -373,6 +415,7 @@
 				3BC9ECD1295C0372004EFEEF /* ContentView.swift */,
 				3BC9ECD3295C0373004EFEEF /* Assets.xcassets */,
 				3BC9ECD5295C0373004EFEEF /* Preview Content */,
+				3B5111092A5FA897004DFD47 /* AppDelegate.swift */,
 			);
 			path = Hurd;
 			sourceTree = "<group>";
@@ -545,6 +588,7 @@
 				3B4EB26C297911A9008C26EF /* SkeletonUI */,
 				3B4EB26F2979133B008C26EF /* PopupView */,
 				3B4EB274297A66C7008C26EF /* Kingfisher */,
+				3B5110F52A5FA538004DFD47 /* BranchSDK */,
 			);
 			productName = Hurd;
 			productReference = 3BC9ECCC295C0372004EFEEF /* HurdTravel.app */;
@@ -606,6 +650,7 @@
 				3B4EB26B297911A9008C26EF /* XCRemoteSwiftPackageReference "SkeletonUI" */,
 				3B4EB26E2979133B008C26EF /* XCRemoteSwiftPackageReference "PopupView" */,
 				3B4EB273297A66C7008C26EF /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				3B5110F42A5FA538004DFD47 /* XCRemoteSwiftPackageReference "ios-branch-sdk-spm" */,
 			);
 			productRefGroup = 3BC9ECCD295C0372004EFEEF /* Products */;
 			projectDirPath = "";
@@ -719,6 +764,7 @@
 				3B8629F6296D166C0077DB92 /* OnboardingProfileInfoView.swift in Sources */,
 				3BC9ED0B295ED472004EFEEF /* ProfileView.swift in Sources */,
 				3BC9ECFE295D7AE9004EFEEF /* TagView.swift in Sources */,
+				3B51110A2A5FA897004DFD47 /* AppDelegate.swift in Sources */,
 				3BE57A47298501C40099D7E4 /* SignInWithAppleButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -934,6 +980,7 @@
 				DEVELOPMENT_TEAM = 4D9Z74XGM7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HurdTravel-Info.plist";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "App needs Access to photos for profile image";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -966,6 +1013,7 @@
 				DEVELOPMENT_TEAM = 4D9Z74XGM7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HurdTravel-Info.plist";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "App needs Access to photos for profile image";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1105,6 +1153,14 @@
 				kind = branch;
 			};
 		};
+		3B5110F42A5FA538004DFD47 /* XCRemoteSwiftPackageReference "ios-branch-sdk-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BranchMetrics/ios-branch-sdk-spm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		3B530CA0296234E8002C272B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1143,6 +1199,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3B4EB273297A66C7008C26EF /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		3B5110F52A5FA538004DFD47 /* BranchSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B5110F42A5FA538004DFD47 /* XCRemoteSwiftPackageReference "ios-branch-sdk-spm" */;
+			productName = BranchSDK;
 		};
 		3B530CA1296234E8002C272B /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -6,6 +6,11 @@
 	<array>
 		<string>Default</string>
 	</array>
+	<key>com.apple.developer.associated-domains</key>
+	<array>
+		<string>applinks:hurdtravel.app.link</string>
+		<string>applinks:hurdtravel-alternate.app.link</string>
+	</array>
 	<key>com.apple.security.application-groups</key>
 	<array>
 		<string>group.widgetTripCache</string>
