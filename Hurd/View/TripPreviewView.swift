@@ -53,11 +53,15 @@ struct TripPreviewView: View {
 
 
                         Spacer()
-
-                        Image(systemName: trip.iconName)
-                            .foregroundColor(Color("backgroundColor"))
-                            .padding()
-                            .background(Circle().fill(Color("textColor").gradient))
+                        HStack {
+                            TripInfoBlock(value: trip.TripDuration, title: "Days", showBorder: false)
+                            TripInfoBlock(value: "1", title: "Herd", showBorder: false)
+                            Image(systemName: trip.iconName)
+                                .foregroundColor(Color("backgroundColor"))
+                                .padding()
+                                .background(Circle().fill(Color("textColor").gradient))
+                        }
+                  
                     }
                     .padding()
                 }
@@ -98,11 +102,13 @@ struct TripPreviewView: View {
                 Spacer()
                 HStack(alignment: .top, spacing: 10) {
                     if let percentage = trip.countdownPercentage, let cdays = trip.countDownTimer["days"], cdays != 0  {
-                        CircularProgressView(progress: percentage, barWidth: 10, textSize: 10, countdown: trip.countDownTimer)
-                            .frame(height: 42)
+                        Text("\(14)D : \(11)H")
+                            .font(.system(size: 13))
+                            .fontWeight(.semibold)
+                            .padding(Spacing.eight)
+                            .background(RoundedRectangle(cornerRadius: 5).stroke(.gray, lineWidth: 1))
+                            .background(RoundedRectangle(cornerRadius: 5).fill(Color.gray.opacity(0.1)))
                     }
-                    TripInfoBlock(value: trip.TripDuration, title: "Days")
-                    TripInfoBlock(value: "1", title: "Herd")
                 }
             }
             
@@ -128,19 +134,20 @@ struct TripInfoBlock: View {
     
     let value: String
     let title: String
+    var showBorder: Bool = true
     
     var body: some View {
-        VStack {
+        HStack {
             Text(value)
-                .fontWeight(.bold)
+                .fontWeight(.semibold)
+                .font(.system(size: 12))
                 .foregroundColor(Color("textColor"))
             Text(title)
                 .font(.system(size: 12))
                 .foregroundColor(Color("textColor"))
         }
         .padding(5)
-        .background(
-            RoundedRectangle(cornerRadius: 5).stroke(Color("textColor"), lineWidth: 1)
-        )
+        .background(Capsule().stroke( showBorder ? .gray : .clear, lineWidth: 1))
+        .background(Capsule().fill(.white))
     }
 }

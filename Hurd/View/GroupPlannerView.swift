@@ -16,6 +16,7 @@ import BranchSDK
 struct GroupPlannerView: View {
     
     @ObservedObject var vm: GroupPlannerViewModel
+    @ObservedObject var router = Router()
     
     var body: some View {
         ScrollView {
@@ -25,21 +26,18 @@ struct GroupPlannerView: View {
                     HStack {
                         Spacer()
                         //Info Stack
-                        VStack {
+                        VStack(spacing: 10) {
                             TripDateView(tripDate: vm.trip.tripStartDate)
-                                .padding(.bottom,10)
                             
                             TripDateView(tripDate: vm.trip.tripEndDate)
-                                .padding(.bottom,10)
                             
                             Image(systemName: vm.trip.iconName)
                                 .foregroundColor(Color("backgroundColor"))
                                 .padding()
                                 .background(Circle().fill(Color("textColor").gradient))
                             
-                            Spacer()
                         }
-                        .padding(10)
+                        .padding(.horizontal, 10)
                     }
                     //Authur Label
                     HStack {
@@ -63,14 +61,28 @@ struct GroupPlannerView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 
                 // Trip Info STack v2
-                HStack(spacing: 10) {
+                HStack(alignment: .top,spacing: 10) {
                     VStack(alignment: .leading, spacing: 5) {
+                        HStack {
+                            Text(vm.trip.tripName)
+                                .font(.system(size: 20))
+                                .fontWeight(.bold)
+                            
+                            Spacer()
+                            
+                            Text("\(14)D : \(11)H")
+                                .font(.system(size: 13))
+                                .fontWeight(.semibold)
+                                .padding(Spacing.eight)
+                                .background(RoundedRectangle(cornerRadius: 5).stroke(.gray, lineWidth: 1))
+                                .background(RoundedRectangle(cornerRadius: 5).fill(Color.gray.opacity(0.1)))
+                        }
+           
+                        
                         Label(vm.trip.tripDestination,image: "locationPin")
-                            .font(.system(size: 15))
+                            .font(.system(size: 14))
                             .foregroundColor(.gray)
-                        Text(vm.trip.tripName)
-                            .font(.system(size: 25))
-                            .fontWeight(.bold)
+                        
                         
                         HStack {
                             TripInfoBlock(value: vm.trip.TripDuration, title: "Days")
@@ -79,31 +91,23 @@ struct GroupPlannerView: View {
                             Spacer()
                         }
                     }
-                    //CountTimer
-                    if let percentage = vm.trip.countdownPercentage, let cdays = vm.trip.countDownTimer["days"], cdays != 0 {
-                        VStack {
-                            Spacer()
-                            CircularProgressView(progress: percentage, barWidth: 16, textSize: 20, countdown: vm.trip.countDownTimer)
-                                .frame(width: 90, height: 90)
-                        }
-                    }
                 }
                 
                 Divider()
-
+                
                 HStack {
                     Image(systemName: "speaker.wave.3.fill")
                         .foregroundColor(Color("backgroundColor"))
                         .padding()
                         .background(Circle()
                             .fill(Color.gray.gradient))
-
+                    
                     Image(systemName: "list.bullet.clipboard.fill")
                         .foregroundColor(Color("backgroundColor"))
                         .padding()
                         .background(Circle()
                             .fill(Color.gray.gradient))
-
+                    
                     NavigationLink {
                         TripNotesView(vm: vm)
                     } label: {
@@ -113,7 +117,7 @@ struct GroupPlannerView: View {
                                 .foregroundColor(Color("backgroundColor"))
                                 .padding()
                                 .background(Circle().fill(Color("textColor").gradient))
-
+                            
                             if let noteCount = vm.notes?.count, noteCount > 0 {
                                 Text("\(noteCount)")
                                     .padding(3)
@@ -124,52 +128,70 @@ struct GroupPlannerView: View {
                                     .offset(x: 5,y: -8)
                             }
                         }
-
+                        
                     }
-
-
+                    
+                    
                     Image(systemName: "square.and.arrow.up")
                         .foregroundColor(Color("backgroundColor"))
                         .padding()
                         .background(Circle()
                             .fill(Color.gray.gradient))
                 }
-
+                
                 Divider()
-
+                VStack {
+                    HStack {
+                        Text(vm.hurd.id ?? "")
+                            .font(.system(size: 12))
+                            .fontWeight(.semibold)
+                            .padding(Spacing.eight)
+                            .background(RoundedRectangle(cornerRadius: 8).stroke(.gray, lineWidth: 1))
+                        Spacer()
+                        if let url = URL(string: generateBranchTripInviteLink() ?? "") {
+                            ShareLink(item: url) {
+                                Image(systemName: "plus")
+                                    .foregroundColor(Color("backgroundColor"))
+                                    .padding(10)
+                                    .background(Circle().fill(Color.gray.gradient))
+                            }
+                        }
+                        Label("\(0) / \(5)", systemImage: "person.fill")
+                            .font(.system(size: 12))
+                            .padding(Spacing.eight)
+                            .fontWeight(.semibold)
+                            .background(RoundedRectangle(cornerRadius: 8).stroke(.gray, lineWidth: 1))
+                        
+                    }
+                }
                 HStack {
                     KFImage(URL(string: vm.organizer?.profileImageUrl ?? ""))
                         .resizable()
                         .frame(width: 50, height: 50)
                         .clipShape(Circle())
-                        .background(Circle().stroke(Color("textColor").opacity(0.5), lineWidth: 10))
+                        .background(Circle().stroke(Color("textColor").opacity(0.3), lineWidth: 2))
                         .padding(.vertical, 10)
-
+                    
                     Spacer()
-
-                    Image(systemName: "plus")
-                        .foregroundColor(Color("backgroundColor"))
-                        .padding(10)
-                        .background(Circle().fill(Color.gray.gradient))
                 }
                 
                 NavigationLink("",
                                destination: TripSettingsView(vm: TripSettingsViewModel(trip: vm.trip)),
                                isActive: $vm.goToTripSettings)
                 
-                Text("Description")
+                Text("Overview")
                     .font(.system(size: 20))
                     .fontWeight(.bold)
                 
                 Text(vm.trip.tripDescription ?? "")
                     .foregroundColor(.gray)
                 
-//                let qrCode = BranchQRCode()
-//                qrCode.codeColor = .white
+                //                let qrCode = BranchQRCode()
+                //                qrCode.codeColor = .white
                 
-//                Map(coordinateRegion: .constant(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: vm.tripCoordinates.latitude, longitude: vm.tripCoordinates.longitude), span:  MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))))
-//                    .frame(width: 250, height: 200)
-//                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                //                Map(coordinateRegion: .constant(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: vm.tripCoordinates.latitude, longitude: vm.tripCoordinates.longitude), span:  MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))))
+                //                    .frame(width: 250, height: 200)
+                //                    .clipShape(RoundedRectangle(cornerRadius: 20))
                 
                 
             }// END VSTACK
@@ -190,9 +212,39 @@ struct GroupPlannerView: View {
             }
         }
         .onAppear {
-//            vm.fetchMembers()
-//            vm.fetchNotes()
+                        vm.fetchMembers()
+                        vm.fetchNotes()
         }
+    }
+    
+    // Functions
+    func generateBranchTripInviteLink() -> String? {
+        let lp = BranchLinkProperties()
+        lp.addControlParam("hurdID", withValue: vm.hurd.hurdID)
+        lp.addControlParam("tripID", withValue: vm.trip.id)
+        lp.addControlParam("nav_to", withValue: "groupPlannerView")
+        lp.feature = "trip_invite"
+        
+        let buo = BranchUniversalObject(canonicalIdentifier: "trip/\(String(describing: vm.trip.id))")
+        buo.canonicalUrl = "trip \(String(describing: vm.trip.id))"
+        
+        //Ex: XXXXX invited you to join XXXXXXXXX
+        buo.title = "\(vm.organizer?.firstName ?? "organizer") invited you to join \(vm.trip.tripName)"
+        buo.contentDescription = vm.trip.tripDescription
+        buo.imageUrl = vm.trip.tripImageURLString?.photoURL
+        
+        buo.expirationDate = twoDaysInTheFuture()
+        let url = buo.getShortUrl(with: lp)
+        print("DEBUG: BUO\(String(describing: url))")
+        return url
+    }
+    
+    func twoDaysInTheFuture() -> Date {
+        let currentDate = Date()
+        let calendar = Calendar.current
+        let components = DateComponents(day: 2)
+        let futureDate = calendar.date(byAdding: components, to: currentDate)
+        return futureDate!
     }
 }
 

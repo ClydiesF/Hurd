@@ -13,11 +13,7 @@ import BranchSDK
 @main
 struct HurdApp: App {
     @StateObject var authVM = AuthenticationViewModel()
-    @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
-    
-    init() {
-        FirebaseApp.configure()
-    }
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
         WindowGroup {
@@ -27,9 +23,6 @@ struct HurdApp: App {
                     if user.isFinishedOnboarding {
                         ContentView()
                             .environmentObject(authVM)
-                            .onOpenURL(perform: { url in
-                                  Branch.getInstance().handleDeepLink(url)
-                              })
                     } else {
                         OnboardingSliderView()
                             .environmentObject(authVM)
@@ -37,8 +30,9 @@ struct HurdApp: App {
                 }
             case .signedOut:
                 HurdLandingView()
-                   .environmentObject(authVM)
+                    .environmentObject(authVM)
             }
         }
     }
 }
+

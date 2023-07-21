@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>aps-environment</key>
+	<string>development</string>
 	<key>com.apple.developer.applesignin</key>
 	<array>
 		<string>Default</string>
@@ -10,6 +12,7 @@
 	<array>
 		<string>applinks:hurdtravel.app.link</string>
 		<string>applinks:hurdtravel-alternate.app.link</string>
+		<string>applinks:hurdtravel.test.app.link</string>
 	</array>
 	<key>com.apple.security.application-groups</key>
 	<array>

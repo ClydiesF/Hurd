@@ -100,6 +100,7 @@ class GroupPlannerViewModel: ObservableObject {
         showAddNoteForm = false
     }
     
+    
     func fetchNotes() {
         TRIP_REF.document(self.trip.id ?? "").collection("Notes").addSnapshotListener { snapshot, err in
             if let err = err  {

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>HurdTravel</string>
+			</array>
+			<key>CFBundleURLName</key>
+			<string>hurdtravel</string>
+		</dict>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>processing</string>
+		<string>remote-notification</string>
+	</array>
+	<key>branch_key</key>
+	<dict>
+		<key>live</key>
+		<string>key_live_nubi8ap2n8xR18Jr3dnI2ojlvBfSTfID</string>
+		<key>test</key>
+		<string>key_test_mAchZloZpXvM66Jz9lmO5aggEBjKPlJN</string>
+	</dict>
+	<key>branch_universal_link_domains</key>
+	<array>
+		<string>applinks:hurdtravel.app.link</string>
+		<string>applinks:hurdtravel-alternate.app.link</string>
+		<string>applinks:hurdtravel.test.app.link</string>
+	</array>
+</dict>
+</plist>
