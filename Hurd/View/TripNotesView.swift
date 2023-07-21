@@ -9,8 +9,8 @@ import SwiftUI
 import Firebase
 
 struct TripNotesView: View {
-    @StateObject var vm: GroupPlannerViewModel
-
+    @ObservedObject var vm: GroupPlannerViewModel
+    @EnvironmentObject var router: Router
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
     @State var selection: Int = 0
     
@@ -62,7 +62,7 @@ struct TripNotesView: View {
         .onAppear {
            vm.fetchNotes()
         }
-        //.animation(.easeInOut, value: vm.notes)
+        .animation(.easeInOut, value: selection)
     }
 }
 

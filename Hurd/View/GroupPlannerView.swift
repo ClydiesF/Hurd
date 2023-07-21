@@ -16,7 +16,7 @@ import BranchSDK
 struct GroupPlannerView: View {
     
     @ObservedObject var vm: GroupPlannerViewModel
-    @ObservedObject var router = Router()
+    @EnvironmentObject var router: Router
     
     var body: some View {
         ScrollView {
@@ -77,7 +77,7 @@ struct GroupPlannerView: View {
                                 .background(RoundedRectangle(cornerRadius: 5).stroke(.gray, lineWidth: 1))
                                 .background(RoundedRectangle(cornerRadius: 5).fill(Color.gray.opacity(0.1)))
                         }
-           
+                        
                         
                         Label(vm.trip.tripDestination,image: "locationPin")
                             .font(.system(size: 14))
@@ -130,13 +130,6 @@ struct GroupPlannerView: View {
                         }
                         
                     }
-                    
-                    
-                    Image(systemName: "square.and.arrow.up")
-                        .foregroundColor(Color("backgroundColor"))
-                        .padding()
-                        .background(Circle()
-                            .fill(Color.gray.gradient))
                 }
                 
                 Divider()
@@ -175,10 +168,6 @@ struct GroupPlannerView: View {
                     Spacer()
                 }
                 
-                NavigationLink("",
-                               destination: TripSettingsView(vm: TripSettingsViewModel(trip: vm.trip)),
-                               isActive: $vm.goToTripSettings)
-                
                 Text("Overview")
                     .font(.system(size: 20))
                     .fontWeight(.bold)
@@ -197,23 +186,45 @@ struct GroupPlannerView: View {
             }// END VSTACK
             .padding(.horizontal)
         }// END ScrollView
+        .navigationDestination(for: Destination.self) { destination in
+            switch destination {
+            case .groupPlannerView(let trip, let hurd):
+                GroupPlannerView(vm:GroupPlannerViewModel(trip: trip, hurd: hurd))
+            case .profile:
+                ProfileView(vm: ProfileViewModel(user: User.mockUser1))
+            case .settings:
+                TripSettingsView(vm: TripSettingsViewModel(trip: vm.trip))
+            case .notes:
+                TripNotesView(vm: vm)
+            }
+        }
         .padding(.bottom, Spacing.sixteen)
         .navigationTitle("Trip Details")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
+            
+            ToolbarItem(placement: .navigationBarTrailing) {
+                if let url = URL(string: generateBranchTripInviteLink() ?? "") {
+                    ShareLink(item: url) {
+                        Image(systemName: "square.and.arrow.up")
+                    }
+                }
+            }
+            
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
                     print("setting screens")
-                    vm.goToTripSettings = true
+                    router.navigate(to: .settings)
                 } label: {
                     Image(systemName: "ellipsis")
                         .font(.title3)
                 }
             }
+            
         }
         .onAppear {
-                        vm.fetchMembers()
-                        vm.fetchNotes()
+//            vm.fetchMembers()
+//            vm.fetchNotes()
         }
     }
     

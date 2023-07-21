@@ -200,7 +200,7 @@ class AddTripFormViewModel: NSObject, ObservableObject {
                 do {
                     let ref = try HURD_REF.addDocument(from: newHurd)
                     newHurd.hurdID = ref.documentID
-                    print("DEBUG: difernece in UID's \(newHurd.id) - \(ref) ")
+                    print("DEBUG: difernece in UID's \(String(describing: newHurd.id)) - \(ref) ")
                     
                     let photoInfo = UnsplashPhoto(photoURL: self.tripPhoto, authorName: self.tripPhotoAuthor)
                     

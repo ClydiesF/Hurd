@@ -50,6 +50,38 @@
             endingLineNumber = "99"
             landmarkName = "registerCurrentUserListener()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BC4951A8-60E0-46B0-AD42-E642E5AE4E9C - 2d206308337f3bbd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in HurdTravel.AuthenticationViewModel.registerCurrentUserListener() -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AuthenticationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "276">
+               </Location>
+               <Location
+                  uuid = "BC4951A8-60E0-46B0-AD42-E642E5AE4E9C - 2d206308337f3bbd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in HurdTravel.AuthenticationViewModel.registerCurrentUserListener() -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AuthenticationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "284">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1191,10 +1223,42 @@
             filePath = "Hurd/ViewModel/AuthenticationViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "351"
-            endingLineNumber = "351"
+            startingLineNumber = "347"
+            endingLineNumber = "347"
             landmarkName = "changeEmail()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "82EA03E1-446C-45AB-8B78-8FE8043DAB7C - 2a6be2a8682bf377"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in HurdTravel.AuthenticationViewModel.changeEmail() -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AuthenticationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "351"
+                  endingLineNumber = "351"
+                  offsetFromSymbolStart = "308">
+               </Location>
+               <Location
+                  uuid = "82EA03E1-446C-45AB-8B78-8FE8043DAB7C - 2a6be2a8682bf3f3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in HurdTravel.AuthenticationViewModel.changeEmail() -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AuthenticationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "347"
+                  endingLineNumber = "347"
+                  offsetFromSymbolStart = "308">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1207,8 +1271,8 @@
             filePath = "Hurd/ViewModel/AuthenticationViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "372"
-            endingLineNumber = "372"
+            startingLineNumber = "368"
+            endingLineNumber = "368"
             landmarkName = "performSensitiveAction(for:)"
             landmarkType = "7">
             <Locations>
@@ -1242,6 +1306,21 @@
                   endingLineNumber = "372"
                   offsetFromSymbolStart = "1128">
                </Location>
+               <Location
+                  uuid = "67E657EC-C79A-42A8-997C-F22C3556F2A3 - 1461651c8d249d48"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in HurdTravel.AuthenticationViewModel.performSensitiveAction(for: HurdTravel.AuthenticationViewModel.SensitiveActionType) -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AuthenticationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "368"
+                  endingLineNumber = "368"
+                  offsetFromSymbolStart = "1100">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1255,10 +1334,42 @@
             filePath = "Hurd/ViewModel/AuthenticationViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "371"
-            endingLineNumber = "371"
+            startingLineNumber = "367"
+            endingLineNumber = "367"
             landmarkName = "performSensitiveAction(for:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "10034F0B-D50A-48C7-BC34-04D8D3CE10AC - 1461651c8d249ea7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in HurdTravel.AuthenticationViewModel.performSensitiveAction(for: HurdTravel.AuthenticationViewModel.SensitiveActionType) -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AuthenticationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "371"
+                  endingLineNumber = "371"
+                  offsetFromSymbolStart = "388">
+               </Location>
+               <Location
+                  uuid = "10034F0B-D50A-48C7-BC34-04D8D3CE10AC - 1461651c8d249d2b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in HurdTravel.AuthenticationViewModel.performSensitiveAction(for: HurdTravel.AuthenticationViewModel.SensitiveActionType) -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AuthenticationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "367"
+                  endingLineNumber = "367"
+                  offsetFromSymbolStart = "388">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1271,8 +1382,8 @@
             filePath = "Hurd/ViewModel/AuthenticationViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "380"
-            endingLineNumber = "380"
+            startingLineNumber = "376"
+            endingLineNumber = "376"
             landmarkName = "performSensitiveAction(for:)"
             landmarkType = "7">
             <Locations>
@@ -1306,6 +1417,21 @@
                   endingLineNumber = "380"
                   offsetFromSymbolStart = "1416">
                </Location>
+               <Location
+                  uuid = "9DD27748-A975-41E8-999B-BD6039ED2D31 - 1461651c8d249e40"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in HurdTravel.AuthenticationViewModel.performSensitiveAction(for: HurdTravel.AuthenticationViewModel.SensitiveActionType) -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AuthenticationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "376"
+                  endingLineNumber = "376"
+                  offsetFromSymbolStart = "1360">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1319,8 +1445,8 @@
             filePath = "Hurd/ViewModel/AuthenticationViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "366"
-            endingLineNumber = "366"
+            startingLineNumber = "362"
+            endingLineNumber = "362"
             landmarkName = "performSensitiveAction(for:)"
             landmarkType = "7">
             <Locations>
@@ -1382,6 +1508,36 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "366"
                   endingLineNumber = "366"
+                  offsetFromSymbolStart = "236">
+               </Location>
+               <Location
+                  uuid = "A542A3B4-A8C4-4A09-87F4-0D1E9627CE03 - 21b26be7d45f0026"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HurdTravel.AuthenticationViewModel.performSensitiveAction(for: HurdTravel.AuthenticationViewModel.SensitiveActionType) -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AuthenticationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "362"
+                  endingLineNumber = "362"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "A542A3B4-A8C4-4A09-87F4-0D1E9627CE03 - 21b26be7d45f0026"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HurdTravel.AuthenticationViewModel.performSensitiveAction(for: HurdTravel.AuthenticationViewModel.SensitiveActionType) -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AuthenticationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "362"
+                  endingLineNumber = "362"
                   offsetFromSymbolStart = "236">
                </Location>
             </Locations>
@@ -2528,8 +2684,8 @@
             filePath = "Hurd/Router/Router.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "navigate(to:)"
             landmarkType = "9">
             <Locations>
@@ -2623,6 +2779,21 @@
                   endingLineNumber = "34"
                   offsetFromSymbolStart = "48">
                </Location>
+               <Location
+                  uuid = "F73CE311-2403-4308-8F66-766CC5BA2616 - 79fcbe638e56cabb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HurdTravel.Router.navigate(to: HurdTravel.Destination) -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/Router/Router.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "48">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -2636,8 +2807,8 @@
             filePath = "Hurd/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -2671,7 +2842,38 @@
                   endingLineNumber = "73"
                   offsetFromSymbolStart = "884">
                </Location>
+               <Location
+                  uuid = "AD51AB3C-1F9B-4A6B-BB2C-C7E9E127EE0F - b7de40eed89b981c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 (Swift.Optional&lt;Swift.Dictionary&lt;Swift.AnyHashable, Any&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #4 (Foundation.URL) -&gt; () in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onOpenURL(perform: (Foundation.URL) -&gt; ()) -&gt; some&gt;&gt;.0 in HurdTravel.ContentView.body.getter : some"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "856">
+               </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "503132CB-32B7-4F95-B2C2-DCC1C9EC5931"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hurd/Router/Router.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "hash(into:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

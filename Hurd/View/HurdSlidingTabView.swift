@@ -122,7 +122,8 @@ struct HurdSlidingTabView: View {
                         .fill(self.selectionBarColor)
                         .frame(width: self.tabWidth(from: geometry.size.width), height: self.selectionBarHeight, alignment: .leading)
                         .offset(x: self.selectionBarXOffset(from: geometry.size.width), y: 0)
-                        .animation(self.animation)
+                        .animation(.easeInOut, value: self.animation)
+        
                     Rectangle()
                         .fill(self.selectionBarBackgroundColor)
                         .frame(width: geometry.size.width, height: self.selectionBarBackgroundHeight, alignment: .leading)

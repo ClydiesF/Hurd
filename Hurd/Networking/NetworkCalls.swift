@@ -42,7 +42,7 @@ class NetworkCalls {
     func fetchHurd(with id: String) async -> Hurd? {
         do {
             let hurdDoc = try await HURD_REF.document(id).getDocument()
-            let hurd =  try await hurdDoc.data(as: Hurd.self)
+            let hurd =  try hurdDoc.data(as: Hurd.self)
             print("DEBUG: hurd: \(hurd)")
             return hurd
             

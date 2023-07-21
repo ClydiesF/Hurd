@@ -101,7 +101,7 @@ struct TripPreviewView: View {
                 }
                 Spacer()
                 HStack(alignment: .top, spacing: 10) {
-                    if let percentage = trip.countdownPercentage, let cdays = trip.countDownTimer["days"], cdays != 0  {
+                    if let _ = trip.countdownPercentage, let cdays = trip.countDownTimer["days"], cdays != 0  {
                         Text("\(14)D : \(11)H")
                             .font(.system(size: 13))
                             .fontWeight(.semibold)

@@ -11,6 +11,8 @@ import SwiftUI
 enum Destination: Codable, Hashable {
     case profile
     case groupPlannerView(trip: Trip, hurd: Hurd)
+    case settings
+    case notes
     
     public static func == (lhs: Destination, rhs: Destination) -> Bool {
         return true
@@ -22,6 +24,10 @@ enum Destination: Codable, Hashable {
             hasher.combine(1)
         case .groupPlannerView:
             hasher.combine(2)
+        case .settings:
+            hasher.combine(3)
+        case .notes:
+            hasher.combine(4)
         }
     }
 }

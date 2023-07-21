@@ -103,8 +103,7 @@ class AuthenticationViewModel: ObservableObject {
               print("Document data was empty.")
               return
             }
-            do {
-                
+            
                 let result = Result {
                     try document.data(as: User.self)
                 }
@@ -113,11 +112,8 @@ class AuthenticationViewModel: ObservableObject {
                 case .success(let object):
                     self.user = object
                 case .failure(let failure):
-                    print("DEBUG: Document data was empty.")
+                    print("DEBUG: Document data was empty.\(failure)")
                 }
-            } catch {
-              fatalError("DEBUG: Couldn’t decode")
-            }
             print("Current data: \(data)")
             }
     }
@@ -210,7 +206,7 @@ class AuthenticationViewModel: ObservableObject {
                 // you're sending the SHA256-hashed nonce as a hex string with
                 // your request to Apple.
                 print(error?.localizedDescription as Any)
-                print("DEBUG: there was an erro \(error?.localizedDescription)")
+                print("DEBUG: there was an erro \(String(describing: error?.localizedDescription))")
                 return
             }
             if signinType == .signup {

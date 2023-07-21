@@ -62,13 +62,13 @@ class GroupPlannerViewModel: ObservableObject {
     func calculateTimeRemaining(from tripDate: Double) {
         let dateFromDouble = Date(timeIntervalSince1970: tripDate)
         let diffs = Calendar.current.dateComponents([.day,.hour, .weekOfYear, .month], from: Date(), to: dateFromDouble)
-        let arr = [diffs.month,diffs.weekOfYear,diffs.day, diffs.hour]
+        _ = [diffs.month,diffs.weekOfYear,diffs.day, diffs.hour]
         
         timeRemaingTillTrip = "\(diffs.month ?? 0)M " + "\(diffs.weekOfYear ?? 0)W " + "\(diffs.day ?? 0)D " + "\(diffs.hour ?? 0)h "
     }
     
     func deleteNote(with noteId: String) {
-        _ = TRIP_REF.document(self.trip.id ?? "").collection("Notes").document(noteId).delete(completion: { err in
+        TRIP_REF.document(self.trip.id ?? "").collection("Notes").document(noteId).delete(completion: { err in
             if let err = err  {
                 print("DEBUG: \(err.localizedDescription)")
                 return
@@ -113,7 +113,7 @@ class GroupPlannerViewModel: ObservableObject {
                 return
             }
             
-            var notes = docs.compactMap { doc in
+            let notes = docs.compactMap { doc in
                 let result = Result { try doc.data(as: Note.self) }
                 
                 switch result {
@@ -145,14 +145,13 @@ class GroupPlannerViewModel: ObservableObject {
         }
     }
     
-    
     // For Members
     func leaveTrip() {
         //deltes the trip document
     }
     
     func fetchMembers() {
-        var userIDs: [String] = [self.hurd.organizer]
+        let userIDs: [String] = [self.hurd.organizer]
         
         USER_REF.whereField("id", in: userIDs).getDocuments { snapshot, err in
             if let err = err  {

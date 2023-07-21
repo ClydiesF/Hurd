@@ -207,7 +207,7 @@ extension Trip {
           "minutes": components.minute!,
           "seconds": components.second!,
         ]
-        print("DEBUG: TIMER COUNT \(countdown["days"])")
+        print("DEBUG: TIMER COUNT \(countdown["days"] ?? 0)")
         return countdown
     }
     

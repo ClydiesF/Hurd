@@ -13,10 +13,13 @@ struct ContentView: View {
     
     @State var selection = 0
     @EnvironmentObject var authVM: AuthenticationViewModel
-    @State private var path: [Destination] = []
+   // @State private var path: [Destination] = []
+    @EnvironmentObject var router: Router
+
+
 
     var body: some View {
-        NavigationStack(path: $path) {
+        NavigationStack(path: $router.navPath) {
                 TabView(selection: $selection) {
                     TripView().tabItem {
                         Image(systemName: "globe")
@@ -51,6 +54,10 @@ struct ContentView: View {
                     GroupPlannerView(vm:GroupPlannerViewModel(trip: trip, hurd: hurd))
                 case .profile:
                     ProfileView(vm: ProfileViewModel(user: User.mockUser1))
+                case .settings:
+                    TripSettingsView(vm: TripSettingsViewModel(trip: Trip.mockTrip))
+                case .notes:
+                    TripNotesView(vm: GroupPlannerViewModel(trip: Trip.mockTrip, hurd: Hurd.mockHurd))
                 }
             }
             .onOpenURL(perform: { url in
@@ -70,8 +77,8 @@ struct ContentView: View {
                             guard let trip = await nc.fetchTrip(with: tripID as! String),
                                   let hurd = await nc.fetchHurd(with: hurdID as! String) else { return }
                             
-                            path.append(.groupPlannerView(trip: trip, hurd: hurd))
-                            //router.navigate(to: .groupPlannerView(trip: trip, hurd: hurd))
+                            //path.append(.groupPlannerView(trip: trip, hurd: hurd))
+                            router.navigate(to: .groupPlannerView(trip: trip, hurd: hurd))
                         }
                     }
                 }
@@ -80,9 +87,9 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-            //.environment(AuthenticationViewModel())
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//       // ContentView()
+//            //.environment(AuthenticationViewModel())
+//    }
+//}
