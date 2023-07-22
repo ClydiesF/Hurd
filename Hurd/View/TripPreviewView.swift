@@ -13,6 +13,7 @@ struct TripPreviewView: View {
     @Binding var isPastTrip: Bool
     var trip: Trip
     var user: User?
+    @State var countDownString = ""
     
     var body: some View {
         VStack(alignment: .leading, spacing: Spacing.eight) {
@@ -53,14 +54,12 @@ struct TripPreviewView: View {
 
 
                         Spacer()
-                        HStack {
-                            TripInfoBlock(value: trip.TripDuration, title: "Days", showBorder: false)
-                            TripInfoBlock(value: "1", title: "Herd", showBorder: false)
+             
                             Image(systemName: trip.iconName)
                                 .foregroundColor(Color("backgroundColor"))
                                 .padding()
                                 .background(Circle().fill(Color("textColor").gradient))
-                        }
+                        
                   
                     }
                     .padding()
@@ -102,7 +101,7 @@ struct TripPreviewView: View {
                 Spacer()
                 HStack(alignment: .top, spacing: 10) {
                     if let _ = trip.countdownPercentage, let cdays = trip.countDownTimer["days"], cdays != 0  {
-                        Text("\(14)D : \(11)H")
+                        Text(self.countDownString)
                             .font(.system(size: 13))
                             .fontWeight(.semibold)
                             .padding(Spacing.eight)
@@ -114,8 +113,35 @@ struct TripPreviewView: View {
             
         }
         .grayscale(isPastTrip ? 1 : 0)
+        .onAppear {
+            if !isPastTrip {
+                self.countDownString = countDownString(from: Date())
+             _ = timer
+            }
+        }
 
     }
+    
+     var timer: Timer {
+         Timer.scheduledTimer(withTimeInterval: 60, repeats: true) {_ in
+             self.countDownString = countDownString(from: Date())
+         }
+     }
+    
+    func countDownString(from date: Date) -> String {
+        
+        let startDate = Date(timeIntervalSince1970: trip.tripStartDate)
+        let calendar = Calendar(identifier: .gregorian)
+        let components = calendar
+            .dateComponents([.day, .hour, .minute],
+                            from: date,
+                            to: startDate)
+        return String(format: "%02dd:%02dh:%02dm",
+                      components.day ?? 00,
+                      components.hour ?? 00,
+                      components.minute ?? 00)
+    }
+    
 }
 
 struct TripPreviewView_Previews: PreviewProvider {

@@ -17,6 +17,7 @@ struct GroupPlannerView: View {
     
     @ObservedObject var vm: GroupPlannerViewModel
     @EnvironmentObject var router: Router
+    @State var countDownString = ""
     
     var body: some View {
         ScrollView {
@@ -70,7 +71,7 @@ struct GroupPlannerView: View {
                             
                             Spacer()
                             
-                            Text("\(14)D : \(11)H")
+                            Text(self.countDownString)
                                 .font(.system(size: 13))
                                 .fontWeight(.semibold)
                                 .padding(Spacing.eight)
@@ -149,7 +150,7 @@ struct GroupPlannerView: View {
                                     .background(Circle().fill(Color.gray.gradient))
                             }
                         }
-                        Label("\(0) / \(5)", systemImage: "person.fill")
+                        Label("\(vm.hurd.members?.count ?? 0) / \(vm.hurd.capacity ?? 5)", systemImage: "person.fill")
                             .font(.system(size: 12))
                             .padding(Spacing.eight)
                             .fontWeight(.semibold)
@@ -186,6 +187,9 @@ struct GroupPlannerView: View {
             }// END VSTACK
             .padding(.horizontal)
         }// END ScrollView
+        .onAppear(perform: {
+            _ = timer
+        })
         .navigationDestination(for: Destination.self) { destination in
             switch destination {
             case .groupPlannerView(let trip, let hurd):
@@ -223,12 +227,38 @@ struct GroupPlannerView: View {
             
         }
         .onAppear {
-//            vm.fetchMembers()
-//            vm.fetchNotes()
+            vm.fetchMembers()
+            vm.fetchNotes()
+            self.countDownString = countDownString(from: Date())
+            _ = timer
+            
+            
         }
     }
     
     // Functions
+     var timer: Timer {
+         Timer.scheduledTimer(withTimeInterval: 60, repeats: true) {_ in
+             self.countDownString = countDownString(from: Date())
+         }
+     }
+    
+    func countDownString(from date: Date) -> String {
+        
+        let startDate = Date(timeIntervalSince1970: vm.trip.tripStartDate)
+        let calendar = Calendar(identifier: .gregorian)
+        let components = calendar
+            .dateComponents([.day, .hour, .minute],
+                            from: date,
+                            to: startDate)
+        return String(format: "%02dd:%02dh:%02dm",
+                      components.day ?? 00,
+                      components.hour ?? 00,
+                      components.minute ?? 00)
+    }
+    
+    
+    
     func generateBranchTripInviteLink() -> String? {
         let lp = BranchLinkProperties()
         lp.addControlParam("hurdID", withValue: vm.hurd.hurdID)
