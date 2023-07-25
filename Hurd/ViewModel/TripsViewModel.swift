@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import FirebaseFirestore
 import Combine
 import WidgetKit
 
@@ -24,6 +25,7 @@ class TripViewModel : ObservableObject {
     
     
     private var listenerRegistration: ListenerRegistration?
+    private var listenerRegistrationV2: ListenerRegistration?
     
     init() {
         $selection
@@ -53,6 +55,7 @@ class TripViewModel : ObservableObject {
     func subscribe() {
         guard let currentUserID = Auth.auth().currentUser?.uid else { return }
 
+        
         if listenerRegistration == nil {
             listenerRegistration = TRIP_REF.whereField("hurd.organizer", isEqualTo: currentUserID).addSnapshotListener({ snapshot, err in
                 guard let docs = snapshot?.documents else {
@@ -60,7 +63,7 @@ class TripViewModel : ObservableObject {
                     return
                 }
                 
-                self.trips = docs.compactMap { doc in
+                let tripsAsOrganizer = docs.compactMap { doc in
                     let result = Result { try doc.data(as: Trip.self)}
                     
                     switch result {
@@ -84,24 +87,60 @@ class TripViewModel : ObservableObject {
                     }
                 }
                 
-                // take the trip that is closet to the current date
-                guard let closestTrip = self.closestTrip(trips: self.trips), let photoString = closestTrip.tripImageURLString?.photoURL else { return }
-                
-                
-                // then i want to assign those vaibles to the user default
-                let userDefault = UserDefaults(suiteName: "group.widgetTripCache")
-                
-                userDefault?.setValue(closestTrip.tripName, forKeyPath: "tripName")
-                let stringDate = String(Date(timeIntervalSince1970: closestTrip.tripStartDate).formatted(date: .numeric, time: .omitted))
-                userDefault?.setValue(stringDate, forKeyPath: "startDate")
-                userDefault?.setValue(closestTrip.countDownTimer["days"], forKeyPath: "countdownDays")
-                userDefault?.setValue(photoString, forKey: "photoImage")
-                userDefault?.setValue(closestTrip.iconName, forKey: "icon")
-                // tthen i want to refresh the widget.
-                WidgetCenter.shared.reloadAllTimelines()
-                
+                self.trips.append(contentsOf: tripsAsOrganizer)
             })
         }
+        
+        if listenerRegistrationV2 == nil {
+            listenerRegistrationV2 = TRIP_REF.whereField("hurd.members", arrayContains: currentUserID).addSnapshotListener({ snapshot, err in
+                guard let docs = snapshot?.documents else {
+                    self.errorMessage = "No documents in trip collection"
+                    return
+                }
+                
+                let tripsAsMember = docs.compactMap { doc in
+                    let result = Result { try doc.data(as: Trip.self)}
+                    
+                    switch result {
+                    case .success(let trip):
+                            self.errorMessage = nil
+                             return trip
+                    case .failure(let err):
+                        switch err {
+                        case DecodingError.typeMismatch(_, let context):
+                            self.errorMessage = "\(err.localizedDescription): \(context.debugDescription)"
+                        case DecodingError.valueNotFound(_, let context):
+                            self.errorMessage = "\(err.localizedDescription): \(context.debugDescription)"
+                        case DecodingError.keyNotFound(_, let context):
+                            self.errorMessage = "\(err.localizedDescription): \(context.debugDescription)"
+                        case DecodingError.dataCorrupted(let key):
+                            self.errorMessage = "\(err.localizedDescription): \(key)"
+                        default:
+                            self.errorMessage = "Error decoding document: \(err.localizedDescription)"
+                        }
+                        return nil
+                    }
+                }
+                self.trips.append(contentsOf: tripsAsMember)
+            })
+        }
+        
+        // This is for widgets only
+        // take the trip that is closet to the current date
+        guard let closestTrip = self.closestTrip(trips: self.trips), let photoString = closestTrip.tripImageURLString?.photoURL else { return }
+        
+        
+        // then i want to assign those vaibles to the user default
+        let userDefault = UserDefaults(suiteName: "group.widgetTripCache")
+        
+        userDefault?.setValue(closestTrip.tripName, forKeyPath: "tripName")
+        let stringDate = String(Date(timeIntervalSince1970: closestTrip.tripStartDate).formatted(date: .numeric, time: .omitted))
+        userDefault?.setValue(stringDate, forKeyPath: "startDate")
+        userDefault?.setValue(closestTrip.countDownTimer["days"], forKeyPath: "countdownDays")
+        userDefault?.setValue(photoString, forKey: "photoImage")
+        userDefault?.setValue(closestTrip.iconName, forKey: "icon")
+        // tthen i want to refresh the widget.
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     func closestTrip(trips: [Trip]) -> Trip? {

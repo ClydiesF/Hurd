@@ -50,29 +50,29 @@ struct PrimaryHurdButton: View {
     }
 }
 
-//struct PrimaryHurdButton_Previews: PreviewProvider {
-//    static var previews: some View {
-//        VStack {
-//            Text("Primary")
-//            PrimaryHurdButton(buttonModel: HurdButtonModel.mockPrimaryButtonWithAppendingIcon,
-//                              action: {})
-//                .padding()
-//
-//            PrimaryHurdButton(buttonModel: HurdButtonModel.mockPrimaryButton, action: {})
-//                .padding()
-//
-//            PrimaryHurdButton(buttonModel: HurdButtonModel.mockPrimaryButtonWithPrependingIcon, action: {})
-//                .padding()
-//
-//            Text("Secondary")
-//            PrimaryHurdButton(buttonModel: HurdButtonModel.mockSecondaryButtonWithAppendingIcon, action: {})
-//                .padding()
-//
-//            PrimaryHurdButton(buttonModel: HurdButtonModel.mockSecondaryButton, action: {})
-//                .padding()
-//
-//            PrimaryHurdButton(buttonModel: HurdButtonModel.mockSecondaryButtonWithPrependingIcon, action: {})
-//                .padding()
-//        }
-//    }
-//}
+struct PrimaryHurdButton_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack {
+            Text("Primary")
+            PrimaryHurdButton(buttonModel: HurdButtonModel.mockPrimaryButtonWithAppendingIcon,
+                              action: {})
+                .padding()
+
+            PrimaryHurdButton(buttonModel: HurdButtonModel.mockPrimaryButton, action: {})
+                .padding()
+
+            PrimaryHurdButton(buttonModel: HurdButtonModel.mockPrimaryButtonWithPrependingIcon, action: {})
+                .padding()
+
+            Text("Secondary")
+            PrimaryHurdButton(buttonModel: HurdButtonModel.mockSecondaryButtonWithAppendingIcon, action: {})
+                .padding()
+
+            PrimaryHurdButton(buttonModel: HurdButtonModel.mockSecondaryButton, action: {})
+                .padding()
+
+            PrimaryHurdButton(buttonModel: HurdButtonModel.mockSecondaryButtonWithPrependingIcon, action: {})
+                .padding()
+        }
+    }
+}

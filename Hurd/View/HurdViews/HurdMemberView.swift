@@ -36,18 +36,38 @@ struct HurdMemberView: View {
             
             HStack {
                 // Will use this later for achievements/ Roles in the hurd
+                Text("🤖")
+                    .font(.system(size: 13))
+                Text("🤖")
+                    .font(.system(size: 13))
+                Text("🤖")
+                    .font(.system(size: 13))
+                Text("🤖")
+                    .font(.system(size: 13))
+                
+                Spacer()
+
             }
+            .padding(10)
+            .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.3)))
         }
         .padding(10)
-        .background(RoundedRectangle(cornerRadius: 10).stroke(.gray, lineWidth: 1))
+        .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.1)))
+           .contextMenu {
+               Button("Remove from trip") {}
+               Button("Add Permission") {}
+           }
     
     }
+    // Functions
+    func removeFromTrip() {}
+    func assign(permissions: [String], to userID: String) {}
 }
 
 struct HurdMemberView_Previews: PreviewProvider {
     static var previews: some View {
-        HurdMemberView(user: User.mockUser1)
-            .frame(width: 170)
+        HurdMemberView(user: User.mockUser2)
+            .frame(width: 180)
             .padding()
     }
 }

@@ -36,6 +36,7 @@ struct HurdAdminView: View {
                     .font(.system(size: 13))
                     .foregroundColor(.gray)
             }
+            Spacer()
             
             VStack(spacing: Spacing.eight) {
                 VStack {
@@ -53,9 +54,12 @@ struct HurdAdminView: View {
                         .font(.system(size: 14))
                 }
             }
+            .padding(10)
+            .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))
         }
+        .frame(maxWidth: .infinity)
         .padding(10)
-        .background(RoundedRectangle(cornerRadius: 10).stroke(.gray, lineWidth: 1))
+        .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.1)))
     }
 }
 

@@ -60,7 +60,7 @@ struct TripNotesView: View {
             }
         }
         .onAppear {
-           vm.fetchNotes()
+          // vm.fetchNotes()
         }
         .animation(.easeInOut, value: selection)
     }

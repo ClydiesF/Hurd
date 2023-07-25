@@ -59,6 +59,10 @@ class GroupPlannerViewModel: ObservableObject {
         }
     }
     
+    func isUser(userID: String, aMemberOf hurd: Hurd) -> Bool {
+        return userID == hurd.organizer || ((hurd.members?.contains(userID)) != nil)
+    }
+    
     func calculateTimeRemaining(from tripDate: Double) {
         let dateFromDouble = Date(timeIntervalSince1970: tripDate)
         let diffs = Calendar.current.dateComponents([.day,.hour, .weekOfYear, .month], from: Date(), to: dateFromDouble)

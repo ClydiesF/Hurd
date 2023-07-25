@@ -8,13 +8,16 @@
 import SwiftUI
 import Firebase
 import os
+import BranchSDK
 
 struct TripView: View {
     
     @StateObject var vm = TripViewModel()
     @StateObject var addTripVM = AddTripFormViewModel()
+    @EnvironmentObject var router: Router
     
     var body: some View {
+        NavigationStack(path: $router.navPath) {
             VStack {
                 HurdSlidingTabView(selection: $vm.selection, tabs: ["Upcoming", "Past"], activeAccentColor: Color("textColor"), selectionBarColor: Color("textColor"))
                 ScrollView {
@@ -33,7 +36,7 @@ struct TripView: View {
                                             .padding(.bottom, 10)
                                     }
                                 }
-                        
+                                
                             }
                         }
                     case 1: // Past Trip
@@ -50,13 +53,13 @@ struct TripView: View {
                                             .padding(.bottom, 10)
                                     })
                                 }
-                        
+                                
                             }
                         }
                     default:
                         EmptyView()
                     }
-                           
+                    
                     
                 }
                 .sheet(isPresented: $addTripVM.addTripFormPresented, onDismiss: {
@@ -81,12 +84,49 @@ struct TripView: View {
                     }
                 }
             }
-        .onAppear {
-            if vm.viewDidLoad == false {
-                vm.viewDidLoad = true
-                self.vm.getUser()
-                self.vm.subscribe()
-                
+            .navigationDestination(for: Destination.self) { destination in
+                switch destination {
+                case .groupPlannerView(let trip, let hurd):
+                    GroupPlannerView(vm:GroupPlannerViewModel(trip: trip, hurd: hurd))
+                case .profile:
+                    ProfileView(vm: ProfileViewModel(user: User.mockUser1))
+                case .settings:
+                    TripSettingsView(vm: TripSettingsViewModel(trip: Trip.mockTrip))
+                    
+                case .notes:
+                    TripNotesView(vm: GroupPlannerViewModel(trip: Trip.mockTrip, hurd: Hurd.mockHurd))
+                }
+            }
+            .onOpenURL(perform: { url in
+                // Need Both
+                Branch.getInstance().handleDeepLink(url)
+                Branch.getInstance().initSession(isReferrable: true) { (params, error) in
+                    print("DEBUG: params String \(params as? [String: AnyObject] ?? [:])")
+                    guard let paramDict = params as? [String: AnyObject] else { return }
+                    
+                    if paramDict["nav_to"] as? String == "groupPlannerView" {
+                        guard let tripID = paramDict["tripID"], let hurdID = paramDict["hurdID"] else { return }
+                        
+                        print("DEBUG: trip \(tripID), hurd: \(hurdID)")
+                        
+                        let nc = NetworkCalls()
+                        Task {
+                            guard let trip = await nc.fetchTrip(with: tripID as! String),
+                                  let hurd = await nc.fetchHurd(with: hurdID as! String) else { return }
+                            
+                            //path.append(.groupPlannerView(trip: trip, hurd: hurd))
+                            router.navigate(to: .groupPlannerView(trip: trip, hurd: hurd))
+                        }
+                    }
+                }
+            })
+            .onAppear {
+                if vm.viewDidLoad == false {
+                    vm.viewDidLoad = true
+                    self.vm.getUser()
+                    self.vm.subscribe()
+                    
+                }
             }
         }
     }

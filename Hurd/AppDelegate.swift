@@ -16,8 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let gcmMessageIDKey = "gcm.Message_ID"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-        
-        FirebaseApp.configure()
+        if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1" {
+            
+        } else {
+            FirebaseApp.configure()
+        }
+
         
         UNUserNotificationCenter.current().delegate = self
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
@@ -40,33 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
           }
         }
-        
-        //Branch.setUseTestBranchKey(true)
-        //Branch.getInstance().enableLogging()
-        // Remove from Production
-        // Branch.getInstance().validateSDKIntegration()
- //       Branch.getInstance().initSession(launchOptions: launchOptions) { (params, error) in
-//            print(params as? [String: AnyObject] ?? {})
-//            print("DEBUG: params String \(params as? [String: AnyObject] ?? [:])")
-//            // Access and use deep link data here (nav to page, display content, etc.)
-//            guard let paramDict = params as? [String: AnyObject] else { return }
-//            
-//            if paramDict["nav_to"] as? String == "groupPlannerView" {
-//                guard let tripID = paramDict["tripID"], let hurdID = paramDict["hurdID"] else { return }
-//                
-//               let nc = NetworkCalls()
-//                Task {
-//                    guard let trip = await nc.fetchTrip(with: tripID as! String),
-//                          let hurd = await nc.fetchHurd(with: hurdID as! String) else { return }
-//                    
-//                    print("DEBUG: We made it past this point-- yaya")
-//                    let groupVM = GroupPlannerViewModel(trip: trip, hurd: hurd)
-//                    let groupView = GroupPlannerView(vm: groupVM)
-//                    
-//                }
-//              
-//            }
-//
         return true
         }
         

@@ -13,8 +13,8 @@ import BranchSDK
 @main
 struct HurdApp: App {
     @StateObject var authVM = AuthenticationViewModel()
+    @StateObject var router = Router()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    @StateObject private var router = Router()
     
     var body: some Scene {
         WindowGroup {
@@ -28,6 +28,7 @@ struct HurdApp: App {
                     } else {
                         OnboardingSliderView()
                             .environmentObject(authVM)
+                            .environmentObject(router)
                     }
                 }
             case .signedOut:

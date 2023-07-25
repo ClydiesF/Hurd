@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import FirebaseFirestoreSwift
 
 
 class NetworkCalls {
@@ -36,7 +37,27 @@ class NetworkCalls {
             print("DEBUG: error: \(err.localizedDescription)")
             return nil
         }
-
+    }
+    
+    func add(user userID: String, to hurdID: String) async -> Bool {
+        
+        do {
+           try await HURD_REF.document(hurdID).updateData(["members" : FieldValue.arrayUnion([userID])])
+            return true
+        } catch(let err) {
+            print("DEBUG: err \(err.localizedDescription)")
+            return false
+        }
+    }
+    
+    func remove(user userID: String, from hurdID: String) async -> Bool {
+        do {
+           try await HURD_REF.document(hurdID).updateData(["members" : FieldValue.arrayRemove([userID])])
+            return true
+        } catch(let err) {
+            print("DEBUG: err \(err.localizedDescription)")
+            return false
+        }
     }
     
     func fetchHurd(with id: String) async -> Hurd? {
@@ -50,5 +71,47 @@ class NetworkCalls {
             print("DEBUG: error: \(err.localizedDescription)")
             return nil
         }
+    }
+    
+    func fetchMembers(of hurd:Hurd) async -> [User]? {
+        guard var arrayOfUserIds = hurd.members else { return nil }
+        print("DEBUG: Success \(arrayOfUserIds)")
+        do {
+            let snapshot = try await USER_REF.whereField("id", in: arrayOfUserIds).getDocuments()
+            
+            var users = snapshot.documents.compactMap { doc in
+                let result = Result { try doc.data(as: User.self) }
+                
+                switch result {
+                case .success(let user):
+                    print("DEBUG: Success \(user)")
+                    return user
+        
+                case .failure(let err):
+                    switch err {
+                    case DecodingError.typeMismatch(_, let context):
+                        print("DEBUG: err getting docs- \(err.localizedDescription)")
+                    case DecodingError.valueNotFound(_, let context):
+                        print("DEBUG: err getting docs- \(err.localizedDescription)")
+                    case DecodingError.keyNotFound(_, let context):
+                        print("DEBUG: err getting docs- \(err.localizedDescription)")
+                    case DecodingError.dataCorrupted(let key):
+                        print("DEBUG: err getting docs- \(err.localizedDescription)")
+                    default:
+                        print("DEBUG: err getting docs- \(err.localizedDescription)")
+                    }
+                    return nil
+                }
+            }
+            print("DEBUG: Success --- \(users)")
+            
+            return users
+    
+        } catch(let err) {
+            print("DEBUG: error: \(err.localizedDescription)")
+            return nil
+        }
+
+     
     }
 }
