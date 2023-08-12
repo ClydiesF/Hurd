@@ -12,7 +12,7 @@ import PopupView
 
 struct NotesView: View {
     let note:Note
-    @ObservedObject var vm: GroupPlannerViewModel
+    @ObservedObject var vm: TripDetailViewModel
     @State var photoUrl: String = ""
     
     var body: some View {
@@ -85,7 +85,7 @@ struct NotesView: View {
 
 struct NotesView_Previews: PreviewProvider {
     
-    static let vm = GroupPlannerViewModel(trip: Trip.mockTrip, hurd: Hurd.mockHurd)
+    static let vm = TripDetailViewModel(trip: Trip.mockTrip, hurd: Hurd.mockHurd)
     static var previews: some View {
         NotesView(note: Note.mockNote, vm: vm)
             .padding()

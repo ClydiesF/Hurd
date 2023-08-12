@@ -175,6 +175,8 @@ class AddTripFormViewModel: NSObject, ObservableObject {
     func postTrip() async {
         guard let userId = Auth.auth().currentUser?.uid else { return }
         
+        // Right now this creates a new hurd for everyTrip which is fine for right now.
+        
         var newHurd = Hurd(organizer: userId)
         var tripString = tripLocationSearchQuery.trimmingCharacters(in: .whitespacesAndNewlines)
         

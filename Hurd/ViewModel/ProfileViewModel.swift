@@ -124,4 +124,19 @@ class ProfileViewModel: ObservableObject {
             let _ = USER_REF.document(userID).setData(saveUser, merge: true)
             self.showSaveStatus = true
         }
+    // MARK: Methods
+    
+    func reformatJoinDate() -> String {
+        guard let joinDate = user.createdAt else { return "" }
+        let ts = Date(timeIntervalSince1970: joinDate)
+        var localTimeZoneAbbreviation: String { return TimeZone.current.abbreviation() ?? "" }
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(abbreviation: localTimeZoneAbbreviation) //Set timezone that you want
+        dateFormatter.locale = NSLocale.current
+        dateFormatter.dateFormat = "MMM d, yyyy" //Specify your format that you want
+        let timestamp = dateFormatter.string(from: ts)
+        
+        
+        return "Joined \(timestamp)"
+    }
     }

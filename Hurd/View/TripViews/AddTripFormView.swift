@@ -26,8 +26,13 @@ struct AddTripFormView: View {
                 TextField("Trip Name", text: $vm.tripNameText)
                     .focused($focusedField, equals: .tripName)
                     .submitLabel(.next)
+                
+                Picker("Hurd", selection: $vm.selectedTripType) {
+                    ForEach(vm.tripTypes, id: \.self) {
+                        Text($0)
+                    }
+                }
             }
-            .padding(.top, Spacing.sixteen)
             
             Section("Trip Location") {
                 ZStack(alignment: .trailing) {
@@ -65,17 +70,7 @@ struct AddTripFormView: View {
             .focused($focusedField, equals: .tripType)
             .submitLabel(.next)
             
-            // Cost Estimate
-            Section {
-                Slider(value: $vm.tripCostEstimate, in: 0...5000)
-                    .tint(.bottleGreen)
-                    .focused($focusedField, equals: .tripCost)
-                    .submitLabel(.next)
-                Text("$\(vm.tripCostEstimate, specifier: "%.1f") Per Person")
-            } header: {
-                Text("Trip Cost Estimate")
-            }
-            
+  
             // Dates
             Section {
                 DatePicker(selection: $vm.tripStartDate, in: Date.now..., displayedComponents: .date) {
@@ -106,7 +101,7 @@ struct AddTripFormView: View {
             
             
             // button to add Trip
-            Button {
+            Button(vm.formType == .edit ? "Save Changes" : "Post Trip") {
                 if vm.fieldsArePopulated {
                     //code to post code to trips database\
                     print("post a trip to user, profile")
@@ -121,19 +116,6 @@ struct AddTripFormView: View {
                         }
                     }
                     vm.addTripFormPresented = false
-                }
-            } label: {
-                ZStack(alignment: .leading) {
-                    HStack {
-                        Image(systemName: "signpost.left.fill")
-                            .foregroundColor(.gray)
-                        
-                        
-                        Text(vm.formType == .edit ? "Save Changes":"Post Trip")
-                            .fontWeight(.semibold)
-                            .padding(.trailing)
-                    }
-                    .padding(10)
                 }
             }
             .disabled(!vm.fieldsArePopulated)
@@ -177,3 +159,16 @@ extension View {
     }
 }
 #endif
+
+//
+// Cost Estimate
+//Section {
+//    Slider(value: $vm.tripCostEstimate, in: 0...5000)
+//        .tint(.bottleGreen)
+//        .focused($focusedField, equals: .tripCost)
+//        .submitLabel(.next)
+//    Text("$\(vm.tripCostEstimate, specifier: "%.1f") Per Person")
+//} header: {
+//    Text("Trip Cost Estimate")
+//}
+

@@ -9,81 +9,124 @@ import SwiftUI
 import Kingfisher
 
 struct HurdPreviewView: View {
-    @State var hurdNameString: String = ""
+    private enum Constants {
+        static let inviteViaEmail = "Via Email"
+        static let inviteViaShareLink = "Via Share Link"
+        static let inviteOptions = "Invite Options"
+    }
+    
+    var hurd: Hurd
     
     var body: some View {
-        VStack {
+        VStack(spacing: Spacing.eight) {
+            // Top Stack
             HStack {
-                TextField("Hurd Name", text: $hurdNameString,onEditingChanged: { (isBegin) in
-                    if isBegin {
-                        print("Begins editing")
-                    } else {
-                        print("Finishes editing")
-                    }
-                },
-                onCommit: {
-                    // Fire Firebase function to update hurdname
-                    print("commit")
-                })
-                .submitLabel(.done)
+                Text(hurd.hurdName)
                     .font(.system(size: 13))
-                    .padding(10)
-                    .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))
+                    .fontWeight(.semibold)
+                    .padding(8)
+                    .background(RoundedRectangle(cornerRadius: 10).fill(.white.opacity(0.4)))
+                
                 Spacer()
                 
-                Label("0 / 5", systemImage: "person.fill")
+                Image(systemName: "lock.fill")
                     .font(.system(size: 13))
-                    .padding(10)
-                    .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))
+                    .padding(8)
+                    .background(Circle().fill(.white.opacity(0.4)))
+                
+                Label("0 / 10", systemImage: "person.fill")
+                    .font(.system(size: 13))
+                    .padding(8)
+                    .background(RoundedRectangle(cornerRadius: 10).fill(.white.opacity(0.4)))
                 
                 
                 Menu {
-                    Text("Invite Options")
-                    Button("via Email", action: {})
-                    Button("via Share Link", action: {})
+                    Text(Constants.inviteOptions)
+                    Button(Constants.inviteViaEmail, action: {})
+                    Button(Constants.inviteViaShareLink, action: {})
                 } label: {
                     Image(systemName: "plus")
                         .foregroundColor(.white)
                         .font(.system(size: 13))
-                        .padding(10)
+                        .padding(8)
                         .background(Circle().fill(.black.opacity(0.7)))
                 }
                 .disabled(false)
             }
-            
+            // Member Stack
             HStack {
-                Circle()
-                    .fill(Color.gray.opacity(0.2))
-                    .frame(width: 40, height: 40)
+                AsyncImage(url: URL(string: "https://picsum.photos/200/300"), content: { image in
+                    image
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                        .aspectRatio(contentMode: .fit)
+                        .clipShape(Circle())
+                        .background(Circle().stroke(.white, lineWidth: 4))
+                }, placeholder: {
+                    ProgressView()
+                })
                 
                 HStack(spacing: -10) {
                     ForEach(0..<4, id: \.self) { i in
-                        Circle()
-                            .fill(i == 3 ? .black : Color.gray.opacity(0.2))
-                            .frame(width: 30, height: 30)
-
+                        if i == 3 {
+                            Circle()
+                                .fill(i == 3 ? .black : Color.gray.opacity(0.2))
+                                .background(Circle().stroke(.white, lineWidth: 4))
+                                .frame(width: 30, height: 30)
+                                .overlay {
+                                    Text("+5")
+                                        .font(.system(size: 15))
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(.white)
+                                }
+                        } else {
+                            AsyncImage(url: URL(string: "https://picsum.photos/200/300"), content: { image in
+                                image
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .aspectRatio(contentMode: .fit)
+                                    .clipShape(Circle())
+                                    .background(Circle().stroke(.white, lineWidth: 4))
+                                
+                            }, placeholder: {
+                                ProgressView()
+                            })
+                        }
                     }
-                  
+                    
                 }
-        
+                
                 Spacer()
                 
                 Button("Manage") {}
                     .buttonStyle(.borderedProminent)
                     .tint(.black)
                 
+                
+                
             }
+            HStack {
+                Text("This hurd is all about going ton adventures and making it the best join us and tlets fo on the best awe inspsiring trips lets do it man!")
+                    .font(.system(size: 13))
+                    .padding(10)
+                
+                Spacer()
+                
+                
+                
+            }
+            .background(RoundedRectangle(cornerRadius: 10).fill(.white.opacity(0.4)))
             
         }
         .padding(10)
-        .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.1)))
+        .background(RoundedRectangle(cornerRadius: 10).fill(.green.gradient.opacity(1)))
     }
 }
 
 struct HurdPreviewView_Previews: PreviewProvider {
     static var previews: some View {
-        HurdPreviewView()
-            .padding()
+        HurdPreviewView(hurd: Hurd.mockHurd)
+            .padding(15)
     }
 }
 
@@ -108,3 +151,20 @@ struct HurdPreviewView_Previews: PreviewProvider {
 //
 //    Spacer()
 //}
+
+//    @State var hurdNameString: String = ""
+//TextField("Hurd Name", text: $hurdNameString,onEditingChanged: { (isBegin) in
+//    if isBegin {
+//        print("Begins editing")
+//    } else {
+//        print("Finishes editing")
+//    }
+//},
+//onCommit: {
+//    // Fire Firebase function to update hurdname
+//    print("commit")
+//})
+//.submitLabel(.done)
+//    .font(.system(size: 13))
+//    .padding(10)
+//    .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))

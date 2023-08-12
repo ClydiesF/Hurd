@@ -9,7 +9,7 @@ import SwiftUI
 import Firebase
 
 struct TripNotesView: View {
-    @ObservedObject var vm: GroupPlannerViewModel
+    @ObservedObject var vm: TripDetailViewModel
     @EnvironmentObject var router: Router
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
     @State var selection: Int = 0
@@ -68,6 +68,6 @@ struct TripNotesView: View {
 
 struct TripNotesView_Previews: PreviewProvider {
     static var previews: some View {
-        TripNotesView(vm: GroupPlannerViewModel(trip: Trip.mockTrip, hurd: Hurd.mockHurd))
+        TripNotesView(vm: TripDetailViewModel(trip: Trip.mockTrip, hurd: Hurd.mockHurd))
     }
 }

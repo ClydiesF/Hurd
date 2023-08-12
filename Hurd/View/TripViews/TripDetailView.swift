@@ -8,104 +8,196 @@
 import SwiftUI
 
 struct TripDetailView: View {
+    @ObservedObject var vm: TripDetailViewModel
+    
     var body: some View {
-        
-            VStack(alignment: .leading) {
-                
-                HStack {
-                    Spacer()
-                    Text("Vacation")
-                        .foregroundColor(.white)
-                        .fontWeight(.bold)
-                        .font(.system(size: 13))
-                        .padding(10)
-                        .background(RoundedRectangle(cornerRadius: 10).fill(.black))
-                }
-                
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text("Miami Vice Trip")
-                            .fontWeight(.bold)
-                            .font(.system(size: 17))
-                        Text("12 Miami Dade County,FL, USA")
-                            .font(.system(size: 13))
-                    }
-                    Spacer()
-                    
-                    Text("55d:44h:44m")
-                        .font(.system(size: 13))
-                        .padding(10)
-                        .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.1)))
-                }
-                
-                HStack {
-                    Text(Date(), style: .date)
-                        .foregroundColor(.gray)
-                        .font(.system(size: 13))
-                    
-                    Text("-")
-                    
-                    Text(Date(), style: .date)
-                        .foregroundColor(.gray)
-                        .font(.system(size: 13))
-                    
-                    Spacer()
-                    
-                    Text("3 Days")
-                        .foregroundColor(.white)
-                        .fontWeight(.semibold)
-                        .font(.system(size: 13))
-                        .padding(.vertical,5)
-                        .padding(.horizontal,10)
-                        .background(Capsule().fill(.black))
-                    
-                }
-                
-                ScrollView(.horizontal, showsIndicators: false) {
+        VStack(alignment: .leading, spacing: 10) {
+            
+            AsyncImage(url: URL(string: vm.trip.tripImageURLString?.photoURL ?? ""), content: { image in
+                ZStack {
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(height: 200)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
                     HStack {
-                        Label("Broadcast", systemImage: "speaker.wave.2")
-                            .font(.system(size: 13))
-                            .padding(10)
-                            .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))
-                        Label("Iteniarary", systemImage: "list.clipboard.fill")
-                            .font(.system(size: 13))
-                            .padding(10)
-                            .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))
-                        Label("Notes", systemImage: "note.text")
-                            .font(.system(size: 13))
-                            .padding(10)
-                            .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))
-                        Label("Components", systemImage: "menucard")
-                            .font(.system(size: 13))
-                            .padding(10)
-                            .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))
+                        VStack(alignment: .leading) {
+                            Spacer()
+                            Label(vm.trip.tripImageURLString?.authorName ?? "", systemImage: "camera.fill")
+                                .font(.system(size: 13))
+                                .fontWeight(.semibold)
+                                .padding(10)
+                                .background(
+                                    Capsule().fill(.white.opacity(0.6)))
+                        }
+                        .padding(10)
                         
-                        Label("Budget", systemImage: "dollarsign")
-                            .font(.system(size: 13))
-                            .padding(10)
+                        Spacer()
+                    }
+                
+                }
+                .frame(height: 200)
+
+                
+            }, placeholder: {
+                ProgressView()
+            })
+            
+            HStack {
+                Spacer()
+                Text(vm.trip.countDownTimerString)
+                    .font(.system(size: 13))
+                    .padding(10)
+                    .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.1)))
+                
+                Label(vm.trip.tripType, systemImage: vm.trip.iconName)
+                    .foregroundColor(.white)
+                    .fontWeight(.bold)
+                    .font(.system(size: 13))
+                    .padding(10)
+                    .background(RoundedRectangle(cornerRadius: 10).fill(.black))
+                  
+            }
+            
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(vm.trip.tripName)
+                        .fontWeight(.bold)
+                        .font(.system(size: 19))
+                    
+                    Label(vm.trip.tripDestination, systemImage: "location.fill")
+                        .foregroundColor(.gray)
+                        .font(.system(size: 13))
+                }
+                Spacer()
+            }
+            
+            HStack {
+                Text(vm.trip.dateRangeString)
+                    .foregroundColor(.gray)
+                    .font(.system(size: 13))
+                
+                Spacer()
+                
+                Text("\(vm.trip.TripDuration) Days")
+                    .foregroundColor(.white)
+                    .fontWeight(.semibold)
+                    .font(.system(size: 13))
+                    .padding(.vertical,5)
+                    .padding(.horizontal,10)
+                    .background(Capsule().fill(.black))
+                
+            }
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack {
+                    
+                    Button {
+                        vm.shouldShowBroadcastSheet = true
+                    } label: {
+                        Label("Broadcast", systemImage: "speaker.wave.2")
+                            .font(.system(size: 14))
+                            .frame(height:33)
+                            .padding(.vertical, 5)
+                            .padding(.horizontal, 10)
                             .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))
+                    }.sheet(isPresented: $vm.shouldShowBroadcastSheet) {
+                        BroadcastView()
+                            .presentationDetents([.large])
                     }
                     
-                }
+                    Label("Iteniarary", systemImage: "list.clipboard.fill")
+                        .font(.system(size: 14))
+                        .frame(height:33)
+                        .padding(5)
+                        .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))
+                    
+                    
+                    
+                    NavigationLink {
+                        TripNotesView(vm: vm)
+                    } label: {
+                        HStack {
+                            Label("Notes", systemImage: "note.text")
+                                .font(.system(size: 14))
+                            if !(vm.notes?.isEmpty ?? true), let noteCount = vm.notes?.count {
+                                Text("\(noteCount)")
+                                    .font(.system(size: 13))
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(.white)
+                                    .padding(5)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 5).fill(.black))
+                            }
+                        }
+                        .frame(height:33)
+                        .padding(5)
+                        .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))
+                    }
+                    
+                    
               
-                Text("Overview")
-                    .font(.system(size: 17))
-                    .fontWeight(.bold)
-                    .padding(.bottom, 5)
+                    Label("Components", systemImage: "menucard")
+                        .font(.system(size: 14))
+                        .frame(height:33)
+                        .padding(5)
+                        .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))
+                    
+                    Label("Budget", systemImage: "dollarsign")
+                        .font(.system(size: 14))
+                        .frame(height:33)
+                        .padding(5)
+                        .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))
+                }
                 
-                Text("This trip is a very good trio and i thnkn that if we gather everyone this will be super coola nd i reslly like this trip. were going to do a bunch of trips and so all this cool stuff. i thiink that we should do tal this ,i know right.")
-                    .foregroundColor(.gray)
-                    .font(.system(size: 14))
-                
-                HurdPreviewView()
             }
-
+            
+            Text("Overview")
+                .font(.system(size: 17))
+                .fontWeight(.bold)
+            
+            Text(vm.trip.tripDescription ?? "")
+                .foregroundColor(.gray)
+                .font(.system(size: 14))
+            
+            HurdPreviewView(hurd: vm.hurd)
+            Spacer()
+        }
+        .padding(.horizontal, 16)
+        .navigationTitle("Trip Details")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+//                if let url = URL(string: generateBranchTripInviteLink() ?? "") {
+//                    ShareLink(item: url) {
+//                        Image(systemName: "square.and.arrow.up")
+//                    }
+//                }
+                ShareLink(item: URL(string: "https://medium.com/macoclock/swiftui-flow-coordinator-pattern-with-navigationstack-to-coordinate-navigation-between-views-ios-1a2b6cd239d7")!) {
+                    Image(systemName: "square.and.arrow.up")
+                }
+            }
+            
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    print("setting screens")
+                    //router.navigate(to: .settings)
+                } label: {
+                    Image(systemName: "ellipsis")
+                        .font(.title3)
+                }
+            }
+            
+        }
+        .onAppear {
+           //vm.fetchNotes()
+        }
+        
     }
 }
 
 struct TripDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        TripDetailView()
-            .padding()
+        TripDetailView(vm: TripDetailViewModel(trip: Trip.mockTrip, hurd: Hurd.mockHurd))
     }
 }

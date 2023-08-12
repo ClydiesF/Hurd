@@ -11,13 +11,16 @@ import Firebase
 import FirebaseFirestoreSwift
 import CoreLocation
 
-class GroupPlannerViewModel: ObservableObject {
+class TripDetailViewModel: ObservableObject {
     
     @Published var trip: Trip
     @Published var hurd: Hurd
     
     @Published var organizer: User?
     @Published var members: [User]?
+    
+    //Broadcast
+    @Published var shouldShowBroadcastSheet: Bool = false
     
     // Trip Settings
     @Published var goToTripSettings: Bool = false
@@ -47,16 +50,16 @@ class GroupPlannerViewModel: ObservableObject {
         self.hurd = hurd
         
         calculateTimeRemaining(from: trip.tripStartDate)
-        getCoordinateFrom(address: trip.tripDestination) { coordinate, error in
-            
-            guard let coordinate = coordinate, error == nil else { return }
-             // don't forget to update the UI from the main thread
-             DispatchQueue.main.async {
-                 print("DEBUG", "Location:", coordinate) // Rio de Janeiro, Brazil Location: CLLocationCoordinate2D(latitude: -22.9108638, longitude: -43.2045436)
-                 self.tripCoordinates = coordinate
-             }
-        
-        }
+//        getCoordinateFrom(address: trip.tripDestination) { coordinate, error in
+//
+//            guard let coordinate = coordinate, error == nil else { return }
+//             // don't forget to update the UI from the main thread
+//             DispatchQueue.main.async {
+//                 print("DEBUG", "Location:", coordinate) // Rio de Janeiro, Brazil Location: CLLocationCoordinate2D(latitude: -22.9108638, longitude: -43.2045436)
+//                 self.tripCoordinates = coordinate
+//             }
+//
+//        }
     }
     
     func isUser(userID: String, aMemberOf hurd: Hurd) -> Bool {

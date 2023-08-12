@@ -29,7 +29,7 @@ struct TripView: View {
                             ForEach(vm.trips.filter { ($0.tripEndDate + 86400) >= vm.currentDate }, id: \.id) { trip in
                                 if let hurd = trip.hurd {
                                     NavigationLink {
-                                        GroupPlannerView(vm: GroupPlannerViewModel(trip: trip, hurd: hurd))
+                                        TripDetailView(vm: .init(trip: trip, hurd: hurd))
                                     } label: {
                                         TripPreviewView(isPastTrip: $vm.isPastTrip, trip: trip, user: vm.user)
                                             .padding(.horizontal)
@@ -46,7 +46,7 @@ struct TripView: View {
                             ForEach(vm.trips.filter { ($0.tripEndDate + 86400) < vm.currentDate }, id: \.id) { trip in
                                 if let hurd = trip.hurd {
                                     NavigationLink(destination: {
-                                        GroupPlannerView(vm: GroupPlannerViewModel(trip: trip, hurd: hurd))
+                                        TripDetailView(vm: .init(trip: trip, hurd: hurd))
                                     }, label: {
                                         TripPreviewView(isPastTrip: $vm.isPastTrip, trip: trip, user: vm.user)
                                             .padding(.horizontal)
@@ -87,14 +87,16 @@ struct TripView: View {
             .navigationDestination(for: Destination.self) { destination in
                 switch destination {
                 case .groupPlannerView(let trip, let hurd):
-                    GroupPlannerView(vm:GroupPlannerViewModel(trip: trip, hurd: hurd))
+                    HurdPreviewView(hurd: hurd)
+                   // GroupPlannerView(vm:GroupPlannerViewModel(trip: trip, hurd: hurd))
                 case .profile:
                     ProfileView(vm: ProfileViewModel(user: User.mockUser1))
                 case .settings:
                     TripSettingsView(vm: TripSettingsViewModel(trip: Trip.mockTrip))
                     
                 case .notes:
-                    TripNotesView(vm: GroupPlannerViewModel(trip: Trip.mockTrip, hurd: Hurd.mockHurd))
+                    HurdPreviewView(hurd: Hurd.mockHurd)
+                   // TripNotesView(vm: GroupPlannerViewModel(trip: Trip.mockTrip, hurd: Hurd.mockHurd))
                 }
             }
             .onOpenURL(perform: { url in
@@ -135,5 +137,6 @@ struct TripView: View {
 struct TripView_Previews: PreviewProvider {
     static var previews: some View {
         TripView(vm: TripViewModel())
+            .environmentObject(Router())
     }
 }

@@ -40,7 +40,7 @@ struct User: Codable {
 }
 
 extension User {
-    static let mockUser1 = User(id: "1",createdAt: 33424332432, isFinishedOnboarding: true, emailAddress: "c.edward.freeman@gmail.com", phoneNumber: "617-233-1242", gender: "I really like alot of ppl. that i liek to go over the same thing i want to get some money and i like more money than i have mow. lets go!", ethnicity: "Clyde", bio: "Freeman", firstName: "mockAvatarImage", lastName: "", profileImageUrl: "")
+    static let mockUser1 = User(id: "1",createdAt: 33424332432, isFinishedOnboarding: true, emailAddress: "c.edward.freeman@gmail.com", phoneNumber: "617-233-1242", gender: "he/him", ethnicity: "Black/African - American", bio: "I just want to travel the world and do cool stuff becuase thats the weave and i really lvoer so much, come join me ", firstName: "Todd", lastName: "Trenton", profileImageUrl: "https://picsum.photos/200/300")
     
     static let mockUser2 = User(id: "2",createdAt: 33424332432, isFinishedOnboarding: true, emailAddress: "c.edward.freeman@gmail.com", phoneNumber: "617-233-1242", gender: "I really like alot of ppl. that i liek to go over the same thing i want to get some money and i like more money than i have mow. lets go!", ethnicity: "Clyde", bio: "i think i like to go on long bike rides with my family and thats hwy i travel", firstName: "mockAvatarImage", lastName: "", profileImageUrl: "")
     
@@ -49,6 +49,10 @@ extension User {
     static let mockUser4 = User(id: "4",createdAt: 33424332432, isFinishedOnboarding: true, emailAddress: "c.edward.freeman@gmail.com", phoneNumber: "617-233-1242", gender: "I really like alot of ppl. that i liek to go over the same thing i want to get some money and i like more money than i have mow. lets go!", ethnicity: "Clyde", bio: "kldflnkdfgkl dfgkldfgk dfglkfdg kldfgkldfg klkdfg fkkfkdfg kldfkld sgklkl;sg sdgksksdkl sdgkksmklsdg sdgkl;gsd", firstName: "mockAvatarImage",  lastName: "", profileImageUrl: "")
     
     static let mockUser5 = User(id: "5",createdAt: 33424332432, isFinishedOnboarding: true, emailAddress: "c.edward.freeman@gmail.com", phoneNumber: "617-233-1242", gender: "I really like alot of ppl. that i liek to go over the same thing i want to get some money and i like more money than i have mow. lets go!", ethnicity: "Clyde", bio: "Freeman", firstName: "mockAvatarImage",  lastName: "", profileImageUrl: "")
+    
+    var fullName: String {
+        return "\(firstName) \(lastName)"
+    }
 }
 
 struct Trip: Codable {
@@ -118,13 +122,22 @@ extension Note {
 
 
 extension Hurd {
-    static let mockHurd = Hurd(organizer: "vwefwevewewe")
+    
+    static let mockHurd = Hurd(id: "36365r6457623", name: "The Hooligans", members: ["","",""], organizer: "727812gy7812g", hurdID: nil, capacity: 5)
+    
+    var hurdName: String {
+        if let name  {
+            return name
+        }
+        
+        return id ?? ""
+    }
 }
 
 extension Trip {
     
     
-    static let mockTrip = Trip(createdAt: 1688865798, tripName: "Mock Trip", tripDestination: "Boston, MA", tripType: "Cruise", tripCostEstimate: 5600.0,tripStartDate: 329773023, tripEndDate: 3434324233, hurd: Hurd.mockHurd, tripImageURLString: UnsplashPhoto(photoURL: "https://via.placeholder.com/300.png/09f/fff", authorName: "Fake Author"))
+    static let mockTrip = Trip(createdAt: 1688865798, tripName: "Mock Trip", tripDestination: "Boston, MA", tripType: "Cruise", tripCostEstimate: 5600.0,tripStartDate: 329773023, tripEndDate: 3434324233,tripDescription: " I think it makes sense to go on this trip because i love the trip so muich and i like it man, so i am the dude.", hurd: Hurd.mockHurd, tripImageURLString: UnsplashPhoto(photoURL: "https://picsum.photos/200/300", authorName: "Fake Author"))
     
     static let mockTrip2 = Trip(createdAt: 1688865798, tripName: "Mock Trip 2", tripDestination: "Charlotte, NC", tripType: "Adventure", tripCostEstimate: 1577.0,tripStartDate: 329773023, tripEndDate: 3434324233, tripDescription: "i  dont like it becuase this is so scrayx i and i liek that most ppl dont like to travel and i konw thaty mosty ppl will like to tracvel but cant. " ,hurd: Hurd.mockHurd)
     
@@ -195,6 +208,14 @@ extension Trip {
          return "0"
     }
     
+    var countDownTimerString: String {
+        let cd = countDownTimer
+        let days = cd["days"]
+        let hours = cd["hours"]
+        let minutes = cd["minutes"]
+        return "\(days ?? 0)d:\(hours ?? 0)h:\(minutes ?? 0)m"
+    }
+    
     var countDownTimer: [String:Int] {
         var localTimeZoneAbbreviation: String { return TimeZone.current.abbreviation() ?? "" }
 
@@ -232,6 +253,7 @@ extension Trip {
     }
     
     var dateRangeString: String {
+    
         let startDate = Date(timeIntervalSince1970: self.tripStartDate)
         let endDate = Date(timeIntervalSince1970: self.tripEndDate)
         var localTimeZoneAbbreviation: String { return TimeZone.current.abbreviation() ?? "" }

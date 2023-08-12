@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddNoteView: View {
     
-    @ObservedObject var vm: GroupPlannerViewModel
+    @ObservedObject var vm: TripDetailViewModel
     
     var body: some View {
         Form {
@@ -44,6 +44,6 @@ struct AddNoteView: View {
 
 struct AddNoteView_Previews: PreviewProvider {
     static var previews: some View {
-        AddNoteView(vm: GroupPlannerViewModel(trip: Trip.mockTrip, hurd: Hurd.mockHurd))
+        AddNoteView(vm: TripDetailViewModel(trip: Trip.mockTrip, hurd: Hurd.mockHurd))
     }
 }
