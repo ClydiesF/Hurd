@@ -99,6 +99,7 @@ struct TripPreviewView: View {
     struct TripPreviewView_Previews: PreviewProvider {
         static var previews: some View {
                 TripPreviewView(isPastTrip: .constant(false), trip: Trip.mockTrip4)
+                .previewLayout(.sizeThatFits)
                     .padding()
         }
     }
