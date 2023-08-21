@@ -170,7 +170,6 @@ struct HurdSignInView: View {
     }
 
     
-    
     // Function
     
     func simulateresetRequest() {

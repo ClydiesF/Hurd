@@ -32,6 +32,8 @@
 		3B4EB272297A2AA8008C26EF /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EB271297A2AA8008C26EF /* AddNoteView.swift */; };
 		3B4EB275297A66C7008C26EF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3B4EB274297A66C7008C26EF /* Kingfisher */; };
 		3B4EB277297BEB1D008C26EF /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EB276297BEB1D008C26EF /* EditProfileView.swift */; };
+		3B4F6AA32A91C082003699ED /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F6AA22A91C082003699ED /* LoginView.swift */; };
+		3B4F6AA52A91C68E003699ED /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F6AA42A91C68E003699ED /* LandingView.swift */; };
 		3B5110F62A5FA538004DFD47 /* BranchSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 3B5110F52A5FA538004DFD47 /* BranchSDK */; };
 		3B5110F82A5FA75C004DFD47 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5110F72A5FA75C004DFD47 /* SystemConfiguration.framework */; };
 		3B5110FA2A5FA76A004DFD47 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5110F92A5FA76A004DFD47 /* CoreServices.framework */; };
@@ -114,6 +116,9 @@
 		3BC9ED17295FF829004EFEEF /* HurdSlidingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ED16295FF829004EFEEF /* HurdSlidingTabView.swift */; };
 		3BCAC2D929C5889C0007EE57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BC9ECD3295C0373004EFEEF /* Assets.xcassets */; };
 		3BD769C22A061915009A27AC /* HurdTravelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD769C12A061915009A27AC /* HurdTravelTests.swift */; };
+		3BE06D202A90150800A7D61F /* SigninOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE06D1F2A90150800A7D61F /* SigninOptionsView.swift */; };
+		3BE06D222A90537100A7D61F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE06D212A90537100A7D61F /* SignUpView.swift */; };
+		3BE06D242A90735900A7D61F /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE06D232A90735900A7D61F /* String+Extensions.swift */; };
 		3BE57A47298501C40099D7E4 /* SignInWithAppleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE57A46298501C40099D7E4 /* SignInWithAppleButtonView.swift */; };
 /* End PBXBuildFile section */
 
@@ -171,6 +176,8 @@
 		3B4EB2662977B780008C26EF /* TripNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripNotesView.swift; sourceTree = "<group>"; };
 		3B4EB271297A2AA8008C26EF /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
 		3B4EB276297BEB1D008C26EF /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		3B4F6AA22A91C082003699ED /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		3B4F6AA42A91C68E003699ED /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		3B5110F72A5FA75C004DFD47 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3B5110F92A5FA76A004DFD47 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		3B5110FB2A5FA777004DFD47 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -235,6 +242,9 @@
 		3BC9ED16295FF829004EFEEF /* HurdSlidingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdSlidingTabView.swift; sourceTree = "<group>"; };
 		3BD769BF2A061915009A27AC /* HurdTravelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HurdTravelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BD769C12A061915009A27AC /* HurdTravelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdTravelTests.swift; sourceTree = "<group>"; };
+		3BE06D1F2A90150800A7D61F /* SigninOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninOptionsView.swift; sourceTree = "<group>"; };
+		3BE06D212A90537100A7D61F /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		3BE06D232A90735900A7D61F /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		3BE57A412984C64C0099D7E4 /* HurdDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HurdDebug.entitlements; sourceTree = "<group>"; };
 		3BE57A46298501C40099D7E4 /* SignInWithAppleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -421,6 +431,10 @@
 				3B8629F3296CEE4C0077DB92 /* OnboardingSliderView.swift */,
 				3B8629F5296D166C0077DB92 /* OnboardingProfileInfoView.swift */,
 				3BE57A46298501C40099D7E4 /* SignInWithAppleButtonView.swift */,
+				3BE06D1F2A90150800A7D61F /* SigninOptionsView.swift */,
+				3BE06D212A90537100A7D61F /* SignUpView.swift */,
+				3B4F6AA22A91C082003699ED /* LoginView.swift */,
+				3B4F6AA42A91C68E003699ED /* LandingView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -531,6 +545,7 @@
 				3B3F682729C555F400FBC7B6 /* Publishers+Extensions.swift */,
 				3B3F682929C556D600FBC7B6 /* Notifications+Extensions.swift */,
 				3B3F682B29C559B700FBC7B6 /* AdaptsToKeyboard.swift */,
+				3BE06D232A90735900A7D61F /* String+Extensions.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -746,9 +761,11 @@
 				3B4EB277297BEB1D008C26EF /* EditProfileView.swift in Sources */,
 				3BC9ECD2295C0372004EFEEF /* ContentView.swift in Sources */,
 				3B7AD1F72A6A39C800FBEBCA /* HurdAdminView.swift in Sources */,
+				3BE06D242A90735900A7D61F /* String+Extensions.swift in Sources */,
 				3B6E292E2990BE2300A90449 /* TripDateView.swift in Sources */,
 				3BC9ED05295ED42C004EFEEF /* SearchView.swift in Sources */,
 				3BC9ED17295FF829004EFEEF /* HurdSlidingTabView.swift in Sources */,
+				3BE06D202A90150800A7D61F /* SigninOptionsView.swift in Sources */,
 				3BC9ECFC295D79F3004EFEEF /* HurdSignInView.swift in Sources */,
 				3B7AD1F52A6A311500FBEBCA /* HurdMemberView.swift in Sources */,
 				3B8629FA296E604A0077DB92 /* User.swift in Sources */,
@@ -763,6 +780,7 @@
 				3BC9ECE4295C06A5004EFEEF /* PrimaryHurdButton.swift in Sources */,
 				3B6E292C298F5AED00A90449 /* SavePopUp.swift in Sources */,
 				3B3F682C29C559B700FBC7B6 /* AdaptsToKeyboard.swift in Sources */,
+				3B4F6AA32A91C082003699ED /* LoginView.swift in Sources */,
 				3B4EB2672977B780008C26EF /* TripNotesView.swift in Sources */,
 				3B5B869A2A7D839C00569F89 /* RichLinkPreview.swift in Sources */,
 				3B4EB2652977A8C9008C26EF /* NotesView.swift in Sources */,
@@ -781,6 +799,7 @@
 				3B5B86982A7D7BE900569F89 /* RichLinkView.swift in Sources */,
 				3BC9ECE2295C0464004EFEEF /* Color+Extensions.swift in Sources */,
 				3BC9ED07295ED43F004EFEEF /* TripView.swift in Sources */,
+				3B4F6AA52A91C68E003699ED /* LandingView.swift in Sources */,
 				3B530CCE2967E942002C272B /* AuthCredentials.swift in Sources */,
 				3B5E1C3E29AB3B2B008E8831 /* NoTripView.swift in Sources */,
 				3B530CC92965305F002C272B /* AuthenticationViewModel.swift in Sources */,
@@ -793,6 +812,7 @@
 				3B6E29302991F7C500A90449 /* UnSplashResponseModel.swift in Sources */,
 				3B5BED2929FE32EF0028C793 /* ImagePicker.swift in Sources */,
 				3B823FBF299F32AE00639D04 /* TripSettingsView.swift in Sources */,
+				3BE06D222A90537100A7D61F /* SignUpView.swift in Sources */,
 				3BC9ECE6295C0924004EFEEF /* HurdButtonModel.swift in Sources */,
 				3BC9ECF6295D5C5E004EFEEF /* HurdTextField.swift in Sources */,
 				3B5B86942A70B48200569F89 /* TripComponentView.swift in Sources */,
@@ -854,9 +874,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HCHO.Hurd.Hurdtravel-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -884,9 +908,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HCHO.Hurd.Hurdtravel-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1024,6 +1052,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1034,6 +1063,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1060,6 +1090,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1070,6 +1101,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1208,8 +1240,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
+				branch = master;
+				kind = branch;
 			};
 		};
 		3BC9ED13295FEC8E004EFEEF /* XCRemoteSwiftPackageReference "SlidingTabView" */ = {

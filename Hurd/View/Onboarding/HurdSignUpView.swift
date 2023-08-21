@@ -128,6 +128,7 @@ struct HurdSignUpView: View {
             .presentationDetents([.medium, .large])
         }
     }
+    
     //Functions
 
     

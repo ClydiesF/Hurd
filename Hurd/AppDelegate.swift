@@ -19,9 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1" {
             
         } else {
-            FirebaseApp.configure()
+           // FirebaseApp.configure()
         }
-
+        FirebaseApp.configure()
         
         UNUserNotificationCenter.current().delegate = self
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]

@@ -9,10 +9,85 @@ import Foundation
 import Firebase
 import SwiftUI
 import FirebaseFirestoreSwift
+import Combine
 
 enum signInType {
     case signup
     case signin
+}
+
+enum Field: String {
+    case email
+    case password
+    case confirmPassword
+}
+
+enum ValidationState {
+    case success
+    case failure
+}
+
+
+enum ValidationType {
+    case isNotEmpty
+    case minCharacters(min: Int)
+    case hasSymbols
+    case hasUppercasedLetters
+    case isValidEmail
+    case passwordsMatch(password: String, confirmPassword: String)
+    
+    func fulfills(string: String) -> Bool {
+        switch self {
+        case .isNotEmpty:
+            return !string.isEmpty
+        case .minCharacters(min: let min):
+            return string.count > min
+        case .hasSymbols:
+            return string.hasSpecialCharacters()
+        case .hasUppercasedLetters:
+            return string.hasUppercasedCharacters()
+        case .isValidEmail:
+            return string.isValidEmail()
+        case .passwordsMatch(password: let password, confirmPassword: let confirmPassword):
+            print("DEBUG: Password: \(password)--ConfirmPassword: \(confirmPassword)")
+            return (password == confirmPassword) && !password.isEmpty && !confirmPassword.isEmpty
+        }
+    }
+    
+    var label: String {
+        switch self {
+        case .isNotEmpty:
+            return "Feild not empty"
+        case .minCharacters(let min):
+            return "Meets Char Limit \(min)"
+        case .hasSymbols:
+            return "Has Sepcial Symbol"
+        case .hasUppercasedLetters:
+            return "Has uppercased Letter"
+        case .isValidEmail:
+            return "Is Valid Email"
+        case .passwordsMatch:
+            return "Passwords Match"
+        }
+    }
+}
+
+struct Validation: Identifiable, Equatable {
+    static func == (lhs: Validation, rhs: Validation) -> Bool {
+        return true
+    }
+    
+    var id: Int
+    var field: Field
+    var validationType: ValidationType
+    var state: ValidationState
+    
+    init(string: String, id: Int, field: Field, validationType: ValidationType) {
+        self.id = id
+        self.field = field
+        self.validationType = validationType
+        self.state = validationType.fulfills(string: string) ? .success : .failure
+    }
 }
 
 class AuthenticationViewModel: ObservableObject {
@@ -21,9 +96,7 @@ class AuthenticationViewModel: ObservableObject {
         case signedOut
         case signedIn
     }
-    
-
-    
+   
     enum SensitiveActionType {
         case deleteAccount
         case changePassword
@@ -33,8 +106,36 @@ class AuthenticationViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var newEmail: String = ""
     @Published var newConfirmEmail: String = ""
+    @Published var showPassword: Bool = false
+    @Published var showConfirmPasword: Bool = false
+    
+    
+    @Published var passwordValidations: [Validation] = []
+    @Published var confirmPasswordValidations: [Validation] = []
+    @Published var emailValidations: [Validation] = []
+    @Published var isValid: Bool = false
+    private var ecancellableSet: Set<AnyCancellable> = []
+    private var pcancellableSet: Set<AnyCancellable> = []
+    private var cpcancellableSet: Set<AnyCancellable> = []
+    
+    
+    var allFieldsValid: Bool {
+        var isValid = true
+        
+        let allValidations = passwordValidations + emailValidations + confirmPasswordValidations
+        
+        for val in allValidations {
+            if val.state != .success {
+                isValid = false
+            }
+        }
+        
+        return isValid
+    }
+    
     
     @Published var password: String = ""
+    @Published var confirmPassword: String = ""
     @Published var newPassword: String = ""
     @Published var newConfirmedPassword: String = ""
     
@@ -48,7 +149,6 @@ class AuthenticationViewModel: ObservableObject {
     @Published var currentUser: Firebase.User? = nil
     @Published var user: User?
     
-    
     // Reset Password Email Send
     @Published var resetStatustMsg: String = ""
     
@@ -61,33 +161,105 @@ class AuthenticationViewModel: ObservableObject {
     
     init() {
        currentUser = Auth.auth().currentUser
-        registerStateListener()
+       registerStateListener()
        registerCurrentUserListener()
         
-        $email
-            .map { text -> Color in
-                if text.count > 0 {
-                    return .bottleGreen
-                } else {
-                    return .gray
-                }
-            }
-            .assign(to: &$emailTFBorderColor)
+        emailPublisher
+            .receive(on: RunLoop.main)
+            .assign(to: \.emailValidations, on: self)
+            .store(in: &ecancellableSet)
         
-        $password
-            .map { text -> Color in
-                if text.count > 0 {
-                    return .bottleGreen
-                } else {
-                    return .gray
-                }
-            }
-            .assign(to: &$passwordTFBorderColor)
+        // Validations
+        passwordPublisher
+            .receive(on: RunLoop.main)
+            .assign(to: \.passwordValidations, on: self)
+            .store(in: &ecancellableSet)
+
+        confirmPasswordPublisher
+            .receive(on: RunLoop.main)
+            .assign(to: \.confirmPasswordValidations, on: self)
+            .store(in: &ecancellableSet)
+        
     }
     
     deinit {
         guard let handle = handle else { return }
         Auth.auth().removeStateDidChangeListener(handle)
+    }
+    
+    // MARK: Validations
+    
+
+    
+    private var emailPublisher: AnyPublisher<[Validation], Never> {
+        $email
+            .removeDuplicates()
+            .map { email in
+                var validations: [Validation] = []
+                validations.append(Validation(string: email,
+                                              id: 0,
+                                              field: .email,
+                                              validationType: .isNotEmpty))
+
+                validations.append(Validation(string: email,
+                                              id: 1,
+                                              field: .email,
+                                              validationType: .isValidEmail))
+                return validations
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    private var confirmPasswordPublisher: AnyPublisher<[Validation], Never> {
+        $confirmPassword
+            .map { confirmPassword in
+                print("DEBUG: \(confirmPassword)")
+
+                var validations: [Validation] = []
+                validations.append(Validation(string: confirmPassword,
+                                              id: 4,
+                                              field: .confirmPassword,
+                                              validationType: .passwordsMatch(password: self.password, confirmPassword: self.confirmPassword)))
+                return validations
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    private var passwordPublisher: AnyPublisher<[Validation], Never> {
+        $password
+            .map { password in
+                print("DEBUG: \(password)")
+
+                var validations: [Validation] = []
+                validations.append(Validation(string: password,
+                                              id: 0,
+                                              field: .password,
+                                              validationType: .isNotEmpty))
+
+                validations.append(Validation(string: password,
+                                              id: 1,
+                                              field: .password,
+                                              validationType: .minCharacters(min: 8)))
+
+                validations.append(Validation(string: password,
+                                              id: 2,
+                                              field: .password,
+                                              validationType: .hasSymbols))
+
+                validations.append(Validation(string: password,
+                                              id: 3,
+                                              field: .password,
+                                              validationType: .hasUppercasedLetters))
+                
+                self.confirmPasswordValidations = [Validation(string: password,
+                                              id: 4,
+                                              field: .confirmPassword,
+                                              validationType: .passwordsMatch(password: self.password, confirmPassword: self.confirmPassword))]
+                
+                
+                return validations
+            }
+            .eraseToAnyPublisher()
     }
     
     // MARK: Auth Functions
