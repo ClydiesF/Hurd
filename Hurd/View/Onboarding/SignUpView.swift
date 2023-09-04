@@ -86,7 +86,7 @@ struct SignUpView: View {
                }
              
                 
-                if vm.showConfirmPasword {
+                if vm.showConfirmPassword {
                     TextField("Confirm Password", text: $vm.confirmPassword)
                         .textFieldStyle(BorderedStyle(focused: false))
                         .overlay {
@@ -95,7 +95,7 @@ struct SignUpView: View {
                                 Image(systemName: "eye")
                                     .onTapGesture {
                                         print("Button Tapped")
-                                        vm.showConfirmPasword.toggle()
+                                        vm.showConfirmPassword.toggle()
                                     }
                                     .padding()
                             }
@@ -109,7 +109,7 @@ struct SignUpView: View {
                                 Image(systemName: "eye.slash")
                                     .onTapGesture {
                                         print("Button Tapped")
-                                        vm.showConfirmPasword.toggle()
+                                        vm.showConfirmPassword.toggle()
                                     }
                                     .padding()
                             }
@@ -182,11 +182,6 @@ struct SignUpView_Previews: PreviewProvider {
             .environmentObject(AuthenticationViewModel())
     }
 }
-
-//#Preview {
-//    SignUpView()
-//        .environmentObject(AuthenticationViewModel())
-//}
 
 struct BorderedStyle: TextFieldStyle {
   var focused: Bool

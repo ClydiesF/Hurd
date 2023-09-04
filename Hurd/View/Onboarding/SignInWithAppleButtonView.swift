@@ -50,8 +50,12 @@ struct SignInWithAppleButtonView: View {
                 print(error.localizedDescription)
             }
         })
-        .signInWithAppleButtonStyle(.black)
-        .frame(height: 44)
+            .signInWithAppleButtonStyle(.white)
+            .frame(height: 40)
+            .padding()
+            .background(RoundedRectangle(cornerRadius: 30).stroke(Color.gray.opacity(0.3)))
+
+
     }
     
     // MARK: - Functions
@@ -105,3 +109,6 @@ struct SignInWithAppleButtonView_Previews: PreviewProvider {
         SignInWithAppleButtonView(vm: AuthenticationViewModel(), signinType: .signup)
     }
 }
+
+
+

@@ -34,6 +34,10 @@
 		3B4EB277297BEB1D008C26EF /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EB276297BEB1D008C26EF /* EditProfileView.swift */; };
 		3B4F6AA32A91C082003699ED /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F6AA22A91C082003699ED /* LoginView.swift */; };
 		3B4F6AA52A91C68E003699ED /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F6AA42A91C68E003699ED /* LandingView.swift */; };
+		3B4F6AAB2A985568003699ED /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 3B4F6AAA2A985568003699ED /* GoogleSignIn */; };
+		3B4F6AAD2A985568003699ED /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3B4F6AAC2A985568003699ED /* GoogleSignInSwift */; };
+		3B4F6AB32A998A23003699ED /* UpdatePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F6AB22A998A23003699ED /* UpdatePasswordView.swift */; };
+		3B4F6AB52A99D5D6003699ED /* UpdateEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F6AB42A99D5D6003699ED /* UpdateEmailView.swift */; };
 		3B5110F62A5FA538004DFD47 /* BranchSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 3B5110F52A5FA538004DFD47 /* BranchSDK */; };
 		3B5110F82A5FA75C004DFD47 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5110F72A5FA75C004DFD47 /* SystemConfiguration.framework */; };
 		3B5110FA2A5FA76A004DFD47 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5110F92A5FA76A004DFD47 /* CoreServices.framework */; };
@@ -45,7 +49,6 @@
 		3B5111062A5FA7E1004DFD47 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5111052A5FA7E1004DFD47 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3B5111082A5FA7EE004DFD47 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5111072A5FA7EE004DFD47 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3B51110A2A5FA897004DFD47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5111092A5FA897004DFD47 /* AppDelegate.swift */; };
-		3B530C9F29623318002C272B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B530C9E29623318002C272B /* GoogleService-Info.plist */; };
 		3B530CA2296234E8002C272B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3B530CA1296234E8002C272B /* FirebaseAnalytics */; };
 		3B530CA4296234E8002C272B /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3B530CA3296234E8002C272B /* FirebaseAnalyticsSwift */; };
 		3B530CA6296234E8002C272B /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 3B530CA5296234E8002C272B /* FirebaseAppCheck */; };
@@ -91,7 +94,6 @@
 		3B7AD1F72A6A39C800FBEBCA /* HurdAdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7AD1F62A6A39C800FBEBCA /* HurdAdminView.swift */; };
 		3B823FBF299F32AE00639D04 /* TripSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B823FBE299F32AE00639D04 /* TripSettingsView.swift */; };
 		3B823FC1299F36CB00639D04 /* TripSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B823FC0299F36CB00639D04 /* TripSettingsViewModel.swift */; };
-		3B8629F4296CEE4C0077DB92 /* OnboardingSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8629F3296CEE4C0077DB92 /* OnboardingSliderView.swift */; };
 		3B8629F6296D166C0077DB92 /* OnboardingProfileInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8629F5296D166C0077DB92 /* OnboardingProfileInfoView.swift */; };
 		3B8629F8296D48600077DB92 /* OnboardingProfileInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8629F7296D48600077DB92 /* OnboardingProfileInfoViewModel.swift */; };
 		3B8629FA296E604A0077DB92 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8629F9296E604A0077DB92 /* User.swift */; };
@@ -99,16 +101,11 @@
 		3BC9ECD2295C0372004EFEEF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECD1295C0372004EFEEF /* ContentView.swift */; };
 		3BC9ECD7295C0373004EFEEF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BC9ECD6295C0373004EFEEF /* Preview Assets.xcassets */; };
 		3BC9ECE2295C0464004EFEEF /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECE1295C0464004EFEEF /* Color+Extensions.swift */; };
-		3BC9ECE4295C06A5004EFEEF /* PrimaryHurdButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECE3295C06A5004EFEEF /* PrimaryHurdButton.swift */; };
 		3BC9ECE6295C0924004EFEEF /* HurdButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECE5295C0924004EFEEF /* HurdButtonModel.swift */; };
 		3BC9ECF0295D4223004EFEEF /* HurdPasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECEF295D4223004EFEEF /* HurdPasswordTextField.swift */; };
-		3BC9ECF2295D49DC004EFEEF /* HurdLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECF1295D49DC004EFEEF /* HurdLandingView.swift */; };
-		3BC9ECF4295D56EE004EFEEF /* HurdSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECF3295D56EE004EFEEF /* HurdSignUpView.swift */; };
 		3BC9ECF6295D5C5E004EFEEF /* HurdTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECF5295D5C5E004EFEEF /* HurdTextField.swift */; };
-		3BC9ECFC295D79F3004EFEEF /* HurdSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECFB295D79F3004EFEEF /* HurdSignInView.swift */; };
 		3BC9ED00295D7C2D004EFEEF /* TripPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECFF295D7C2D004EFEEF /* TripPreviewView.swift */; };
 		3BC9ED03295ED420004EFEEF /* DiscoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ED02295ED420004EFEEF /* DiscoveryView.swift */; };
-		3BC9ED05295ED42C004EFEEF /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ED04295ED42C004EFEEF /* SearchView.swift */; };
 		3BC9ED07295ED43F004EFEEF /* TripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ED06295ED43F004EFEEF /* TripView.swift */; };
 		3BC9ED0B295ED472004EFEEF /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ED0A295ED472004EFEEF /* ProfileView.swift */; };
 		3BC9ED12295FB2F6004EFEEF /* TripDetailViewModelOLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ED11295FB2F6004EFEEF /* TripDetailViewModelOLD.swift */; };
@@ -178,6 +175,8 @@
 		3B4EB276297BEB1D008C26EF /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		3B4F6AA22A91C082003699ED /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		3B4F6AA42A91C68E003699ED /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
+		3B4F6AB22A998A23003699ED /* UpdatePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordView.swift; sourceTree = "<group>"; };
+		3B4F6AB42A99D5D6003699ED /* UpdateEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEmailView.swift; sourceTree = "<group>"; };
 		3B5110F72A5FA75C004DFD47 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3B5110F92A5FA76A004DFD47 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		3B5110FB2A5FA777004DFD47 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -188,7 +187,6 @@
 		3B5111052A5FA7E1004DFD47 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		3B5111072A5FA7EE004DFD47 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3B5111092A5FA897004DFD47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3B530C9E29623318002C272B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3B530CC6296237D2002C272B /* AuthenticationMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationMethods.swift; sourceTree = "<group>"; };
 		3B530CC82965305F002C272B /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		3B530CCB2967BDE3002C272B /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
@@ -204,6 +202,7 @@
 		3B5C31BD29736965001354E6 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		3B5E1C3D29AB3B2B008E8831 /* NoTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoTripView.swift; sourceTree = "<group>"; };
 		3B603F142975B00A00E01D99 /* TripsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsViewModel.swift; sourceTree = "<group>"; };
+		3B6B58C42AA557C100CE29B7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3B6E292B298F5AED00A90449 /* SavePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePopUp.swift; sourceTree = "<group>"; };
 		3B6E292D2990BE2300A90449 /* TripDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDateView.swift; sourceTree = "<group>"; };
 		3B6E292F2991F7C500A90449 /* UnSplashResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnSplashResponseModel.swift; sourceTree = "<group>"; };
@@ -216,7 +215,6 @@
 		3B7AD1F62A6A39C800FBEBCA /* HurdAdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdAdminView.swift; sourceTree = "<group>"; };
 		3B823FBE299F32AE00639D04 /* TripSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSettingsView.swift; sourceTree = "<group>"; };
 		3B823FC0299F36CB00639D04 /* TripSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSettingsViewModel.swift; sourceTree = "<group>"; };
-		3B8629F3296CEE4C0077DB92 /* OnboardingSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSliderView.swift; sourceTree = "<group>"; };
 		3B8629F5296D166C0077DB92 /* OnboardingProfileInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProfileInfoView.swift; sourceTree = "<group>"; };
 		3B8629F7296D48600077DB92 /* OnboardingProfileInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProfileInfoViewModel.swift; sourceTree = "<group>"; };
 		3B8629F9296E604A0077DB92 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -226,16 +224,11 @@
 		3BC9ECD3295C0373004EFEEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Hurd/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		3BC9ECD6295C0373004EFEEF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3BC9ECE1295C0464004EFEEF /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
-		3BC9ECE3295C06A5004EFEEF /* PrimaryHurdButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryHurdButton.swift; sourceTree = "<group>"; };
 		3BC9ECE5295C0924004EFEEF /* HurdButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdButtonModel.swift; sourceTree = "<group>"; };
 		3BC9ECEF295D4223004EFEEF /* HurdPasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdPasswordTextField.swift; sourceTree = "<group>"; };
-		3BC9ECF1295D49DC004EFEEF /* HurdLandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdLandingView.swift; sourceTree = "<group>"; };
-		3BC9ECF3295D56EE004EFEEF /* HurdSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdSignUpView.swift; sourceTree = "<group>"; };
 		3BC9ECF5295D5C5E004EFEEF /* HurdTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdTextField.swift; sourceTree = "<group>"; };
-		3BC9ECFB295D79F3004EFEEF /* HurdSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdSignInView.swift; sourceTree = "<group>"; };
 		3BC9ECFF295D7C2D004EFEEF /* TripPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPreviewView.swift; sourceTree = "<group>"; };
 		3BC9ED02295ED420004EFEEF /* DiscoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryView.swift; sourceTree = "<group>"; };
-		3BC9ED04295ED42C004EFEEF /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		3BC9ED06295ED43F004EFEEF /* TripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripView.swift; sourceTree = "<group>"; };
 		3BC9ED0A295ED472004EFEEF /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		3BC9ED11295FB2F6004EFEEF /* TripDetailViewModelOLD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TripDetailViewModelOLD.swift; path = ../View/TripViews/TripDetailViewModelOLD.swift; sourceTree = "<group>"; };
@@ -283,12 +276,14 @@
 				3B530CC4296234E8002C272B /* FirebaseStorageCombine-Community in Frameworks */,
 				3B5110F62A5FA538004DFD47 /* BranchSDK in Frameworks */,
 				3B530CAE296234E8002C272B /* FirebaseDynamicLinks in Frameworks */,
+				3B4F6AAB2A985568003699ED /* GoogleSignIn in Frameworks */,
 				3B530CBE296234E8002C272B /* FirebaseRemoteConfig in Frameworks */,
 				3B530CBC296234E8002C272B /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
 				3B530CC0296234E8002C272B /* FirebaseRemoteConfigSwift in Frameworks */,
 				3B530CB4296234E8002C272B /* FirebaseFirestoreSwift in Frameworks */,
 				3B4EB2702979133B008C26EF /* PopupView in Frameworks */,
 				3B530CC2296234E8002C272B /* FirebaseStorage in Frameworks */,
+				3B4F6AAD2A985568003699ED /* GoogleSignInSwift in Frameworks */,
 				3B0093C92A6205610021D5C2 /* FirebaseMessaging in Frameworks */,
 				3B530CAC296234E8002C272B /* FirebaseCrashlytics in Frameworks */,
 				3B530CB8296234E8002C272B /* FirebaseFunctionsCombine-Community in Frameworks */,
@@ -423,12 +418,8 @@
 		3B8629F2296BF3720077DB92 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				3BC9ECF3295D56EE004EFEEF /* HurdSignUpView.swift */,
-				3BC9ECFB295D79F3004EFEEF /* HurdSignInView.swift */,
 				3BC9ECEF295D4223004EFEEF /* HurdPasswordTextField.swift */,
 				3BC9ECF5295D5C5E004EFEEF /* HurdTextField.swift */,
-				3BC9ECF1295D49DC004EFEEF /* HurdLandingView.swift */,
-				3B8629F3296CEE4C0077DB92 /* OnboardingSliderView.swift */,
 				3B8629F5296D166C0077DB92 /* OnboardingProfileInfoView.swift */,
 				3BE57A46298501C40099D7E4 /* SignInWithAppleButtonView.swift */,
 				3BE06D1F2A90150800A7D61F /* SigninOptionsView.swift */,
@@ -442,6 +433,7 @@
 		3BC9ECC3295C0372004EFEEF = {
 			isa = PBXGroup;
 			children = (
+				3B6B58C42AA557C100CE29B7 /* GoogleService-Info.plist */,
 				3B0093CA2A621DA40021D5C2 /* Hurdtravel-info.plist */,
 				3B4BCCC82A5CE9B6002ED2E3 /* Hurdtravel WidgetExtension.entitlements */,
 				3B4BCCC72A5CE9AA002ED2E3 /* HurdTravel.entitlements */,
@@ -471,7 +463,6 @@
 				3BE57A412984C64C0099D7E4 /* HurdDebug.entitlements */,
 				3B530CCA2967BDCE002C272B /* Utilities */,
 				3B530CC529623781002C272B /* Networking */,
-				3B530C9E29623318002C272B /* GoogleService-Info.plist */,
 				3BC9ECE0295C03E8004EFEEF /* extensions */,
 				3BC9ECDF295C03B0004EFEEF /* ViewModel */,
 				3BC9ECDE295C03A0004EFEEF /* Model */,
@@ -503,9 +494,10 @@
 				3B6E292A298F5ACA00A90449 /* PopUps */,
 				3B8629F2296BF3720077DB92 /* Onboarding */,
 				3BC9ED01295ED40B004EFEEF /* TabBarViews */,
-				3BC9ECE3295C06A5004EFEEF /* PrimaryHurdButton.swift */,
 				3BC9ED16295FF829004EFEEF /* HurdSlidingTabView.swift */,
 				3B5B86932A70B48200569F89 /* TripComponentView.swift */,
+				3B4F6AB22A998A23003699ED /* UpdatePasswordView.swift */,
+				3B4F6AB42A99D5D6003699ED /* UpdateEmailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -554,7 +546,6 @@
 			isa = PBXGroup;
 			children = (
 				3BC9ED02295ED420004EFEEF /* DiscoveryView.swift */,
-				3BC9ED04295ED42C004EFEEF /* SearchView.swift */,
 				3BC9ED06295ED43F004EFEEF /* TripView.swift */,
 				3BC9ED0A295ED472004EFEEF /* ProfileView.swift */,
 			);
@@ -638,6 +629,8 @@
 				3B4EB274297A66C7008C26EF /* Kingfisher */,
 				3B5110F52A5FA538004DFD47 /* BranchSDK */,
 				3B0093C82A6205610021D5C2 /* FirebaseMessaging */,
+				3B4F6AAA2A985568003699ED /* GoogleSignIn */,
+				3B4F6AAC2A985568003699ED /* GoogleSignInSwift */,
 			);
 			productName = Hurd;
 			productReference = 3BC9ECCC295C0372004EFEEF /* HurdTravel.app */;
@@ -700,6 +693,7 @@
 				3B4EB26E2979133B008C26EF /* XCRemoteSwiftPackageReference "PopupView" */,
 				3B4EB273297A66C7008C26EF /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				3B5110F42A5FA538004DFD47 /* XCRemoteSwiftPackageReference "ios-branch-sdk-spm" */,
+				3B4F6AA92A985568003699ED /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = 3BC9ECCD295C0372004EFEEF /* Products */;
 			projectDirPath = "";
@@ -728,7 +722,6 @@
 				3B0093CB2A621DA40021D5C2 /* Hurdtravel-info.plist in Resources */,
 				3BC9ECD7295C0373004EFEEF /* Preview Assets.xcassets in Resources */,
 				3BCAC2D929C5889C0007EE57 /* Assets.xcassets in Resources */,
-				3B530C9F29623318002C272B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -763,13 +756,10 @@
 				3B7AD1F72A6A39C800FBEBCA /* HurdAdminView.swift in Sources */,
 				3BE06D242A90735900A7D61F /* String+Extensions.swift in Sources */,
 				3B6E292E2990BE2300A90449 /* TripDateView.swift in Sources */,
-				3BC9ED05295ED42C004EFEEF /* SearchView.swift in Sources */,
 				3BC9ED17295FF829004EFEEF /* HurdSlidingTabView.swift in Sources */,
 				3BE06D202A90150800A7D61F /* SigninOptionsView.swift in Sources */,
-				3BC9ECFC295D79F3004EFEEF /* HurdSignInView.swift in Sources */,
 				3B7AD1F52A6A311500FBEBCA /* HurdMemberView.swift in Sources */,
 				3B8629FA296E604A0077DB92 /* User.swift in Sources */,
-				3BC9ECF4295D56EE004EFEEF /* HurdSignUpView.swift in Sources */,
 				3BC9ECF0295D4223004EFEEF /* HurdPasswordTextField.swift in Sources */,
 				3B4BCCBF2A5B620B002ED2E3 /* Hurdtravel_Widget.intentdefinition in Sources */,
 				3B5C31BC2972957B001354E6 /* TripDetailViewModel.swift in Sources */,
@@ -777,7 +767,6 @@
 				3B4EB272297A2AA8008C26EF /* AddNoteView.swift in Sources */,
 				3B603F152975B00A00E01D99 /* TripsViewModel.swift in Sources */,
 				3B7A93CB2A6DA9AB00DE3589 /* HurdManagementView.swift in Sources */,
-				3BC9ECE4295C06A5004EFEEF /* PrimaryHurdButton.swift in Sources */,
 				3B6E292C298F5AED00A90449 /* SavePopUp.swift in Sources */,
 				3B3F682C29C559B700FBC7B6 /* AdaptsToKeyboard.swift in Sources */,
 				3B4F6AA32A91C082003699ED /* LoginView.swift in Sources */,
@@ -787,7 +776,6 @@
 				3B7A93D02A6F784100DE3589 /* AddTripFormView.swift in Sources */,
 				3B5C31B42970E4A8001354E6 /* AddTripFormViewModel.swift in Sources */,
 				3B7AD1F32A678C6A00FBEBCA /* Router.swift in Sources */,
-				3B8629F4296CEE4C0077DB92 /* OnboardingSliderView.swift in Sources */,
 				3B0B26252A862CE40031696A /* BroadcastView.swift in Sources */,
 				3BC9ED12295FB2F6004EFEEF /* TripDetailViewModelOLD.swift in Sources */,
 				3B8629F8296D48600077DB92 /* OnboardingProfileInfoViewModel.swift in Sources */,
@@ -796,18 +784,19 @@
 				3B823FC1299F36CB00639D04 /* TripSettingsViewModel.swift in Sources */,
 				3BC9ECD0295C0372004EFEEF /* HurdApp.swift in Sources */,
 				3B5C31BE29736965001354E6 /* ProfileViewModel.swift in Sources */,
+				3B4F6AB52A99D5D6003699ED /* UpdateEmailView.swift in Sources */,
 				3B5B86982A7D7BE900569F89 /* RichLinkView.swift in Sources */,
 				3BC9ECE2295C0464004EFEEF /* Color+Extensions.swift in Sources */,
 				3BC9ED07295ED43F004EFEEF /* TripView.swift in Sources */,
 				3B4F6AA52A91C68E003699ED /* LandingView.swift in Sources */,
 				3B530CCE2967E942002C272B /* AuthCredentials.swift in Sources */,
 				3B5E1C3E29AB3B2B008E8831 /* NoTripView.swift in Sources */,
+				3B4F6AB32A998A23003699ED /* UpdatePasswordView.swift in Sources */,
 				3B530CC92965305F002C272B /* AuthenticationViewModel.swift in Sources */,
 				3B7A93C72A6CEB6100DE3589 /* HurdPreviewView.swift in Sources */,
 				3B7A93CE2A6E171C00DE3589 /* TripDetailView.swift in Sources */,
 				3B3F682629C41BA600FBC7B6 /* PhoneNumberFormatter.swift in Sources */,
 				3B530CC7296237D2002C272B /* AuthenticationMethods.swift in Sources */,
-				3BC9ECF2295D49DC004EFEEF /* HurdLandingView.swift in Sources */,
 				3B3F682A29C556D600FBC7B6 /* Notifications+Extensions.swift in Sources */,
 				3B6E29302991F7C500A90449 /* UnSplashResponseModel.swift in Sources */,
 				3B5BED2929FE32EF0028C793 /* ImagePicker.swift in Sources */,
@@ -1228,6 +1217,14 @@
 				kind = branch;
 			};
 		};
+		3B4F6AA92A985568003699ED /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		3B5110F42A5FA538004DFD47 /* XCRemoteSwiftPackageReference "ios-branch-sdk-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/BranchMetrics/ios-branch-sdk-spm";
@@ -1279,6 +1276,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3B4EB273297A66C7008C26EF /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		3B4F6AAA2A985568003699ED /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B4F6AA92A985568003699ED /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		3B4F6AAC2A985568003699ED /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B4F6AA92A985568003699ED /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 		3B5110F52A5FA538004DFD47 /* BranchSDK */ = {
 			isa = XCSwiftPackageProductDependency;

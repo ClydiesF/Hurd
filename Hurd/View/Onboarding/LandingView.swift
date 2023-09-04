@@ -8,57 +8,65 @@
 import SwiftUI
 
 struct LandingView: View {
+    @State private var showSignInOptions = false
     @State var currentIndex: Int = 0
     private let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     
     var body: some View {
-        VStack {
-            Spacer()
-            
-            Image("hurdLogo")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 80)
-            
-            Text("Hurd")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .foregroundStyle(
-                      LinearGradient(
-                        colors: [Color(hex: "099773"), Color(hex: "43b692")],
-                          startPoint: .leading,
-                          endPoint: .trailing
+        NavigationStack {
+            VStack {
+                Spacer()
+                
+                Image("hurdLogo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 80)
+                
+                Text("Hurd")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundStyle(
+                          LinearGradient(
+                            colors: [Color(hex: "099773"), Color(hex: "43b692")],
+                              startPoint: .leading,
+                              endPoint: .trailing
+                          )
                       )
-                  )
-            
-            TabView(selection: $currentIndex) {
-                TabViewInfoCard(imageName: "landingPageImage")
-                TabViewInfoCard(imageName: "mockAvatarImage")
-                TabViewInfoCard(imageName: "mockbackground")
-            }
-            .frame(height: 500)
-            .tabViewStyle(.page(indexDisplayMode: .always))
-            .onReceive(timer, perform: { _ in
-                        withAnimation {
-                            let index = currentIndex < 3 ? currentIndex + 1 : 0
-                            currentIndex = index
-                        }
+                
+                TabView(selection: $currentIndex) {
+                    TabViewInfoCard(imageName: "landingPageImage")
+                    TabViewInfoCard(imageName: "mockAvatarImage")
+                    TabViewInfoCard(imageName: "mockbackground")
+                }
+                .frame(height: 500)
+                .tabViewStyle(.page(indexDisplayMode: .always))
+                .onReceive(timer, perform: { _ in
+                            withAnimation {
+                                let index = currentIndex < 3 ? currentIndex + 1 : 0
+                                currentIndex = index
+                            }
+                        })
+                
+                    Button(action: { showSignInOptions = true }, label: {
+                        Text("Start")
+                                  .frame(height: 40)
+                                  .foregroundColor(.white)
+                                  .frame(maxWidth: .infinity)
+                          .padding()
+                          .background(RoundedRectangle(cornerRadius: 30).fill(LinearGradient(
+                            colors:[Color(hex: "099773"), Color(hex: "43b692")],
+                                startPoint: .leading,
+                                endPoint: .trailing
+                            )))
                     })
-            
-            Button(action: {print("button submitted")}, label: {
-                Text("Start")
-                          .frame(height: 40)
-                          .foregroundColor(.white)
-                          .frame(maxWidth: .infinity)
-                  .padding()
-                  .background(RoundedRectangle(cornerRadius: 30).fill(LinearGradient(
-                    colors:[Color(hex: "099773"), Color(hex: "43b692")],
-                        startPoint: .leading,
-                        endPoint: .trailing
-                    )))
+                
+            }
+            .navigationDestination(isPresented: $showSignInOptions, destination: {
+                SigninOptionsView()
             })
+            .padding(.horizontal, Spacing.sixteen)
         }
-        .padding(.horizontal, Spacing.sixteen)
+       
     }
 }
 

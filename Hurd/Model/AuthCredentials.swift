@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AuthCredential {
-    let email: String
-    let password: String
-}
+//struct AuthCredential {
+//    let email: String
+//    let password: String
+//}

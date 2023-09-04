@@ -27,157 +27,19 @@ struct DiscoveryView: View {
                     Button("Change Email") {
                         presentChangeEmailSheet = true
                     }.sheet(isPresented: $presentChangeEmailSheet) {
-                        VStack(alignment: .leading) {
-                            Group {
-                                Text("Update Email")
-                                    .font(.title3)
-                                    .fontWeight(.heavy)
-                                    .padding(.bottom, Spacing.twentyfour)
-                                
-                                // old password
-                                Text("Enter your Password")
-                                    .fontWeight(.semibold)
-                                HurdPasswordTextField(placeholderText: "Old Password", text: $vm.password, color: $vm.emailTFBorderColor)
-                                
-                                Divider()
-                                    .padding()
-                                
-                                // new password
-                                Text("New email")
-                                    .fontWeight(.semibold)
-                                HurdTextField(placeholderText: "New email", text: $vm.newEmail, color: $vm.emailTFBorderColor)
-                                
-                                // confirm new password
-                                Text("Confirm Email")
-                                    .fontWeight(.semibold)
-                                HurdTextField(placeholderText: "Confirm Email", text: $vm.newConfirmEmail, color: $vm.emailTFBorderColor)
-                                
-                                
-                                Text(vm.reauthenticatedStatusMsg)
-                                    .font(.caption)
-                                    .padding(.vertical, Spacing.twentyfour)
-                                
-                                Button {
-                                    vm.performSensitiveAction(for: .changeEmail)
-                                } label: {
-                                    Text("Update Email")
-                                        .foregroundColor(.white)
-                                }
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                                .background(Capsule().fill(Color.bottleGreen))
-                            }
-                            
-                            Spacer()
-                        }
-                        .padding()
-                        .padding(.top, Spacing.sixteen)
-                        .presentationDetents([.large])
-                        .presentationDragIndicator(.visible)
-                        .onAppear {
-                            vm.reauthenticatedStatusMsg = ""
-                            vm.password = ""
-                            vm.newEmail = ""
-                            vm.newConfirmEmail = ""
-                        }
+                        UpdateEmailView()
                     }
                     
                     Button("Change Password") {
                         presentChangePasswordSheet = true
                     }.sheet(isPresented: $presentChangePasswordSheet) {
-                        VStack(alignment: .leading) {
-                            Group {
-                                Text("Update Password")
-                                    .font(.title3)
-                                    .fontWeight(.heavy)
-                                    .padding(.bottom, Spacing.twentyfour)
-                                
-                                // old password
-                                Text("Current Password")
-                                    .fontWeight(.semibold)
-                                HurdPasswordTextField(placeholderText: "Old Password", text: $vm.password, color: $vm.emailTFBorderColor)
-                                
-                                Divider()
-                                    .padding()
-                                
-                                // new password
-                                Text("New Password")
-                                    .fontWeight(.semibold)
-                                HurdPasswordTextField(placeholderText: "New Password", text: $vm.newPassword, color: $vm.emailTFBorderColor)
-                                
-                                // confirm new password
-                                Text("Confirm new Password")
-                                    .fontWeight(.semibold)
-                                HurdPasswordTextField(placeholderText: "Confirm Password", text: $vm.newConfirmedPassword, color: $vm.emailTFBorderColor)
-                                
-                                
-                                Text(vm.reauthenticatedStatusMsg)
-                                    .font(.caption)
-                                    .padding(.vertical, Spacing.twentyfour)
-                                
-                                Button {
-                                    vm.performSensitiveAction(for: .changePassword)
-                                } label: {
-                                    Text("Update Password")
-                                        .foregroundColor(.white)
-                                }
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                                .background(Capsule().fill(Color.bottleGreen))
-                            }
-                            
-                            Spacer()
-                        }
-                        .padding()
-                        .padding(.top, Spacing.sixteen)
-                        .presentationDetents([.large])
-                        .presentationDragIndicator(.visible)
-                        .onAppear {
-                            vm.reauthenticatedStatusMsg = ""
-                            vm.newPassword = ""
-                            vm.password = ""
-                            vm.newConfirmedPassword = ""
-                        }
+                        UpdatePasswordView()
                     }
                     
                     Button("Sign out") {
                         signoutSheet = true
                     }.sheet(isPresented: $signoutSheet) {
-                        VStack(alignment: .leading) {
-                            Text("Sign Out")
-                                .font(.title3)
-                                .fontWeight(.heavy)
-                                .padding(.bottom, Spacing.sixteen)
-                            
-                            Text("Are you sure you want to Sign out?")
-                                
-                            HStack {
-                                Button {
-                                    signoutSheet = false
-                                } label: {
-                                    Text("Cancel")
-                                        .foregroundColor(.red)
-                                }
-                                .padding()
-                                .frame(maxWidth: .infinity)
-                                .background(Capsule().stroke(Color.red, lineWidth: 2))
-                                
-                                Button {
-                                    vm.signout()
-                                } label: {
-                                    Text("Sign Out")
-                                        .foregroundColor(.white)
-                                }
-                                .padding()
-                                .frame(maxWidth: .infinity)
-                                .background(Capsule().fill(Color.bottleGreen))
-
-                            }
-                            Spacer()
-                        }
-                        .padding()
-                        .presentationDetents([.height(200)])
-                        .presentationDragIndicator(.visible)
+                        SignOutConfirmationView(vm: vm, signoutSheet: $signoutSheet)
                     }
                 } header: {
                     Text("Account Management")
@@ -189,40 +51,7 @@ struct DiscoveryView: View {
                     presentDeleteAccountSheet = true
                   
                 }.sheet(isPresented: $presentDeleteAccountSheet) {
-                    VStack(alignment: .leading) {
-                        Text("Delete Account")
-                            .font(.title3)
-                            .fontWeight(.semibold)
-                            .padding(.bottom, Spacing.sixteen)
-                        
-                        Text("Please enter new password")
-                        
-                        HurdTextField(placeholderText: "Re-enter Password", text: $vm.newPassword, color: $vm.emailTFBorderColor)
-                        
-                        Text(vm.reauthenticatedStatusMsg)
-                            .font(.caption)
-                            .foregroundColor(Color.gray.opacity(0.3))
-                            .padding(.vertical, Spacing.twentyfour)
-                        
-                        Button {
-                            vm.performSensitiveAction(for: .deleteAccount)
-                        } label: {
-                            Text("Delete Account")
-                                .foregroundColor(.white)
-                        }
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Capsule().fill(Color.bottleGreen))
-
-                        Spacer()
-                    }
-                    .padding()
-                    .presentationDetents([.medium, .large])
-                    .presentationDragIndicator(.visible)
-                    .onAppear {
-                        vm.reauthenticatedStatusMsg = ""
-                        vm.newPassword = ""
-                    }
+                    DeleteAccountView()
                 }
                 
                 Section {
@@ -234,11 +63,135 @@ struct DiscoveryView: View {
                 }
             }
         }
-    }// BODY
+    }
 }
 
 struct DiscoveryView_Previews: PreviewProvider {
     static var previews: some View {
         DiscoveryView()
+    }
+}
+
+struct SignOutConfirmationView: View {
+    var vm: AuthenticationViewModel
+    @Binding var signoutSheet: Bool
+    
+    var body: some View {
+        VStack() {
+            Text("Sign Out")
+                .font(.title3)
+                .fontWeight(.heavy)
+                .padding(.bottom, Spacing.eight)
+            
+            Text("Are you sure you want to Sign out?")
+                .foregroundColor(.gray)
+                .padding(.bottom, Spacing.eight)
+            
+            HStack {
+                
+                Button(action: { signoutSheet = false}, label: {
+                    Text("Cancel")
+                              .frame(height: 40)
+                              .foregroundColor(Color.gray.opacity(0.4))
+                              .frame(maxWidth: .infinity)
+                      .padding()
+                      .background(RoundedRectangle(cornerRadius: 30).stroke(Color.gray.opacity(0.4),lineWidth: 1.0))
+                })
+                
+                Spacer()
+                
+                Button(action: { vm.signout()}, label: {
+                    Text("Sign Out")
+                              .frame(height: 40)
+                              .foregroundColor(.white)
+                              .frame(maxWidth: .infinity)
+                      .padding()
+                      .background(RoundedRectangle(cornerRadius: 30).fill(LinearGradient(
+                        colors: [Color(hex: "099773"), Color(hex: "43b692")],
+                            startPoint: .leading,
+                            endPoint: .trailing
+                        )))
+                })
+                
+            }
+        }
+        .padding()
+        .presentationDetents([.height(200)])
+        .presentationDragIndicator(.visible)
+    }
+}
+
+struct DeleteAccountView: View {
+    @EnvironmentObject var vm: AuthenticationViewModel
+    
+    var body: some View {
+        VStack {
+            Text("Delete Account")
+                .font(.title3)
+                .fontWeight(.semibold)
+                .padding(.bottom, Spacing.sixteen)
+            
+            Text("Please enter new password")
+                .foregroundColor(.gray.opacity(0.6))
+            
+            
+            if vm.showConfirmPassword {
+                TextField("Re-enter Password", text: $vm.confirmPassword)
+                    .textFieldStyle(BorderedStyle(focused: false))
+                    .overlay {
+                        HStack {
+                            Spacer()
+                            Image(systemName: "eye")
+                                .onTapGesture {
+                                    print("Button Tapped")
+                                    vm.showConfirmPassword.toggle()
+                                }
+                                .padding()
+                        }
+                    }
+            } else {
+                SecureField("Re-enter Password", text: $vm.confirmPassword)
+                    .textFieldStyle(BorderedStyle(focused: false))
+                    .overlay {
+                        HStack {
+                            Spacer()
+                            Image(systemName: "eye.slash")
+                                .onTapGesture {
+                                    print("Button Tapped")
+                                    vm.showConfirmPassword.toggle()
+                                }
+                                .padding()
+                        }
+                    }
+            }
+            
+            Text(vm.reauthenticatedStatusMsg)
+                .font(.caption)
+                .foregroundColor(Color.gray.opacity(0.8))
+                .padding(.vertical, Spacing.twentyfour)
+            
+            Button(action: {vm.performSensitiveAction(for: .deleteAccount)}, label: {
+                Text("Delete Account")
+                          .frame(height: 40)
+                          .foregroundColor(.white)
+                          .frame(maxWidth: .infinity)
+                  .padding()
+                  .background(RoundedRectangle(cornerRadius: 30).fill(LinearGradient(
+                    colors: vm.confirmPassword != "" ? [Color(hex: "099773"), Color(hex: "43b692")] : [Color.gray.opacity(0.4)],
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    )))
+            })
+            .animation(.easeIn(duration: 0.4), value: vm.allFieldsValid)
+            
+            Spacer()
+        }
+        .padding()
+        .presentationDetents([.medium, .large])
+        .presentationDragIndicator(.visible)
+        .onAppear {
+            vm.reauthenticatedStatusMsg = ""
+            vm.newPassword = ""
+        }
     }
 }

@@ -9,6 +9,7 @@ import Foundation
 import Firebase
 import SwiftUI
 import FirebaseFirestoreSwift
+import AuthenticationServices
 import Combine
 
 enum signInType {
@@ -57,17 +58,17 @@ enum ValidationType {
     var label: String {
         switch self {
         case .isNotEmpty:
-            return "Feild not empty"
+            return "Field not empty"
         case .minCharacters(let min):
-            return "Meets Char Limit \(min)"
+            return "Meets char limit \(min)"
         case .hasSymbols:
-            return "Has Sepcial Symbol"
+            return "Has special symbol"
         case .hasUppercasedLetters:
-            return "Has uppercased Letter"
+            return "Has uppercased letter"
         case .isValidEmail:
-            return "Is Valid Email"
+            return "Is valid email"
         case .passwordsMatch:
-            return "Passwords Match"
+            return "Passwords match"
         }
     }
 }
@@ -89,32 +90,48 @@ struct Validation: Identifiable, Equatable {
         self.state = validationType.fulfills(string: string) ? .success : .failure
     }
 }
+enum SensitiveActionType {
+    case deleteAccount
+    case changePassword
+    case changeEmail
+}
+
 
 class AuthenticationViewModel: ObservableObject {
+    @Environment(\.authorizationController) private var authorizationController
     
     enum AuthState {
         case signedOut
         case signedIn
     }
    
-    enum SensitiveActionType {
-        case deleteAccount
-        case changePassword
-        case changeEmail
-    }
-    
+
     @Published var email: String = ""
     @Published var newEmail: String = ""
     @Published var newConfirmEmail: String = ""
-    @Published var showPassword: Bool = false
-    @Published var showConfirmPasword: Bool = false
     
+    @Published var password: String = ""
+    @Published var newPassword: String = ""
+    @Published var confirmPassword: String = ""
+
+    
+    // MARK: toggle between show and hide states
+    @Published var showPassword: Bool = false
+    @Published var showNewPassword: Bool = false
+    @Published var showConfirmPassword: Bool = false
+
     
     @Published var passwordValidations: [Validation] = []
+    @Published var newPasswordValidations: [Validation] = []
+    
+    
+    @Published var newPasswordConfirmValidations: [Validation] = []
     @Published var confirmPasswordValidations: [Validation] = []
+    
     @Published var emailValidations: [Validation] = []
     @Published var isValid: Bool = false
-    private var ecancellableSet: Set<AnyCancellable> = []
+    
+     var ecancellableSet: Set<AnyCancellable> = []
     private var pcancellableSet: Set<AnyCancellable> = []
     private var cpcancellableSet: Set<AnyCancellable> = []
     
@@ -133,11 +150,23 @@ class AuthenticationViewModel: ObservableObject {
         return isValid
     }
     
+    var changePasswordsAllValid: Bool {
+        var isValid = true
+        
+        let allValidations = newPasswordValidations + newPasswordValidations
+        
+        for val in allValidations {
+            if val.state != .success {
+                isValid = false
+            }
+        }
+        
+        return isValid && !password.isEmpty
+    }
     
-    @Published var password: String = ""
-    @Published var confirmPassword: String = ""
-    @Published var newPassword: String = ""
-    @Published var newConfirmedPassword: String = ""
+    var changeEmailAllValid: Bool {
+        return !password.isEmpty && !newEmail.isEmpty && !newConfirmEmail.isEmpty
+    }
     
     @Published var emailTFBorderColor: Color = Color.gray
     @Published var passwordTFBorderColor: Color = Color.gray
@@ -174,10 +203,20 @@ class AuthenticationViewModel: ObservableObject {
             .receive(on: RunLoop.main)
             .assign(to: \.passwordValidations, on: self)
             .store(in: &ecancellableSet)
+        
+        newPasswordPublisher
+            .receive(on: RunLoop.main)
+            .assign(to: \.newPasswordValidations, on: self)
+            .store(in: &ecancellableSet)
 
         confirmPasswordPublisher
             .receive(on: RunLoop.main)
             .assign(to: \.confirmPasswordValidations, on: self)
+            .store(in: &ecancellableSet)
+        
+        confirmPasswordPublisher
+            .receive(on: RunLoop.main)
+            .assign(to: \.newPasswordConfirmValidations, on: self)
             .store(in: &ecancellableSet)
         
     }
@@ -219,13 +258,50 @@ class AuthenticationViewModel: ObservableObject {
                 validations.append(Validation(string: confirmPassword,
                                               id: 4,
                                               field: .confirmPassword,
-                                              validationType: .passwordsMatch(password: self.password, confirmPassword: self.confirmPassword)))
+                                              validationType: .passwordsMatch(password: self.newPassword.isEmpty ? self.password : self.newPassword, confirmPassword: self.confirmPassword)))
                 return validations
             }
             .eraseToAnyPublisher()
     }
     
-    private var passwordPublisher: AnyPublisher<[Validation], Never> {
+    private var newPasswordPublisher: AnyPublisher<[Validation], Never> {
+        $newPassword
+            .map { password in
+                print("DEBUG: newPass-- \(password)")
+
+                var validations: [Validation] = []
+                validations.append(Validation(string: password,
+                                              id: 0,
+                                              field: .password,
+                                              validationType: .isNotEmpty))
+
+                validations.append(Validation(string: password,
+                                              id: 1,
+                                              field: .password,
+                                              validationType: .minCharacters(min: 8)))
+
+                validations.append(Validation(string: password,
+                                              id: 2,
+                                              field: .password,
+                                              validationType: .hasSymbols))
+
+                validations.append(Validation(string: password,
+                                              id: 3,
+                                              field: .password,
+                                              validationType: .hasUppercasedLetters))
+                
+                self.newPasswordConfirmValidations = [Validation(string: password,
+                                              id: 4,
+                                              field: .confirmPassword,
+                                              validationType: .passwordsMatch(password: self.newPassword, confirmPassword: self.confirmPassword))]
+                
+                
+                return validations
+            }
+            .eraseToAnyPublisher()
+    }
+    
+     var passwordPublisher: AnyPublisher<[Validation], Never> {
         $password
             .map { password in
                 print("DEBUG: \(password)")
@@ -482,7 +558,7 @@ class AuthenticationViewModel: ObservableObject {
     
     func changePassword() {
         
-        if newPassword != newConfirmedPassword {
+        if newPassword != confirmPassword {
             self.reauthenticatedStatusMsg = "Password and new Password must match"
             return
         }
@@ -531,8 +607,47 @@ class AuthenticationViewModel: ObservableObject {
     
     func performSensitiveAction(for actionType: SensitiveActionType) {
         
-        let credential = EmailAuthProvider.credential(withEmail: (currentUser?.email)!, password: password)
-        
+        if let providerData = currentUser?.providerData {
+            for userInfo in providerData {
+                switch userInfo.providerID {
+                case "google.com":
+                    print("Google Login") //google.com ?? apple.com
+                    //isVerifiededUser = true
+                case "apple.com":
+                    print("Apple.com")
+                    let appleIDProvider = ASAuthorizationAppleIDProvider()
+                      let request = appleIDProvider.createRequest()
+                    request.requestedScopes = [.fullName, .email]
+                    Task {
+                        let result = try? await authorizationController.performRequest(request)
+                        switch result {
+                        case .appleID(let aSAuthorizationAppleIDCredential):
+                            guard let appleIDToken = aSAuthorizationAppleIDCredential.identityToken else {
+                                print("Unable to fetch identity token")
+                                return
+                            }
+                            guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
+                                print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
+                                return
+                            }
+                     
+                            let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: idTokenString, rawNonce: randomNonceString())
+                            perform(action: actionType, with: credential)
+                        default:
+                            print("We dont care about anything else")
+                        }
+                        
+                    }
+                default:
+                    print("provider is \(userInfo.providerID)")
+                    let credential = EmailAuthProvider.credential(withEmail: (currentUser?.email)!, password: password)
+                    perform(action: actionType, with: credential)
+                }
+            }
+        }
+    }
+    
+    fileprivate func perform(action: SensitiveActionType, with credential: AuthCredential ) {
         currentUser?.reauthenticate(with: credential) { authResult, err in
             if let err = err {
                 // An error happened
@@ -541,7 +656,7 @@ class AuthenticationViewModel: ObservableObject {
             } else {
                 print("DEBUG: Success User authenticated")
                 
-                switch actionType {
+                switch action {
                 case .deleteAccount:
                     self.deleteAccount()
                 case .changePassword:
@@ -553,3 +668,28 @@ class AuthenticationViewModel: ObservableObject {
         }
     }
 }
+
+
+
+private func randomNonceString(length: Int = 32) -> String {
+  precondition(length > 0)
+  var randomBytes = [UInt8](repeating: 0, count: length)
+  let errorCode = SecRandomCopyBytes(kSecRandomDefault, randomBytes.count, &randomBytes)
+  if errorCode != errSecSuccess {
+    fatalError(
+      "Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)"
+    )
+  }
+
+  let charset: [Character] =
+    Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
+
+  let nonce = randomBytes.map { byte in
+    // Pick a random character from the set, wrapping around if needed.
+    charset[Int(byte) % charset.count]
+  }
+
+  return String(nonce)
+}
+
+    

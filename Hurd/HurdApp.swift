@@ -18,26 +18,15 @@ struct HurdApp: App {
     
     var body: some Scene {
         WindowGroup {
-//            switch authVM.authState {
-//            case .signedIn:
-//                if let user = authVM.user {
-//                    if user.isFinishedOnboarding {
-//                        ContentView()
-//                            .environmentObject(authVM)
-//                            .environmentObject(router)
-//                    } else {
-//                        OnboardingSliderView()
-//                            .environmentObject(authVM)
-//                            .environmentObject(router)
-//                    }
-//                }
-//            case .signedOut:
-//                HurdLandingView()
-//                    .environmentObject(authVM)
-//            }
-            
-            ContentView()
-                .environmentObject(authVM)
+            switch authVM.authState {
+            case .signedIn:
+                ContentView()
+                    .environmentObject(authVM)
+                    .environmentObject(router)
+            case .signedOut:
+                LandingView()
+                    .environmentObject(authVM)
+            }
         }
     }
 }
