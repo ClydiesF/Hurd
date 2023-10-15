@@ -13,14 +13,14 @@ struct LandingView: View {
     private let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     
     var body: some View {
-        NavigationStack {
+        NavigationView {
             VStack {
                 Spacer()
                 
                 Image("hurdLogo")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 80)
+                    .frame(width: 50)
                 
                 Text("Hurd")
                     .font(.largeTitle)
@@ -40,33 +40,30 @@ struct LandingView: View {
                 }
                 .frame(height: 500)
                 .tabViewStyle(.page(indexDisplayMode: .always))
-                .onReceive(timer, perform: { _ in
-                            withAnimation {
-                                let index = currentIndex < 3 ? currentIndex + 1 : 0
-                                currentIndex = index
-                            }
-                        })
+//                .onReceive(timer, perform: { _ in
+//                            withAnimation {
+//                                let index = currentIndex < 3 ? currentIndex + 1 : 0
+//                                currentIndex = index
+//                            }
+//                        })
                 
-                    Button(action: { showSignInOptions = true }, label: {
-                        Text("Start")
-                                  .frame(height: 40)
-                                  .foregroundColor(.white)
-                                  .frame(maxWidth: .infinity)
-                          .padding()
-                          .background(RoundedRectangle(cornerRadius: 30).fill(LinearGradient(
-                            colors:[Color(hex: "099773"), Color(hex: "43b692")],
-                                startPoint: .leading,
-                                endPoint: .trailing
-                            )))
-                    })
-                
+                NavigationLink {
+                    SigninOptionsView()
+                } label: {
+                    Text("Start")
+                              .frame(height: 40)
+                              .foregroundColor(.white)
+                              .frame(maxWidth: .infinity)
+                      .padding()
+                      .background(RoundedRectangle(cornerRadius: 30).fill(LinearGradient(
+                        colors:[Color(hex: "099773"), Color(hex: "43b692")],
+                            startPoint: .leading,
+                            endPoint: .trailing
+                        )))
+                }
             }
-            .navigationDestination(isPresented: $showSignInOptions, destination: {
-                SigninOptionsView()
-            })
             .padding(.horizontal, Spacing.sixteen)
         }
-       
     }
 }
 
@@ -87,6 +84,8 @@ struct TabViewInfoCard: View {
             
             Text("Democratuze the planning process")
                 .font(.title)
+                .fontWeight(.bold)
+                .padding(.bottom, Spacing.twentyone)
             
             Text("This is so cool and its whty i love this all the things i do and i need it to tbe the main thing that i always do and its soo cool. i know it . ")
                 .foregroundColor(.gray)

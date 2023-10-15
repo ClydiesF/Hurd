@@ -74,12 +74,12 @@ class NetworkCalls {
     }
     
     func fetchMembers(of hurd:Hurd) async -> [User]? {
-        guard var arrayOfUserIds = hurd.members else { return nil }
+        guard let arrayOfUserIds = hurd.members else { return nil }
         print("DEBUG: Success \(arrayOfUserIds)")
         do {
             let snapshot = try await USER_REF.whereField("id", in: arrayOfUserIds).getDocuments()
             
-            var users = snapshot.documents.compactMap { doc in
+            let users = snapshot.documents.compactMap { doc in
                 let result = Result { try doc.data(as: User.self) }
                 
                 switch result {
@@ -89,13 +89,13 @@ class NetworkCalls {
         
                 case .failure(let err):
                     switch err {
-                    case DecodingError.typeMismatch(_, let context):
+                    case DecodingError.typeMismatch(_,_):
                         print("DEBUG: err getting docs- \(err.localizedDescription)")
-                    case DecodingError.valueNotFound(_, let context):
+                    case DecodingError.valueNotFound(_,_):
                         print("DEBUG: err getting docs- \(err.localizedDescription)")
-                    case DecodingError.keyNotFound(_, let context):
+                    case DecodingError.keyNotFound(_,_):
                         print("DEBUG: err getting docs- \(err.localizedDescription)")
-                    case DecodingError.dataCorrupted(let key):
+                    case DecodingError.dataCorrupted(_):
                         print("DEBUG: err getting docs- \(err.localizedDescription)")
                     default:
                         print("DEBUG: err getting docs- \(err.localizedDescription)")
