@@ -30,9 +30,6 @@ struct HurdMemberView: View {
             }
             
             Divider()
-            Text(user.bio)
-                .font(.system(size: 13))
-                .foregroundColor(.gray)
             
             HStack {
                 // Will use this later for achievements/ Roles in the hurd

@@ -72,14 +72,10 @@ struct ProfileView: View {
                         EditProfileView(vm: vm)
                     } label: {
                         Image(systemName: "square.and.pencil")
-                            .foregroundColor(.white)
+                            .foregroundColor(.black)
                     }}
             }
-    
         }
-
-        
-      
     }
 }
 
@@ -103,11 +99,11 @@ struct ScrollableInfoView: View {
                         .background(Capsule().fill(.gray.opacity(0.1)))
                 }
                 
-                
-                Label("Boston, MA", systemImage: "location.fill")
-                    .font(.system(size: 13))
-                    .padding(Spacing.eight)
-                    .background(Capsule().fill(.gray.opacity(0.1)))
+                // LOCATION ADD BACK IN LATER ON 
+//                Label("Boston, MA", systemImage: "location.fill")
+//                    .font(.system(size: 13))
+//                    .padding(Spacing.eight)
+//                    .background(Capsule().fill(.gray.opacity(0.1)))
                 
                 
                 if let email = vm.user.emailAddress {
@@ -136,7 +132,13 @@ struct ProfileInfoCardView: View {
                             .aspectRatio(contentMode: .fill)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                     }, placeholder: {
-                        ProgressView()
+                        
+                        Image("avatarimg")
+                            .resizable()
+                            .background(RoundedRectangle(cornerRadius: 10).fill(Color.white.opacity(0.8)))
+                            .frame(width: 80, height: 120)
+                            .aspectRatio(contentMode: .fit)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
                     })
                 
         

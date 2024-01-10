@@ -62,7 +62,7 @@ struct HurdFeedPreviewView: View {
                  print("New page: \(newValue)")
             }
             .onTapGesture {
-                print("DEBUG: tap and go to trip View page")
+                print("DEBUG/Users/clydiesfreeman/Hurd/Hurd/View/HurdViews/HurdManagementView.swift: tap and go to trip View page")
             }
             
             HStack {

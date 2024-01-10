@@ -154,7 +154,10 @@ struct SignUpView: View {
                     
                     Spacer()
                      
-                    Button(action: {print("button submitted")}, label: {
+                    Button(action: {
+                        print("button submitted")
+                        vm.signup()
+                    }, label: {
                         Text("Created my account")
                                   .frame(height: 40)
                                   .foregroundColor(.white)

@@ -376,7 +376,6 @@
 				3B5E1C3D29AB3B2B008E8831 /* NoTripView.swift */,
 				3B5C31B1296FD54A001354E6 /* AddTripFormView.swift */,
 				3B7A93CD2A6E171C00DE3589 /* TripDetailView.swift */,
-				3B4EB2662977B780008C26EF /* TripNotesView.swift */,
 				3B823FBE299F32AE00639D04 /* TripSettingsView.swift */,
 				3BC9ECFF295D7C2D004EFEEF /* TripPreviewView.swift */,
 				3B6E292D2990BE2300A90449 /* TripDateView.swift */,
@@ -391,6 +390,7 @@
 			isa = PBXGroup;
 			children = (
 				3B4EB271297A2AA8008C26EF /* AddNoteView.swift */,
+				3B4EB2662977B780008C26EF /* TripNotesView.swift */,
 				3B4EB2642977A8C9008C26EF /* NotesView.swift */,
 			);
 			path = NoteViews;

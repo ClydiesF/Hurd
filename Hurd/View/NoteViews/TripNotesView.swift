@@ -60,7 +60,8 @@ struct TripNotesView: View {
             }
         }
         .onAppear {
-          // vm.fetchNotes()
+            // REMOVE THIS TO GET PREVIEW TO WORK
+          //vm.fetchNotes()
         }
         .animation(.easeInOut, value: selection)
     }

@@ -42,13 +42,13 @@ struct User: Codable {
 extension User {
     static let mockUser1 = User(id: "1",createdAt: 33424332432, isFinishedOnboarding: true, emailAddress: "c.edward.freeman@gmail.com", phoneNumber: "617-233-1242", gender: "he/him", ethnicity: "Black/African - American", bio: "I just want to travel the world and do cool stuff becuase thats the weave and i really lvoer so much, come join me ", firstName: "Todd", lastName: "Trenton", profileImageUrl: "https://picsum.photos/200/300")
     
-    static let mockUser2 = User(id: "2",createdAt: 33424332432, isFinishedOnboarding: true, emailAddress: "c.edward.freeman@gmail.com", phoneNumber: "617-233-1242", gender: "I really like alot of ppl. that i liek to go over the same thing i want to get some money and i like more money than i have mow. lets go!", ethnicity: "Clyde", bio: "i think i like to go on long bike rides with my family and thats hwy i travel", firstName: "mockAvatarImage", lastName: "", profileImageUrl: "")
+    static let mockUser2 = User(id: "2",createdAt: 33424332432, isFinishedOnboarding: true, emailAddress: "c.edward.freeman@gmail.com", phoneNumber: "617-233-1242", gender: "I really like alot of ppl. that i liek to go over the same thing i want to get some money and i like more money than i have mow. lets go!", ethnicity: "Clyde", bio: "i think i like to go on long bike rides with my family and thats hwy i travel", firstName: "mockAvatarImage", lastName: "", profileImageUrl: "https://picsum.photos/200/300")
     
-    static let mockUser3 = User(id: "3",createdAt: 33424332432, isFinishedOnboarding: true, emailAddress: "c.edward.freeman@gmail.com", phoneNumber: "617-233-1242", gender: "I really like alot of ppl. that i liek to go over the same thing i want to get some money and i like more money than i have mow. lets go!", ethnicity: "Clyde", bio: "gsdklklsdgkl sdgklklsdgklsgd sdglkgsdklmgd dgskdgkd dkdkdd d dkdk dk dklldksksdg sdgl dgs", firstName: "mockAvatarImage",  lastName: "", profileImageUrl: "")
+    static let mockUser3 = User(id: "3",createdAt: 33424332432, isFinishedOnboarding: true, emailAddress: "c.edward.freeman@gmail.com", phoneNumber: "617-233-1242", gender: "I really like alot of ppl. that i liek to go over the same thing i want to get some money and i like more money than i have mow. lets go!", ethnicity: "Clyde", bio: "gsdklklsdgkl sdgklklsdgklsgd sdglkgsdklmgd dgskdgkd dkdkdd d dkdk dk dklldksksdg sdgl dgs", firstName: "mockAvatarImage",  lastName: "", profileImageUrl: "https://picsum.photos/200/300")
     
-    static let mockUser4 = User(id: "4",createdAt: 33424332432, isFinishedOnboarding: true, emailAddress: "c.edward.freeman@gmail.com", phoneNumber: "617-233-1242", gender: "I really like alot of ppl. that i liek to go over the same thing i want to get some money and i like more money than i have mow. lets go!", ethnicity: "Clyde", bio: "kldflnkdfgkl dfgkldfgk dfglkfdg kldfgkldfg klkdfg fkkfkdfg kldfkld sgklkl;sg sdgksksdkl sdgkksmklsdg sdgkl;gsd", firstName: "mockAvatarImage",  lastName: "", profileImageUrl: "")
+    static let mockUser4 = User(id: "4",createdAt: 33424332432, isFinishedOnboarding: true, emailAddress: "c.edward.freeman@gmail.com", phoneNumber: "617-233-1242", gender: "I really like alot of ppl. that i liek to go over the same thing i want to get some money and i like more money than i have mow. lets go!", ethnicity: "Clyde", bio: "kldflnkdfgkl dfgkldfgk dfglkfdg kldfgkldfg klkdfg fkkfkdfg kldfkld sgklkl;sg sdgksksdkl sdgkksmklsdg sdgkl;gsd", firstName: "mockAvatarImage",  lastName: "", profileImageUrl: "https://picsum.photos/200/300")
     
-    static let mockUser5 = User(id: "5",createdAt: 33424332432, isFinishedOnboarding: true, emailAddress: "c.edward.freeman@gmail.com", phoneNumber: "617-233-1242", gender: "I really like alot of ppl. that i liek to go over the same thing i want to get some money and i like more money than i have mow. lets go!", ethnicity: "Clyde", bio: "Freeman", firstName: "mockAvatarImage",  lastName: "", profileImageUrl: "")
+    static let mockUser5 = User(id: "5",createdAt: 33424332432, isFinishedOnboarding: true, emailAddress: "c.edward.freeman@gmail.com", phoneNumber: "617-233-1242", gender: "I really like alot of ppl. that i liek to go over the same thing i want to get some money and i like more money than i have mow. lets go!", ethnicity: "Clyde", bio: "Freeman", firstName: "mockAvatarImage",  lastName: "", profileImageUrl: "https://picsum.photos/200/300")
     
     var fullName: String {
         return "\(firstName) \(lastName)"
@@ -99,10 +99,12 @@ struct DateSuggestion: Codable {
 struct Hurd: Codable {
     @DocumentID var id: String?
     var name: String?
+    var description: String?
+    var isLocked: Bool = false
     var members: [String]?
     var organizer: String
     var hurdID: String?
-    var capacity: Int?
+    var capacity: Int = 5
 }
 
 struct Note: Codable, Hashable {
@@ -122,8 +124,10 @@ extension Note {
 
 
 extension Hurd {
-    
-    static let mockHurd = Hurd(id: "36365r6457623", name: "The Hooligans", members: ["","",""], organizer: "727812gy7812g", hurdID: nil, capacity: 5)
+    // MOCKS
+    static let mockHurd = Hurd(id: "36365r6457623", name: "The Hooligans", description: "This trip is for Pauls Bacherlor party. this will be a grrest time for him and were going to have a blast.", members: ["","",""], organizer: "727812gy7812g", hurdID: nil, capacity: 5)
+    static let mockHurdNoName = Hurd(id: "36365r6457623", members: [""], organizer: "727812gy7812g", hurdID: nil, capacity: 5)
+    static let mockHurdLocked = Hurd(id: "36365r6457623", name: "The Hooligans", isLocked: true, members: ["","",""], organizer: "727812gy7812g", hurdID: nil, capacity: 5)
     
     var hurdName: String {
         if let name  {
@@ -131,6 +135,14 @@ extension Hurd {
         }
         
         return id ?? ""
+    }
+    
+    var memberCount: Int {
+        if let members {
+            return members.count
+        }
+        
+        return 0
     }
 }
 

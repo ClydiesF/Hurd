@@ -96,6 +96,7 @@ struct TripDetailView: View {
                         vm.shouldShowBroadcastSheet = true
                     } label: {
                         Label("Broadcast", systemImage: "speaker.wave.2")
+                            .tint(.black)
                             .font(.system(size: 14))
                             .frame(height:33)
                             .padding(.vertical, 5)
@@ -107,6 +108,7 @@ struct TripDetailView: View {
                     }
                     
                     Label("Iteniarary", systemImage: "list.clipboard.fill")
+                        .tint(.black)
                         .font(.system(size: 14))
                         .frame(height:33)
                         .padding(5)
@@ -119,6 +121,7 @@ struct TripDetailView: View {
                     } label: {
                         HStack {
                             Label("Notes", systemImage: "note.text")
+                                .tint(.black)
                                 .font(.system(size: 14))
                             if !(vm.notes?.isEmpty ?? true), let noteCount = vm.notes?.count {
                                 Text("\(noteCount)")
@@ -134,16 +137,16 @@ struct TripDetailView: View {
                         .padding(5)
                         .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))
                     }
-                    
-                    
               
                     Label("Components", systemImage: "menucard")
+                        .tint(.black)
                         .font(.system(size: 14))
                         .frame(height:33)
                         .padding(5)
                         .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))
                     
                     Label("Budget", systemImage: "dollarsign")
+                        .tint(.black)
                         .font(.system(size: 14))
                         .frame(height:33)
                         .padding(5)
@@ -160,7 +163,10 @@ struct TripDetailView: View {
                 .foregroundColor(.gray)
                 .font(.system(size: 14))
             
-            HurdPreviewView(hurd: vm.hurd)
+      
+                HurdPreviewView(hurd: vm.hurd)
+            
+
             Spacer()
         }
         .padding(.horizontal, 16)
@@ -190,7 +196,7 @@ struct TripDetailView: View {
             
         }
         .onAppear {
-           //vm.fetchNotes()
+           vm.fetchNotes()
         }
         
     }

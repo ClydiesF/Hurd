@@ -32,11 +32,11 @@ struct TripPreviewView: View {
             
             VStack(alignment: .leading) {
                 VStack(alignment: .leading) {
-                    Text("Trip Name")
+                    Text(trip.tripName)
                         .font(.system(size: 15))
                         .fontWeight(.semibold)
                     
-                    Text("Location")
+                    Text(trip.tripDestination)
                         .font(.system(size: 13))
                         .foregroundColor(.gray)
                     
@@ -46,14 +46,14 @@ struct TripPreviewView: View {
                                 .font(.system(size: 13))
                                 .foregroundColor(.gray)
                             
-                            Text("8")
+                            Text(trip.TripDuration)
                                 .foregroundColor(.white)
                                 .fontWeight(.semibold)
                                 .font(.system(size: 13))
                                 .padding(8)
                                 .background(Circle().fill(.black.gradient))
                         }
-                       
+                        
                         Spacer()
                         Image(systemName: trip.iconName)
                             .foregroundColor(.white)
@@ -62,12 +62,9 @@ struct TripPreviewView: View {
                             .padding(8)
                             .background(Circle().fill(.black.gradient))
                     }
-            
-                        
-                    
                 }
                 .padding(10)
-                .background(RoundedRectangle(cornerRadius: 10).fill(.white.opacity(0.3)))
+                .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.1)))
  
             }
       
@@ -103,13 +100,3 @@ struct TripPreviewView: View {
                     .padding()
         }
     }
-    
-//        .grayscale(isPastTrip ? 1 : 0)
-//        .onAppear {
-//            if !isPastTrip {
-//                self.countDownString = countDownString(from: Date())
-//             _ = timer
-//            }
-//        }
-//
-//    }

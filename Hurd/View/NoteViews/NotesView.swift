@@ -58,12 +58,12 @@ struct NotesView: View {
         .padding(10)
         .background(RoundedRectangle(cornerRadius: 10).stroke(.gray, lineWidth: 1))
         .onAppear {
-//            let nc = NetworkCalls()
-//            Task {
-//               let author = await nc.fetchUser(with: note.authorID)
-//                guard let photo = author?.profileImageUrl else { return }
-//                self.photoUrl = photo
-//            }
+            let nc = NetworkCalls()
+            Task {
+               let author = await nc.fetchUser(with: note.authorID)
+                guard let photo = author?.profileImageUrl else { return }
+                self.photoUrl = photo
+            }
  
         }
         

@@ -79,7 +79,10 @@ struct LoginView: View {
                     }
                     .padding(10)
                     
-                    Button(action: {print("button submitted")}, label: {
+                    Button(action: {
+                        print("button submitted")
+                        vm.signin()
+                    }, label: {
                         Text("Login")
                             .frame(height: 40)
                             .foregroundColor(.white)

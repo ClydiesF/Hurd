@@ -16,117 +16,131 @@ struct HurdPreviewView: View {
     }
     
     var hurd: Hurd
+    @State var showHurdManagementView: Bool = false
     
     var body: some View {
-        VStack(spacing: Spacing.eight) {
-            // Top Stack
-            HStack {
-                Text(hurd.hurdName)
-                    .font(.system(size: 13))
-                    .fontWeight(.semibold)
-                    .padding(8)
-                    .background(RoundedRectangle(cornerRadius: 10).fill(.white.opacity(0.4)))
-                
-                Spacer()
-                
-                Image(systemName: "lock.fill")
-                    .font(.system(size: 13))
-                    .padding(8)
-                    .background(Circle().fill(.white.opacity(0.4)))
-                
-                Label("0 / 10", systemImage: "person.fill")
-                    .font(.system(size: 13))
-                    .padding(8)
-                    .background(RoundedRectangle(cornerRadius: 10).fill(.white.opacity(0.4)))
-                
-                
-                Menu {
-                    Text(Constants.inviteOptions)
-                    Button(Constants.inviteViaEmail, action: {})
-                    Button(Constants.inviteViaShareLink, action: {})
-                } label: {
-                    Image(systemName: "plus")
-                        .foregroundColor(.white)
+            VStack(spacing: Spacing.eight) {
+                // Top Stack
+                HStack {
+                    Text(hurd.hurdName)
+                        .font(.system(size: 13))
+                        .fontWeight(.semibold)
+                        .padding(8)
+                        .background(RoundedRectangle(cornerRadius: 10).fill(.white.opacity(0.4)))
+                    
+                    Spacer()
+                    
+                    Image(systemName: hurd.isLocked ? "lock.fill" : "lock.open.fill")
                         .font(.system(size: 13))
                         .padding(8)
-                        .background(Circle().fill(.black.opacity(0.7)))
-                }
-                .disabled(false)
-            }
-            // Member Stack
-            HStack {
-                AsyncImage(url: URL(string: "https://picsum.photos/200/300"), content: { image in
-                    image
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                        .aspectRatio(contentMode: .fit)
-                        .clipShape(Circle())
-                        .background(Circle().stroke(.white, lineWidth: 4))
-                }, placeholder: {
-                    ProgressView()
-                })
-                
-                HStack(spacing: -10) {
-                    ForEach(0..<4, id: \.self) { i in
-                        if i == 3 {
-                            Circle()
-                                .fill(i == 3 ? .black : Color.gray.opacity(0.2))
-                                .background(Circle().stroke(.white, lineWidth: 4))
-                                .frame(width: 30, height: 30)
-                                .overlay {
-                                    Text("+5")
-                                        .font(.system(size: 15))
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(.white)
-                                }
-                        } else {
-                            AsyncImage(url: URL(string: "https://picsum.photos/200/300"), content: { image in
-                                image
-                                    .resizable()
-                                    .frame(width: 30, height: 30)
-                                    .aspectRatio(contentMode: .fit)
-                                    .clipShape(Circle())
-                                    .background(Circle().stroke(.white, lineWidth: 4))
-                                
-                            }, placeholder: {
-                                ProgressView()
-                            })
-                        }
+                        .background(Circle().fill(.white.opacity(0.4)))
+                    
+                    Label("\(hurd.memberCount) / \(hurd.capacity)", systemImage: "person.fill")
+                        .font(.system(size: 13))
+                        .padding(8)
+                        .background(RoundedRectangle(cornerRadius: 10).fill(.white.opacity(0.4)))
+                    
+                    
+                    Menu {
+                        Text(Constants.inviteOptions)
+                        Button(Constants.inviteViaEmail, action: {})
+                        Button(Constants.inviteViaShareLink, action: {})
+                    } label: {
+                        Image(systemName: "plus")
+                            .foregroundColor(.white)
+                            .font(.system(size: 13))
+                            .padding(8)
+                            .background(Circle().fill(.black.opacity(0.7)))
                     }
+                    .disabled(false)
+                }
+                // Member Stack
+                HStack {
+                    AsyncImage(url: URL(string: "https://picsum.photos/200/300"), content: { image in
+                        image
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                            .aspectRatio(contentMode: .fit)
+                            .clipShape(Circle())
+                            .background(Circle().stroke(.white, lineWidth: 4))
+                    }, placeholder: {
+                        ProgressView()
+                    })
+                    
+                    HStack(spacing: -10) {
+                        ForEach(0..<4, id: \.self) { i in
+                            if i == 3 {
+                                Circle()
+                                    .fill(i == 3 ? .black : Color.gray.opacity(0.2))
+                                    .background(Circle().stroke(.white, lineWidth: 4))
+                                    .frame(width: 30, height: 30)
+                                    .overlay {
+                                        Text("+5")
+                                            .font(.system(size: 15))
+                                            .fontWeight(.semibold)
+                                            .foregroundColor(.white)
+                                    }
+                            } else {
+                                AsyncImage(url: URL(string: "https://picsum.photos/200/300"), content: { image in
+                                    image
+                                        .resizable()
+                                        .frame(width: 30, height: 30)
+                                        .aspectRatio(contentMode: .fit)
+                                        .clipShape(Circle())
+                                        .background(Circle().stroke(.white, lineWidth: 4))
+                                    
+                                }, placeholder: {
+                                    ProgressView()
+                                })
+                            }
+                        }
+                        
+                    }
+                    
+                    Spacer()
+                    
+                
+               
+                    Button("Manage") { self.showHurdManagementView.toggle()}
+                            .buttonStyle(.borderedProminent)
+                            .tint(.black)
+                    
+       
                     
                 }
                 
-                Spacer()
-                
-                Button("Manage") {}
-                    .buttonStyle(.borderedProminent)
-                    .tint(.black)
-                
-                
-                
+                if let description = hurd.description {
+                    HStack {
+                        Text(description)
+                            .font(.system(size: 13))
+                            .padding(10)
+                        
+                        Spacer()
+                    }
+                    .background(RoundedRectangle(cornerRadius: 10).fill(.white.opacity(0.4)))
+                }
             }
-            HStack {
-                Text("This hurd is all about going ton adventures and making it the best join us and tlets fo on the best awe inspsiring trips lets do it man!")
-                    .font(.system(size: 13))
-                    .padding(10)
-                
-                Spacer()
-                
-                
-                
+            .padding(10)
+            .background(RoundedRectangle(cornerRadius: 10).fill(.green.gradient.opacity(1)))
+            .navigationDestination(isPresented: $showHurdManagementView) {
+                HurdManagementView(hurd: hurd)
             }
-            .background(RoundedRectangle(cornerRadius: 10).fill(.white.opacity(0.4)))
-            
-        }
-        .padding(10)
-        .background(RoundedRectangle(cornerRadius: 10).fill(.green.gradient.opacity(1)))
+
     }
 }
 
 struct HurdPreviewView_Previews: PreviewProvider {
     static var previews: some View {
-        HurdPreviewView(hurd: Hurd.mockHurd)
-            .padding(15)
+        VStack {
+            HurdPreviewView(hurd: Hurd.mockHurd)
+                .padding(15)
+            
+            HurdPreviewView(hurd: Hurd.mockHurdLocked)
+                .padding(15)
+            
+            HurdPreviewView(hurd: Hurd.mockHurdNoName)
+                .padding(15)
+        }
     }
 }
 

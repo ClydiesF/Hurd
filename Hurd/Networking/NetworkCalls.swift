@@ -11,7 +11,6 @@ import FirebaseFirestoreSwift
 
 
 class NetworkCalls {
-    
     func fetchTrip(with id: String) async -> Trip? {
         do {
             let tripDoc = try await TRIP_REF.document(id).getDocument()

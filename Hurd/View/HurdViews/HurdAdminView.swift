@@ -20,10 +20,8 @@ struct HurdAdminView: View {
                               .cacheMemoryOnly()
                               .fade(duration: 0.25)
                               .resizable()
-                              .frame(width: 30,height: 30)
-                              .clipShape(Circle())
-                //Spacer()
-                // Use this for  admine role. 
+                              .frame(width: 90, height: 90)
+                              .clipShape(RoundedRectangle(cornerRadius: 10))
                 
             }
             
@@ -37,25 +35,25 @@ struct HurdAdminView: View {
                     .foregroundColor(.gray)
             }
             Spacer()
-            
-            VStack(spacing: Spacing.eight) {
-                VStack {
-                    Image(systemName: "star.fill")
-                        .font(.system(size: 14))
-                    // Coming soon Feature
-                    Text("0")
-                        .font(.system(size: 14))
-                }
-                VStack {
-                    Image(systemName: "bubble.left.fill")
-                        .font(.system(size: 14))
-                    // Coming soon Feature
-                    Text("0")
-                        .font(.system(size: 14))
-                }
-            }
-            .padding(10)
-            .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))
+            // ADD THIS AGAIN WHEN BASE FEATURES ARE COMPLETEED
+//            VStack(spacing: Spacing.eight) {
+//                VStack {
+//                    Image(systemName: "star.fill")
+//                        .font(.system(size: 14))
+//                    // Coming soon Feature
+//                    Text("0")
+//                        .font(.system(size: 14))
+//                }
+//                VStack {
+//                    Image(systemName: "bubble.left.fill")
+//                        .font(.system(size: 14))
+//                    // Coming soon Feature
+//                    Text("0")
+//                        .font(.system(size: 14))
+//                }
+//            }
+//            .padding(10)
+//            .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))
         }
         .frame(maxWidth: .infinity)
         .padding(10)

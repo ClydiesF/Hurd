@@ -37,7 +37,7 @@ class AddTripFormViewModel: NSObject, ObservableObject {
     var tripPhotoAuthor: String?
 
     var fieldsArePopulated: Bool {
-        !tripNameText.isEmpty && !tripLocationSearchQuery.isEmpty && !selectedTripType.isEmpty && !tripDescriptionText.isEmpty && !tripCostEstimate.isZero
+        !tripNameText.isEmpty && !tripLocationSearchQuery.isEmpty && !selectedTripType.isEmpty && !tripDescriptionText.isEmpty
     }
     
     var currentEditableTripId: String?
@@ -178,6 +178,7 @@ class AddTripFormViewModel: NSObject, ObservableObject {
         // Right now this creates a new hurd for everyTrip which is fine for right now.
         
         var newHurd = Hurd(organizer: userId)
+        
         var tripString = tripLocationSearchQuery.trimmingCharacters(in: .whitespacesAndNewlines)
         
         let comma: Set<Character> = [" "]
