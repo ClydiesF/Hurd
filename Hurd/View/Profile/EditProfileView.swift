@@ -13,6 +13,7 @@ import PopupView
 struct EditProfileView: View {
     
     @ObservedObject var vm: ProfileViewModel
+    @State var showPrivacySheet = false
     
     let genders = ["","He/Him", "She/Her", "Two-Spirit", "Non-Binary"]
     
@@ -127,12 +128,69 @@ struct EditProfileView: View {
                 Button("Save Changes") {
                     vm.saveChanges()
                 }
+                
+                Button("Edit Privacy Permissions") {
+                    showPrivacySheet.toggle()
+                }
             }
+            .sheet(isPresented: $showPrivacySheet, content: {
+                VStack {
+                    Text("Should these be credentials be visible to the public?")
+                        .fontWeight(.bold)
+                        .font(.title)
+                    
+                    Divider()
+                    
+                    Toggle(isOn: $vm.phoneNumberShown, label: {
+                        Text("Phone Number")
+                    })
+                    
+                    Toggle(isOn: $vm.genderShown, label: {
+                        Text("Gender")
+                    })
+                    
+                    Toggle(isOn: $vm.ethnicityShown, label: {
+                        Text("Ethnicity")
+                    })
+                    
+                    Toggle(isOn: $vm.emailShown, label: {
+                        Text("E-mail ")
+                    })
+                    
+                    Spacer()
+                    
+                }
+                .padding()
+                .popup(isPresented: $vm.showSaveStatus) {
+                    SavePopUp()
+                        } customize: {
+                            $0
+                                .autohideIn(2)
+                                .backgroundColor(.black.opacity(0.4))
+                        }
+                
+                Button {
+                    print("Save Changes")
+                    vm.saveChanges()
+                    vm.showSaveStatus = true
+                } label: {
+                 Text("Save Changes")
+                        .foregroundStyle(.white)
+                        .padding()
+                        .background(RoundedRectangle(cornerRadius: 30).fill(LinearGradient(
+                          colors: [Color(hex: "099773"), Color(hex: "43b692")],
+                              startPoint: .leading,
+                              endPoint: .trailing
+                          )))
+                }
+
+            })
+            .presentationDetents([.medium])
             .popup(isPresented: $vm.showSaveStatus) {
                 SavePopUp()
                     } customize: {
                         $0
-                            .autohideIn(4)
+                            .autohideIn(1)
                             .backgroundColor(.black.opacity(0.4))
                     }
         .navigationBarTitle("Edit Profile")

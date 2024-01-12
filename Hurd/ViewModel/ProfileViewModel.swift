@@ -39,6 +39,11 @@ class ProfileViewModel: ObservableObject {
     @Published var showSaveStatus: Bool = false
     let phoneNumberFormatter = PhoneNumberFormatter()
     
+    // Visibility Shown Variables
+    @Published var genderShown: Bool = false
+    @Published var ethnicityShown: Bool = false
+    @Published var phoneNumberShown: Bool = false
+    @Published var emailShown: Bool = false
     
     init(user: User) {
         self.user = user
@@ -49,6 +54,12 @@ class ProfileViewModel: ObservableObject {
         self.profilePicture = user.profileImageUrl ?? ""
         self.phoneNumber = user.phoneNumber ?? ""
         self.bio = user.bio
+        
+        //populate visibility preferences as well
+        self.genderShown = user.genderShown
+        self.ethnicityShown = user.ethnicityShown
+        self.phoneNumberShown = user.phoneNumberShown
+        self.emailShown = user.emailShown
         
         $image
             .receive(on: RunLoop.main)
@@ -111,12 +122,19 @@ class ProfileViewModel: ObservableObject {
         func saveChanges() {
             guard let userID = Auth.auth().currentUser?.uid else { return }
             
+            // TODO: Look into separating this logic out for just savings the preference changes.
+            
             let saveUser: [String: Any] = ["firstName": self.firstName,
                                            "lastName": self.lastName,
                                            "gender": self.gender,
                                            "ethnicity": self.ethnicity,
                                            "bio": self.bio,
                                            "phoneNumber": self.phoneNumber,
+                                           "genderShown": self.genderShown,
+                                           "emailShown": self.emailShown,
+                                           "phoneNumberShown": self.phoneNumberShown,
+                                           "ethnicityShown": self.ethnicityShown,
+                                           
                                          
             ]
             

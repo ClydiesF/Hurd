@@ -92,22 +92,29 @@ struct ScrollableInfoView: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 10) {
-                if vm.phoneNumber != "" {
+                if vm.phoneNumber != "" && vm.phoneNumberShown {
                     Label(vm.phoneNumber, systemImage: "phone.fill")
                         .font(.system(size: 13))
                         .padding(Spacing.eight)
                         .background(Capsule().fill(.gray.opacity(0.1)))
                 }
                 
-                // LOCATION ADD BACK IN LATER ON 
-//                Label("Boston, MA", systemImage: "location.fill")
-//                    .font(.system(size: 13))
-//                    .padding(Spacing.eight)
-//                    .background(Capsule().fill(.gray.opacity(0.1)))
-                
-                
-                if let email = vm.user.emailAddress {
+                if let email = vm.user.emailAddress, vm.emailShown {
                     Label(email, systemImage: "envelope.fill")
+                        .font(.system(size: 13))
+                        .padding(Spacing.eight)
+                        .background(Capsule().fill(.gray.opacity(0.1)))
+                }
+                
+                if let gender = vm.user.gender, vm.genderShown {
+                    Label(gender, systemImage: "person.fill")
+                        .font(.system(size: 13))
+                        .padding(Spacing.eight)
+                        .background(Capsule().fill(.gray.opacity(0.1)))
+                }
+                
+                if let ethnicity = vm.user.ethnicity, vm.ethnicityShown {
+                    Label(ethnicity, systemImage: "person.and.background.striped.horizontal")
                         .font(.system(size: 13))
                         .padding(Spacing.eight)
                         .background(Capsule().fill(.gray.opacity(0.1)))
