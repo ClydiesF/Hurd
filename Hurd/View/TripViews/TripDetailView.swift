@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TripDetailView: View {
     @ObservedObject var vm: TripDetailViewModel
+    @State var showTripSettingsView: Bool = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -187,7 +188,9 @@ struct TripDetailView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
                     print("setting screens")
+                    showTripSettingsView = true
                     //router.navigate(to: .settings)
+                    
                 } label: {
                     Image(systemName: "ellipsis")
                         .font(.title3)
@@ -195,10 +198,12 @@ struct TripDetailView: View {
             }
             
         }
+        .navigationDestination(isPresented: $showTripSettingsView) {
+            TripSettingsView(vm: .init(trip: vm.trip))
+        }
         .onAppear {
            vm.fetchNotes()
         }
-        
     }
 }
 

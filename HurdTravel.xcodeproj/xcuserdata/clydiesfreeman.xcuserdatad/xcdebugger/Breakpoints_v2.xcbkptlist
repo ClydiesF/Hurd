@@ -526,6 +526,66 @@
                   endingLineNumber = "151"
                   offsetFromSymbolStart = "1552">
                </Location>
+               <Location
+                  uuid = "D437CF8E-3F0A-4C3C-B65C-38202BA78FF1 - 3ca0e6174a75ea4f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for HurdTravel.AddTripFormViewModel.editTrip() async -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AddTripFormViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
+                  offsetFromSymbolStart = "4012">
+               </Location>
+               <Location
+                  uuid = "D437CF8E-3F0A-4C3C-B65C-38202BA78FF1 - 145f49178d08a249"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for HurdTravel.AddTripFormViewModel.editTrip() async -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AddTripFormViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
+                  offsetFromSymbolStart = "1668">
+               </Location>
+               <Location
+                  uuid = "D437CF8E-3F0A-4C3C-B65C-38202BA78FF1 - 3ca0e6174a75ea4f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for HurdTravel.AddTripFormViewModel.editTrip() async -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AddTripFormViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
+                  offsetFromSymbolStart = "3944">
+               </Location>
+               <Location
+                  uuid = "D437CF8E-3F0A-4C3C-B65C-38202BA78FF1 - 145f49178d08a249"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for HurdTravel.AddTripFormViewModel.editTrip() async -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AddTripFormViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
+                  offsetFromSymbolStart = "1656">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -817,6 +877,51 @@
                   endingLineNumber = "184"
                   offsetFromSymbolStart = "952">
                </Location>
+               <Location
+                  uuid = "C8244699-7C3F-4D6E-B49A-2E75850A3137 - c5dd122d36546d01"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for HurdTravel.AddTripFormViewModel.postTrip() async -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AddTripFormViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "185"
+                  endingLineNumber = "185"
+                  offsetFromSymbolStart = "1024">
+               </Location>
+               <Location
+                  uuid = "C8244699-7C3F-4D6E-B49A-2E75850A3137 - cac1cb23f4df8ad0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Character) -&gt; Swift.Bool in HurdTravel.AddTripFormViewModel.postTrip() async -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AddTripFormViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "185"
+                  endingLineNumber = "185"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "C8244699-7C3F-4D6E-B49A-2E75850A3137 - c5dd122d36546d01"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for HurdTravel.AddTripFormViewModel.postTrip() async -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AddTripFormViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "185"
+                  endingLineNumber = "185"
+                  offsetFromSymbolStart = "988">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1089,6 +1194,66 @@
                   startingLineNumber = "180"
                   endingLineNumber = "180"
                   offsetFromSymbolStart = "764">
+               </Location>
+               <Location
+                  uuid = "877FD4BA-0602-4E4E-BAAA-D3A7E6C52393 - c5dd122d36546ea2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for HurdTravel.AddTripFormViewModel.postTrip() async -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AddTripFormViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "188"
+                  endingLineNumber = "188"
+                  offsetFromSymbolStart = "1320">
+               </Location>
+               <Location
+                  uuid = "877FD4BA-0602-4E4E-BAAA-D3A7E6C52393 - e8f3184820369569"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Alamofire.DataResponse&lt;HurdTravel.UnSplashResponseModel, Alamofire.AFError&gt;) -&gt; () in HurdTravel.AddTripFormViewModel.postTrip() async -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AddTripFormViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "180"
+                  endingLineNumber = "180"
+                  offsetFromSymbolStart = "588">
+               </Location>
+               <Location
+                  uuid = "877FD4BA-0602-4E4E-BAAA-D3A7E6C52393 - c5dd122d36546ea2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for HurdTravel.AddTripFormViewModel.postTrip() async -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AddTripFormViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "188"
+                  endingLineNumber = "188"
+                  offsetFromSymbolStart = "1284">
+               </Location>
+               <Location
+                  uuid = "877FD4BA-0602-4E4E-BAAA-D3A7E6C52393 - e8f3184820369569"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Alamofire.DataResponse&lt;HurdTravel.UnSplashResponseModel, Alamofire.AFError&gt;) -&gt; () in HurdTravel.AddTripFormViewModel.postTrip() async -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AddTripFormViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "180"
+                  endingLineNumber = "180"
+                  offsetFromSymbolStart = "564">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1394,6 +1559,51 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "191"
                   endingLineNumber = "191"
+                  offsetFromSymbolStart = "900">
+               </Location>
+               <Location
+                  uuid = "D528A53A-9C65-47A8-8571-72480BFAFA09 - e8f31848203696e5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Alamofire.DataResponse&lt;HurdTravel.UnSplashResponseModel, Alamofire.AFError&gt;) -&gt; () in HurdTravel.AddTripFormViewModel.postTrip() async -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AddTripFormViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "192"
+                  endingLineNumber = "192"
+                  offsetFromSymbolStart = "724">
+               </Location>
+               <Location
+                  uuid = "D528A53A-9C65-47A8-8571-72480BFAFA09 - e8f31848203696e5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Alamofire.DataResponse&lt;HurdTravel.UnSplashResponseModel, Alamofire.AFError&gt;) -&gt; () in HurdTravel.AddTripFormViewModel.postTrip() async -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AddTripFormViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "192"
+                  endingLineNumber = "192"
+                  offsetFromSymbolStart = "672">
+               </Location>
+               <Location
+                  uuid = "D528A53A-9C65-47A8-8571-72480BFAFA09 - e8f31848203696e5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Alamofire.DataResponse&lt;HurdTravel.UnSplashResponseModel, Alamofire.AFError&gt;) -&gt; () in HurdTravel.AddTripFormViewModel.postTrip() async -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AddTripFormViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "192"
+                  endingLineNumber = "192"
                   offsetFromSymbolStart = "900">
                </Location>
             </Locations>
@@ -1913,8 +2123,8 @@
             filePath = "Hurd/ViewModel/AuthenticationViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "595"
-            endingLineNumber = "595"
+            startingLineNumber = "599"
+            endingLineNumber = "599"
             landmarkName = "changeEmail()"
             landmarkType = "7">
          </BreakpointContent>
@@ -3815,6 +4025,51 @@
                   endingLineNumber = "52"
                   offsetFromSymbolStart = "360">
                </Location>
+               <Location
+                  uuid = "D42D3B9B-93BC-4475-85BC-C6261D36CE47 - 1f07a14792203e55"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0 in closure #6 (HurdTravel.Trip) -&gt; Swift.Optional&lt;SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, HurdTravel.TripDetailView&gt;&gt; in closure #1 () -&gt; SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;HurdTravel.NoTripView, SwiftUI.ForEach&lt;Swift.Array&lt;HurdTravel.Trip&gt;, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, HurdTravel.TripDetailView&gt;&gt;&gt;&gt;, SwiftUI._ConditionalContent&lt;HurdTravel.NoTripView, SwiftUI.ForEach&lt;Swift.Array&lt;HurdTravel.Trip&gt;, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, HurdTravel.TripDetailView&gt;&gt;&gt;&gt;&gt;, SwiftUI.EmptyView&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(HurdTravel.HurdSlidingTabView, &lt;&lt;opaque return type of SwiftUI.View.toolbar&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ToolbarContent&gt;(content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in HurdTravel.TripView.body.getter : some"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/View/TabBarViews/TripView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "356">
+               </Location>
+               <Location
+                  uuid = "D42D3B9B-93BC-4475-85BC-C6261D36CE47 - 1f07a14792203e55"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0 in closure #6 (HurdTravel.Trip) -&gt; Swift.Optional&lt;SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, HurdTravel.TripDetailView&gt;&gt; in closure #1 () -&gt; SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;HurdTravel.NoTripView, SwiftUI.ForEach&lt;Swift.Array&lt;HurdTravel.Trip&gt;, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, HurdTravel.TripDetailView&gt;&gt;&gt;&gt;, SwiftUI._ConditionalContent&lt;HurdTravel.NoTripView, SwiftUI.ForEach&lt;Swift.Array&lt;HurdTravel.Trip&gt;, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, HurdTravel.TripDetailView&gt;&gt;&gt;&gt;&gt;, SwiftUI.EmptyView&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(HurdTravel.HurdSlidingTabView, &lt;&lt;opaque return type of SwiftUI.View.toolbar&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ToolbarContent&gt;(content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in HurdTravel.TripView.body.getter : some"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/View/TabBarViews/TripView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "340">
+               </Location>
+               <Location
+                  uuid = "D42D3B9B-93BC-4475-85BC-C6261D36CE47 - 1f07a14792203e55"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0 in closure #6 (HurdTravel.Trip) -&gt; Swift.Optional&lt;SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, HurdTravel.TripDetailView&gt;&gt; in closure #1 () -&gt; SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;HurdTravel.NoTripView, SwiftUI.ForEach&lt;Swift.Array&lt;HurdTravel.Trip&gt;, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, HurdTravel.TripDetailView&gt;&gt;&gt;&gt;, SwiftUI._ConditionalContent&lt;HurdTravel.NoTripView, SwiftUI.ForEach&lt;Swift.Array&lt;HurdTravel.Trip&gt;, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, HurdTravel.TripDetailView&gt;&gt;&gt;&gt;&gt;, SwiftUI.EmptyView&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(HurdTravel.HurdSlidingTabView, &lt;&lt;opaque return type of SwiftUI.View.toolbar&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ToolbarContent&gt;(content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in HurdTravel.TripView.body.getter : some"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/View/TabBarViews/TripView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "372">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -4120,6 +4375,96 @@
                   startingLineNumber = "80"
                   endingLineNumber = "80"
                   offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "2298314E-FCA0-4226-AF27-11D11B161811 - aaf25af44e68c3b6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for HurdTravel.NetworkCalls.fetchMembers(of: HurdTravel.Hurd) async -&gt; Swift.Optional&lt;Swift.Array&lt;HurdTravel.User&gt;&gt;"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/Networking/NetworkCalls.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "640">
+               </Location>
+               <Location
+                  uuid = "2298314E-FCA0-4226-AF27-11D11B161811 - d9c71832e88ea17e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for HurdTravel.NetworkCalls.fetchMembers(of: HurdTravel.Hurd) async -&gt; Swift.Optional&lt;Swift.Array&lt;HurdTravel.User&gt;&gt;"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/Networking/NetworkCalls.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "2298314E-FCA0-4226-AF27-11D11B161811 - f4e86a75aa820fb4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for HurdTravel.NetworkCalls.fetchMembers(of: HurdTravel.Hurd) async -&gt; Swift.Optional&lt;Swift.Array&lt;HurdTravel.User&gt;&gt;"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/Networking/NetworkCalls.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "2298314E-FCA0-4226-AF27-11D11B161811 - d3e371b6792eadb3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for HurdTravel.NetworkCalls.fetchMembers(of: HurdTravel.Hurd) async -&gt; Swift.Optional&lt;Swift.Array&lt;HurdTravel.User&gt;&gt;"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/Networking/NetworkCalls.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "2298314E-FCA0-4226-AF27-11D11B161811 - aaf25af44e68c3b6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for HurdTravel.NetworkCalls.fetchMembers(of: HurdTravel.Hurd) async -&gt; Swift.Optional&lt;Swift.Array&lt;HurdTravel.User&gt;&gt;"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/Networking/NetworkCalls.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "604">
+               </Location>
+               <Location
+                  uuid = "2298314E-FCA0-4226-AF27-11D11B161811 - d3e371b6792eadb3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for HurdTravel.NetworkCalls.fetchMembers(of: HurdTravel.Hurd) async -&gt; Swift.Optional&lt;Swift.Array&lt;HurdTravel.User&gt;&gt;"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/Networking/NetworkCalls.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "96">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -4634,6 +4979,51 @@
                   endingLineNumber = "63"
                   offsetFromSymbolStart = "2712">
                </Location>
+               <Location
+                  uuid = "03BE5D25-B137-4DB4-A3F6-B5D58907221C - 5f097a12a2218511"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HurdTravel.TripDetailViewModel.init(trip: HurdTravel.Trip, hurd: HurdTravel.Hurd) -&gt; HurdTravel.TripDetailViewModel"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/TripDetailViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "2528">
+               </Location>
+               <Location
+                  uuid = "03BE5D25-B137-4DB4-A3F6-B5D58907221C - 5f097a12a2218511"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HurdTravel.TripDetailViewModel.init(trip: HurdTravel.Trip, hurd: HurdTravel.Hurd) -&gt; HurdTravel.TripDetailViewModel"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/TripDetailViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "2352">
+               </Location>
+               <Location
+                  uuid = "03BE5D25-B137-4DB4-A3F6-B5D58907221C - 5f097a12a2218511"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HurdTravel.TripDetailViewModel.init(trip: HurdTravel.Trip, hurd: HurdTravel.Hurd) -&gt; HurdTravel.TripDetailViewModel"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/TripDetailViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "2724">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -4778,6 +5168,38 @@
             endingLineNumber = "212"
             landmarkName = "init()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "506D1570-D526-47B4-9117-7EA6382FB47A - 45185794651a8d82"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HurdTravel.AuthenticationViewModel.init() -&gt; HurdTravel.AuthenticationViewModel"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AuthenticationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "212"
+                  endingLineNumber = "212"
+                  offsetFromSymbolStart = "4208">
+               </Location>
+               <Location
+                  uuid = "506D1570-D526-47B4-9117-7EA6382FB47A - 45185794651a8d82"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HurdTravel.AuthenticationViewModel.init() -&gt; HurdTravel.AuthenticationViewModel"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AuthenticationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "212"
+                  endingLineNumber = "212"
+                  offsetFromSymbolStart = "4028">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4790,10 +5212,42 @@
             filePath = "Hurd/ViewModel/AuthenticationViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "612"
-            endingLineNumber = "612"
+            startingLineNumber = "616"
+            endingLineNumber = "616"
             landmarkName = "performSensitiveAction(for:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BB1EC122-2B43-488F-96FC-A3476B60C426 - d1a7a42eba28a5fb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HurdTravel.AuthenticationViewModel.performSensitiveAction(for: HurdTravel.SensitiveActionType) -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AuthenticationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "616"
+                  endingLineNumber = "616"
+                  offsetFromSymbolStart = "756">
+               </Location>
+               <Location
+                  uuid = "BB1EC122-2B43-488F-96FC-A3476B60C426 - d1a7a42eba28a5fb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HurdTravel.AuthenticationViewModel.performSensitiveAction(for: HurdTravel.SensitiveActionType) -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AuthenticationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "616"
+                  endingLineNumber = "616"
+                  offsetFromSymbolStart = "724">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4806,10 +5260,42 @@
             filePath = "Hurd/ViewModel/AuthenticationViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "616"
-            endingLineNumber = "616"
+            startingLineNumber = "620"
+            endingLineNumber = "620"
             landmarkName = "performSensitiveAction(for:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7154D353-9B96-4BEB-A625-B2060E09BA4D - d1a7a42eba28a607"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HurdTravel.AuthenticationViewModel.performSensitiveAction(for: HurdTravel.SensitiveActionType) -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AuthenticationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "620"
+                  endingLineNumber = "620"
+                  offsetFromSymbolStart = "1468">
+               </Location>
+               <Location
+                  uuid = "7154D353-9B96-4BEB-A625-B2060E09BA4D - d1a7a42eba28a607"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HurdTravel.AuthenticationViewModel.performSensitiveAction(for: HurdTravel.SensitiveActionType) -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AuthenticationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "620"
+                  endingLineNumber = "620"
+                  offsetFromSymbolStart = "1428">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4822,8 +5308,8 @@
             filePath = "Hurd/ViewModel/AuthenticationViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "634"
-            endingLineNumber = "634"
+            startingLineNumber = "638"
+            endingLineNumber = "638"
             landmarkName = "performSensitiveAction(for:)"
             landmarkType = "7">
             <Locations>
@@ -4887,6 +5373,36 @@
                   endingLineNumber = "634"
                   offsetFromSymbolStart = "1068">
                </Location>
+               <Location
+                  uuid = "CD3DC900-1780-4419-B380-E2A021C4F738 - 97ec4a760450dfb4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in HurdTravel.AuthenticationViewModel.performSensitiveAction(for: HurdTravel.SensitiveActionType) -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AuthenticationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "638"
+                  endingLineNumber = "638"
+                  offsetFromSymbolStart = "1096">
+               </Location>
+               <Location
+                  uuid = "CD3DC900-1780-4419-B380-E2A021C4F738 - 929da1cba97579b3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in HurdTravel.AuthenticationViewModel.performSensitiveAction(for: HurdTravel.SensitiveActionType) -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AuthenticationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "638"
+                  endingLineNumber = "638"
+                  offsetFromSymbolStart = "1112">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -4900,10 +5416,42 @@
             filePath = "Hurd/ViewModel/AuthenticationViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "661"
-            endingLineNumber = "661"
+            startingLineNumber = "665"
+            endingLineNumber = "665"
             landmarkName = "perform(action:with:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "00AB933A-F9A2-45DE-94C9-D0F93D846815 - f8fd0f915bd59112"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in HurdTravel.AuthenticationViewModel.perform(action: HurdTravel.SensitiveActionType, with: __C.FIRAuthCredential) -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AuthenticationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "665"
+                  endingLineNumber = "665"
+                  offsetFromSymbolStart = "1464">
+               </Location>
+               <Location
+                  uuid = "00AB933A-F9A2-45DE-94C9-D0F93D846815 - f8fd0f915bd59112"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in HurdTravel.AuthenticationViewModel.perform(action: HurdTravel.SensitiveActionType, with: __C.FIRAuthCredential) -&gt; ()"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/ViewModel/AuthenticationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "665"
+                  endingLineNumber = "665"
+                  offsetFromSymbolStart = "1408">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4984,6 +5532,260 @@
             endingLineNumber = "27"
             landmarkName = "body"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "6325FC82-6FA7-4458-8268-C329332A5C99 - 4492179c8e407935"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SwiftUI.View.environmentObject&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Combine.ObservableObject&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.environmentObject&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Combine.ObservableObject&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt; in HurdTravel.HurdApp.body.getter : some"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/HurdApp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "1324">
+               </Location>
+               <Location
+                  uuid = "6325FC82-6FA7-4458-8268-C329332A5C99 - 4492179c8e407935"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SwiftUI.View.environmentObject&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Combine.ObservableObject&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.environmentObject&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Combine.ObservableObject&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt; in HurdTravel.HurdApp.body.getter : some"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/HurdApp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "1284">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DEFF7292-3DFD-4EA7-9E8F-62A127033D4C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hurd/ViewModel/TripsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "subscribe()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FB451FFE-F32C-49A8-9048-4B5BDB37522C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hurd/ViewModel/TripsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "subscribe()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "642A2CE4-FB93-4567-AC67-5A90FE13B327"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hurd/ViewModel/TripsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "subscribe()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CEE7DC20-1049-4521-AD5E-975B487B3601"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hurd/View/TabBarViews/ProfileView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "CEE7DC20-1049-4521-AD5E-975B487B3601 - 17627fea229e3e1b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 () -&gt; SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;)&gt;&gt; in HurdTravel.ScrollableInfoView.body.getter : some"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/View/TabBarViews/ProfileView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
+                  offsetFromSymbolStart = "3540">
+               </Location>
+               <Location
+                  uuid = "CEE7DC20-1049-4521-AD5E-975B487B3601 - 17627fea229e3e1b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 () -&gt; SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;)&gt;&gt; in HurdTravel.ScrollableInfoView.body.getter : some"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/View/TabBarViews/ProfileView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
+                  offsetFromSymbolStart = "3668">
+               </Location>
+               <Location
+                  uuid = "CEE7DC20-1049-4521-AD5E-975B487B3601 - 17627fea229e3e1b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 () -&gt; SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;)&gt;&gt; in HurdTravel.ScrollableInfoView.body.getter : some"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/View/TabBarViews/ProfileView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
+                  offsetFromSymbolStart = "3168">
+               </Location>
+               <Location
+                  uuid = "CEE7DC20-1049-4521-AD5E-975B487B3601 - 17627fea229e3e1b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 () -&gt; SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;)&gt;&gt; in HurdTravel.ScrollableInfoView.body.getter : some"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/View/TabBarViews/ProfileView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
+                  offsetFromSymbolStart = "3296">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B3B78780-3BAB-40B5-AC09-93804F93343E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hurd/View/TabBarViews/ProfileView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "B3B78780-3BAB-40B5-AC09-93804F93343E - 17627fea229e31b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 () -&gt; SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;)&gt;&gt; in HurdTravel.ScrollableInfoView.body.getter : some"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/View/TabBarViews/ProfileView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "112"
+                  endingLineNumber = "112"
+                  offsetFromSymbolStart = "3988">
+               </Location>
+               <Location
+                  uuid = "B3B78780-3BAB-40B5-AC09-93804F93343E - 17627fea229e31b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 () -&gt; SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;)&gt;&gt; in HurdTravel.ScrollableInfoView.body.getter : some"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/View/TabBarViews/ProfileView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "112"
+                  endingLineNumber = "112"
+                  offsetFromSymbolStart = "3616">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "43166B24-2DFC-4898-81EF-7CE577088105"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hurd/View/TabBarViews/ProfileView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "43166B24-2DFC-4898-81EF-7CE577088105 - 17627fea229e3e7a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 () -&gt; SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;)&gt;&gt; in HurdTravel.ScrollableInfoView.body.getter : some"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/View/TabBarViews/ProfileView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "110"
+                  endingLineNumber = "110"
+                  offsetFromSymbolStart = "3756">
+               </Location>
+               <Location
+                  uuid = "43166B24-2DFC-4898-81EF-7CE577088105 - 17627fea229e3e7a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 () -&gt; SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;)&gt;&gt; in HurdTravel.ScrollableInfoView.body.getter : some"
+                  moduleName = "HurdTravel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clydiesfreeman/Hurd/Hurd/View/TabBarViews/ProfileView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "110"
+                  endingLineNumber = "110"
+                  offsetFromSymbolStart = "3384">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

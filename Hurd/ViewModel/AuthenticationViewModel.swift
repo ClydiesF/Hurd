@@ -435,7 +435,11 @@ class AuthenticationViewModel: ObservableObject {
                                                     "lastName": "",
                                                     "phoneNumber": "",
                                                     "bio": "",
-                                                    "id": uid
+                                                    "id": uid,
+                                                    "genderShown": false,
+                                                    "emailShown": false,
+                                                    "phoneNumberShown": false,
+                                                    "ethnicityShown": false
                                                      ]) { err in
                         if let err = err {
                             print("DEBUG: Error writingh document: \(err)")

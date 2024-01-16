@@ -45,6 +45,8 @@ class ProfileViewModel: ObservableObject {
     @Published var phoneNumberShown: Bool = false
     @Published var emailShown: Bool = false
     
+    var listenerRegistration: ListenerRegistration?
+    
     init(user: User) {
         self.user = user
         self.firstName = user.firstName
@@ -60,6 +62,7 @@ class ProfileViewModel: ObservableObject {
         self.ethnicityShown = user.ethnicityShown
         self.phoneNumberShown = user.phoneNumberShown
         self.emailShown = user.emailShown
+        subscribe()
         
         $image
             .receive(on: RunLoop.main)
@@ -76,6 +79,35 @@ class ProfileViewModel: ObservableObject {
                     self.changeAvatarImage(photoData: d)
                 }
             }
+    }
+    
+    
+    func subscribe() {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        if listenerRegistration == nil {
+            listenerRegistration = USER_REF.document(uid).addSnapshotListener { snapshot, err in
+                guard let document = snapshot else {
+                    print("Error fetching document: \(err!)")
+                    return
+                }
+                guard let data = document.data() else {
+                    print("Document data was empty.")
+                    return
+                }
+                
+                let result = Result {
+                    try document.data(as: User.self)
+                }
+                
+                switch result {
+                case .success(let object):
+                    self.user = object
+                case .failure(let failure):
+                    print("DEBUG: Document data was empty.\(failure)")
+                }
+                print("Current data: \(data)")
+            }
+        }
     }
     
     func changeAvatarImage(photoData: Data) {
@@ -134,8 +166,6 @@ class ProfileViewModel: ObservableObject {
                                            "emailShown": self.emailShown,
                                            "phoneNumberShown": self.phoneNumberShown,
                                            "ethnicityShown": self.ethnicityShown,
-                                           
-                                         
             ]
             
             

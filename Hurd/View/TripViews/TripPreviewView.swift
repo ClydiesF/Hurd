@@ -16,12 +16,13 @@ struct TripPreviewView: View {
     @State var countDownString = ""
     @State var isHorizontal = true
     
-    
     var body: some View {
         let layout = isHorizontal ? AnyLayout(HStackLayout(alignment: .bottom)): AnyLayout(VStackLayout(alignment: .leading))
         
         HStack {
-            AsyncImage(url: URL(string: "https://picsum.photos/200/300"), content: { image in
+            // Random generated Pic -- "https://picsum.photos/200/300")
+            // TODO: find a better way to handle this.
+            AsyncImage(url: URL(string: trip.tripImageURLString?.photoURL ?? ""), content: { image in
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
