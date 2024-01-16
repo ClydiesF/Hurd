@@ -133,6 +133,9 @@ struct EditProfileView: View {
                     showPrivacySheet.toggle()
                 }
             }
+            .onTapGesture() {
+                hideKeyboard()
+            }
             .sheet(isPresented: $showPrivacySheet, content: {
                 VStack {
                     Text("Should these be credentials be visible to the public?")
