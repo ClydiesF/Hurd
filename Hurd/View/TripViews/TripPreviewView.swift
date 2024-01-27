@@ -25,7 +25,8 @@ struct TripPreviewView: View {
             AsyncImage(url: URL(string: trip.tripImageURLString?.photoURL ?? ""), content: { image in
                 image
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 80, height: 100)
+                    .aspectRatio(contentMode: .fill)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
             }, placeholder: {
                 ProgressView()
@@ -51,7 +52,8 @@ struct TripPreviewView: View {
                                 .foregroundColor(.white)
                                 .fontWeight(.semibold)
                                 .font(.system(size: 13))
-                                .padding(8)
+                                .padding(10)
+                                .frame(width: 40, height: 40)
                                 .background(Circle().fill(.black.gradient))
                         }
                         
@@ -60,7 +62,8 @@ struct TripPreviewView: View {
                             .foregroundColor(.white)
                             .fontWeight(.semibold)
                             .font(.system(size: 13))
-                            .padding(8)
+                            .padding(10)
+                            .frame(width: 40, height: 40)
                             .background(Circle().fill(.black.gradient))
                     }
                 }

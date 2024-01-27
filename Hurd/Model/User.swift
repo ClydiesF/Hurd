@@ -43,6 +43,23 @@ struct User: Codable {
     var ethnicityShown: Bool
 }
 
+struct itinerary: Codable {
+    @DocumentID var id: String?
+    let tripID: String?
+}
+
+struct Activity: Codable {
+    @DocumentID var id: String?
+    let type: String?
+    let name: String?
+    let location: String?
+    let description: String?
+    let link: String?
+    let status: String?
+    let startTime: Double?
+    let endTime: Double?
+}
+
 extension User {
     static let mockUser1 = User(id: "1",createdAt: 33424332432, isFinishedOnboarding: true, emailAddress: "c.edward.freeman@gmail.com", phoneNumber: "617-233-1242", gender: "he/him", ethnicity: "Black/African - American", bio: "I just want to travel the world and do cool stuff becuase thats the weave and i really lvoer so much, come join me ", firstName: "Todd", lastName: "Trenton", profileImageUrl: "https://picsum.photos/200/300", genderShown: true, emailShown: true, phoneNumberShown: true, ethnicityShown: true)
     
@@ -73,6 +90,7 @@ struct Trip: Codable {
     var suggestions: String? // Reference
     var tripImageURLString: UnsplashPhoto?
     //Additional Details of a trip
+    var itineraryId: String? // reference
 }
 
 

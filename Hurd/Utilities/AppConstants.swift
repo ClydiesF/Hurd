@@ -16,6 +16,7 @@ let USER_REF = db.collection("Users")
 let HURD_REF = db.collection("Hurds")
 let TRIP_REF = db.collection("Trips")
 let TRIPSUGGEST_REF = db.collection("TripSuggestions")
+let ITINERARY_REF = db.collection("Itineraries")
 
 
 enum TripTypeIcons: String {

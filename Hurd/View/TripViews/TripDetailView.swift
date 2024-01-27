@@ -108,15 +108,17 @@ struct TripDetailView: View {
                             .presentationDetents([.large])
                     }
                     
-                    Label("Iteniarary", systemImage: "list.clipboard.fill")
-                        .tint(.black)
-                        .font(.system(size: 14))
-                        .frame(height:33)
-                        .padding(5)
-                        .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))
-                    
-                    
-                    
+                    NavigationLink {
+                        ItineraryView()
+                    } label: {
+                        Label("Iteniarary", systemImage: "list.clipboard.fill")
+                            .tint(.black)
+                            .font(.system(size: 14))
+                            .frame(height:33)
+                            .padding(5)
+                            .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))
+                    }
+
                     NavigationLink {
                         TripNotesView(vm: vm)
                     } label: {
@@ -138,13 +140,6 @@ struct TripDetailView: View {
                         .padding(5)
                         .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))
                     }
-              
-                    Label("Components", systemImage: "menucard")
-                        .tint(.black)
-                        .font(.system(size: 14))
-                        .frame(height:33)
-                        .padding(5)
-                        .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))
                     
                     Label("Budget", systemImage: "dollarsign")
                         .tint(.black)

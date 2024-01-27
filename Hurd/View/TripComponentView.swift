@@ -10,7 +10,7 @@ import LinkPresentation
 
 struct TripComponentView: View {
     
-    @State var vm: LinkViewModel
+    @State var vm: ActivityViewModel
     
     var body: some View {
         VStack {
@@ -30,6 +30,6 @@ struct TripComponentView: View {
 
 struct TripComponentView_Previews: PreviewProvider {
     static var previews: some View {
-        TripComponentView(vm: LinkViewModel(link: "https://www.marriott.com/en-us/hotels/tosox-moxy-tromso/overview/"))
+        TripComponentView(vm: ActivityViewModel(link: "https://www.gamespot.com/articles/moving-out-2-gets-a-nice-discount-ahead-of-august-15-release/1100-6516572/",name: "FakeName", type: .food, description: "A Fod spot that i really like it man and i neeed some one"))
     }
 }

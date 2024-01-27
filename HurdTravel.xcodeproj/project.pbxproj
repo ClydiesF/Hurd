@@ -11,6 +11,7 @@
 		3B0093CB2A621DA40021D5C2 /* Hurdtravel-info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B0093CA2A621DA40021D5C2 /* Hurdtravel-info.plist */; };
 		3B0093F32A65C5000021D5C2 /* NetworkCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0093F22A65C5000021D5C2 /* NetworkCalls.swift */; };
 		3B0B26252A862CE40031696A /* BroadcastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0B26242A862CE40031696A /* BroadcastView.swift */; };
+		3B1864A12B64B3E0000C6890 /* ItineraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1864A02B64B3E0000C6890 /* ItineraryView.swift */; };
 		3B1A5F782AC125560019F6E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B1A5F772AC125560019F6E0 /* GoogleService-Info.plist */; };
 		3B3F682629C41BA600FBC7B6 /* PhoneNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F682529C41BA600FBC7B6 /* PhoneNumberFormatter.swift */; };
 		3B3F682829C555F400FBC7B6 /* Publishers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F682729C555F400FBC7B6 /* Publishers+Extensions.swift */; };
@@ -73,9 +74,9 @@
 		3B530CCC2967BDE3002C272B /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B530CCB2967BDE3002C272B /* AppConstants.swift */; };
 		3B530CCE2967E942002C272B /* AuthCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B530CCD2967E942002C272B /* AuthCredentials.swift */; };
 		3B5B86942A70B48200569F89 /* TripComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5B86932A70B48200569F89 /* TripComponentView.swift */; };
-		3B5B86962A70B8DF00569F89 /* LinkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5B86952A70B8DF00569F89 /* LinkViewModel.swift */; };
+		3B5B86962A70B8DF00569F89 /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5B86952A70B8DF00569F89 /* ActivityViewModel.swift */; };
 		3B5B86982A7D7BE900569F89 /* RichLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5B86972A7D7BE900569F89 /* RichLinkView.swift */; };
-		3B5B869A2A7D839C00569F89 /* RichLinkPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5B86992A7D839C00569F89 /* RichLinkPreview.swift */; };
+		3B5B869A2A7D839C00569F89 /* ActivityPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5B86992A7D839C00569F89 /* ActivityPreviewView.swift */; };
 		3B5BED2929FE32EF0028C793 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BED2829FE32EF0028C793 /* ImagePicker.swift */; };
 		3B5C31B42970E4A8001354E6 /* AddTripFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C31B32970E4A8001354E6 /* AddTripFormViewModel.swift */; };
 		3B5C31BC2972957B001354E6 /* TripDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C31BB2972957A001354E6 /* TripDetailViewModel.swift */; };
@@ -155,6 +156,7 @@
 		3B0093CA2A621DA40021D5C2 /* Hurdtravel-info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Hurdtravel-info.plist"; sourceTree = "<group>"; };
 		3B0093F22A65C5000021D5C2 /* NetworkCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCalls.swift; sourceTree = "<group>"; };
 		3B0B26242A862CE40031696A /* BroadcastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastView.swift; sourceTree = "<group>"; };
+		3B1864A02B64B3E0000C6890 /* ItineraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryView.swift; sourceTree = "<group>"; };
 		3B1A5F772AC125560019F6E0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3B3F682529C41BA600FBC7B6 /* PhoneNumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberFormatter.swift; sourceTree = "<group>"; };
 		3B3F682729C555F400FBC7B6 /* Publishers+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+Extensions.swift"; sourceTree = "<group>"; };
@@ -194,9 +196,9 @@
 		3B530CCB2967BDE3002C272B /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		3B530CCD2967E942002C272B /* AuthCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCredentials.swift; sourceTree = "<group>"; };
 		3B5B86932A70B48200569F89 /* TripComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripComponentView.swift; sourceTree = "<group>"; };
-		3B5B86952A70B8DF00569F89 /* LinkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkViewModel.swift; sourceTree = "<group>"; };
+		3B5B86952A70B8DF00569F89 /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
 		3B5B86972A7D7BE900569F89 /* RichLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichLinkView.swift; sourceTree = "<group>"; };
-		3B5B86992A7D839C00569F89 /* RichLinkPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichLinkPreview.swift; sourceTree = "<group>"; };
+		3B5B86992A7D839C00569F89 /* ActivityPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPreviewView.swift; sourceTree = "<group>"; };
 		3B5BED2829FE32EF0028C793 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		3B5C31B1296FD54A001354E6 /* AddTripFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripFormView.swift; sourceTree = "<group>"; };
 		3B5C31B32970E4A8001354E6 /* AddTripFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripFormViewModel.swift; sourceTree = "<group>"; };
@@ -306,6 +308,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B1864A22B64B3E6000C6890 /* Itinerary */ = {
+			isa = PBXGroup;
+			children = (
+				3B1864A02B64B3E0000C6890 /* ItineraryView.swift */,
+			);
+			path = Itinerary;
+			sourceTree = "<group>";
+		};
 		3B4BCCAE2A5B6209002ED2E3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,7 +390,7 @@
 				3BC9ECFF295D7C2D004EFEEF /* TripPreviewView.swift */,
 				3B6E292D2990BE2300A90449 /* TripDateView.swift */,
 				3B5B86972A7D7BE900569F89 /* RichLinkView.swift */,
-				3B5B86992A7D839C00569F89 /* RichLinkPreview.swift */,
+				3B5B86992A7D839C00569F89 /* ActivityPreviewView.swift */,
 				3B0B26242A862CE40031696A /* BroadcastView.swift */,
 			);
 			path = TripViews;
@@ -488,6 +498,7 @@
 		3BC9ECDD295C0399004EFEEF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3B1864A22B64B3E6000C6890 /* Itinerary */,
 				3B7A93CF2A6E36A000DE3589 /* NoteViews */,
 				3BC9ED0C295EE4F4004EFEEF /* Profile */,
 				3B7A93CC2A6E16DE00DE3589 /* TripViews */,
@@ -525,7 +536,7 @@
 				3B603F142975B00A00E01D99 /* TripsViewModel.swift */,
 				3BC9ED11295FB2F6004EFEEF /* TripDetailViewModelOLD.swift */,
 				3B823FC0299F36CB00639D04 /* TripSettingsViewModel.swift */,
-				3B5B86952A70B8DF00569F89 /* LinkViewModel.swift */,
+				3B5B86952A70B8DF00569F89 /* ActivityViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -773,7 +784,7 @@
 				3B3F682C29C559B700FBC7B6 /* AdaptsToKeyboard.swift in Sources */,
 				3B4F6AA32A91C082003699ED /* LoginView.swift in Sources */,
 				3B4EB2672977B780008C26EF /* TripNotesView.swift in Sources */,
-				3B5B869A2A7D839C00569F89 /* RichLinkPreview.swift in Sources */,
+				3B5B869A2A7D839C00569F89 /* ActivityPreviewView.swift in Sources */,
 				3B4EB2652977A8C9008C26EF /* NotesView.swift in Sources */,
 				3B7A93D02A6F784100DE3589 /* AddTripFormView.swift in Sources */,
 				3B5C31B42970E4A8001354E6 /* AddTripFormViewModel.swift in Sources */,
@@ -793,6 +804,7 @@
 				3B4F6AA52A91C68E003699ED /* LandingView.swift in Sources */,
 				3B530CCE2967E942002C272B /* AuthCredentials.swift in Sources */,
 				3B5E1C3E29AB3B2B008E8831 /* NoTripView.swift in Sources */,
+				3B1864A12B64B3E0000C6890 /* ItineraryView.swift in Sources */,
 				3B4F6AB32A998A23003699ED /* UpdatePasswordView.swift in Sources */,
 				3B530CC92965305F002C272B /* AuthenticationViewModel.swift in Sources */,
 				3B7A93C72A6CEB6100DE3589 /* HurdPreviewView.swift in Sources */,
@@ -808,7 +820,7 @@
 				3BC9ECF6295D5C5E004EFEEF /* HurdTextField.swift in Sources */,
 				3B5B86942A70B48200569F89 /* TripComponentView.swift in Sources */,
 				3B7A93C92A6D927700DE3589 /* HurdFeedPreviewView.swift in Sources */,
-				3B5B86962A70B8DF00569F89 /* LinkViewModel.swift in Sources */,
+				3B5B86962A70B8DF00569F89 /* ActivityViewModel.swift in Sources */,
 				3B530CCC2967BDE3002C272B /* AppConstants.swift in Sources */,
 				3B8629F6296D166C0077DB92 /* OnboardingProfileInfoView.swift in Sources */,
 				3BC9ED0B295ED472004EFEEF /* ProfileView.swift in Sources */,

@@ -201,14 +201,23 @@ class AddTripFormViewModel: NSObject, ObservableObject {
                 }
                 
                 do {
+                    
+                    // CREATE THE HURD that attaches to the trip
                     let ref = try HURD_REF.addDocument(from: newHurd)
                     newHurd.hurdID = ref.documentID
                     print("DEBUG: difernece in UID's \(String(describing: newHurd.id)) - \(ref) ")
                     
                     let photoInfo = UnsplashPhoto(photoURL: self.tripPhoto, authorName: self.tripPhotoAuthor)
-                    
+                    // CREATE the Actual Trip Post.
                     let newTrip = Trip(createdAt: Date().timeIntervalSince1970, tripName: self.tripNameText, tripDestination: self.tripLocationSearchQuery, tripType: self.selectedTripType, tripCostEstimate: self.tripCostEstimate, tripStartDate: self.tripStartDate.timeIntervalSince1970, tripEndDate: self.tripEndDate.timeIntervalSince1970, tripDescription: self.tripDescriptionText, hurd: newHurd, tripImageURLString: photoInfo)
-                    try TRIP_REF.document().setData(from: newTrip)
+                    
+                    let tripDocRef = TRIP_REF.document()
+                    try tripDocRef.setData(from: newTrip)
+                    
+                    // CREATE The Itinerary Object
+                    let itinerary = itinerary(tripID: tripDocRef.documentID)
+                    try ITINERARY_REF.document().setData(from: itinerary)
+                    print("DEBUG: tripID \(tripDocRef.documentID)")
                     
                     self.tripNameText = ""
                     self.tripDescriptionText = ""

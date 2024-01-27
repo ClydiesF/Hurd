@@ -1,5 +1,5 @@
 //
-//  RichLinkPreview.swift
+//  ActivityPreviewView.swift
 //  HurdTravel
 //
 //  Created by clydies freeman on 8/4/23.
@@ -8,8 +8,8 @@
 import SwiftUI
 import LinkPresentation
 
-struct RichLinkPreview: View {
-    @StateObject var vm: LinkViewModel
+struct ActivityPreviewView: View {
+    @StateObject var vm: ActivityViewModel
     
     var body: some View {
         HStack(spacing: 10) {
@@ -56,9 +56,9 @@ struct RichLinkPreview: View {
     }
 }
 
-struct RichLinkPreview_Previews: PreviewProvider {
+struct ActivityPreviewView_Previews: PreviewProvider {
     static var previews: some View {
-        RichLinkPreview(vm: LinkViewModel(link: "https://www.gamespot.com/articles/moving-out-2-gets-a-nice-discount-ahead-of-august-15-release/1100-6516572/"))
+        ActivityPreviewView(vm: ActivityViewModel(link: "https://www.gamespot.com/articles/moving-out-2-gets-a-nice-discount-ahead-of-august-15-release/1100-6516572/",name: "FakeName", type: .food, description: "A Fod spot that i really like it man and i neeed some one"))
             .padding(10)
     }
 }
