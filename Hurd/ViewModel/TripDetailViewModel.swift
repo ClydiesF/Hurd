@@ -15,6 +15,7 @@ class TripDetailViewModel: ObservableObject {
     
     @Published var trip: Trip
     @Published var hurd: Hurd
+    @Published var itin: Itinerary?
     
     @Published var organizer: User?
     @Published var members: [User]?
@@ -48,6 +49,10 @@ class TripDetailViewModel: ObservableObject {
     init(trip: Trip, hurd: Hurd) {
         self.trip = trip
         self.hurd = hurd
+        Task {
+            await fetchItinerary()
+        }
+  
         
         calculateTimeRemaining(from: trip.tripStartDate)
 //        getCoordinateFrom(address: trip.tripDestination) { coordinate, error in
@@ -107,6 +112,26 @@ class TripDetailViewModel: ObservableObject {
         showAddNoteForm = false
     }
     
+    func fetchItinerary() async {
+        guard let itineraryId = trip.itineraryId else { return }
+        do {
+            let itinDoc = try await ITINERARY_REF.document(itineraryId).getDocument()
+            let itin =  try itinDoc.data(as: Itinerary.self)
+            print("DEBUG: itinDoc: \(itin)")
+            self.itin = itin
+            
+        } catch(let err) {
+            print("DEBUG: error: \(err.localizedDescription)")
+            self.itin = nil
+        }
+      
+    }
+    
+    //    func fetchUser(with id: String) async -> User? {
+
+    
+//}
+
     
     func fetchNotes() {
         TRIP_REF.document(self.trip.id ?? "").collection("Notes").addSnapshotListener { snapshot, err in

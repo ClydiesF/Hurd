@@ -208,15 +208,18 @@ class AddTripFormViewModel: NSObject, ObservableObject {
                     print("DEBUG: difernece in UID's \(String(describing: newHurd.id)) - \(ref) ")
                     
                     let photoInfo = UnsplashPhoto(photoURL: self.tripPhoto, authorName: self.tripPhotoAuthor)
+                    
+                    let itineraryRef = ITINERARY_REF.document()
                     // CREATE the Actual Trip Post.
-                    let newTrip = Trip(createdAt: Date().timeIntervalSince1970, tripName: self.tripNameText, tripDestination: self.tripLocationSearchQuery, tripType: self.selectedTripType, tripCostEstimate: self.tripCostEstimate, tripStartDate: self.tripStartDate.timeIntervalSince1970, tripEndDate: self.tripEndDate.timeIntervalSince1970, tripDescription: self.tripDescriptionText, hurd: newHurd, tripImageURLString: photoInfo)
+                    let newTrip = Trip(createdAt: Date().timeIntervalSince1970, tripName: self.tripNameText, tripDestination: self.tripLocationSearchQuery, tripType: self.selectedTripType, tripCostEstimate: self.tripCostEstimate, tripStartDate: self.tripStartDate.timeIntervalSince1970, tripEndDate: self.tripEndDate.timeIntervalSince1970, tripDescription: self.tripDescriptionText, hurd: newHurd, tripImageURLString: photoInfo, itineraryId: itineraryRef.documentID)
                     
                     let tripDocRef = TRIP_REF.document()
                     try tripDocRef.setData(from: newTrip)
                     
                     // CREATE The Itinerary Object
-                    let itinerary = itinerary(tripID: tripDocRef.documentID)
-                    try ITINERARY_REF.document().setData(from: itinerary)
+                    let itinerary = Itinerary(tripID: tripDocRef.documentID)
+                    try itineraryRef.setData(from: itinerary)
+                
                     print("DEBUG: tripID \(tripDocRef.documentID)")
                     
                     self.tripNameText = ""

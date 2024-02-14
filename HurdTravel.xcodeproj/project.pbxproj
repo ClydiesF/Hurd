@@ -73,6 +73,9 @@
 		3B530CC92965305F002C272B /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B530CC82965305F002C272B /* AuthenticationViewModel.swift */; };
 		3B530CCC2967BDE3002C272B /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B530CCB2967BDE3002C272B /* AppConstants.swift */; };
 		3B530CCE2967E942002C272B /* AuthCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B530CCD2967E942002C272B /* AuthCredentials.swift */; };
+		3B5523B52B661204001B24D9 /* ItineraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5523B42B661204001B24D9 /* ItineraryViewModel.swift */; };
+		3B5523B72B6748F9001B24D9 /* ActivityFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5523B62B6748F9001B24D9 /* ActivityFormView.swift */; };
+		3B5523B92B6B4BFB001B24D9 /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5523B82B6B4BFB001B24D9 /* CustomDatePicker.swift */; };
 		3B5B86942A70B48200569F89 /* TripComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5B86932A70B48200569F89 /* TripComponentView.swift */; };
 		3B5B86962A70B8DF00569F89 /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5B86952A70B8DF00569F89 /* ActivityViewModel.swift */; };
 		3B5B86982A7D7BE900569F89 /* RichLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5B86972A7D7BE900569F89 /* RichLinkView.swift */; };
@@ -83,6 +86,7 @@
 		3B5C31BE29736965001354E6 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C31BD29736965001354E6 /* ProfileViewModel.swift */; };
 		3B5E1C3E29AB3B2B008E8831 /* NoTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E1C3D29AB3B2B008E8831 /* NoTripView.swift */; };
 		3B603F152975B00A00E01D99 /* TripsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B603F142975B00A00E01D99 /* TripsViewModel.swift */; };
+		3B6552D82B7C893D00B37FC1 /* NoActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6552D72B7C893D00B37FC1 /* NoActivityView.swift */; };
 		3B6E292C298F5AED00A90449 /* SavePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E292B298F5AED00A90449 /* SavePopUp.swift */; };
 		3B6E292E2990BE2300A90449 /* TripDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E292D2990BE2300A90449 /* TripDateView.swift */; };
 		3B6E29302991F7C500A90449 /* UnSplashResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E292F2991F7C500A90449 /* UnSplashResponseModel.swift */; };
@@ -94,11 +98,15 @@
 		3B7AD1F32A678C6A00FBEBCA /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7AD1F22A678C6A00FBEBCA /* Router.swift */; };
 		3B7AD1F52A6A311500FBEBCA /* HurdMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7AD1F42A6A311400FBEBCA /* HurdMemberView.swift */; };
 		3B7AD1F72A6A39C800FBEBCA /* HurdAdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7AD1F62A6A39C800FBEBCA /* HurdAdminView.swift */; };
+		3B7CDC982B707C7100410EA0 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7CDC972B707C7100410EA0 /* Date+Extensions.swift */; };
+		3B7CDCB92B7B379C00410EA0 /* Hurd+ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7CDCB82B7B379C00410EA0 /* Hurd+ViewModifiers.swift */; };
+		3B7CDCBB2B7B3F6800410EA0 /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7CDCBA2B7B3F6800410EA0 /* DateView.swift */; };
 		3B823FBF299F32AE00639D04 /* TripSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B823FBE299F32AE00639D04 /* TripSettingsView.swift */; };
 		3B823FC1299F36CB00639D04 /* TripSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B823FC0299F36CB00639D04 /* TripSettingsViewModel.swift */; };
 		3B8629F6296D166C0077DB92 /* OnboardingProfileInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8629F5296D166C0077DB92 /* OnboardingProfileInfoView.swift */; };
 		3B8629F8296D48600077DB92 /* OnboardingProfileInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8629F7296D48600077DB92 /* OnboardingProfileInfoViewModel.swift */; };
 		3B8629FA296E604A0077DB92 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8629F9296E604A0077DB92 /* User.swift */; };
+		3B8F1CA42B6DF42D00FE2D09 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8F1CA32B6DF42D00FE2D09 /* ActivityView.swift */; };
 		3BC9ECD0295C0372004EFEEF /* HurdApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECCF295C0372004EFEEF /* HurdApp.swift */; };
 		3BC9ECD2295C0372004EFEEF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC9ECD1295C0372004EFEEF /* ContentView.swift */; };
 		3BC9ECD7295C0373004EFEEF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BC9ECD6295C0373004EFEEF /* Preview Assets.xcassets */; };
@@ -195,6 +203,9 @@
 		3B530CC82965305F002C272B /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		3B530CCB2967BDE3002C272B /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		3B530CCD2967E942002C272B /* AuthCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCredentials.swift; sourceTree = "<group>"; };
+		3B5523B42B661204001B24D9 /* ItineraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryViewModel.swift; sourceTree = "<group>"; };
+		3B5523B62B6748F9001B24D9 /* ActivityFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFormView.swift; sourceTree = "<group>"; };
+		3B5523B82B6B4BFB001B24D9 /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
 		3B5B86932A70B48200569F89 /* TripComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripComponentView.swift; sourceTree = "<group>"; };
 		3B5B86952A70B8DF00569F89 /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
 		3B5B86972A7D7BE900569F89 /* RichLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichLinkView.swift; sourceTree = "<group>"; };
@@ -206,6 +217,7 @@
 		3B5C31BD29736965001354E6 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		3B5E1C3D29AB3B2B008E8831 /* NoTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoTripView.swift; sourceTree = "<group>"; };
 		3B603F142975B00A00E01D99 /* TripsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsViewModel.swift; sourceTree = "<group>"; };
+		3B6552D72B7C893D00B37FC1 /* NoActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoActivityView.swift; sourceTree = "<group>"; };
 		3B6E292B298F5AED00A90449 /* SavePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePopUp.swift; sourceTree = "<group>"; };
 		3B6E292D2990BE2300A90449 /* TripDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDateView.swift; sourceTree = "<group>"; };
 		3B6E292F2991F7C500A90449 /* UnSplashResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnSplashResponseModel.swift; sourceTree = "<group>"; };
@@ -216,11 +228,15 @@
 		3B7AD1F22A678C6A00FBEBCA /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		3B7AD1F42A6A311400FBEBCA /* HurdMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdMemberView.swift; sourceTree = "<group>"; };
 		3B7AD1F62A6A39C800FBEBCA /* HurdAdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdAdminView.swift; sourceTree = "<group>"; };
+		3B7CDC972B707C7100410EA0 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		3B7CDCB82B7B379C00410EA0 /* Hurd+ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Hurd+ViewModifiers.swift"; sourceTree = "<group>"; };
+		3B7CDCBA2B7B3F6800410EA0 /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
 		3B823FBE299F32AE00639D04 /* TripSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSettingsView.swift; sourceTree = "<group>"; };
 		3B823FC0299F36CB00639D04 /* TripSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSettingsViewModel.swift; sourceTree = "<group>"; };
 		3B8629F5296D166C0077DB92 /* OnboardingProfileInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProfileInfoView.swift; sourceTree = "<group>"; };
 		3B8629F7296D48600077DB92 /* OnboardingProfileInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProfileInfoViewModel.swift; sourceTree = "<group>"; };
 		3B8629F9296E604A0077DB92 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3B8F1CA32B6DF42D00FE2D09 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		3BC9ECCC295C0372004EFEEF /* HurdTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HurdTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BC9ECCF295C0372004EFEEF /* HurdApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HurdApp.swift; sourceTree = "<group>"; };
 		3BC9ECD1295C0372004EFEEF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -312,6 +328,10 @@
 			isa = PBXGroup;
 			children = (
 				3B1864A02B64B3E0000C6890 /* ItineraryView.swift */,
+				3B5523B62B6748F9001B24D9 /* ActivityFormView.swift */,
+				3B8F1CA32B6DF42D00FE2D09 /* ActivityView.swift */,
+				3B7CDCBA2B7B3F6800410EA0 /* DateView.swift */,
+				3B6552D72B7C893D00B37FC1 /* NoActivityView.swift */,
 			);
 			path = Itinerary;
 			sourceTree = "<group>";
@@ -510,6 +530,7 @@
 				3B5B86932A70B48200569F89 /* TripComponentView.swift */,
 				3B4F6AB22A998A23003699ED /* UpdatePasswordView.swift */,
 				3B4F6AB42A99D5D6003699ED /* UpdateEmailView.swift */,
+				3B5523B82B6B4BFB001B24D9 /* CustomDatePicker.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -537,6 +558,7 @@
 				3BC9ED11295FB2F6004EFEEF /* TripDetailViewModelOLD.swift */,
 				3B823FC0299F36CB00639D04 /* TripSettingsViewModel.swift */,
 				3B5B86952A70B8DF00569F89 /* ActivityViewModel.swift */,
+				3B5523B42B661204001B24D9 /* ItineraryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -550,6 +572,8 @@
 				3B3F682929C556D600FBC7B6 /* Notifications+Extensions.swift */,
 				3B3F682B29C559B700FBC7B6 /* AdaptsToKeyboard.swift */,
 				3BE06D232A90735900A7D61F /* String+Extensions.swift */,
+				3B7CDC972B707C7100410EA0 /* Date+Extensions.swift */,
+				3B7CDCB82B7B379C00410EA0 /* Hurd+ViewModifiers.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -765,10 +789,12 @@
 			files = (
 				3B3F682829C555F400FBC7B6 /* Publishers+Extensions.swift in Sources */,
 				3B4EB277297BEB1D008C26EF /* EditProfileView.swift in Sources */,
+				3B5523B92B6B4BFB001B24D9 /* CustomDatePicker.swift in Sources */,
 				3BC9ECD2295C0372004EFEEF /* ContentView.swift in Sources */,
 				3B7AD1F72A6A39C800FBEBCA /* HurdAdminView.swift in Sources */,
 				3BE06D242A90735900A7D61F /* String+Extensions.swift in Sources */,
 				3B6E292E2990BE2300A90449 /* TripDateView.swift in Sources */,
+				3B5523B72B6748F9001B24D9 /* ActivityFormView.swift in Sources */,
 				3BC9ED17295FF829004EFEEF /* HurdSlidingTabView.swift in Sources */,
 				3BE06D202A90150800A7D61F /* SigninOptionsView.swift in Sources */,
 				3B7AD1F52A6A311500FBEBCA /* HurdMemberView.swift in Sources */,
@@ -786,16 +812,19 @@
 				3B4EB2672977B780008C26EF /* TripNotesView.swift in Sources */,
 				3B5B869A2A7D839C00569F89 /* ActivityPreviewView.swift in Sources */,
 				3B4EB2652977A8C9008C26EF /* NotesView.swift in Sources */,
+				3B7CDC982B707C7100410EA0 /* Date+Extensions.swift in Sources */,
 				3B7A93D02A6F784100DE3589 /* AddTripFormView.swift in Sources */,
 				3B5C31B42970E4A8001354E6 /* AddTripFormViewModel.swift in Sources */,
 				3B7AD1F32A678C6A00FBEBCA /* Router.swift in Sources */,
 				3B0B26252A862CE40031696A /* BroadcastView.swift in Sources */,
+				3B7CDCBB2B7B3F6800410EA0 /* DateView.swift in Sources */,
 				3BC9ED12295FB2F6004EFEEF /* TripDetailViewModelOLD.swift in Sources */,
 				3B8629F8296D48600077DB92 /* OnboardingProfileInfoViewModel.swift in Sources */,
 				3BC9ED00295D7C2D004EFEEF /* TripPreviewView.swift in Sources */,
 				3BC9ED03295ED420004EFEEF /* DiscoveryView.swift in Sources */,
 				3B823FC1299F36CB00639D04 /* TripSettingsViewModel.swift in Sources */,
 				3BC9ECD0295C0372004EFEEF /* HurdApp.swift in Sources */,
+				3B7CDCB92B7B379C00410EA0 /* Hurd+ViewModifiers.swift in Sources */,
 				3B5C31BE29736965001354E6 /* ProfileViewModel.swift in Sources */,
 				3B4F6AB52A99D5D6003699ED /* UpdateEmailView.swift in Sources */,
 				3B5B86982A7D7BE900569F89 /* RichLinkView.swift in Sources */,
@@ -803,6 +832,7 @@
 				3BC9ED07295ED43F004EFEEF /* TripView.swift in Sources */,
 				3B4F6AA52A91C68E003699ED /* LandingView.swift in Sources */,
 				3B530CCE2967E942002C272B /* AuthCredentials.swift in Sources */,
+				3B8F1CA42B6DF42D00FE2D09 /* ActivityView.swift in Sources */,
 				3B5E1C3E29AB3B2B008E8831 /* NoTripView.swift in Sources */,
 				3B1864A12B64B3E0000C6890 /* ItineraryView.swift in Sources */,
 				3B4F6AB32A998A23003699ED /* UpdatePasswordView.swift in Sources */,
@@ -817,6 +847,7 @@
 				3B823FBF299F32AE00639D04 /* TripSettingsView.swift in Sources */,
 				3BE06D222A90537100A7D61F /* SignUpView.swift in Sources */,
 				3BC9ECE6295C0924004EFEEF /* HurdButtonModel.swift in Sources */,
+				3B5523B52B661204001B24D9 /* ItineraryViewModel.swift in Sources */,
 				3BC9ECF6295D5C5E004EFEEF /* HurdTextField.swift in Sources */,
 				3B5B86942A70B48200569F89 /* TripComponentView.swift in Sources */,
 				3B7A93C92A6D927700DE3589 /* HurdFeedPreviewView.swift in Sources */,
@@ -824,6 +855,7 @@
 				3B530CCC2967BDE3002C272B /* AppConstants.swift in Sources */,
 				3B8629F6296D166C0077DB92 /* OnboardingProfileInfoView.swift in Sources */,
 				3BC9ED0B295ED472004EFEEF /* ProfileView.swift in Sources */,
+				3B6552D82B7C893D00B37FC1 /* NoActivityView.swift in Sources */,
 				3B51110A2A5FA897004DFD47 /* AppDelegate.swift in Sources */,
 				3BE57A47298501C40099D7E4 /* SignInWithAppleButtonView.swift in Sources */,
 			);

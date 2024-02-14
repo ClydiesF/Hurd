@@ -90,7 +90,6 @@ struct TripSettingsView: View {
         vm.prepopulateValuesFrom(current: self.vm.trip)
         return vm
     }
-    
 }
 
 struct TripSettingsView_Previews: PreviewProvider {

@@ -109,7 +109,10 @@ struct TripDetailView: View {
                     }
                     
                     NavigationLink {
-                        ItineraryView()
+                        if let itin = vm.itin, let tripID = itin.tripID {
+                            ItineraryView(vm: ItineraryViewModel(itinerary: itin, tripId: tripID))
+                        }
+                   
                     } label: {
                         Label("Iteniarary", systemImage: "list.clipboard.fill")
                             .tint(.black)

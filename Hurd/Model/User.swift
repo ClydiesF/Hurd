@@ -43,21 +43,60 @@ struct User: Codable {
     var ethnicityShown: Bool
 }
 
-struct itinerary: Codable {
+struct Itinerary: Codable {
     @DocumentID var id: String?
     let tripID: String?
 }
 
-struct Activity: Codable {
+extension Itinerary {
+    static let mockItinerary = Itinerary(tripID: "123456")
+}
+
+struct Activity: Codable, Hashable {
     @DocumentID var id: String?
-    let type: String?
-    let name: String?
+    let type: String
+    let name: String
     let location: String?
     let description: String?
     let link: String?
     let status: String?
-    let startTime: Double?
-    let endTime: Double?
+    let startTime: Double
+    let durationHours: Int?
+    let durationMinutes: Int?
+    let author: String // User Id
+}
+
+extension Activity {
+    static let mockActivity = Activity(type: "food", name: "Slutty Vegan", location: "77th Avenue Street, Boston,MA", description: "A Great place to meet poeple and eat a healthy meal. its greatQ", link: "https//www.apple.com", status: "confirmed", startTime: 1706938234, durationHours: 2, durationMinutes: 30, author: "sdjjdsjnjwklmlkmwelwe")
+    
+    var dateComponents: (Int, Int, Int) {
+        let startDate = Date(timeIntervalSince1970: self.startTime)
+        let diffs = Calendar.current.dateComponents([.day,.year, .month], from: startDate)
+        
+        guard let month = diffs.month, let day = diffs.day, let year = diffs.year else { return (0,0,0) }
+        
+        return (month, day, year)
+    }
+    
+    
+    var iconName: String {
+        switch self.type {
+        case "food":
+            return "fork.knife"
+        case "transportation":
+            return "figure.walk"
+        case "sports":
+            return "sportscourt"
+        case "flight":
+            return "airplane.departure"
+        case "club":
+            return "figure.dance"
+        case "bar":
+            return "wineglass"
+        default:
+            return ""
+        }
+    }
 }
 
 extension User {
@@ -179,7 +218,7 @@ extension Trip {
     
     static let mockTrip4 = Trip(createdAt: 1688865798, tripName: "Mock Trip 4", tripDestination: "Houston, TX", tripType: "Vacation", tripCostEstimate: 8600.0,tripStartDate: 329773023, tripEndDate: 3434324233, hurd: Hurd.mockHurd)
     
-    static let mockTrip5 = Trip(createdAt: 1688865798, tripName: "Mock Trip 5", tripDestination: "Los Angeles, LA", tripType: "Excursion", tripCostEstimate: 9600.0,tripStartDate: 329773023, tripEndDate: 3434324233, hurd: Hurd.mockHurd)
+    static let mockTrip5 = Trip(createdAt: 1688865798, tripName: "Mock Trip 5", tripDestination: "Los Angeles, LA", tripType: "Excursion", tripCostEstimate: 9600.0,tripStartDate: 1711670400, tripEndDate: 1712275200, hurd: Hurd.mockHurd)
     
     static let mockTrip6 = Trip(createdAt: 1688865798, tripName: "Mock Trip 6", tripDestination: "New York City, NY", tripType: "Business", tripCostEstimate: 577.0,tripStartDate: 329773023, tripEndDate: 3434324233, hurd: Hurd.mockHurd)
     
@@ -226,9 +265,9 @@ extension Trip {
             return "suitcase.fill"
         default:
             return ""
-            
         }
     }
+    
     var TripDuration: String {
         let start_date = Date(timeIntervalSince1970: self.tripStartDate)
         let end_date = Date(timeIntervalSince1970: self.tripEndDate)
