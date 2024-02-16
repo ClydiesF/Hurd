@@ -40,9 +40,9 @@ class ItineraryViewModel : ObservableObject {
         }
     }
     
-    func performAction(for type: ActivityFormType, activity: Activity) {
+    func performAction(for type: ActivityFormType, activity: Activity) -> Bool {
         guard let userID = Auth.auth().currentUser?.uid,
-              let itineraryId = self.itinarary.id  else { return }
+              let itineraryId = self.itinarary.id  else { return false }
         do {
             switch type {
             case .edit:
@@ -57,9 +57,11 @@ class ItineraryViewModel : ObservableObject {
                     ITINERARY_REF.document(itineraryId).collection("Activities").document(activityId).delete()
                 }
             }
+            return true
             
         } catch {
             print("DEBUG: Error Performing action for type: \(type): \(error)")
+            return false
         }
         
     }

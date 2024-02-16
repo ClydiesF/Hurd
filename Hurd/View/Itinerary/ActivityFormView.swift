@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FirebaseAuth
+import PopupView
 
 enum ActivityFormType {
     case edit
@@ -15,7 +16,13 @@ enum ActivityFormType {
 }
 
 struct ActivityFormView: View {
+    @Environment(\.presentationMode) var presentationMode
+    
     @State var name: String = ""
+    
+    @State var showSuccessStatusMessage: Bool = false
+    @State var showErrorStatusMessage: Bool = false
+    
     @State var description: String = ""
     @State var location: String = ""
     @State var activityLink: String = ""
@@ -74,11 +81,11 @@ struct ActivityFormView: View {
                 TextField("Activity Link", text: $activityLink)
             }
             
-            Button(activityFormType == .add ? "Add Activity" : "Edit Activity") {
+            Button(activityFormType == .add ? "Add Activity" : "Save Changes") {
                 guard let userId = Auth.auth().currentUser?.uid else { return }
                 let intNumber = Double(selectedStartDate.timeIntervalSince1970)
                 
-                let activity = Activity(type: activityType,
+                var activity = Activity(type: activityType,
                                         name: name,
                                         location: location,
                                         description: description,
@@ -88,11 +95,54 @@ struct ActivityFormView: View {
                                         durationHours: hourSelection,
                                         durationMinutes: minuteSelection,
                                         author: userId)
+                activity.id = self.activity?.id
                 
-                vm.performAction(for: activityFormType, activity: activity)
+                if vm.performAction(for: activityFormType, activity: activity) {
+                    showSuccessStatusMessage = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                          presentationMode.wrappedValue.dismiss()
+                      }
+                } else {
+                    showErrorStatusMessage = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                          presentationMode.wrappedValue.dismiss()
+                      }
+                }
+            
                 print("DEBUG: Add Activity")
             }
         }
+        .popup(isPresented: $showSuccessStatusMessage) {
+                Text("Sucess!")
+                    .frame(width: 200, height: 60)
+                    .background(Color(red: 0.85, green: 0.8, blue: 0.95))
+                    .cornerRadius(30.0)
+            } customize: {
+                $0.autohideIn(2)
+                    .type(.floater())
+                    .position(.top)
+                    .animation(.spring())
+                    .closeOnTapOutside(true)
+//                    .backgroundColor(.black.opacity(0.5))
+            }
+            .popup(isPresented: $showErrorStatusMessage) {
+                VStack {
+                    Text("Error!")
+                    Text("Error adding or editing trip , Please Trip!")
+                        .font(.headline)
+                        .foregroundStyle(.gray.opacity(0.4))
+                }
+                .frame(width: 200, height: 60)
+                .background(RoundedRectangle(cornerRadius: 15).fill(.red.opacity(0.4)))
+                
+                } customize: {
+                    $0.autohideIn(2)
+                        .type(.floater())
+                        .position(.top)
+                        .animation(.spring())
+                        .closeOnTapOutside(true)
+    //                    .backgroundColor(.black.opacity(0.5))
+                }
         .onAppear(perform: {
             if activityFormType == .edit {
                 prepopulate()
