@@ -2,7 +2,7 @@
 //  Router.swift
 //  HurdTravel
 //
-//  Created by clydies freeman on 7/18/23.
+//  Created by clydies freeman on 2/23/24.
 //
 
 import Foundation
@@ -49,4 +49,3 @@ final class Router: ObservableObject {
     }
     
 }
-

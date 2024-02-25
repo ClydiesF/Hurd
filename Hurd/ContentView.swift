@@ -14,10 +14,7 @@ struct ContentView: View {
     
     @State var selection = 0
     @EnvironmentObject var authVM: AuthenticationViewModel
-    // @State private var path: [Destination] = []
     @EnvironmentObject var router: Router
-    
-    
     
     var body: some View {
         

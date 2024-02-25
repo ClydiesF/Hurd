@@ -30,11 +30,10 @@ struct NoActivityView: View {
             }, label: {
                 Text("Add Activity")
             })
+            .tint(.primary)
+            .buttonStyle(.bordered)
         }
         .padding()
-        .background(RoundedRectangle(cornerRadius: 15).fill(.white))
-        .shadow(color: .gray.opacity(0.3) ,radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-
     }
 }
 

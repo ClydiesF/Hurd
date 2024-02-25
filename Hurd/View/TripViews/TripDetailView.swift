@@ -45,26 +45,10 @@ struct TripDetailView: View {
             })
             
             HStack {
-                Spacer()
-                Text(vm.trip.countDownTimerString)
-                    .font(.system(size: 13))
-                    .padding(10)
-                    .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.1)))
-                
-                Label(vm.trip.tripType, systemImage: vm.trip.iconName)
-                    .foregroundColor(.white)
-                    .fontWeight(.bold)
-                    .font(.system(size: 13))
-                    .padding(10)
-                    .background(RoundedRectangle(cornerRadius: 10).fill(.black))
-                  
-            }
-            
-            HStack {
                 VStack(alignment: .leading) {
                     Text(vm.trip.tripName)
                         .fontWeight(.bold)
-                        .font(.system(size: 19))
+                        .font(.system(size: 30))
                     
                     Label(vm.trip.tripDestination, systemImage: "location.fill")
                         .foregroundColor(.gray)
@@ -79,6 +63,13 @@ struct TripDetailView: View {
                     .font(.system(size: 13))
                 
                 Spacer()
+                Label(vm.trip.tripType, systemImage: vm.trip.iconName)
+                    .foregroundColor(.white)
+                    .fontWeight(.semibold)
+                    .font(.system(size: 13))
+                    .padding(.vertical,5)
+                    .padding(.horizontal,10)
+                    .background(Capsule().fill(.black))
                 
                 Text("\(vm.trip.TripDuration) Days")
                     .foregroundColor(.white)
@@ -99,9 +90,7 @@ struct TripDetailView: View {
                         Label("Broadcast", systemImage: "speaker.wave.2")
                             .tint(.black)
                             .font(.system(size: 14))
-                            .frame(height:33)
-                            .padding(.vertical, 5)
-                            .padding(.horizontal, 10)
+                            .padding(10)
                             .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))
                     }.sheet(isPresented: $vm.shouldShowBroadcastSheet) {
                         BroadcastView()
@@ -110,6 +99,7 @@ struct TripDetailView: View {
                     
                     NavigationLink {
                         if let itin = vm.itin, let tripID = itin.tripID {
+                            // This was causing the crash huh?
                             ItineraryView(vm: ItineraryViewModel(itinerary: itin, tripId: tripID))
                         }
                    
@@ -117,8 +107,7 @@ struct TripDetailView: View {
                         Label("Iteniarary", systemImage: "list.clipboard.fill")
                             .tint(.black)
                             .font(.system(size: 14))
-                            .frame(height:33)
-                            .padding(5)
+                            .padding(10)
                             .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))
                     }
 
@@ -129,29 +118,20 @@ struct TripDetailView: View {
                             Label("Notes", systemImage: "note.text")
                                 .tint(.black)
                                 .font(.system(size: 14))
+                                .padding(10)
                             if !(vm.notes?.isEmpty ?? true), let noteCount = vm.notes?.count {
                                 Text("\(noteCount)")
                                     .font(.system(size: 13))
                                     .fontWeight(.semibold)
                                     .foregroundColor(.white)
-                                    .padding(5)
+                                    .padding(10)
                                     .background(
                                         RoundedRectangle(cornerRadius: 5).fill(.black))
                             }
                         }
-                        .frame(height:33)
-                        .padding(5)
                         .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))
                     }
-                    
-                    Label("Budget", systemImage: "dollarsign")
-                        .tint(.black)
-                        .font(.system(size: 14))
-                        .frame(height:33)
-                        .padding(5)
-                        .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))
                 }
-                
             }
             
             Text("Overview")

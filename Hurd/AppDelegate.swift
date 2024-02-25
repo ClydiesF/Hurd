@@ -21,7 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            FirebaseApp.configure()
 //        }
 //        `
+        let providerFactory = AppCheckDebugProviderFactory()
+        AppCheck.setAppCheckProviderFactory(providerFactory)
+        
         FirebaseApp.configure()
+       
         
         UNUserNotificationCenter.current().delegate = self
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]

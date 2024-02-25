@@ -10,7 +10,6 @@ import Firebase
 
 struct TripNotesView: View {
     @ObservedObject var vm: TripDetailViewModel
-    @EnvironmentObject var router: Router
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
     @State var selection: Int = 0
     

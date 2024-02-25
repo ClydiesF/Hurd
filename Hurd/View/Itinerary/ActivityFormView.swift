@@ -51,7 +51,14 @@ struct ActivityFormView: View {
                          "outdoor",
                          "sports",
                          "educational",
-                         "health / wellness"]
+                         "health / wellness",
+                         "park",
+                         "museum",
+                         "art",
+                         "historic site",
+                         "shopping",
+                         
+    ]
     
     
     var body: some View {

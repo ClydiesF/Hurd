@@ -71,11 +71,6 @@ class AuthenticationMethods {
     }
 }
 
-    
-
-    
-
-
 class APICalls {
 //    let accessKey = "OQ56zpALUrsgNX0WDbMccCIsZ1CUDT9fD1skJIUhrY8"
 //    

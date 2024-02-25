@@ -12,6 +12,7 @@ struct ItineraryView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @State var openActivityAddSheet: Bool = false
+    @State var openGenerativeAISheet: Bool = false
     @State var selectedSegment: Int = 0
     @State var type = ActivityFormType.add
     @State var swappedActivity: Activity?
@@ -42,16 +43,6 @@ struct ItineraryView: View {
                                     selectedSegment = index
                                 }
                         }
-                        
-                        //                        Text(vm.format(date: vm.daysInItinerary?[index]))
-                        //                            .tag(index)
-                        //                            .padding(5)
-                        //                            .font(.system(size: 10))
-                        //                            .frame(height:33)
-                        //                            .background(RoundedRectangle(cornerRadius: 10).fill(selectedSegment == index ? .green :.gray.opacity(0.2)))
-                        //                            .onTapGesture {
-                        //                                selectedSegment = index
-                        //                            }
                     }
                 }
                 .padding(.leading)
@@ -70,7 +61,7 @@ struct ItineraryView: View {
                             // TODO: only allow the user of the activity to edit.
                             Button("Delete") {
                                 print("DEBUG: Delete this item")
-                                vm.performAction(for: .delete, activity: act)
+                                _ = vm.performAction(for: .delete, activity: act)
                             }
                             .tint(.red)
                             
@@ -93,9 +84,14 @@ struct ItineraryView: View {
                     .padding(.top, Spacing.twentyfour)
                 }
             }
-            
             Spacer()
         }
+        .sheet(isPresented: $openGenerativeAISheet, content: {
+            GenerativeAIView(vm: .init(generativeAIModel: .init(name: "gemini-pro", apiKey: "AIzaSyDFtU_plljqSmc-IQLLIAWs3sq1xfynPlQ"),location: vm.trip?.tripDestination ?? "", tripID: vm.tripId, days: vm.daysInItinerary ))
+                .padding(.horizontal)
+                .presentationDetents([.large])
+                .presentationDragIndicator(.visible)
+        })
         .sheet(isPresented: $openActivityAddSheet, content: {
             ActivityFormView(vm: vm, trip: vm.trip!, activity: swappedActivity, activityFormType: type)
                 .padding(.horizontal)
@@ -109,15 +105,28 @@ struct ItineraryView: View {
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                Button(action: {
-                    type = .add
-                    swappedActivity = nil
-                    openActivityAddSheet = true
-                }, label: {
-                    Image(systemName: "plus.circle.fill")
-                        .foregroundColor(.black)
-                        .fontWeight(.semibold)
-                })
+                HStack {
+                    Button {
+                        // pull up sheet
+                        print("DEBUG: Pull Generative AI Sheet")
+                        openGenerativeAISheet = true
+                    } label: {
+                        Image(systemName: "sparkle")
+                            .foregroundStyle( LinearGradient(gradient: Gradient(colors: [.red, .blue]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                            .fontWeight(.semibold)
+                    }
+                    Button(action: {
+                        type = .add
+                        swappedActivity = nil
+                        openActivityAddSheet = true
+                    }, label: {
+                        Image(systemName: "plus.circle.fill")
+                            .foregroundColor(.black)
+                            .fontWeight(.semibold)
+                    })
+
+                }
+    
             }
             
             ToolbarItem(placement: .topBarLeading) {

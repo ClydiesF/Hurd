@@ -136,7 +136,7 @@ class TripViewModel : ObservableObject {
         userDefault?.setValue(closestTrip.tripName, forKeyPath: "tripName")
         let stringDate = String(Date(timeIntervalSince1970: closestTrip.tripStartDate).formatted(date: .numeric, time: .omitted))
         userDefault?.setValue(stringDate, forKeyPath: "startDate")
-        userDefault?.setValue(closestTrip.countDownTimer["days"], forKeyPath: "countdownDays")
+        //userDefault?.setValue(closestTrip.countDownTimer["days"], forKeyPath: "countdownDays")
         userDefault?.setValue(photoString, forKey: "photoImage")
         userDefault?.setValue(closestTrip.iconName, forKey: "icon")
         // tthen i want to refresh the widget.

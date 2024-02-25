@@ -28,4 +28,8 @@ extension String {
         }
         return true
     }
+    
+    func remove(word: String) -> String? {
+        self.replacingOccurrences(of: word, with: "")
+    }
 }

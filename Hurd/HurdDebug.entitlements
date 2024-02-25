@@ -14,6 +14,8 @@
 		<string>applinks:hurdtravel-alternate.app.link</string>
 		<string>applinks:hurdtravel.test.app.link</string>
 	</array>
+	<key>com.apple.developer.devicecheck.appattest-environment</key>
+	<string>development</string>
 	<key>com.apple.security.application-groups</key>
 	<array>
 		<string>group.widgetTripCache</string>

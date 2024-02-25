@@ -13,11 +13,14 @@ import BranchSDK
 @main
 struct HurdApp: App {
     @StateObject var authVM = AuthenticationViewModel()
-    @StateObject var router = Router()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @StateObject var router = Router()
+    
     
     var body: some Scene {
+
         WindowGroup {
+//            GenerativeAIView()
             switch authVM.authState {
             case .signedIn:
                 ContentView()

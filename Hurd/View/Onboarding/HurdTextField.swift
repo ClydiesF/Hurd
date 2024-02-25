@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HurdTextField: View {
+    
     let placeholderText: String
     @Binding var text: String
     @Binding var color: Color

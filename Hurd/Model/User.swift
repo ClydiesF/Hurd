@@ -8,22 +8,6 @@
 import Foundation
 import FirebaseFirestoreSwift
 
-
-
-enum NoteType: String, CaseIterable {
-    case important = "Important"
-    case generalNote = "General Note"
-    
-    var iconString: String {
-        switch self {
-        case .important:
-            return "exclamationmark.triangle.fill"
-        case .generalNote:
-            return "note.text"
-        }
-    }
-}
-
 struct User: Codable {
     var id: String?
     let createdAt: Double?
@@ -41,62 +25,6 @@ struct User: Codable {
     var emailShown: Bool
     var phoneNumberShown: Bool
     var ethnicityShown: Bool
-}
-
-struct Itinerary: Codable {
-    @DocumentID var id: String?
-    let tripID: String?
-}
-
-extension Itinerary {
-    static let mockItinerary = Itinerary(tripID: "123456")
-}
-
-struct Activity: Codable, Hashable {
-    @DocumentID var id: String?
-    let type: String
-    let name: String
-    let location: String?
-    let description: String?
-    let link: String?
-    let status: String?
-    let startTime: Double
-    let durationHours: Int?
-    let durationMinutes: Int?
-    let author: String // User Id
-}
-
-extension Activity {
-    static let mockActivity = Activity(type: "food", name: "Slutty Vegan", location: "77th Avenue Street, Boston,MA", description: "A Great place to meet poeple and eat a healthy meal. its greatQ", link: "https//www.apple.com", status: "confirmed", startTime: 1706938234, durationHours: 2, durationMinutes: 30, author: "sdjjdsjnjwklmlkmwelwe")
-    
-    var dateComponents: (Int, Int, Int) {
-        let startDate = Date(timeIntervalSince1970: self.startTime)
-        let diffs = Calendar.current.dateComponents([.day,.year, .month], from: startDate)
-        
-        guard let month = diffs.month, let day = diffs.day, let year = diffs.year else { return (0,0,0) }
-        
-        return (month, day, year)
-    }
-    
-    
-    var iconName: String {
-        switch self.type {
-        case "food":
-            return "fork.knife"
-        case "transportation":
-            return "figure.walk"
-        case "sports":
-            return "sportscourt"
-        case "flight":
-            return "airplane.departure"
-        case "club":
-            return "figure.dance"
-        case "bar":
-            return "wineglass"
-        default:
-            return ""
-        }
-    }
 }
 
 extension User {
@@ -157,55 +85,7 @@ struct DateSuggestion: Codable {
     let endDate: Double
 }
 
-struct Hurd: Codable {
-    @DocumentID var id: String?
-    var name: String?
-    var description: String?
-    var isLocked: Bool = false
-    var members: [String]?
-    var organizer: String
-    var hurdID: String?
-    var capacity: Int = 5
-}
 
-struct Note: Codable, Hashable {
-    @DocumentID var id: String?
-    var title: String
-    var body: String
-    var noteType: String
-    var timestamp: Double
-    var authorID: String
-}
-
-extension Note {
-    static let mockNote = Note(id: UUID().uuidString, title: "Passport 🧨", body: "Everyone remember to bring your passports please", noteType: NoteType.important.rawValue, timestamp: 3434324233, authorID: UUID().uuidString)
-    
-    static let mockNote2 = Note(id: UUID().uuidString, title: "Hurd Rules 🦬", body: "Everyone remember to bring your passports please", noteType: NoteType.generalNote.rawValue, timestamp: 3434324233, authorID: UUID().uuidString)
-}
-
-
-extension Hurd {
-    // MOCKS
-    static let mockHurd = Hurd(id: "36365r6457623", name: "The Hooligans", description: "This trip is for Pauls Bacherlor party. this will be a grrest time for him and were going to have a blast.", members: ["","",""], organizer: "727812gy7812g", hurdID: nil, capacity: 5)
-    static let mockHurdNoName = Hurd(id: "36365r6457623", members: [""], organizer: "727812gy7812g", hurdID: nil, capacity: 5)
-    static let mockHurdLocked = Hurd(id: "36365r6457623", name: "The Hooligans", isLocked: true, members: ["","",""], organizer: "727812gy7812g", hurdID: nil, capacity: 5)
-    
-    var hurdName: String {
-        if let name  {
-            return name
-        }
-        
-        return id ?? ""
-    }
-    
-    var memberCount: Int {
-        if let members {
-            return members.count
-        }
-        
-        return 0
-    }
-}
 
 extension Trip {
     
@@ -224,7 +104,7 @@ extension Trip {
     
     var tripCostString: String {
         var cost = tripCostEstimate
-
+        
         if tripCostEstimate < 1000 {
             if tripCostEstimate >= 50 {
                 cost = round(tripCostEstimate / 50) * 50
@@ -232,20 +112,20 @@ extension Trip {
                 cost = round(tripCostEstimate / 100) * 100
             }
         }
-
+        
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         numberFormatter.maximumFractionDigits = cost < 1000 ? 0 : 1
         numberFormatter.decimalSeparator = "."
-
+        
         let number = NSNumber(value: cost)
         var result = numberFormatter.string(from: number) ?? ""
-
+        
         if cost >= 1000 {
             cost = round(cost / 100) / 10
             result = String(cost) + "k"
         }
-
+        
         return result
     }
     
@@ -271,62 +151,18 @@ extension Trip {
     var TripDuration: String {
         let start_date = Date(timeIntervalSince1970: self.tripStartDate)
         let end_date = Date(timeIntervalSince1970: self.tripEndDate)
-         let calendar = Calendar.current
-         let components = calendar.dateComponents([.day], from: start_date, to: end_date)
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.day], from: start_date, to: end_date)
         
         if let day = components.day {
             let stringDuration = String(day)
             return stringDuration
         }
-         return "0"
-    }
-    
-    var countDownTimerString: String {
-        let cd = countDownTimer
-        let days = cd["days"]
-        let hours = cd["hours"]
-        let minutes = cd["minutes"]
-        return "\(days ?? 0)d:\(hours ?? 0)h:\(minutes ?? 0)m"
-    }
-    
-    var countDownTimer: [String:Int] {
-        var localTimeZoneAbbreviation: String { return TimeZone.current.abbreviation() ?? "" }
-
-        let start_date = Date()
-    
-        let end_date = Date(timeIntervalSince1970: self.tripStartDate)
-        let calendar = Calendar.current
-
-        let components = calendar.dateComponents([.day, .hour, .minute, .second], from: start_date, to: end_date)
-        let countdown = [
-          "days": components.day!,
-          "hours": components.hour!,
-          "minutes": components.minute!,
-          "seconds": components.second!,
-        ]
-        print("DEBUG: TIMER COUNT \(countdown["days"] ?? 0)")
-        return countdown
-    }
-    
-    var countdownPercentage: Double? {
-        guard let createdAtDate = self.createdAt else { return nil }
-        
-        let create = Date(timeIntervalSince1970: createdAtDate)
-        let start = Date(timeIntervalSince1970: self.tripStartDate)
-         let calendar = Calendar.current
-         let components = calendar.dateComponents([.day], from: create, to: start)
-        
-        if let day = components.day, let counDownTimerDays = countDownTimer["days"] {
-            let percentage =  abs((Double(counDownTimerDays) / Double(day)) - 1.0)
-            print("DEBUG: \(percentage), create day \(day) cTimerDay \(counDownTimerDays)")
-            return percentage
-        }
-        
-        return nil
+        return "0"
     }
     
     var dateRangeString: String {
-    
+        
         let startDate = Date(timeIntervalSince1970: self.tripStartDate)
         let endDate = Date(timeIntervalSince1970: self.tripEndDate)
         var localTimeZoneAbbreviation: String { return TimeZone.current.abbreviation() ?? "" }
