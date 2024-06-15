@@ -16,6 +16,8 @@ struct ItineraryView: View {
     @State var selectedSegment: Int = 0
     @State var type = ActivityFormType.add
     @State var swappedActivity: Activity?
+    @State private var selectedOption = 0 // 0 for Itinerary, 1 for Activities
+    
     
     @ObservedObject var vm: ItineraryViewModel
     
@@ -34,20 +36,43 @@ struct ItineraryView: View {
             }
             .padding(.horizontal)
             
-            ScrollView(.horizontal,showsIndicators: false) {
-                HStack {
-                    ForEach(0 ..< (vm.daysInItinerary?.count ?? 0), id: \.self) { index in
-                        if let daysInItinerary = vm.daysInItinerary {
-                            DateView(date: daysInItinerary[index], index: index, selectedSegment: $selectedSegment)
-                                .onTapGesture {
-                                    selectedSegment = index
-                                }
+            Picker("Select", selection: $selectedOption) {
+                         Text("Itinerary").tag(0)
+                         Text("Activities").tag(1)
+                     }
+                     .pickerStyle(SegmentedPickerStyle())
+                     .padding()
+            
+            if selectedOption == 0 {
+                ScrollView(.horizontal,showsIndicators: false) {
+                    HStack {
+                        ForEach(0 ..< (vm.daysInItinerary?.count ?? 0), id: \.self) { index in
+                            if let daysInItinerary = vm.daysInItinerary {
+                                DateView(date: daysInItinerary[index], index: index, selectedSegment: $selectedSegment)
+                                    .onTapGesture {
+                                        selectedSegment = index
+                                    }
+                            }
                         }
                     }
+                    .padding(.leading)
+                    .padding(.bottom, 10)
+                    .animation(.easeInOut, value: selectedOption)
                 }
-                .padding(.leading)
-                .padding(.bottom, 10)
+            } else {
+                HStack {
+                    Spacer()
+                    
+                    Text("Unassinged Activities")
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.2)))
+                        .animation(.easeInOut, value: selectedOption)
+                    
+                    Spacer()
+                }
             }
+            
             Divider()
             
             //TODO: Enter Content HERE.. This should be a list.
@@ -55,7 +80,7 @@ struct ItineraryView: View {
             // vm.trips.filter { ($0.tripEndDate + 86400) >= vm.currentDate
             List {
                 // List the activities for the selected Day
-                ForEach(returnActivitiesForDay(), id: \.self) { act in
+                ForEach(selectedOption == 0 ?   returnActivitiesForDay(): returnUnassignedActivities(), id: \.self) { act in
                     ActivityView(activity: act)
                         .swipeActions {
                             // TODO: only allow the user of the activity to edit.
@@ -76,18 +101,29 @@ struct ItineraryView: View {
                 }
             }
             .overlay {
-                if returnActivitiesForDay().isEmpty {
-                    VStack {
-                        NoActivityView(shouldShowAlert: $openActivityAddSheet, type: $type, swappedActivity: $swappedActivity)
-                        Spacer()
+                if selectedOption == 0 {
+                    if returnActivitiesForDay().isEmpty {
+                        VStack {
+                            NoActivityView(shouldShowAlert: $openActivityAddSheet, type: $type, swappedActivity: $swappedActivity)
+                            Spacer()
+                        }
+                        .padding(.top, Spacing.twentyfour)
                     }
-                    .padding(.top, Spacing.twentyfour)
+                } else {
+                    if returnUnassignedActivities().isEmpty {
+                        VStack {
+                            NoActivityView(shouldShowAlert: $openActivityAddSheet, type: $type, swappedActivity: $swappedActivity)
+                            Spacer()
+                        }
+                        .padding(.top, Spacing.twentyfour)
+                    }
                 }
             }
+            
             Spacer()
         }
         .sheet(isPresented: $openGenerativeAISheet, content: {
-            GenerativeAIView(vm: .init(generativeAIModel: .init(name: "gemini-pro", apiKey: "AIzaSyDFtU_plljqSmc-IQLLIAWs3sq1xfynPlQ"),location: vm.trip?.tripDestination ?? "", tripID: vm.tripId, days: vm.daysInItinerary ))
+            GenerativeAIView(vm: .init(generativeAIModel: .init(name: "gemini-1.0-pro-latest", apiKey: "AIzaSyB7qBUrXEudDiwyB3lZf3GUtobcS7VdXyI"),location: vm.trip?.tripDestination ?? "", tripID: vm.tripId, days: vm.daysInItinerary, trip: vm.trip), itinVM: vm)
                 .padding(.horizontal)
                 .presentationDetents([.large])
                 .presentationDragIndicator(.visible)
@@ -100,7 +136,7 @@ struct ItineraryView: View {
         })
         .onAppear(perform: {
             vm.datesBetween()
-            print("DEBUG: Dont need to call anything! Right now. ")
+            print("DEBUG: Dont need to call anything! Right now.")
         })
         .navigationBarBackButtonHidden(true)
         .toolbar {
@@ -124,9 +160,7 @@ struct ItineraryView: View {
                             .foregroundColor(.black)
                             .fontWeight(.semibold)
                     })
-
                 }
-    
             }
             
             ToolbarItem(placement: .topBarLeading) {
@@ -139,13 +173,25 @@ struct ItineraryView: View {
         }
     }
     
-    // METHODS:
+    //MARK: - METHODS
+    
     func returnActivitiesForDay() -> [Activity] {
         guard let activities = vm.activities?.filter({ act in
             if let selectedDate = vm.daysInItinerary?[selectedSegment] {
                 return act.dateComponents == selectedDate.monthDayYear
             }
             return false
+        }) else { return [] }
+        
+        return activities
+    }
+    
+    func returnUnassignedActivities() -> [Activity] {
+        guard let activities = vm.activities?.filter({ act in
+            if let start = act.startTime {
+                return false
+            }
+            return true
         }) else { return [] }
         
         return activities

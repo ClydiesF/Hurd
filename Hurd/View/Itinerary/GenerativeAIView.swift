@@ -12,22 +12,32 @@ import GoogleGenerativeAI
 struct GenerativeAIView: View {
     @StateObject var vm: GenerativeAIViewModel
     @State private var selectedOption = 0 // 0 for Itinerary, 1 for Activities
+    @ObservedObject var itinVM: ItineraryViewModel
+    @State private var showImportSheet: Bool = false
+    
+    @State private var activitySwapped: ActivityAI?
     
     // MARK: Generative AI Contentt
     var body: some View {
         ZStack {
             // View 1
             VStack {
-                Text("Generate Activities")
-                    .font(.title)
-                    .fontWeight(.semibold)
-                    .padding()
+                HStack {
+                    Text("Generate ")
+                    Text("\(selectedOption == 0 ? "Itinerary" : "Activities")")
+                        .animation(.easeInOut, value: selectedOption)
+                }
+                .padding(.top)
+                .font(.title)
+                .fontWeight(.semibold)
+                    
                 
                 Text("Use Generative AI to generate Activities for your trip automatically.")
                     .font(.caption)
                     .fontWeight(.light)
                     .padding(.horizontal)
-    
+                
+                // Conditionally render the textfield to accept location
                 if vm.location.isEmpty {
                     TextField(text: $vm.location, label: {
                         Text("Location")
@@ -41,6 +51,13 @@ struct GenerativeAIView: View {
                              Text("Activities").tag(1)
                          }
                          .pickerStyle(SegmentedPickerStyle())
+                         .onChange(of: selectedOption, { oldValue, newValue in
+                             if oldValue == 1 {
+                                 vm.isFullItinerary = true
+                             } else {
+                                 vm.isFullItinerary = false
+                             }
+                         })
                          .padding()
 
                 
@@ -61,19 +78,22 @@ struct GenerativeAIView: View {
                     }
                 }
                 
-                ScrollView(.horizontal) {
-                    HStack {
-                        ForEach(0 ..< (vm.days?.count ?? 0),id: \.self) { index in
-                            if let day = vm.days?[index] {
-                                DateViewAI(date: day, index: index, selectedSegment: $vm.selectedIndex)
-                                    .onTapGesture {
-                                        vm.selectedIndex = index
-                                    }
+                if selectedOption == 0 {
+                    ScrollView(.horizontal) {
+                        HStack {
+                            ForEach(0 ..< (vm.days?.count ?? 0),id: \.self) { index in
+                                if let day = vm.days?[index] {
+                                    DateViewAI(date: day, index: index, selectedSegment: $vm.selectedIndex)
+                                        .onTapGesture {
+                                            vm.selectedIndex = index
+                                        }
+                                }
                             }
                         }
+                        .padding(10)
                     }
-                    .padding(10)
                 }
+
                 
                 Divider()
                 
@@ -84,21 +104,21 @@ struct GenerativeAIView: View {
                     LoadingView()
                 } else {
                     List {
-                        ForEach(vm.returnActivitiesForDay(), id: \.self) { activity in
-                            if let linkString = activity.link,
-                               let url = URL(string: linkString) {
-                                Link(destination: url, label: {
-                                    ActivityViewAI(activity: activity)
-                                })
-                                .foregroundStyle(Color.black)
-                            } else {
-                                ActivityViewAI(activity: activity)
-                            }
-                    
-                       }
-                     }
+                        ForEach(vm.returnActivities(), id: \.self) { activity in
+                            
+                            ActivityViewAI(activity: activity)
+                                .swipeActions {
+                                    Button("Edit") {
+                                        print("DEBUG: pull up import sheet")
+                                        activitySwapped = activity
+                                        showImportSheet = true
+                                        
+                                    }
+                                    .tint(.purple)
+                                }
+                        }
+                    }
                 }
-     
             }
             
             // View 2
@@ -112,6 +132,7 @@ struct GenerativeAIView: View {
                             .foregroundStyle( LinearGradient(gradient: Gradient(colors: [.red, .blue]), startPoint: .topLeading, endPoint: .bottomTrailing))
                             .padding()
                             .background(Capsule().fill(.white).shadow(color: .gray.opacity(0.2) ,radius: 5))
+                            .animation(.easeIn, value: selectedOption)
                     })
                     
                     Spacer()
@@ -132,6 +153,13 @@ struct GenerativeAIView: View {
                 .padding()
             }
         }
+        .sheet(isPresented: $showImportSheet, content: {
+            if let activitySwapped , let trip = itinVM.trip {
+                importActivityView(itinVM: itinVM, trip: trip, activity: activitySwapped)
+            }
+            // Provide error screen here as well.
+          
+        })
     }
     
 }
@@ -150,5 +178,5 @@ struct LoadingView: View {
 
 
 #Preview {
-    GenerativeAIView(vm: .init(generativeAIModel: .init(name: "ffdsd", apiKey: "dfsfsd")))
+    GenerativeAIView(vm: .init(generativeAIModel: .init(name: "ffdsd", apiKey: "dfsfsd"), trip: Trip.mockTrip), itinVM: ItineraryViewModel.provideMockItineraryViewModel())
 }

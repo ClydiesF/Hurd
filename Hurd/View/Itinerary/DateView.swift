@@ -20,8 +20,12 @@ struct DateView: View {
                     .fontWeight(.thin)
                 Text(formatDay(date:date))
             }
-            .padding()
-            .background(RoundedRectangle(cornerRadius: 10).fill(isDateSelected() ? .green.opacity(0.2):.gray.opacity(0.2)))
+            .frame(width: 40)
+            .padding(10)
+            .background(RoundedRectangle(cornerRadius: 10).fill(isDateSelected() ? .green.opacity(0.2) : .white))
+            .background(RoundedRectangle(cornerRadius: 10).stroke(Color.gray.opacity(0.2), lineWidth: 2))
+        
+
 
     }
     

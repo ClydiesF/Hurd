@@ -17,7 +17,7 @@ struct DateViewAI: View {
             Text(formatNum(date:date))
                 .font(.system(size: 18))
                 .fontWeight(.bold)
-//            Divider()
+            
             Text(formatDay(date:date))
                 .font(.caption)
         }

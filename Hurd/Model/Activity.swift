@@ -16,7 +16,7 @@ struct Activity: Codable, Hashable {
     let description: String?
     let link: String?
     let status: String?
-    let startTime: Double
+    let startTime: Double?
     let durationHours: Int?
     let durationMinutes: Int?
     let author: String // User Id
@@ -72,13 +72,15 @@ extension ActivityAI {
         
         return (month, day)
     }
+    static let mockActivityAI = ActivityAI(type: "food", name: "Slutty Vegan", location: "77th Avenue Street, Boston,MA", description: "A Great place to meet poeple and eat a healthy meal. its greatQ", link: "https//www.apple.com", status: "confirmed", startTime: 1706938234, durationHours: 2, durationMinutes: 30, author: "sdjjdsjnjwklmlkmwelwe")
 }
 
 extension Activity {
     static let mockActivity = Activity(type: "food", name: "Slutty Vegan", location: "77th Avenue Street, Boston,MA", description: "A Great place to meet poeple and eat a healthy meal. its greatQ", link: "https//www.apple.com", status: "confirmed", startTime: 1706938234, durationHours: 2, durationMinutes: 30, author: "sdjjdsjnjwklmlkmwelwe")
     
     var dateComponents: (Int, Int, Int) {
-        let startDate = Date(timeIntervalSince1970: self.startTime)
+        guard let startTime else { return (0,0,0) }
+        let startDate = Date(timeIntervalSince1970: startTime)
         let diffs = Calendar.current.dateComponents([.day,.year, .month], from: startDate)
         
         guard let month = diffs.month, let day = diffs.day, let year = diffs.year else { return (0,0,0) }
