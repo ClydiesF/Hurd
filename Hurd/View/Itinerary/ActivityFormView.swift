@@ -159,15 +159,18 @@ struct ActivityFormView: View {
     
     func prepopulate() {
         if let activity {
-            let timeInterval = TimeInterval(floatLiteral: activity.startTime)
-            let date = Date(timeIntervalSince1970: timeInterval)
             
+            if let startTime = activity.startTime {
+                let timeInterval = TimeInterval(floatLiteral: startTime)
+                let date = Date(timeIntervalSince1970: timeInterval)
+                
+                selectedStartDate = date
+            }
             name = activity.name
             description = activity.description ?? ""
             location = activity.location ?? ""
             activityLink = activity.link ?? ""
             activityType = activity.type
-            selectedStartDate = date
             hourSelection = activity.durationHours ?? 0
             minuteSelection = activity.durationMinutes ?? 0
         }

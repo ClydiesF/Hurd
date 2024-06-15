@@ -20,7 +20,8 @@ struct HurdApp: App {
     var body: some Scene {
 
         WindowGroup {
-//            GenerativeAIView()
+//            GenerativeAIView(vm: .init(generativeAIModel:
+//                    .init(name: "gemini-pro", apiKey: "AIzaSyB7qBUrXEudDiwyB3lZf3GUtobcS7VdXyI"), trip: Trip.mockTrip), itinVM: ItineraryViewModel(itinerary: Itinerary.mockItinerary, tripId: "434343"))
             switch authVM.authState {
             case .signedIn:
                 ContentView()

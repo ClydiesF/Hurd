@@ -14,10 +14,17 @@ struct ActivityView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: Spacing.eight) {
             HStack {
-                Text(convertEpochDateIntoDateComponentString(epoch: Int(activity.startTime)))
-                    .font(.title3)
-                    .fontWeight(.bold)
-                
+                if let startTime = activity.startTime {
+                    Text(convertEpochDateIntoDateComponentString(epoch: Int(startTime)))
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                } else {
+                    Text("TBD")
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                        .foregroundStyle(.red)
+                }
+         
                 Spacer()
                 //TODO: Possible add the Author when more than one author is responsible for an activity.
                 Image(systemName: activity.iconName)
@@ -46,12 +53,14 @@ struct ActivityView: View {
                             .frame(width: 30, height: 30)
                     }
                 }
-        
-                Text(returnDurationString(hours: activity.durationHours, minutes: activity.durationMinutes))
-                    .font(.system(size: 12))
-                    .padding(.vertical, 5)
-                    .padding(.horizontal, 10)
-                    .background(Capsule().fill(.gray.opacity(0.2)))
+                if let hours = activity.durationHours, let minutes = activity.durationMinutes {
+                    Text(returnDurationString(hours: hours, minutes: minutes))
+                        .font(.system(size: 12))
+                        .padding(.vertical, 5)
+                        .padding(.horizontal, 10)
+                        .background(Capsule().fill(.gray.opacity(0.2)))
+                }
+     
             }
        
             if let description = activity.description {
@@ -99,9 +108,10 @@ struct ActivityViewAI: View {
     var body: some View {
         VStack(alignment: .leading, spacing: Spacing.eight) {
             HStack {
-                Text(convertEpochDateIntoDateComponentString(epoch: Int(activity.startTime)))
-                    .font(.title3)
-                    .fontWeight(.bold)
+                    Text(convertEpochDateIntoDateComponentString(epoch: Int(activity.startTime)))
+                        .font(.title3)
+                        .fontWeight(.bold)
+              
                 
                 Spacer()
                 //TODO: Possible add the Author when more than one author is responsible for an activity.

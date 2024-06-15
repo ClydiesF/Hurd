@@ -79,6 +79,7 @@
 		3B557C0F2B80689700EA3B38 /* GenerativeAIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B557C0E2B80689700EA3B38 /* GenerativeAIView.swift */; };
 		3B557C112B82CD8200EA3B38 /* PromptModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B557C102B82CD8200EA3B38 /* PromptModels.swift */; };
 		3B557C132B82E03200EA3B38 /* DateViewAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B557C122B82E03100EA3B38 /* DateViewAI.swift */; };
+		3B571E482B9D794000C757A9 /* importActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B571E472B9D794000C757A9 /* importActivityView.swift */; };
 		3B5B86942A70B48200569F89 /* TripComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5B86932A70B48200569F89 /* TripComponentView.swift */; };
 		3B5B86962A70B8DF00569F89 /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5B86952A70B8DF00569F89 /* ActivityViewModel.swift */; };
 		3B5B86982A7D7BE900569F89 /* RichLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5B86972A7D7BE900569F89 /* RichLinkView.swift */; };
@@ -216,6 +217,7 @@
 		3B557C0E2B80689700EA3B38 /* GenerativeAIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerativeAIView.swift; sourceTree = "<group>"; };
 		3B557C102B82CD8200EA3B38 /* PromptModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptModels.swift; sourceTree = "<group>"; };
 		3B557C122B82E03100EA3B38 /* DateViewAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewAI.swift; sourceTree = "<group>"; };
+		3B571E472B9D794000C757A9 /* importActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = importActivityView.swift; sourceTree = "<group>"; };
 		3B5B86932A70B48200569F89 /* TripComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripComponentView.swift; sourceTree = "<group>"; };
 		3B5B86952A70B8DF00569F89 /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
 		3B5B86972A7D7BE900569F89 /* RichLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichLinkView.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 				3B6552D72B7C893D00B37FC1 /* NoActivityView.swift */,
 				3B557C0E2B80689700EA3B38 /* GenerativeAIView.swift */,
 				3B557C122B82E03100EA3B38 /* DateViewAI.swift */,
+				3B571E472B9D794000C757A9 /* importActivityView.swift */,
 			);
 			path = Itinerary;
 			sourceTree = "<group>";
@@ -869,6 +872,7 @@
 				3B7A93C72A6CEB6100DE3589 /* HurdPreviewView.swift in Sources */,
 				3B7A93CE2A6E171C00DE3589 /* TripDetailView.swift in Sources */,
 				3B3F682629C41BA600FBC7B6 /* PhoneNumberFormatter.swift in Sources */,
+				3B571E482B9D794000C757A9 /* importActivityView.swift in Sources */,
 				3B530CC7296237D2002C272B /* AuthenticationMethods.swift in Sources */,
 				3B3F682A29C556D600FBC7B6 /* Notifications+Extensions.swift in Sources */,
 				3B6E29302991F7C500A90449 /* UnSplashResponseModel.swift in Sources */,
@@ -1035,7 +1039,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1091,7 +1095,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1121,7 +1125,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1159,7 +1163,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
